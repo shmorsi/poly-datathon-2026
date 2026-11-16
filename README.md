@@ -6,13 +6,17 @@ See through your ETFs, then replay a trade against your own loss limits. ÉPICEN
 
 [Open the public demo](https://shmorsi.github.io/poly-datathon-2026/) · [Open the AWS workspace](https://dqetfenyawfe9.cloudfront.net/review.html) · [Technical notes](docs/review_technical.md) · [One-pager](docs/review_one_pager.md)
 
+[![ÉPICENTRE live investor workspace — actual website screenshot](docs/images/epicentre-live-workspace.png)](https://shmorsi.github.io/poly-datathon-2026/)
+
 ## Try the review
+
+**Capital preservation starts with understanding risk.**
 
 Open **Robert’s portfolio** and switch from **Money** to **Risk**. XIU holds 45% of his money and accounts for about 71% of his modeled portfolio risk. Preview the 40% NVIDIA order to see the same market history with and without the trade, then open the evidence behind the lowest balance.
 
 | Example | What to explore |
 | --- | --- |
-| **Robert** | See when the proposed NVIDIA order would have crossed his illustrative drawdown and balance limits. |
+| **Robert · Capital preservation** | See when the proposed NVIDIA order would have crossed his illustrative drawdown and balance limits. |
 | **Mateo** | See which issuers trigger his values screen and where the fund disclosures leave gaps. |
 | **Amira** | Compare her 15% crypto allocation with a 10% cap and see NVIDIA exposure across direct and ETF positions. |
 | **Too Canadian?** | Compare estimated country exposure and historical drawdown after adding U.S. equity exposure. |
