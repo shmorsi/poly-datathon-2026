@@ -1764,7 +1764,7 @@ def _company_name(name: str, ticker: str, uni) -> str:
                     for i, w in enumerate(words))
 
 
-def funds_private(result, *, holdings=None, universe=None, top=FUNDS_TOP, owning_top=OWNING_TOP) -> dict | None:
+def funds_private(result, *, holdings=None, universe=None, top=FUNDS_TOP, all_companies=False) -> dict | None:
     """LIVE ONLY. Never saved, committed or published (red gate 8): pipeline.save_run cuts it and record_demo.find_leaks
     refuses it, so publish_pages fails if it ever appears. For each fund held today or with the move: the `top` largest
     positions in the issuer's file dated on or before as_of, {name, ticker, share (of the fund), today, after (your
@@ -1824,7 +1824,7 @@ def funds_private(result, *, holdings=None, universe=None, top=FUNDS_TOP, owning
             own[side] = None
             continue
         ranked = sorted(book.values(), key=lambda e: (-e["dollars"], e["name"]))
-        limit = len(ranked) if owning_top is None else owning_top
+        limit = len(ranked) if all_companies else OWNING_TOP
         rest = ranked[limit:]
         total = lambda es: {"count": len(es), **_money(amount, sum(e["dollars"] for e in es) / float(amount))}   # noqa: E731
         own[side] = {"top": [{"name": e["name"], "ticker": e["ticker"], "dollars": _whole(e["dollars"]), "direct": _whole(e["direct"]),

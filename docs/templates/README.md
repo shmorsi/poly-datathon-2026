@@ -46,8 +46,8 @@ python scripts/publish_pages.py --portfolio-review --dry-run --out /tmp/epicentr
 
 ## Sources and boundaries
 
-- Portfolio replays use CAD-adjusted closes over the available 2021–26 history with constant target weights. They exclude taxes and trading fees. The history includes only assets available in the supplied universe.
+- Portfolio replays use CAD-adjusted closes through ⟨run:robert:as_of|date⟩ with constant target weights. They exclude taxes and trading fees. The history includes only assets available in the supplied universe.
 - Industry and company allocations use dated issuer snapshots when available. A fund's mapped positions may cover only part of its holdings. Public examples publish rounded, sampled portfolio paths and industry summaries. Detailed issuer positions are served through the authenticated workspace.
 - The review evaluates historical outcomes and documented user preferences. It does not place orders, recommend investments or forecast returns.
 
-The earlier replay is preserved at [v1.0-submission](https://github.com/shmorsi/poly-datathon-2026/tree/v1.0-submission). Code is MIT-licensed. [License](LICENSE)
+The earlier replay is preserved at [v1.0-submission](https://github.com/shmorsi/poly-datathon-2026/tree/v1.0-submission). Its **Presenter keys** appear in the classic local page at `/index.html?presenter=1`. Code is MIT-licensed. [License](LICENSE)

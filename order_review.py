@@ -125,7 +125,7 @@ def fund_exposure(before, after, amount, day, universe):
                   if by_ticker.at[ticker, "asset_class"].startswith("etf")]
     internal = {"portfolio": after or before, "baseline": {"portfolio": before},
                 "metrics": {"after": {} if after else None}, "amount": amount, "as_of": day}
-    private = (funds_private(internal, holdings=frame, universe=universe, top=None, owning_top=None)
+    private = (funds_private(internal, holdings=frame, universe=universe, top=None, all_companies=True)
                if frame is not None else None)
     details = private["funds"] if private else {}
     funds = []
