@@ -1,8 +1,8 @@
 # ÉPICENTRE
 
-**Test your move before you make it.**
+**See what your next trade changes.**
 
-An investor enters a portfolio and can preview a proposed order. ÉPICENTRE shows how the order would have changed the holdings, risk and exposure through the same historical markets, with evidence the investor can open.
+ÉPICENTRE shows the companies and industries behind a portfolio and replays a proposed order against the investor’s own loss limits. The investor can trace the result to the holdings, market history and calculations that support it.
 
 - [Public interactive walkthrough](https://shmorsi.github.io/poly-datathon-2026/)
 - [AWS workspace](https://dqetfenyawfe9.cloudfront.net/review.html) with the team's access details
