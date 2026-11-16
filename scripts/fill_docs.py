@@ -10,8 +10,7 @@ writes every filled file to DIR instead.
 Nothing is written unless every slot of every file fills: a missing key, a null value, an unknown investor or format,
 or any other angle-bracket placeholder left in the text fails the build, naming file:line for each.
 
-The slot grammar (one form; the |FORMAT part is optional), as docs/templates/video_script.md "How the numbers get in"
-defines it:
+The slot grammar (one form; the |FORMAT part is optional):
     ⟨run:INVESTOR:PATH|FORMAT⟩   reads <runs>/INVESTOR.json (robert, mateo, amira, canadian)
     ⟨eval:PATH|FORMAT⟩           reads docs/eval_results.json
 PATH is keys joined by dots; an all-digit segment indexes a list; `field=value` picks the first list item whose field
