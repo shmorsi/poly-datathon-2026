@@ -36,15 +36,11 @@ h1,h2,h3,p,dl,dd{margin:0}
 .page{max-width:1504px;margin:auto;padding:0 49px}
 .masthead{min-height:207px;display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;isolation:isolate;padding:29px 0 33px}
 .masthead-copy{position:relative;z-index:1}
-.eyebrow,.kicker{font-size:10px;letter-spacing:.12em;font-weight:730;line-height:1.35}
-.eyebrow{display:flex;align-items:center;gap:8px;color:var(--cyan);letter-spacing:.16em}
-.eyebrow>span{width:6px;height:6px;display:inline-block;border-radius:1px;background:var(--cyan);transform:rotate(45deg)}
+.kicker{font-size:10px;letter-spacing:.12em;font-weight:730;line-height:1.35}
 .masthead h1{max-width:940px;font-size:clamp(36px,4.35vw,68px);line-height:.99;letter-spacing:-.068em;font-weight:715;margin:11px 0 12px}
 .masthead h1>span{color:var(--cyan)}
 .masthead-copy>p:last-child{color:var(--muted);font-size:15px;max-width:610px;line-height:1.55}
 .masthead-visual{position:absolute;z-index:0;right:0;width:min(33%,405px);height:90%;top:5%;color:#a45268;opacity:.74;pointer-events:none;overflow:hidden}
-.masthead-visual svg{width:100%;height:100%;display:block;transform:scaleX(1.05)}
-.masthead-visual span{position:absolute;right:0;bottom:6px;font-size:9px;font-weight:690;letter-spacing:.17em;color:var(--cyan);text-align:right;background:var(--bg);padding:4px 0 3px 8px}
 .workspace{display:grid;grid-template-columns:minmax(237px,.275fr) minmax(0,1fr);align-items:start;gap:23px}
 .sidebar{display:grid;align-content:start;gap:15px;position:sticky;top:91px}
 .panel{border:1px solid var(--line);background:var(--surface);border-radius:var(--radius);box-shadow:var(--shadow)}
@@ -99,8 +95,7 @@ h1,h2,h3,p,dl,dd{margin:0}
 .meter{position:relative;min-height:6px;background:#efebe6;border-radius:10px;overflow:hidden}
 .meter>span{display:block;width:var(--w,0%);height:6px;max-width:100%;background:var(--symbol-ink,var(--cyan));border-radius:10px}
 .holdings-note{color:var(--muted);font-size:11px;line-height:1.45;margin-top:8px}
-.scenario{position:relative;isolation:isolate;display:grid;align-content:end;background:radial-gradient(ellipse at 110% -25%,#853351,#4b142b 61%,#371221);color:#fffbf6;overflow:hidden;border-radius:12px;min-height:196px;padding:17px 17px 15px}
-.scenario-lines{position:absolute;inset:0;z-index:-1;background:repeating-radial-gradient(circle at 105% -6%,transparent,transparent 12px,rgb(255 235 233/.13) 12.5px,rgb(255 235 233/.13) 13px,transparent 14px,transparent 19px);mask-image:linear-gradient(144deg,transparent 10%,#000 60%,#000);pointer-events:none}
+.scenario{position:relative;isolation:isolate;display:grid;align-content:end;background:#211b20;color:#fffbf6;overflow:hidden;border-radius:12px;min-height:196px;padding:17px 17px 15px}
 .scenario-inner{display:grid;gap:7px}
 .scenario .kicker{color:#fadddf;display:flex;align-items:center;gap:6px}
 .scenario .kicker .icon{width:14px;height:14px}
@@ -300,7 +295,6 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   .masthead-copy>p:last-child{font-size:13px;max-width:min(94%,520px)}
   .masthead h1{letter-spacing:-.06em;margin:7px 0 7px;max-width:630px}
   .masthead-visual{width:min(38%,235px);right:0;opacity:.32}
-  .masthead-visual span{display:none}
   .main-flow{gap:12px}
   .stage{padding:15px}
   .stage-header{margin-bottom:13px}
@@ -375,8 +369,6 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   --order-line: #ff5fc8;
   --after-tint: #241322;
   --input: #16191e;
-  --review-earth-enter: 980ms;
-  --review-orbit-pass: 2380ms;
   --review-evidence-enter: 330ms;
 }
 .topbar { background: rgb(5 6 7/.94); }
@@ -385,7 +377,6 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
 .masthead { min-height: 195px; }
 .masthead h1 { color: #fafbfe; }
 .masthead-visual { color: #8cdef8; opacity: .69; }
-.masthead-visual svg g circle[fill] { fill: var(--bg); }
 .mode-chip { background: #17191e; border-color: var(--line-strong); }
 .mode-chip[data-mode="live"] { border-color: #2f5b4d; }
 .mode-chip[data-mode="live"] > span:first-child { box-shadow: 0 0 0 2px #315e4f; }
@@ -398,7 +389,7 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
 .button.primary { background: #a9ebff; border-color: #a9ebff; color: #0b2430; }
 .holding-row { background: #14161a; }
 .meter { background: #30343c; }
-.scenario { background: radial-gradient(ellipse at 113% -25%, #4d2645, #231424 61%, #181219); border: 1px solid #57334e; }
+.scenario { background: #211b20; border: 1px solid #3b2d38; }
 .scenario .kicker { color: #ffc6ea; }
 .scenario p:not(.kicker) { color: #ebd7e8; }
 .scenario-button { background: #ff9edb; color: #2a1123; }
@@ -454,90 +445,27 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
 .scenario-button:hover:not(:disabled){background:#f3e4ff}
 }
 
-/* Night Earth uses the single local NASA poster. The sweep and orbit are small CSS layers. */
-.masthead { min-height: 236px; }
+/* The original NASA night Earth sits quietly behind the masthead. */
+.masthead { min-height: 222px; }
 .masthead-visual {
-  width: min(48%, 610px);
+  width: min(42%, 550px);
   height: 100%;
   top: 0;
   opacity: 1;
-  isolation: isolate;
-  mask-image: linear-gradient(90deg, transparent, #000 26%);
-}
-.masthead-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at 75% 52%, #102b3a 0%, #07121a 36%, transparent 67%);
-  opacity: .66;
-}
-.masthead-globe {
-  width: clamp(247px, 21vw, 306px);
-  aspect-ratio: 1;
-  position: absolute;
-  top: 50%;
-  right: 4%;
-  transform: translateY(-50%);
-  isolation: isolate;
 }
 .masthead-earth {
   position: absolute;
-  inset: 0;
-  background: url('vendor/nasa/earth-poster-americas.jpg') center / 100% auto no-repeat;
-  filter: brightness(1.48) saturate(.92);
-  mask-image: radial-gradient(circle, #000 62%, transparent 72%);
-  opacity: .98;
-  mix-blend-mode: screen;
-}
-.masthead-orbit {
-  position: absolute;
-  inset: 7%;
-  border-radius: 50%;
-  background: conic-gradient(from 26deg, transparent 4%, #7edcf5 15%, #63d0e77a 21%, transparent 34%, transparent 51%, #ff78cc68 65%, transparent 77%);
-  mask-image: radial-gradient(circle, transparent 68%, #000 69%, #000 70%, transparent 71%);
-  opacity: .53;
-}
-.masthead-sweep {
-  position: absolute;
-  inset: 7%;
-  overflow: hidden;
-  border-radius: 50%;
-  pointer-events: none;
-}
-.masthead-sweep::before {
-  content: '';
-  position: absolute;
-  inset: -33% 0;
-  background: linear-gradient(105deg, transparent 29%, #81e5ff10 45%, #abedff55 49%, #ffe6fb96 50%, #cbb1ff28 51%, transparent 68%);
-  opacity: 0;
-  mix-blend-mode: screen;
-}
-.masthead-visual svg {
-  position: absolute;
-  z-index: 1;
-  inset: 0;
-  opacity: .51;
-  mix-blend-mode: screen;
+  top: 50%;
+  right: 6%;
+  width: clamp(240px, 20vw, 295px);
+  aspect-ratio: 1;
+  transform: translateY(-50%);
+  background: url('vendor/nasa/earth-poster-americas.jpg') center / contain no-repeat;
+  filter: brightness(1.11);
+  mask-image: radial-gradient(circle, #000 60%, transparent 71%);
 }
 @media (prefers-reduced-motion: no-preference) {
-  .masthead-earth { animation: review-earth-arrive var(--review-earth-enter) both; }
-  .masthead-orbit { animation: review-orbit-arrive var(--review-orbit-pass) both; }
-  .masthead-sweep::before { animation: review-earth-pass var(--review-orbit-pass) both; }
   .explain-result:not([hidden]):has(> .badge) { animation: review-evidence-arrive var(--review-evidence-enter) both; }
-  @keyframes review-earth-arrive {
-    from { opacity: .24; transform: translateY(13px) scale(.97); }
-    to { opacity: .98; transform: translateY(0) scale(1); }
-  }
-  @keyframes review-orbit-arrive {
-    from { opacity: .1; transform: rotate(-130deg); }
-    55% { opacity: .75; }
-    to { opacity: .53; transform: rotate(0); }
-  }
-  @keyframes review-earth-pass {
-    0%, 16% { opacity: 0; transform: translateX(-82%); }
-    38%, 62% { opacity: .82; }
-    85%, 100% { opacity: 0; transform: translateX(82%); }
-  }
   @keyframes review-evidence-arrive {
     from { opacity: .35; transform: translateY(4px); }
     to { opacity: 1; transform: translateY(0); }
@@ -653,9 +581,7 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
     margin-top: 6px;
     mask-image: linear-gradient(90deg, transparent, #000 16%, #000 91%, transparent);
   }
-  .masthead-visual::before { background: radial-gradient(ellipse at 69% 52%, #102b3a 0%, #07121a 30%, transparent 67%); }
-  .masthead-globe { width: 116px; right: calc(30% - 58px); }
-  .masthead-visual svg { opacity: .36; }
+  .masthead-earth { width: 116px; right: calc(29% - 58px); }
 }
 
 .portfolio-controls,
@@ -713,3 +639,18 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
 }
 .agent-trace p { margin-top: 2px; }
 .agent-trace p span { font-family: var(--num); }
+
+.review-result-actions {
+  display: grid;
+  gap: 7px;
+  justify-items: end;
+  flex: none;
+}
+.review-explanation-link.button {
+  color: var(--cyan);
+  border-color: #3d6371;
+}
+@media (max-width: 600px) {
+  #risk-review .stage-header { flex-wrap: wrap; }
+  .review-result-actions { justify-items: start; }
+}

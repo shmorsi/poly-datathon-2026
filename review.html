@@ -47,7 +47,7 @@
       <a href="#portfolio" aria-current="location">Portfolio</a>
       <a href="#risk-review">Order preview</a>
       <a href="#look-through">ETF holdings</a>
-      <a href="#evidence">Evidence</a>
+      <a href="#evidence">Explain</a>
     </nav>
     <span class="mode-chip" id="mode-chip" data-mode="loading"><span aria-hidden="true"></span><span id="mode-text">Loading review</span></span>
   </div>
@@ -55,28 +55,10 @@
 <main class="page" id="top">
   <div class="masthead">
     <div class="masthead-copy">
-      <p class="eyebrow"><span></span> Portfolio intelligence</p>
       <h1>Test your move before you make it<span>.</span></h1>
       <p>See what you own, where the risk sits, and what a proposed order would have changed through real markets.</p>
     </div>
-    <div class="masthead-visual" aria-hidden="true">
-      <div class="masthead-globe">
-        <div class="masthead-earth"></div>
-        <div class="masthead-orbit"></div>
-        <div class="masthead-sweep"></div>
-      </div>
-      <svg viewBox="0 0 375 180" fill="none" preserveAspectRatio="xMidYMid slice">
-        <defs><pattern id="review-grid" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M0 18V0h18" stroke="currentColor" stroke-opacity=".13" stroke-width=".7"/></pattern><linearGradient id="grid-fade"><stop offset="0" stop-color="#000"/><stop offset=".4" stop-color="#fff"/></linearGradient><mask id="grid-mask"><path d="M0 0h375v180H0z" fill="url(#grid-fade)"/></mask></defs>
-        <g mask="url(#grid-mask)"><path d="M0 0h375v180H0z" fill="url(#review-grid)"/>
-          <g transform="translate(259 93)" stroke="currentColor">
-            <circle r="19" stroke-opacity=".84"/><circle r="33" stroke-opacity=".55"/><circle r="48" stroke-opacity=".42"/><circle r="64" stroke-opacity=".31"/><circle r="80" stroke-opacity=".23"/><circle r="100" stroke-opacity=".15"/><circle r="121" stroke-opacity=".1"/>
-            <path d="M0-117v234m-118-117h236" opacity=".26" stroke-dasharray="2 4"/><rect x="-5" y="-5" width="10" height="10" rx="2" fill="currentColor" transform="rotate(45)"/>
-            <circle cx="-47" cy="-12" r="3" fill="#f7f6f2"/><circle cx="43" cy="47" r="3" fill="#f7f6f2"/>
-          </g>
-          <path d="M20 132h50l15-13h18l13 8h46l17-34h53" stroke="currentColor" stroke-opacity=".58"/><path d="M280 93h32l13 10h38" stroke="currentColor" stroke-opacity=".45"/>
-        </g>
-      </svg>
-    </div>
+    <div class="masthead-visual" aria-hidden="true"><div class="masthead-earth"></div></div>
   </div>
   <div class="workspace">
     <aside class="sidebar" aria-label="Review setup">
@@ -117,7 +99,6 @@
         <div class="portfolio-grid">
           <div id="holdings" class="holdings" aria-live="polite" aria-atomic="true"><div class="loading-line"></div><div class="loading-line"></div><div class="loading-line"></div></div>
           <aside class="scenario" aria-label="Order simulation">
-            <div class="scenario-lines" aria-hidden="true"></div>
             <div class="scenario-inner"><p class="kicker"><svg class="icon"><use href="#icon-chart"/></svg> Order preview</p><h3 id="scenario-title">Try it before you trade.</h3><p id="scenario-description">Replay a simulated trade against your historical losses and your limits.</p><button class="button scenario-button" type="button" id="try-order" disabled>Try NVIDIA order <svg class="icon"><use href="#icon-arrow"/></svg></button></div>
           </aside>
         </div>
@@ -126,9 +107,12 @@
       <section class="panel stage" id="risk-review" aria-labelledby="risk-title">
         <div class="stage-header">
           <div><p class="kicker stage-kicker">Order preview</p><h2 id="risk-title">Would it fit your limits?</h2><p class="stage-description" id="risk-description">Replay the portfolio across the same market window before and after the proposed order.</p></div>
-          <div class="risk-actions" id="risk-actions" hidden>
-            <a href="#portfolio-allocation" class="text-link" id="show-allocation">What you would hold <svg class="icon"><use href="#icon-arrow-down"/></svg></a>
-            <button class="button outline risk-control" type="button" id="clear-order">Show current only</button>
+          <div class="review-result-actions">
+            <a class="button outline review-explanation-link" href="#evidence"><svg class="icon" aria-hidden="true"><use href="#icon-spark"/></svg> Explain this review</a>
+            <div class="risk-actions" id="risk-actions" hidden>
+              <a href="#portfolio-allocation" class="text-link" id="show-allocation">What you would hold <svg class="icon"><use href="#icon-arrow-down"/></svg></a>
+              <button class="button outline risk-control" type="button" id="clear-order">Show current only</button>
+            </div>
           </div>
         </div>
         <div id="risk-result" aria-live="polite"><div class="loading-line"></div><div class="loading-line"></div></div>
