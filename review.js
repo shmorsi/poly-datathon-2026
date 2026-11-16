@@ -178,7 +178,7 @@ function init() {
   const rootURL = new URL('.', window.location.href);
   const endpoint = (path) => new URL(path, rootURL);
 
-  async function request(path, body, timeout = 16000) {
+  async function request(path, body, timeout = 16000, acceptsFallback = null) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeout);
     try {
@@ -187,6 +187,7 @@ function init() {
       });
       if (!response.ok) {
         const error = await response.json().catch(() => null);
+        if (acceptsFallback?.(response.status, error)) return error;
         const detail = typeof error?.detail === 'string' ? error.detail : typeof error?.error === 'string' ? error.error : typeof error?.message === 'string' ? error.message : '';
         const failure = new Error(detail || `Review service returned ${response.status}.`);
         failure.status = response.status;
@@ -705,6 +706,46 @@ function init() {
     renderMarkup($('#security-results'), blocks || '<p class="small">No matching investments in this data set.</p>');
   }
 
+  let profileReadSequence = 0;
+  async function readProfileSettings() {
+    if (!state.live || !dialog.open || state.busy) return;
+    const input = $('#edit-profile-words');
+    const button = $('#read-profile-settings');
+    const status = $('#profile-settings-status');
+    const text = input.value.trim();
+    if (!text) { status.textContent = 'Describe a limit or value first.'; input.focus(); return; }
+    const sequence = ++profileReadSequence;
+    button.disabled = true;
+    status.textContent = 'Reading your settings…';
+    try {
+      const result = await request('api/profile/read', {text}, 30000,
+        (httpStatus, body) => httpStatus === 503 && Boolean(body?.profile) && ['off','down'].includes(body.ai));
+      if (sequence !== profileReadSequence || !dialog.open || state.busy) return;
+      if (input.value.trim() !== text) { status.textContent = 'Your text changed. Read the updated settings again.'; return; }
+      if (result.status === 'blocked' || !result.profile) throw new Error(result.message || 'These words could not be read as settings.');
+      const hint = result.limits_hint || {};
+      const stated = (key) => typeof result.read_from?.[key] === 'string' && Boolean(result.read_from[key].trim());
+      const drawdown = -hint.floor;
+      const capacity = result.profile.capacity;
+      const settings = [];
+      if (stated('floor') && finite(hint.floor) && drawdown > 0 && drawdown < 1) settings.push(['#edit-limit',percentInput(drawdown)]);
+      if (stated('capacity') && finite(capacity) && capacity > 0 && capacity < number($('#edit-amount').value)) settings.push(['#edit-capacity',capacity]);
+      if (stated('crypto') && finite(hint.crypto) && hint.crypto >= 0 && hint.crypto <= 1) settings.push(['#edit-crypto',percentInput(hint.crypto)]);
+      for (const [selector,value] of settings) $(selector).value = value;
+      const hasValues = stated('esg') && typeof result.profile.esg === 'boolean';
+      if (hasValues) $('#edit-values').checked = result.profile.esg;
+      status.textContent = settings.length || hasValues
+        ? 'Suggestions filled from your words. Review the fields below before running the replay.'
+        : 'No supported settings could be filled. Enter them in the fields below.';
+    } catch (error) {
+      if (sequence === profileReadSequence && dialog.open) status.textContent = error.name === 'AbortError' ? 'The reader took too long. Try again or enter settings below.' : error.message;
+    } finally {
+      if (sequence === profileReadSequence) button.disabled = false;
+    }
+  }
+
+  $('#read-profile-settings').addEventListener('click',readProfileSettings);
+
   function openEditor(configureOrder = state.order, own = false) {
     if (!state.live || !state.input) return;
     const input = own ? (state.customInput || {portfolio:{}, amount:100000, drawdown_limit:null, capacity:null}) : state.input;
@@ -724,6 +765,10 @@ function init() {
     $('#security-search').value = '';
     $('#security-browser').open = false;
     $('#editor-limits').open = false;
+    profileReadSequence++;
+    $('#edit-profile-words').value = '';
+    $('#profile-settings-status').textContent = '';
+    $('#read-profile-settings').disabled = false;
     updateEditor(order?.from_ticker || '');
     if (!dialog.open) dialog.showModal();
   }
