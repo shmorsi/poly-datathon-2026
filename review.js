@@ -444,21 +444,27 @@ function init() {
 
   function renderAllocation() {
     const panel = $('#portfolio-allocation');
-    panel.hidden = !after();
+    panel.hidden = !state.result?.before;
     if (panel.hidden) return;
+    const comparison = Boolean(after());
+    const heading = comparison ? 'Proposed allocation' : 'Current allocation';
+    $('#allocation-title').textContent = heading;
+    $('#show-allocation span').textContent = heading;
+    $('#allocation-description').textContent = comparison ? 'Compare the whole portfolio before and after the proposed order.' : 'See your current portfolio across industries, asset types and companies.';
     const host = $('#allocation-result');
     const companies = state.allocationView === 'companies';
-    const allocation = state.result.allocation || {};
+    const available = state.result.allocation || {};
+    const allocation = comparison ? available : {before:available.before};
     const saved = state.result.mode === 'saved';
     const exposure = {};
-    for (const side of ['before','after']) {
+    for (const side of comparison ? ['before','after'] : ['before']) {
       const covered = state.result.exposure?.[side];
       exposure[side] = Array.isArray(covered) ? covered : directCompanyRows(side);
     }
     const records = compareAllocation({allocation,exposure},state.allocationView);
     $$('[data-allocation-view]',panel).forEach((button) => button.setAttribute('aria-pressed',String(button.dataset.allocationView === state.allocationView)));
     if (!records.length) {
-      const message = companies ? 'No named company positions are available for these mixes.' : 'Portfolio-wide industry mapping is unavailable in this review. You can still inspect individual ETF snapshots below.';
+      const message = companies ? (saved ? 'This saved view has no named direct stock positions. Covered ETF holdings are available in the live review.' : 'No named company positions are available in this view.') : 'Portfolio-wide industry mapping is unavailable in this review. You can still inspect individual ETF snapshots below.';
       renderMarkup(host,empty(companies ? 'No mapped companies' : 'Industry breakdown unavailable',message));
       return;
     }
@@ -492,12 +498,12 @@ function init() {
       const value = allocation[side]?.equity_company_coverage;
       return value === null ? 'No equity exposure' : finite(value) ? `${pct(value,2)} of equity covered` : 'Coverage unavailable';
     };
-    const coverage = companies ? `<div class="allocation-coverage"><span>Current: ${esc(coverageLabel('before'))}</span><span>After order: ${esc(coverageLabel('after'))}</span></div>` : '';
+    const coverage = companies ? `<div class="allocation-coverage"><span>Current: ${esc(coverageLabel('before'))}</span>${comparison ? `<span>After order: ${esc(coverageLabel('after'))}</span>` : ''}</div>` : '';
     const explanation = companies ? (saved ? 'Saved examples show direct stock holdings. The live review includes covered ETF constituents.' : 'Company totals combine direct holdings and named ETF constituents as shares of the whole portfolio. Additional exposure may be unknown when coverage is partial.') : 'Direct holdings and disclosed ETF industries are measured as shares of the whole portfolio. Unmapped equity is listed at its portfolio weight. Fund dates and sources appear in the individual ETF views.';
-    const table = `<table class="fund-table allocation-table"><thead><tr><th scope="col">${companies ? 'Company' : 'Industry or asset type'}</th><th scope="col">Current</th><th scope="col">After order</th></tr></thead><tbody>${shown.map((row) => {
+    const table = `<table class="fund-table${comparison ? ' allocation-table' : ''}"><thead><tr><th scope="col">${companies ? 'Company' : 'Industry or asset type'}</th><th scope="col">Current</th>${comparison ? '<th scope="col">After order</th>' : ''}</tr></thead><tbody>${shown.map((row) => {
       const unmapped = !companies && isUnmapped(row.name);
       const highlighted = companies && rootSymbol(row.ticker) === rootSymbol(activeOrder()?.ticker);
-      return `<tr class="${unmapped ? 'other-row' : highlighted ? 'featured-company' : ''}"><td><strong>${esc(row.name)}</strong>${row.ticker ? `<small>${esc(row.ticker)}</small>` : ''}</td>${cell(row.before,'before',unmapped)}${cell(row.after,'after',unmapped)}</tr>`;
+      return `<tr class="${unmapped ? 'other-row' : highlighted ? 'featured-company' : ''}"><td><strong>${esc(row.name)}</strong>${row.ticker ? `<small>${esc(row.ticker)}</small>` : ''}</td>${cell(row.before,'before',unmapped)}${comparison ? cell(row.after,'after',unmapped) : ''}</tr>`;
     }).join('')}</tbody></table>`;
     const more = records.length > initialRows.length ? `<button type="button" class="button outline" id="show-allocation-rows" aria-expanded="${state.allocationExpanded}">${state.allocationExpanded ? 'Show fewer' : `Show all ${records.length}`}</button>` : '';
     renderMarkup(host,`${coverage}${table}<div class="allocation-foot"><p class="small">${esc(explanation)}</p>${more}</div>`);
