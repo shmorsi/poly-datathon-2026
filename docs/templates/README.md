@@ -4,7 +4,15 @@
 
 **Crash-test your move before you make it.** « Passez votre placement au crash-test avant d’agir. »
 
-### ▶ [Open the demo](https://shmorsi.github.io/poly-datathon-2026/): no install, no login, works on a phone
+## Portfolio X-ray · `portfolio-review` candidate
+
+EPICENTRE gives a self-directed investor a clear view of what they own before a potential order. Inspect the holdings and their contributions to historical portfolio risk, look inside an ETF, or preview an optional change and replay both allocations against a loss limit in Canadian dollars. The experience is designed for a brokerage such as National Bank Direct Brokerage. The portfolio and trades are simulated.
+
+Start with Robert, Mateo, Amira or **Too Canadian?** in the saved walkthrough. Mateo checks his selected values exclusions, while Amira compares her crypto allocation with her cap. **Your Portfolio** uses the API for an editable calculation. Dated issuer data enables company drill-through when available. The public walkthrough carries selected industry aggregates, coverage information and rounded weekly portfolio paths. The optional explanation uses Amazon Bedrock to choose from evidence that the application has already computed and verified.
+
+Run the branch locally and open `/review.html`. With the organizers’ starter data in `data/starter/` and dependencies installed, run `EPICENTRE_NO_BEDROCK=1 uvicorn server:app --host 127.0.0.1 --port 8000` for the rules-based explanation. The saved walkthrough also works in a static build. The candidate's jury materials cover the walkthrough, sources, limitations and verification. [One-pager](docs/review_one_pager.md) · [Technical notes](docs/review_technical.md) · [Demo script](docs/review_demo_script.md)
+
+### [Open the published classic demo](https://shmorsi.github.io/poly-datathon-2026/)
 
 ![Robert’s replay at its end frame: the AI’s reading, the shock on the globe, his money against his floor, the verdict](docs/img/replay-end-frame.png)
 

@@ -39,6 +39,7 @@ from starlette.datastructures import MutableHeaders
 from starlette.exceptions import HTTPException as StarletteHTTPException
 
 import config
+from order_review import ExplainRequest, ReviewRequest, build_review, explain_review
 import pipeline        # functions are looked up at request time (pipeline.recheck(...)) so tests can replace them
 import record_store    # ruling R6: the sealed decision record vault (POST /api/record)
 
@@ -492,6 +493,41 @@ def run(body: RunBody):
 
     return StreamingResponse(ndjson_lines(work), media_type="application/x-ndjson",
                              headers={"Cache-Control": "no-store", "X-Accel-Buffering": "no"})
+
+
+# Review evidence is kept in memory under an unguessable ID. Raw inputs are not cached.
+
+REVIEW_EVIDENCE = RunStore(maxlen=50)
+
+
+@router.post("/api/review")
+def review_order(body: ReviewRequest):
+    try:
+        result = build_review(body)
+    except ValueError as exc:
+        raise ApiError(422, str(exc)) from None
+    except (FileNotFoundError, OSError):
+        raise ApiError(503, "Market data is unavailable. Try a saved example.") from None
+    review_id = secrets.token_hex(16)
+    REVIEW_EVIDENCE.put({"run_id": review_id, "evidence": result["evidence"]})
+    response = _json({**result, "review_id": review_id})
+    response.headers["Cache-Control"] = "no-store"
+    return response
+
+
+@router.post("/api/review/explain")
+def explain_order_review(body: ExplainRequest):
+    cached = REVIEW_EVIDENCE.get(body.review_id)
+    if cached is None:
+        raise ApiError(404, "This review expired. Run the calculations again.") from None
+    try:
+        result = explain_review(cached["evidence"], body.goal.strip(),
+                                use_bedrock=os.environ.get(NO_BEDROCK_ENV) != "1")
+    except PermissionError as exc:
+        raise ApiError(422, str(exc)) from None
+    response = _json(result)
+    response.headers["Cache-Control"] = "no-store"
+    return response
 
 
 def _signed_floor(limits: dict | None) -> dict | None:

@@ -363,7 +363,8 @@ def test_recompute_reruns_every_number_of_a_real_run_and_finds_the_stored_value(
 
 API_ROUTES = {("GET", "/api/pilots"), ("GET", "/api/wire"), ("GET", "/api/health"), ("GET", "/api/demo-run"),
               ("POST", "/api/run"), ("POST", "/api/recheck"), ("POST", "/api/recompute"), ("POST", "/api/record"),
-              ("POST", "/api/scenario/read"), ("POST", "/api/scenario"), ("POST", "/api/profile/read")}
+              ("POST", "/api/scenario/read"), ("POST", "/api/scenario"), ("POST", "/api/profile/read"),
+              ("POST", "/api/review"), ("POST", "/api/review/explain")}
 SCENARIO_BODY = {"portfolio": {"XIU.TO": 0.6, "XBB.TO": 0.4}, "limits": {"floor": -0.15}, "amount": 600000,
                  "shocks": {"tech": -0.3}}           # lane sc-b; without the starter data the engine answers 503, never 500
 
@@ -391,6 +392,13 @@ def test_every_route_answers_valid_input_without_a_500(live, monkeypatch):
         "/api/scenario": live.post("/api/scenario", json=SCENARIO_BODY),
         "/api/profile/read": live.post("/api/profile/read", json={"text": "I'm 45 with $200,000; I could lose $40,000."}),
     }
+    monkeypatch.setenv("EPICENTRE_DATA_DIR", str(server.WEB_DIR.parent / "data/fake/starter"))
+    review = live.post("/api/review", json={"portfolio": {"NVDA": 1.0}, "amount": 600000, "drawdown_limit": .15})
+    assert review.status_code == 200, review.text
+    answers["/api/review"] = review
+    answers["/api/review/explain"] = live.post("/api/review/explain", json={
+        "review_id": review.json()["review_id"], "goal": "Explain my loss limits",
+    })
     no_data = set() if (server.WEB_DIR.parent / "data" / "starter" / "prices_daily.csv").is_file() else {"/api/scenario"}
     no_bedrock = {"/api/profile/read"}                   # lane profile-ai: Bedrock off is a 503 whose body is the whole
     for path, r in answers.items():                      # keyword reading; no starter data: the scenario engine is a 503
