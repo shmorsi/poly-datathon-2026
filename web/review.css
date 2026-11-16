@@ -15,7 +15,7 @@ h1,h2,h3,p,dl,dd{margin:0}
 .icon{display:inline-block;width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle;flex:none}
 .symbol-library{position:absolute;width:0;height:0;overflow:hidden;pointer-events:none}
 .sr-only,.skip-link:not(:focus){position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
-.skip-link{position:fixed;left:12px;top:12px;z-index:8;padding:10px 16px;border-radius:8px;background:white;color:var(--cyan)}
+.skip-link{position:fixed;left:12px;top:12px;z-index:8;padding:10px 16px;border:1px solid var(--cyan);border-radius:8px;background:var(--surface);color:var(--cyan)}
 .topbar{position:sticky;z-index:4;top:0;background:rgb(255 254 251/.94);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}
 .topbar-inner{max-width:1504px;margin:auto;min-height:67px;padding:0 49px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:24px}
 .brand{display:inline-flex;align-items:center;gap:10px;width:max-content;max-width:100%;font-weight:820;letter-spacing:.04em;white-space:nowrap;line-height:1.15}
@@ -375,6 +375,9 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   --order-line: #ff5fc8;
   --after-tint: #241322;
   --input: #16191e;
+  --review-earth-enter: 980ms;
+  --review-orbit-pass: 2380ms;
+  --review-evidence-enter: 330ms;
 }
 .topbar { background: rgb(5 6 7/.94); }
 .brand-mark { background: #a9ebff; color: #0b2430; }
@@ -451,18 +454,94 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
 .scenario-button:hover:not(:disabled){background:#f3e4ff}
 }
 
+/* Night Earth uses the single local NASA poster. The sweep and orbit are small CSS layers. */
+.masthead { min-height: 236px; }
+.masthead-visual {
+  width: min(48%, 610px);
+  height: 100%;
+  top: 0;
+  opacity: 1;
+  isolation: isolate;
+  mask-image: linear-gradient(90deg, transparent, #000 26%);
+}
+.masthead-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 75% 52%, #102b3a 0%, #07121a 36%, transparent 67%);
+  opacity: .66;
+}
+.masthead-globe {
+  width: clamp(247px, 21vw, 306px);
+  aspect-ratio: 1;
+  position: absolute;
+  top: 50%;
+  right: 4%;
+  transform: translateY(-50%);
+  isolation: isolate;
+}
 .masthead-earth {
   position: absolute;
-  inset: -2px 2% -4px 20%;
-  background: url('vendor/nasa/earth-poster-americas.jpg') 76% 49% / 212px auto no-repeat;
-  opacity: .54;
+  inset: 0;
+  background: url('vendor/nasa/earth-poster-americas.jpg') center / 100% auto no-repeat;
+  filter: brightness(1.48) saturate(.92);
+  mask-image: radial-gradient(circle, #000 62%, transparent 72%);
+  opacity: .98;
   mix-blend-mode: screen;
-  mask-image: radial-gradient(ellipse at 73% 48%, #000 48%, transparent 78%);
+}
+.masthead-orbit {
+  position: absolute;
+  inset: 7%;
+  border-radius: 50%;
+  background: conic-gradient(from 26deg, transparent 4%, #7edcf5 15%, #63d0e77a 21%, transparent 34%, transparent 51%, #ff78cc68 65%, transparent 77%);
+  mask-image: radial-gradient(circle, transparent 68%, #000 69%, #000 70%, transparent 71%);
+  opacity: .53;
+}
+.masthead-sweep {
+  position: absolute;
+  inset: 7%;
+  overflow: hidden;
+  border-radius: 50%;
+  pointer-events: none;
+}
+.masthead-sweep::before {
+  content: '';
+  position: absolute;
+  inset: -33% 0;
+  background: linear-gradient(105deg, transparent 29%, #81e5ff10 45%, #abedff55 49%, #ffe6fb96 50%, #cbb1ff28 51%, transparent 68%);
+  opacity: 0;
+  mix-blend-mode: screen;
 }
 .masthead-visual svg {
-  position: relative;
+  position: absolute;
   z-index: 1;
-  opacity: .7;
+  inset: 0;
+  opacity: .51;
+  mix-blend-mode: screen;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .masthead-earth { animation: review-earth-arrive var(--review-earth-enter) both; }
+  .masthead-orbit { animation: review-orbit-arrive var(--review-orbit-pass) both; }
+  .masthead-sweep::before { animation: review-earth-pass var(--review-orbit-pass) both; }
+  .explain-result:not([hidden]):has(> .badge) { animation: review-evidence-arrive var(--review-evidence-enter) both; }
+  @keyframes review-earth-arrive {
+    from { opacity: .24; transform: translateY(13px) scale(.97); }
+    to { opacity: .98; transform: translateY(0) scale(1); }
+  }
+  @keyframes review-orbit-arrive {
+    from { opacity: .1; transform: rotate(-130deg); }
+    55% { opacity: .75; }
+    to { opacity: .53; transform: rotate(0); }
+  }
+  @keyframes review-earth-pass {
+    0%, 16% { opacity: 0; transform: translateX(-82%); }
+    38%, 62% { opacity: .82; }
+    85%, 100% { opacity: 0; transform: translateX(82%); }
+  }
+  @keyframes review-evidence-arrive {
+    from { opacity: .35; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 }
 .masthead h1 {
   letter-spacing: -.058em;
@@ -558,8 +637,25 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   .button.primary:hover:not(:disabled) { background: #d2f4ff; border-color: #d2f4ff; }
   .button.outline:hover:not(:disabled) { border-color: #598393; }
 }
-@media (max-width: 800px) {
-  .masthead-earth { display: none; }
+@media (max-width: 820px) {
+  .masthead {
+    display: block;
+    min-height: 0;
+    padding-bottom: 12px;
+  }
+  .masthead-visual {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 96px;
+    top: auto;
+    right: auto;
+    margin-top: 6px;
+    mask-image: linear-gradient(90deg, transparent, #000 16%, #000 91%, transparent);
+  }
+  .masthead-visual::before { background: radial-gradient(ellipse at 69% 52%, #102b3a 0%, #07121a 30%, transparent 67%); }
+  .masthead-globe { width: 116px; right: calc(30% - 58px); }
+  .masthead-visual svg { opacity: .36; }
 }
 
 .portfolio-controls,
