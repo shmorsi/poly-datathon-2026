@@ -1,0 +1,179 @@
+{
+ "_note": "The scripted demo questions beyond data/personas.json (Sun 2026-11-15): the 16 curated moves of the static move picker and the six 'Test the AI' questions. pipeline.demo_questions() includes them, so their live runs can be saved; scripts/record_demo.py --scripted records them and writes data/demo_runs/moves.json and tests.json. A move with \"from\" takes its size from that holding alone (a funded move); without it, equally from the rest.",
+ "moves": [
+  {
+   "pilot": "robert",
+   "ticker": "SHOP.TO",
+   "weight": 0.2,
+   "question": "What if I put 20 % in Shopify?"
+  },
+  {
+   "pilot": "robert",
+   "ticker": "BTC-USD",
+   "weight": 0.05,
+   "question": "What if I put 5 % in Bitcoin?"
+  },
+  {
+   "pilot": "robert",
+   "ticker": "RY.TO",
+   "weight": 0.2,
+   "question": "What if I put 20 % in Royal Bank of Canada?"
+  },
+  {
+   "pilot": "robert",
+   "ticker": "TLT",
+   "weight": 0.2,
+   "question": "What if I put 20 % in the iShares 20+ Year Treasury Bond ETF?"
+  },
+  {
+   "pilot": "mateo",
+   "ticker": "ESGV",
+   "weight": 0.3,
+   "question": "What if I put 30 % in the Vanguard ESG U.S. Stock ETF?"
+  },
+  {
+   "pilot": "mateo",
+   "ticker": "XOM",
+   "weight": 0.1,
+   "question": "What if I put 10 % in Exxon Mobil?"
+  },
+  {
+   "pilot": "mateo",
+   "ticker": "TSLA",
+   "weight": 0.1,
+   "question": "What if I put 10 % in Tesla?"
+  },
+  {
+   "pilot": "mateo",
+   "ticker": "QQQ",
+   "weight": 0.2,
+   "question": "What if I put 20 % in the Invesco QQQ Trust?"
+  },
+  {
+   "pilot": "amira",
+   "ticker": "BTC-USD",
+   "weight": 0.1,
+   "question": "What if I put 10 % in Bitcoin?"
+  },
+  {
+   "pilot": "amira",
+   "ticker": "ETH-USD",
+   "weight": 0.1,
+   "question": "What if I put 10 % in Ether?"
+  },
+  {
+   "pilot": "amira",
+   "ticker": "QQQ",
+   "weight": 0.4,
+   "question": "What if I put 40 % in the Invesco QQQ Trust?"
+  },
+  {
+   "pilot": "amira",
+   "ticker": "NVDA",
+   "weight": 0.2,
+   "question": "What if I put 20 % in NVIDIA?"
+  },
+  {
+   "pilot": "canadian",
+   "ticker": "QQQ",
+   "weight": 0.2,
+   "question": "What if I put 20 % in the Invesco QQQ Trust?"
+  },
+  {
+   "pilot": "canadian",
+   "ticker": "ESGV",
+   "weight": 0.2,
+   "question": "What if I put 20 % in the Vanguard ESG U.S. Stock ETF?"
+  },
+  {
+   "pilot": "canadian",
+   "ticker": "AGG",
+   "weight": 0.2,
+   "question": "What if I put 20 % in the iShares Core U.S. Aggregate Bond ETF?"
+  },
+  {
+   "pilot": "canadian",
+   "ticker": "GLD",
+   "weight": 0.1,
+   "question": "What if I put 10 % in SPDR Gold Shares?"
+  },
+  {
+   "pilot": "robert",
+   "ticker": "NVDA",
+   "weight": 0.4,
+   "from": "XIU.TO",
+   "question": "What if I move 40 % of my money from my Canadian stocks into NVIDIA?"
+  },
+  {
+   "pilot": "robert",
+   "ticker": "NVDA",
+   "weight": 0.3,
+   "from": "XBB.TO",
+   "question": "What if I move 30 % of my money from my Canadian bonds into NVIDIA?"
+  },
+  {
+   "pilot": "robert",
+   "ticker": "NVDA",
+   "weight": 0.3,
+   "question": "What if I put 30 % in NVIDIA?"
+  }
+ ],
+ "tests": [
+  {
+   "id": "advice",
+   "label": "Ask it for advice",
+   "question": "Should I buy NVIDIA now?",
+   "kind": "blocked",
+   "pilot": "robert",
+   "shows": "the safety check stopped it before any model saw it"
+  },
+  {
+   "id": "french",
+   "label": "Ask in French",
+   "kind": "run",
+   "pilot": "robert",
+   "question": "Et si je mettais 40 % dans NVIDIA et que Washington impose de nouveaux tarifs sur les produits canadiens ?",
+   "shows": "the navigator read French: NVIDIA set to 40 % and the tariff shock"
+  },
+  {
+   "id": "alias",
+   "label": "Use a nickname",
+   "question": "What if I put 30 % in RBC?",
+   "kind": "run",
+   "pilot": "robert",
+   "shows": "RBC was read as Royal Bank of Canada (RY.TO)"
+  },
+  {
+   "id": "no_precedent",
+   "label": "Ask about something with no precedent",
+   "question": "What if aliens invade Earth next year?",
+   "kind": "run",
+   "pilot": "robert",
+   "shows": "no close precedent was on record, so the shock check could not conclude"
+  },
+  {
+   "id": "clarify",
+   "label": "Leave out the size",
+   "question": "What if I put money in that electric car company?",
+   "kind": "clarify",
+   "pilot": "robert",
+   "shows": "it asked how big the move was instead of guessing"
+  },
+  {
+   "id": "reframe",
+   "label": "Ask the workshop's question",
+   "kind": "run",
+   "pilot": "canadian",
+   "question": "My portfolio seems very Canadian. Would adding 20 % SPY improve my diversification?",
+   "shows": "the move was replayed on your mix and the question was reframed"
+  },
+  {
+   "id": "source_short",
+   "label": "Fund it from too small a holding",
+   "kind": "clarify",
+   "pilot": "robert",
+   "question": "What if I move 40 % of my money from my Canadian bonds into NVIDIA?",
+   "shows": "it asked where the rest would come from: 35 % in Canadian bonds could not pay for 40 %"
+  }
+ ]
+}

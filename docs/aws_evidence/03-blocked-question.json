@@ -1,0 +1,71 @@
+{
+  "evidence": "The live app refusing a buy-or-sell question (POST /api/run and POST /api/scenario/read through CloudFront): the plain sentence, the guardrail row, and no model call after it",
+  "captured": "2026-11-15T18:58:37Z",
+  "how": "the final Result of each answer, cut",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "question": "Should I buy NVDA now?",
+  "run": {
+    "status": "blocked",
+    "message": "EPICENTRE replays a move against the limits you set; it doesn't tell anyone what to do with a specific security, and it doesn't take personal data. Try: \"What if I put 40 % in NVIDIA and the tariff war flares up again?\"\n\nEducational simulation. This is not financial advice.",
+    "guardrail_input": {
+      "action": "GUARDRAIL_INTERVENED",
+      "blocked": true,
+      "topic_hit": true,
+      "prompt_attack": false,
+      "pii_hit": false,
+      "pii_types": [],
+      "grounding": null,
+      "relevance": null,
+      "automated_reasoning": null,
+      "latency_ms": 484,
+      "usage": {
+        "topicPolicyUnits": 1,
+        "contentPolicyUnits": 1,
+        "wordPolicyUnits": 0,
+        "sensitiveInformationPolicyUnits": 1,
+        "sensitiveInformationPolicyFreeUnits": 0,
+        "contextualGroundingPolicyUnits": 0,
+        "contentPolicyImageUnits": 0,
+        "automatedReasoningPolicyUnits": 0,
+        "automatedReasoningPolicies": 0
+      },
+      "message": "EPICENTRE replays a move against the limits you set; it doesn't tell anyone what to do with a specific security, and it doesn't take personal data. Try: \"What if I put 40 % in NVIDIA and the tariff war flares up again?\"",
+      "error": null,
+      "request_id": "1e133970-fead-45a7-af3a-a401773e2426"
+    },
+    "model_calls": 0,
+    "trace_steps": [
+      [
+        "OBSERVE",
+        "Python",
+        "flight plan (your input)"
+      ],
+      [
+        "OBSERVE",
+        "Python",
+        "governance.load_limits"
+      ],
+      [
+        "OBSERVE",
+        "Bedrock Guardrails",
+        "guardrail.apply_guardrail(INPUT)"
+      ]
+    ]
+  },
+  "scenario_read": {
+    "status": "blocked",
+    "message": "EPICENTRE replays a move against the limits you set; it doesn't tell anyone what to do with a specific security, and it doesn't take personal data. Try: \"What if I put 40 % in NVIDIA and the tariff war flares up again?\"",
+    "screen": {
+      "guardrail": {
+        "action": "GUARDRAIL_INTERVENED",
+        "blocked": true,
+        "error": null,
+        "request_id": "0e846ae1-57f8-4d1c-a507-ea67184e7297",
+        "latency_ms": 455
+      },
+      "advice": null
+    },
+    "method": null,
+    "shocks": {}
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "evidence": "The list prices behind the cost section, read from the AWS Price List API with each product's publication date (the price pages in machine-readable form)",
+  "captured": "2026-11-15T18:58:43Z",
+  "how": "aws pricing get-products --region us-east-1 --service-code ...",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "read": "2026-11-15 18:58 UTC",
+  "prices": {
+    "Claude Sonnet 5.5 on Amazon Bedrock (us-east-1)": [
+      {
+        "usagetype": "USE1-MP:USE1_cache_read_tokens_global_standard-Units",
+        "usd": "0.1000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Cache Read Tokens - Standard, Global",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_input_tokens_standard-Units",
+        "usd": "2.2000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Input Tokens - Standard",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_cache_write_tokens_standard-Units",
+        "usd": "2.7500000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Cache Write Tokens - Standard",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_cache_write_tokens_global_standard-Units",
+        "usd": "2.5000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Cache Write Tokens - Standard, Global",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_cache_read_tokens_standard-Units",
+        "usd": "0.1100000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Cache Read Tokens - Standard",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_output_tokens_global_standard-Units",
+        "usd": "10.0000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Output Tokens - Standard, Global",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_input_tokens_global_standard-Units",
+        "usd": "2.0000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Input Tokens - Standard, Global",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_cache_write_tokens_1h_global_standard-Units",
+        "usd": "4.0000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Cache Write Tokens (1h TTL) - Standard, Global",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_cache_write_tokens_1h_standard-Units",
+        "usd": "4.4000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Cache Write Tokens (1h TTL) - Standard",
+        "published": "2026-11-09T22:43:12Z"
+      },
+      {
+        "usagetype": "USE1-MP:USE1_output_tokens_standard-Units",
+        "usd": "11.0000000000",
+        "unit": "1M tokens",
+        "description": "AWS Marketplace software usage|us-east-1|Output Tokens - Standard",
+        "published": "2026-11-09T22:43:12Z"
+      }
+    ],
+    "Bedrock Guardrails text units (us-east-1)": [
+      {
+        "usagetype": "USE1-Guardrail-ContentPolicyUnitsConsumed",
+        "usd": "0.0001500000",
+        "unit": "TextUnit",
+        "description": "$0.15 per 1K text units for ContentPolicyUnitsConsumed in US East (N. Virginia)",
+        "published": "2026-11-11T01:30:37Z"
+      },
+      {
+        "usagetype": "USE1-Guardrail-TopicPolicyUnitsConsumed",
+        "usd": "0.0001500000",
+        "unit": "TextUnit",
+        "description": "$.15 per 1K text units for TopicPolicyUnitsConsumed in US East (N. Virginia)",
+        "published": "2026-11-11T01:30:37Z"
+      },
+      {
+        "usagetype": "USE1-Guardrail-SensitiveInformationPolicyPaidUnitsConsumed",
+        "usd": "0.0001000000",
+        "unit": "TextUnit",
+        "description": "$0.1 per 1K text units for SensitiveInformationPolicyPaidUnitsConsumed in US East (N. Virginia)",
+        "published": "2026-11-11T01:30:37Z"
+      },
+      {
+        "usagetype": "USE1-Guardrail-SensitiveInformationPolicyFreeUnitsConsumed",
+        "usd": "0.0000000000",
+        "unit": "TextUnit",
+        "description": "$0 per 1K text units for SensitiveInformationPolicyUnitsConsumed in US East (N. Virginia)",
+        "published": "2026-11-11T01:30:37Z"
+      },
+      {
+        "usagetype": "USE1-Guardrail-ContextualGroundingPolicyUnitsConsumed",
+        "usd": "0.0001000000",
+        "unit": "TextUnit",
+        "description": "$0.1 per 1K text units for ContextualGroundingPolicyUnitsConsumed in US East (N. Virginia)",
+        "published": "2026-11-11T01:30:37Z"
+      }
+    ],
+    "EC2 t3.small, Linux, on demand (us-east-1)": [
+      {
+        "usagetype": "BoxUsage:t3.small",
+        "usd": "0.0208000000",
+        "unit": "Hrs",
+        "description": "$0.0208 per On Demand Linux t3.small Instance Hour",
+        "published": "2026-11-14T01:29:26Z"
+      }
+    ],
+    "EBS gp3 storage (us-east-1)": [
+      {
+        "usagetype": "EBS:VolumeUsage.gp3",
+        "usd": "0.0800000000",
+        "unit": "GB-Mo",
+        "description": "$0.08 per GB-month of General Purpose (gp3) provisioned storage - US East (N. Virginia)",
+        "published": "2026-11-14T01:29:26Z"
+      }
+    ],
+    "Public IPv4 address in use (us-east-1)": [
+      {
+        "usagetype": "USE1-PublicIPv4:InUseAddress",
+        "usd": "0.0050000000",
+        "unit": "Hrs",
+        "description": "$0.005 per In-use public IPv4 address per hour",
+        "published": "2026-11-05T18:19:45Z"
+      }
+    ],
+    "S3 Standard storage (us-east-1)": [
+      {
+        "usagetype": "TimedStorage-ByteHrs",
+        "usd": "0.0220000000",
+        "unit": "GB-Mo",
+        "description": "$0.022 per GB - next 450 TB / month of storage used",
+        "published": "2026-11-09T15:43:10Z"
+      },
+      {
+        "usagetype": "TimedStorage-ByteHrs",
+        "usd": "0.0210000000",
+        "unit": "GB-Mo",
+        "description": "$0.021 per GB - storage used / month over 500 TB",
+        "published": "2026-11-09T15:43:10Z"
+      },
+      {
+        "usagetype": "TimedStorage-ByteHrs",
+        "usd": "0.0230000000",
+        "unit": "GB-Mo",
+        "description": "$0.023 per GB - first 50 TB / month of storage used",
+        "published": "2026-11-09T15:43:10Z"
+      }
+    ]
+  },
+  "note": "Claude Sonnet 5.5: the 'Standard, Global' rows are the global cross-Region profile's rates; the 'Standard' rows (10 % higher) are the rates without the global profile, which the app's us. profile is billed at. config.py's PRICE_USD_PER_MTOK uses the global rates (2.00 / 10.00), so the per-run costs it computes are about 10 % low."
+}

@@ -1,0 +1,51 @@
+/* EPICENTRE Replay, lane funds: the share bar (web/lib/sharebar.js), one thin bar per breakdown of the money. The page's :root
+   tokens only. One hue per family (industries, countries, companies, funds), the rank as its strength, the move in magenta (the
+   page's colour for the move and nothing else); what no segment covers stays the empty track. */
+.sb { position: relative; margin: 0; display: grid; gap: var(--s-3); min-width: 0; }
+.sb { --sb-c: var(--series-today); }
+.sb[data-family="country"] { --sb-c: var(--ink-2); }
+.sb[data-family="company"] { --sb-c: var(--clear); }
+.sb[data-family="fund"] { --sb-c: var(--haze); }
+.sb-rows { display: grid; gap: var(--s-2); }
+.sb-row { display: grid; grid-template-columns: 13ch minmax(0, 1fr); align-items: center; column-gap: var(--s-3); }
+.sb-row:only-child:not(:has(.sb-row-l)) { grid-template-columns: minmax(0, 1fr); }
+.sb-row-l { color: var(--haze); font-size: var(--t-small-fixed); line-height: 1.2; white-space: nowrap; }
+.sb-bar { position: relative; display: block; height: 12px; border-radius: 3px; background: rgba(255, 255, 255, .06); overflow: hidden;
+  cursor: default; outline-offset: 3px; }
+.sb-seg { position: absolute; top: 0; bottom: 0; background: var(--sb-c); box-shadow: inset -1px 0 0 var(--pop); }
+.sb-seg[data-tone="1"] { opacity: .78; }
+.sb-seg[data-tone="2"] { opacity: .6; }
+.sb-seg[data-tone="3"] { opacity: .46; }
+.sb-seg[data-tone="4"] { opacity: .36; }
+.sb-seg[data-tone="other"] { opacity: .22; }
+.sb-seg[data-tone="move"] { background: var(--magenta); opacity: 1; }
+.sb-seg.is-on { opacity: 1; box-shadow: inset 0 0 0 1px var(--starlight); }
+
+/* the legend: the five largest and Other (n), today and with the move side by side */
+.sb-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.sb-li { display: grid; grid-template-columns: minmax(0, 1fr) 8ch; column-gap: var(--s-3); align-items: baseline; min-height: 24px; }
+.sb-legend[data-cols="2"] .sb-li { grid-template-columns: minmax(0, 1fr) 8ch 12ch; }
+.sb-li-head { min-height: 20px; }
+.sb-li-head .sb-lv { color: var(--haze); font-variant-numeric: normal; white-space: normal; line-height: 1.2; }
+.sb-none { color: var(--haze); font-size: var(--t-small-fixed); line-height: 12px; }
+.sb-ln { display: flex; align-items: baseline; gap: var(--s-2); min-width: 0; color: var(--ink); font-size: var(--t-small-fixed); line-height: 1.35; }
+.sb-sw { flex: none; width: 10px; height: 10px; border-radius: 2px; background: var(--sb-c); transform: translateY(1px); }
+.sb-sw[data-tone="1"] { opacity: .78; }
+.sb-sw[data-tone="2"] { opacity: .6; }
+.sb-sw[data-tone="3"] { opacity: .46; }
+.sb-sw[data-tone="4"] { opacity: .36; }
+.sb-sw[data-tone="other"] { opacity: .22; }
+.sb-sw[data-tone="move"] { background: var(--magenta); opacity: 1; }
+.sb-lv { text-align: right; color: var(--ink); font-size: var(--t-small-fixed); white-space: nowrap; }
+.sb-tip { position: absolute; z-index: 2; left: 0; top: 0; margin: 0; max-width: min(36ch, 100%); padding: var(--s-2) var(--s-3);
+  border: 1px solid var(--rule); border-radius: var(--r-input); background: var(--pop); color: var(--ink);
+  font: 500 var(--t-small-fixed)/1.4 var(--font-text); font-variant-numeric: tabular-nums; pointer-events: none;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .5); }
+.sb-tip[hidden] { display: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .sb-seg { transition: opacity var(--dur-press) var(--ease-out); }
+}
+@media (max-width: 600px) {
+  .sb-row { grid-template-columns: minmax(0, 1fr); row-gap: var(--s-1); }
+  .sb-legend[data-cols="2"] .sb-li { grid-template-columns: minmax(0, 1fr) 7ch 9ch; }
+}

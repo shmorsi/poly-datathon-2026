@@ -1,0 +1,307 @@
+/* The classic page's styles (web/classic.html): web/styles.css before the Replay, without its tokens (they stay in
+   styles.css, loaded first). Frozen; nothing links to the classic page. */
+
+/* ---- base: one type scale, the 4 px grid, the 12-column frame ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--sky); -webkit-text-size-adjust: 100%; scroll-behavior: auto; }   /* smooth only in the script that answers a click */
+body { margin: 0; background: var(--sky); color: var(--ink); font: 400 var(--t-body)/1.5 var(--font-text); font-kerning: normal;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+h1, h2, h3, p, dl, dd, figure, ol, ul { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+h1, h2, h3 { text-wrap: balance; }
+p { text-wrap: pretty; }
+img, svg, canvas { display: block; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+button, input, select, textarea { font: inherit; color: inherit; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: var(--r-tag); }
+.num { font-family: var(--font-num); font-variant-numeric: tabular-nums; letter-spacing: 0; word-spacing: -0.16em; white-space: nowrap; }   /* B612's no-break space before % is wide */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.frame { width: var(--page); margin-inline: auto; }
+.icon { width: 1.1em; height: 1.1em; flex: none; vertical-align: -0.16em; }
+.kind { width: 12px; height: 12px; flex: none; }
+
+/* buttons: one primary per screen (solid starlight), quiet secondaries (a hairline), text buttons underlined */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2); min-height: 48px; padding: 0 var(--s-5);
+  border-radius: var(--r-input); border: 1.5px solid transparent; font-weight: 600; font-size: var(--t-body); line-height: 1;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background-color var(--dur-tip) var(--ease-out), border-color var(--dur-tip) var(--ease-out), opacity var(--dur-tip) var(--ease-out); }
+.btn .icon { width: 18px; height: 18px; }
+.btn-primary { background: var(--starlight); color: var(--on-ink); }
+.btn-quiet { background: transparent; color: var(--ink); border-color: var(--edge); }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .45; cursor: default; }
+.linkbtn { background: none; border: 0; padding: var(--s-1) 0; color: var(--ink); font-size: var(--t-small); font-weight: 600; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--ink-tint);
+  transition: text-decoration-color var(--dur-tip) var(--ease-out), color var(--dur-tip) var(--ease-out); }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-small); color: var(--ink-2); border: 1px solid var(--rule);
+  border-radius: var(--r-tag); padding: 2px var(--s-2); white-space: nowrap; }
+.label { display: inline-flex; align-items: center; min-height: 28px; padding: 0 var(--s-3); border: 1px solid var(--rule); border-radius: 999px;
+  font-size: 14px; color: var(--ink-2); white-space: nowrap; }
+.label.is-saved { color: var(--ink); border-color: var(--edge); }
+
+/* the top bar: the wordmark and the pause control; it gains a ground once the page scrolls */
+.bar { position: fixed; inset: 0 0 auto 0; z-index: 20; height: var(--bar); display: flex; align-items: center; gap: var(--s-6);
+  padding-inline: var(--margin); }
+.bar::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; opacity: 0;
+  background: rgba(0, 0, 0, .72); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule);
+  transition: opacity var(--dur-list) var(--ease-out); }
+.bar.is-solid::before { opacity: 1; }
+.mark { font-family: var(--font-num); font-weight: 700; font-size: 15px; letter-spacing: .14em; color: var(--starlight); text-decoration: none;
+  margin-right: auto; padding: var(--s-2) 0; }
+.bar-mode { display: flex; gap: var(--s-2); }
+.pause { display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: var(--r-input); border: 1px solid var(--rule);
+  background: rgba(0, 0, 0, .4); color: var(--ink-2); cursor: pointer; padding: 0;
+  transition: color var(--dur-tip) var(--ease-out), border-color var(--dur-tip) var(--ease-out); }
+.pause .icon { width: 18px; height: 18px; }
+
+/* ---- screen 1, the hero: the night Earth is the only light. Text and poster at first paint; the world fades in over the poster ---- */
+.hero { position: relative; height: 100svh; min-height: 640px; overflow: hidden; isolation: isolate; background: var(--sky); }
+.hero canvas { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; opacity: 0; transition: opacity var(--dur-panel) var(--ease-out); }
+.hero.is-lit canvas { opacity: 1; }
+.hero.no-webgl canvas { display: none; }
+.hero-grid { position: relative; z-index: 1; height: 100%; width: var(--page); margin-inline: auto; display: grid; justify-items: center;
+  grid-template-rows: auto minmax(0, 1fr) auto auto; text-align: center;
+  padding: calc(var(--bar) + clamp(12px, 2.6vh, 32px)) 0 clamp(28px, 5vh, 56px); }
+.display { font-weight: 640; font-stretch: 62%; text-transform: uppercase; font-size: clamp(2.875rem, 1.2rem + 5.2vw, 7.5rem); line-height: .9;
+  letter-spacing: -0.004em; color: var(--starlight); max-width: 100%; }
+.globe-slot { position: relative; width: 100%; min-height: 0; margin-block: clamp(12px, 2.6vh, 28px); container-type: size;
+  display: grid; place-items: center; pointer-events: none; }
+.poster, .rings { grid-area: 1 / 1; }
+.poster { width: calc(100cqmin / 0.9); height: calc(100cqmin / 0.9); max-width: none; object-fit: contain; user-select: none;
+  -webkit-mask-image: radial-gradient(circle closest-side, #000 97%, transparent 100%); mask-image: radial-gradient(circle closest-side, #000 97%, transparent 100%);
+  transition: opacity var(--dur-panel) var(--ease-out); }
+.hero.is-lit .poster { opacity: 0; }                  /* the world fades in under it; the poster fades out (one crossfade) */
+.answer-line, .hero-act, .display { position: relative; z-index: 2; }   /* above the slot, which is a stacking context (container-type) */
+.rings { position: relative; z-index: 1; width: 100cqmin; height: 100cqmin; overflow: visible; display: none; }   /* above the masked poster */
+.hero.no-webgl .rings { display: block; }
+.rings circle { fill: none; stroke: var(--signal); stroke-width: 1.5; vector-effect: non-scaling-stroke; }
+.rings .core { fill: var(--starlight); stroke: none; }
+.rings line { stroke: var(--signal); stroke-width: 2; vector-effect: non-scaling-stroke; stroke-linecap: round; opacity: .9; }
+.answer-line { display: flex; align-items: center; justify-content: center; gap: 10px; font-size: var(--t-lead); font-weight: 500;
+  color: var(--ink); min-height: 1.5em; }
+.answer-line .icon { width: 22px; height: 22px; }
+.answer-line .verdict { font-weight: 600; }
+[data-tone="outside"] .verdict, [data-tone="outside"] > .icon { color: var(--outside); }
+[data-tone="caveat"] .verdict, [data-tone="caveat"] > .icon { color: var(--caution); }
+[data-tone="inside"] .verdict, [data-tone="inside"] > .icon { color: var(--clear); }
+.hero-act { display: grid; justify-items: center; gap: var(--s-3); margin-top: var(--s-5); }
+.hero-note { font-size: 14px; color: var(--haze); }
+.readout { position: absolute; z-index: 1; right: var(--margin); bottom: clamp(28px, 5vh, 56px); width: min(280px, 21vw); text-align: left; }
+.ruler { position: relative; height: 18px; margin-bottom: var(--s-3); }
+.ruler::before { content: ""; position: absolute; left: 0; right: 0; top: 8px; height: 1px; background: rgba(159, 230, 255, .45); }
+.ruler i { position: absolute; top: 4px; width: 1px; height: 9px; margin-left: -.5px; background: rgba(159, 230, 255, .6); }
+.ruler b { position: absolute; top: 0; left: 0; width: 2px; height: 17px; margin-left: -1px; background: var(--starlight); }
+.readout-n { font-size: 19px; color: var(--starlight); }
+.readout-n .num { font-size: 21px; font-weight: 700; }
+.readout-span { font-size: 15px; color: var(--haze); margin-top: 2px; }
+
+/* ---- screen 2, the thesis beat (mock 02): one sentence, the fall in dollars ---- */
+.act { padding-block: clamp(80px, 12vh, 144px); }
+section[id] { scroll-margin-top: var(--bar); }
+.thesis-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-7); }
+.thesis-copy { grid-column: 1 / span 8; display: grid; gap: var(--s-4); }
+.statement { font-size: var(--t-h1); font-weight: 560; line-height: 1.05; letter-spacing: -0.012em; color: var(--starlight); }
+.lead { font-size: var(--t-lead); color: var(--ink-2); max-width: 60ch; min-height: 3em; }
+.lead .num, .dollar .num { color: var(--starlight); font-size: .9em; }
+.thesis .fall { grid-column: 1 / -1; }
+
+/* ---- screen 3, the cockpit (mock 03): You and the move on the left, the answer on the right, one viewport at 1440×900 ---- */
+.cockpit { padding-block: var(--s-5) var(--s-9); }
+.cockpit-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-7); align-items: start; }
+.cockpit-grid > *, .thesis-grid > *, .col-left > *, .col-right > * { min-width: 0; }   /* a long row scrolls or wraps; it never widens the frame */
+.col-left { grid-column: 1 / span 5; display: grid; gap: var(--s-5); }
+.col-right { grid-column: 6 / span 7; display: grid; gap: var(--s-3); padding-left: clamp(0px, 1.5vw, 24px); }
+.tabs { display: inline-flex; justify-self: start; gap: var(--s-1); padding: var(--s-1); border-radius: 999px; border: 1px solid var(--rule);
+  margin-bottom: var(--s-3); max-width: 100%; overflow-x: auto; scrollbar-width: none; }
+.tab { min-height: 36px; padding: 0 var(--s-4); border-radius: 999px; border: 0; background: transparent; color: var(--ink-2); font-size: 15px;
+  font-weight: 500; cursor: pointer; white-space: nowrap;
+  transition: color var(--dur-tip) var(--ease-out), background-color var(--dur-list) var(--ease-out); }
+.tab[aria-selected="true"] { background: var(--starlight); color: var(--on-ink); }
+.card { border: 1px solid var(--rule); background: var(--paper); border-radius: var(--r-panel); padding: var(--s-4) var(--s-5); }
+.card-body { transition: opacity var(--dur-list) var(--ease-out); }
+.card-body.is-swapping { opacity: 0; }
+.who { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-4); }
+.who h3 { font-size: var(--t-h3); font-weight: 560; line-height: 1.1; letter-spacing: -0.01em; color: var(--starlight); }
+.who-line { color: var(--ink-2); margin-top: var(--s-2); font-size: var(--t-small); min-height: 1.5em; }
+.facts { margin-top: var(--s-3); }
+.facts > div { display: flex; justify-content: space-between; align-items: baseline; gap: var(--s-4); padding: var(--s-2) 0; border-top: 1px solid var(--rule); }
+.facts dt { color: var(--ink-2); font-size: var(--t-small); }
+.facts dd { color: var(--ink); font-size: var(--t-small); font-weight: 500; text-align: right; }
+.facts .note { display: block; flex-basis: 100%; color: var(--haze); font-size: 14px; padding-top: 2px; }
+.facts > div.has-note { flex-wrap: wrap; }
+.card-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-4); margin-top: var(--s-3); padding-top: var(--s-3);
+  border-top: 1px solid var(--rule); color: var(--haze); font-size: 14px; }
+.five { display: grid; gap: var(--s-4); margin-top: var(--s-4); padding-top: var(--s-4); border-top: 1px solid var(--rule); }
+.five fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: var(--s-2); }
+.five legend, .five label.q { font-size: var(--t-small); color: var(--ink); font-weight: 500; padding: 0; }
+.five .opts { display: flex; flex-wrap: wrap; gap: var(--s-2) var(--s-4); color: var(--ink-2); font-size: var(--t-small); }
+.five .opts label { display: inline-flex; align-items: center; gap: var(--s-2); cursor: pointer; }
+.field { height: 44px; padding: 0 var(--s-3); border-radius: var(--r-input); border: 1px solid var(--edge); background: var(--sky); color: var(--starlight);
+  transition: border-color var(--dur-tip) var(--ease-out); }
+.field.num-in { font-family: var(--font-num); width: 9em; }
+.five .err { color: var(--caution); font-size: 14px; min-height: 1.5em; }
+.five-act { display: flex; align-items: center; gap: var(--s-4); }
+.move h3 { font-size: var(--t-lead); font-weight: 560; color: var(--starlight); margin-bottom: var(--s-2); }
+.q-box { width: 100%; min-height: 76px; padding: var(--s-3) var(--s-4); border-radius: var(--r-input); border: 1px solid var(--edge); background: var(--paper);
+  font-size: var(--t-body); line-height: 1.45; color: var(--starlight); resize: vertical; field-sizing: content; transition: border-color var(--dur-tip) var(--ease-out); }
+.read-as { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); margin-top: var(--s-3); color: var(--ink-2); font-size: 14px; min-height: 30px; }
+.chip-move { display: inline-flex; align-items: center; min-height: 28px; padding: 0 var(--s-3); border: 1px solid var(--magenta); border-radius: var(--r-tag);
+  color: var(--magenta); font-weight: 600; white-space: nowrap; }
+.run-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-3) var(--s-4); margin-top: var(--s-4); }
+.ask-line { color: var(--caution); font-size: 15px; display: flex; align-items: center; gap: var(--s-2); }
+.ask-line:empty { display: none; }
+.runlog { margin-top: var(--s-4); border-top: 1px solid var(--rule); }
+.runlog:empty { display: none; }
+.runlog li { display: grid; grid-template-columns: 20px minmax(0, 1fr) auto; align-items: baseline; gap: 2px var(--s-3); padding: var(--s-2) 0;
+  border-bottom: 1px solid var(--rule); font-size: 14px; }
+.runlog .st { width: 16px; height: 16px; align-self: center; color: var(--haze); }
+.runlog li[data-state="done"] .st { color: var(--clear); }
+.runlog li[data-state="warn"] .st { color: var(--caution); }
+.runlog li[data-state="fail"] .st { color: var(--outside); }
+.runlog .nm { color: var(--ink); font-weight: 600; }
+.runlog .dt { color: var(--ink-2); }
+.runlog .sv { color: var(--haze); text-align: right; white-space: nowrap; }
+
+/* the answer: the labels of a saved run, today in small, the annunciator lamp, one dollar sentence, the fall, three rows */
+.labels { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: var(--s-2); min-height: 28px; }
+.today-line { display: flex; align-items: center; gap: var(--s-2); color: var(--ink); font-size: var(--t-body); min-height: 1.5em; }
+.today-line .icon { width: 20px; height: 20px; }
+.today-line[data-tone="inside"] .icon { color: var(--clear); }
+.today-line[data-tone="caveat"] .icon { color: var(--caution); }
+.today-line[data-tone="outside"] .icon { color: var(--outside); }
+.today-line.is-off { visibility: hidden; }
+.lamp { --c: var(--haze); position: relative; justify-self: start; max-width: 100%; border-radius: var(--r-panel); padding: var(--s-3) var(--s-5);
+  isolation: isolate; color: var(--c); }
+.lamp::before { content: ""; position: absolute; inset: 0; border-radius: inherit; border: 1.5px solid currentColor; }
+.lamp::after { content: ""; position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: currentColor; opacity: .1; }
+.lamp[data-tone="inside"] { --c: var(--clear); }
+.lamp[data-tone="caveat"] { --c: var(--caution); }
+.lamp[data-tone="outside"] { --c: var(--outside); }
+.lamp-word { display: flex; align-items: center; gap: var(--s-3); font-family: var(--font-num); font-weight: 700; font-size: clamp(1.625rem, 0.9rem + 1.5vw, 2.5rem);
+  line-height: 1.02; text-transform: uppercase; letter-spacing: .01em; }
+.lamp-word .icon { width: .82em; height: .82em; }
+.lamp[data-tone="idle"] .lamp-word, .lamp[data-tone="none"] .lamp-word { color: var(--ink-2); }
+.dollar { font-size: clamp(1.125rem, 0.95rem + 0.5vw, 1.375rem); font-weight: 500; line-height: 1.4; letter-spacing: -0.006em; color: var(--ink); max-width: 62ch; min-height: 2.7em; }
+.dollar-note { color: var(--ink-2); font-size: var(--t-small); max-width: 70ch; }
+.dollar-note .num { color: var(--ink); }
+
+/* one chart, drawn in SVG by app.js: the fall below the floor in dollars (ledger §14) */
+.fall { margin: 0; }
+.chart { position: relative; width: 100%; height: clamp(200px, 31vh, 300px); }
+.thesis .chart { height: clamp(300px, 48vh, 520px); }
+.chart > svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.chart > svg:focus-visible { outline: 2px solid var(--focus); outline-offset: 8px; }
+.chart-empty { position: absolute; inset: 0; display: grid; place-items: center; border: 1px dashed var(--rule); border-radius: var(--r-panel);
+  color: var(--haze); font-size: var(--t-small); text-align: center; padding: var(--s-5); }
+.chart-foot { margin-top: var(--s-3); color: var(--haze); font-size: 14px; max-width: 110ch; min-height: 1.5em; }
+.fall .ax { fill: var(--chart-ink-2); font: 400 13px var(--font-num); }
+.fall .ax.yr { fill: var(--chart-muted); }
+.fall .base { stroke: var(--ink-tint); stroke-width: 1; }
+.fall .grid { stroke: var(--chart-grid); stroke-width: 1; }
+.fall .ground { fill: var(--ground); }
+.fall .floor { stroke: var(--floor); stroke-width: 2; }
+.fall .floor-t { fill: var(--floor); font-size: 14px; }
+.fall .floor-v { fill: var(--floor); font: 700 16px var(--font-num); }
+.fall .today { fill: none; stroke: var(--series-today); stroke-width: 1.75; stroke-linejoin: round; }
+.fall .after-move { fill: none; stroke: var(--series-after); stroke-width: 2.25; stroke-linejoin: round; }
+.fall .lbl-today { fill: var(--series-today); font-size: 15px; font-weight: 500; }
+.fall .lbl-after-move { fill: var(--series-after); font-size: 15px; font-weight: 500; }
+.fall .breach-hatch { stroke: var(--outside); stroke-width: 2; opacity: .6; }
+.fall .breach-wash { fill: var(--breach); }
+.fall .mark { fill: none; stroke: var(--starlight); stroke-width: 2; }
+.fall .lead-line { stroke: rgba(255, 255, 255, .5); stroke-width: 1; }
+.fall .big { fill: var(--starlight); font: 700 var(--fall-big, 56px) var(--font-num); }
+.fall .sub { fill: var(--chart-ink-2); font-size: 15px; }
+.fall .when { fill: var(--outside); font-size: 15px; }
+.fall .small { fill: var(--starlight); font: 700 18px var(--font-num); }
+.fall .cursor line { stroke: rgba(255, 255, 255, .35); }
+.fall .cursor text { font: 400 13px var(--font-num); fill: var(--chart-ink-2); }
+.fall .cursor .cv-today { fill: var(--series-today); }
+.fall .cursor .cv-after-move { fill: var(--series-after); font-weight: 700; }
+
+.rows { border-top: 1px solid var(--rule); }
+.rows li { display: grid; grid-template-columns: 104px minmax(150px, 1.25fr) minmax(0, 2fr) 104px; align-items: baseline; gap: var(--s-1) var(--s-4);
+  padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.rows .st { white-space: nowrap; font-weight: 600; }
+.rows .st .icon { display: inline-block; width: 18px; height: 18px; vertical-align: -0.24em; margin-right: var(--s-2); }
+.rows [data-tone="outside"] .st { color: var(--outside); }
+.rows [data-tone="caveat"] .st { color: var(--caution); }
+.rows [data-tone="inside"] .st { color: var(--clear); }
+.rows .nm { color: var(--starlight); font-weight: 500; }
+.rows .cmp { color: var(--ink-2); }
+.rows .cmp .num { color: var(--ink); font-size: .93em; }
+.rows .tier { color: var(--haze); font-size: 14px; text-align: right; white-space: nowrap; }
+
+footer { border-top: 1px solid var(--rule); padding-block: var(--s-6) var(--s-7); color: var(--haze); font-size: 15px; }
+footer .frame { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--s-3) var(--s-6); }
+footer strong { color: var(--ink); font-weight: 600; }
+
+/* ---- phones: one column; at 390 px the globe sits above the text (spec §22, the hero) ---- */
+@media (max-width: 760px) {
+  :root { --bar: 56px; }
+  .bar .label { display: none; }                       /* the cockpit's labels say it on phones */
+  .hero { height: auto; min-height: 100svh; }
+  .hero-grid { grid-template-rows: auto auto auto auto; justify-items: start; text-align: left; padding-top: calc(var(--bar) + var(--s-2)); }
+  .globe-slot { order: -1; aspect-ratio: 1 / 1; height: auto; margin-block: 0 var(--s-5); }
+  .display { font-size: clamp(2.75rem, 13vw, 4rem); }
+  .answer-line { justify-content: flex-start; align-items: flex-start; margin-top: var(--s-4); font-size: 17px; }
+  .answer-line .icon { margin-top: 2px; }
+  .hero-act { justify-items: start; }
+  .readout { position: relative; right: auto; bottom: auto; width: var(--page); margin: 0 auto var(--s-7); }
+  .thesis-copy { grid-column: 1 / -1; }
+  .col-left, .col-right { grid-column: 1 / -1; padding-left: 0; }
+  .labels { justify-content: flex-start; }
+  .tab { padding: 0 var(--s-3); font-size: 14px; }
+  .q-box { min-height: 104px; }
+  .lamp { padding: var(--s-3) var(--s-4); }
+  .lamp-word { font-size: clamp(1.25rem, 6.2vw, 1.75rem); gap: var(--s-3); }
+  .dollar { font-size: 19px; }
+  .chart { height: 300px; }
+  .thesis .chart { height: 340px; }
+  .rows li { grid-template-columns: auto minmax(0, 1fr); }
+  .rows .cmp, .rows .tier { grid-column: 1 / -1; text-align: left; }
+  .runlog li { grid-template-columns: 20px minmax(0, 1fr); }
+  .runlog .sv { grid-column: 2; text-align: left; }
+}
+
+/* ---- motion (spec §22 rule 3; W1a review I-1 to I-3). Everything that moves lives in the no-preference block: under reduced
+   motion nothing moves, opacity and colour feedback stay. Delays are sums of the duration tokens. ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .tab, .pause, .linkbtn { transition-property: transform, background-color, border-color, color, opacity, text-decoration-color;
+    transition-duration: var(--dur-press), var(--dur-tip), var(--dur-tip), var(--dur-tip), var(--dur-tip), var(--dur-tip);
+    transition-timing-function: var(--ease-out); }
+  .btn:active, .tab:active, .pause:active, .linkbtn:active { transform: scale(0.97); }
+  .btn[disabled]:active { transform: none; }
+  .is-landing .lamp::before { animation: bezel var(--dur-flip) var(--ease-out) backwards; }
+  .is-landing .lamp::after { animation: fade var(--dur-lamp) var(--ease-out) calc(var(--dur-tip) * .75) backwards; }
+  .is-landing .lamp-word { animation: land var(--dur-panel) var(--ease-out) var(--dur-tip) backwards; }
+  .is-landing .today-line { animation: fade var(--dur-list) var(--ease-out) var(--dur-tip) backwards; }
+  .is-landing .dollar, .is-landing .dollar-note { animation: rise var(--dur-panel) var(--ease-out) var(--dur-panel) backwards; }
+  .is-landing .reveal { animation: sweep var(--dur-story) var(--ease-in-out) var(--dur-lamp) backwards; }
+  .is-landing .notes { animation: fade var(--dur-list) var(--ease-out) calc(var(--dur-lamp) + var(--dur-story)) backwards; }
+  .is-landing .rows li { animation: fade var(--dur-list) var(--ease-out) calc(var(--dur-lamp) + var(--dur-tip)) backwards; }
+  .runlog li.is-new { animation: fade var(--dur-list) var(--ease-out) backwards; }
+  .spin { animation: spin 800ms linear infinite; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn:active { opacity: .82; }
+  .is-landing .lamp, .is-landing .dollar, .is-landing .dollar-note, .is-landing .fall, .is-landing .rows { animation: fade var(--dur-list) var(--ease-out) backwards; }
+}
+@keyframes fade { from { opacity: 0; } }
+@keyframes bezel { from { opacity: 0; transform: scale(.985); } }
+@keyframes land { from { opacity: 0; transform: scale(1.03); } }
+@keyframes rise { from { opacity: 0; transform: translateY(6px); } }
+@keyframes sweep { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* hover only where a pointer hovers (spec §22 rule 3) */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background: var(--ink); }
+  .btn-quiet:hover { border-color: var(--ink-2); background: var(--paper); }
+  .tab:not([aria-selected="true"]):hover, .pause:hover, .mark:hover { color: var(--starlight); }
+  .linkbtn:hover { text-decoration-color: var(--starlight); }
+  .q-box:hover, .field:hover { border-color: var(--ink-2); }
+}
+.runlog .dt { grid-column: 2 / -1; }
+.fall text { paint-order: stroke; stroke: var(--sky); stroke-width: 4px; stroke-linejoin: round; }   /* labels stay legible where a path crosses */
+.rows:empty { border-top: 0; }

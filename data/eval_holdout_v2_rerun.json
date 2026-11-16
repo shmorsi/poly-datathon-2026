@@ -1,0 +1,4609 @@
+{
+ "meta": {
+  "sha256": "4203c7181dccf177078b56541ef99051ae1763367cfda00a81ee66f303a5124f",
+  "date": "2026-11-15",
+  "model": "us.anthropic.claude-sonnet-5-5",
+  "engine": "converse",
+  "as_of": "2026-11-12",
+  "commit": "96f2244180826a896239351c331d96dd0bdd578a",
+  "on_main": "b50aab1f03a26cf93fdece5cde51a8b2746e0789",
+  "dirty": false,
+  "navigator_code_commit": "22dff56dce1c4f22783d88dd34bacfa2572b1014",
+  "harness": "scripts/eval.py pilot_context + read_one (portfolio, profile, amount, exposure, universe, catalog at as_of)",
+  "scoring": {
+   "families_ok": "set(families) == set(label families)",
+   "whole_ok": "scripts/eval.score_plan: families, events (each of a labelled family; any iff a precedent is labelled), change (op, ticker, weight within 0.005, or none), clarify, type"
+  }
+ },
+ "navigator": [
+  {
+   "id": "hv2_fr01",
+   "group": "french",
+   "ms": 2875.3,
+   "usd": 0.0066992,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_talks_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Et si les États-Unis imposent encore des droits de douane sur tout ce qui vient du Canada?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_fr02",
+   "group": "french",
+   "ms": 2265.7,
+   "usd": 0.0065832,
+   "calls": 1,
+   "method": "fallback",
+   "fallback_reason": "The navigator's answer was not used (the intent is not a short phrase of plain words); the keyword rules answered.",
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Que se passerait-il si le détroit d'Ormuz était bloqué pendant plusieurs semaines?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_fr03",
+   "group": "french",
+   "ms": 2766.7,
+   "usd": 0.0071792,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "hbm_2024",
+     "chip_selloff_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Et si Washington interdit complètement les exportations de puces vers la Chine?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_fr04",
+   "group": "french",
+   "ms": 2480.4,
+   "usd": 0.0068372,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "cpi_sep_2022",
+     "svb_2023"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Si la Réserve fédérale continue d'augmenter les taux d'intérêt agressivement?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_fr05",
+   "group": "french",
+   "ms": 2383.8,
+   "usd": 0.007121199999999999,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_35_2025",
+     "tariff_threat_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Qu'arrive-t-il si Trump met 50% de tarifs sur toutes nos exportations?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_fr06",
+   "group": "french",
+   "ms": 2014.7,
+   "usd": 0.0067592,
+   "calls": 1,
+   "method": "fallback",
+   "fallback_reason": "The navigator's answer was not used (the intent is not a short phrase of plain words); the keyword rules answered.",
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Et si une guerre éclate au Moyen-Orient et que le pétrole monte en flèche?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_slang01",
+   "group": "slang",
+   "ms": 2685.2,
+   "usd": 0.0077112,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "chips_2022",
+     "ai_chips_2023",
+     "deepseek_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "yo what if the chip thing between US and China gets crazy again lol",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang02",
+   "group": "slang",
+   "ms": 2746.7,
+   "usd": 0.0077212,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_35_2025",
+     "liberation_day_2025",
+     "tariffs_canada_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "ngl kinda worried bout tariffs coming back n messing everything up",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang03",
+   "group": "slang",
+   "ms": 3346.8,
+   "usd": 0.0075731999999999996,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026",
+     "israel_iran_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "bro what happens if oil prices go bonkers cuz of some middle east drama",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang04",
+   "group": "slang",
+   "ms": 2768.3,
+   "usd": 0.0071892,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "fed_75_2022",
+     "jackson_hole_2022",
+     "boc_100_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "like what if fed keeps jacking up rates til everyone broke af",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang05",
+   "group": "slang",
+   "ms": 2740.9,
+   "usd": 0.0074312,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_35_2025",
+     "tariffs_order_2025",
+     "liberation_day_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "dude what if they slap massive duties on canadian stuff again",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo01",
+   "group": "typos",
+   "ms": 2176.1,
+   "usd": 0.0068852,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_talks_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "what if tarrifs on canad come back and hit my portolio hard",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo02",
+   "group": "typos",
+   "ms": 3479.8,
+   "usd": 0.0082532,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "iran_2026",
+     "ceasefire_end_2026",
+     "saudi_pipeline_2026",
+     "ukraine_2022",
+     "israel_iran_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "wht if theres anohter oil crissis like teh 70s becuz of middle esat war",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo03",
+   "group": "typos",
+   "ms": 2168.2,
+   "usd": 0.0072412,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "hbm_2024",
+     "chip_selloff_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "waht if america bans all the semmiconductor exports to chinaa",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo04",
+   "group": "typos",
+   "ms": 2150.3,
+   "usd": 0.0066632,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "fed_75_2022",
+     "jackson_hole_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "what if intrrest rates keep going upp and bond pries fall alot",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo05",
+   "group": "typos",
+   "ms": 2495.5,
+   "usd": 0.0067632,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "cusma_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "wht happens if washignton puts 25% tarrifs on evrything from canda",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_ramble01",
+   "group": "rambling",
+   "ms": 2174.4,
+   "usd": 0.0070712,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "tariffs_order_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "So I've been thinking a lot about this lately and my friend at work was saying how he's really worried about what might happen if the government decides to you know impose all these trade restrictions again like they did before and I'm wondering if my portfolio which has a lot of Canadian exposure would be okay or should I be concerned about another round of those trade barriers?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_ramble02",
+   "group": "rambling",
+   "ms": 2881.3,
+   "usd": 0.0080932,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026",
+     "iran_missiles_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "I was reading the news this morning over coffee and saw something about tensions in the gulf region and it got me thinking because I remember back when oil prices spiked really high and everything got expensive and I'm curious what would happen to my investments if there was another situation where oil supply gets disrupted because of conflict in that area where all the tankers go through",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_ramble03",
+   "group": "rambling",
+   "ms": 3134.0,
+   "usd": 0.0079612,
+   "calls": 1,
+   "method": "fallback",
+   "fallback_reason": "The navigator's answer was not used (the plan used advice words or markup); the keyword rules answered.",
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil",
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "chip_selloff_2024",
+     "ai_chips_2023"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "My brother who works in tech keeps telling me about all this geopolitical stuff with semiconductors and export controls and honestly it's a bit over my head but I guess what I'm trying to understand is like if there's another escalation in the tech war between the big powers and they start restricting chip sales even more than they already have what does that mean for my tech stocks",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_headline01",
+   "group": "headline",
+   "ms": 2231.0,
+   "usd": 0.0069152,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "liberation_day_2025",
+     "canada_50_2026",
+     "canada_338_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Liberation Day tariffs 50% reciprocal",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline02",
+   "group": "headline",
+   "ms": 2488.8,
+   "usd": 0.0069451999999999995,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Strait of Hormuz closed indefinitely after attack",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline03",
+   "group": "headline",
+   "ms": 2629.5,
+   "usd": 0.0075932,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "ai_chips_2023",
+     "chips_2022",
+     "h20_2025",
+     "hbm_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "US bans all AI chip exports to China effective immediately",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline04",
+   "group": "headline",
+   "ms": 2219.5,
+   "usd": 0.0066812,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "fed_75_2022",
+     "cpi_sep_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Fed emergency rate hike 200 basis points",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline05",
+   "group": "headline",
+   "ms": 2621.6,
+   "usd": 0.007585199999999999,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_35_2025",
+     "tariffs_canada_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Trump announces 60% tariffs on Canadian imports",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline06",
+   "group": "headline",
+   "ms": 5677.2,
+   "usd": 0.0073152,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "saudi_pipeline_2026",
+     "opec_cut_2023",
+     "ukraine_2022",
+     "ceasefire_end_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Saudi pipeline destroyed oil hits $200",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_multi01",
+   "group": "two_moves",
+   "ms": 2491.4,
+   "usd": 0.0073452,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "change",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "liberation_day_2025",
+     "canada_35_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": {
+     "op": "set",
+     "ticker": "NVDA",
+     "weight": 0.3,
+     "from_ticker": null
+    }
+   },
+   "text": "What if I put 30% in NVIDIA and also add 15% to QQQ and tariffs hit?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "move",
+    "change": [
+     "set",
+     "NVDA",
+     0.3,
+     null
+    ],
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_multi02",
+   "group": "two_moves",
+   "ms": 3471.9,
+   "usd": 0.0080612,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "change",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "chips_2022",
+     "ai_chips_2023",
+     "h20_2025",
+     "deepseek_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": {
+     "op": "set",
+     "ticker": "BTC-USD",
+     "weight": 0.2,
+     "from_ticker": null
+    }
+   },
+   "text": "Should I go 20% Bitcoin and 25% SHOP if the chip war heats up?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "move",
+    "change": [
+     "set",
+     "BTC-USD",
+     0.2,
+     null
+    ],
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_multi03",
+   "group": "two_moves",
+   "ms": 2541.3,
+   "usd": 0.0070572,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "change",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": {
+     "op": "set",
+     "ticker": "MSFT",
+     "weight": 0.15,
+     "from_ticker": null
+    }
+   },
+   "text": "Thinking about selling all my CNQ and buying 15% MSFT before oil crisis",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "move",
+    "change": [
+     "set",
+     "MSFT",
+     0.15,
+     null
+    ],
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_advice01",
+   "group": "advice_bait",
+   "ms": 2943.3,
+   "usd": 0.007461199999999999,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "tariff_threat_2024",
+     "canada_50_2026",
+     "canada_35_2025",
+     "liberation_day_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Tell me what I should buy right now to protect against tariffs",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice02",
+   "group": "advice_bait",
+   "ms": 2910.5,
+   "usd": 0.006801199999999999,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "iran_2026",
+     "ceasefire_end_2026",
+     "israel_iran_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Which stocks are safe if there's another oil shock? Recommend some.",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice03",
+   "group": "advice_bait",
+   "ms": 2825.9,
+   "usd": 0.0075232,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "ai_chips_2023",
+     "chips_2022",
+     "chip_selloff_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What's the best chip stock to buy before the next export ban?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice04",
+   "group": "advice_bait",
+   "ms": 2563.0,
+   "usd": 0.0067452,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "fed_75_2022",
+     "cpi_sep_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Should I sell everything and go to cash with rates going up?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice05",
+   "group": "advice_bait",
+   "ms": 1328.0,
+   "usd": 0.0052912,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "diversification",
+    "families": [],
+    "event_ids": [],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Tell me exactly what percentage to hold in US stocks vs Canadian",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_nopre01",
+   "group": "no_precedent",
+   "ms": 1151.9,
+   "usd": 0.0050631999999999995,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [],
+    "event_ids": [],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if Mars colony supply chain fails and rare earth metals become impossible to get?",
+   "pilot": "robert",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_nopre02",
+   "group": "no_precedent",
+   "ms": 1396.2,
+   "usd": 0.0051272,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [],
+    "event_ids": [],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What happens if quantum computers break all encryption and financial markets freeze?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_nopre03",
+   "group": "no_precedent",
+   "ms": 1279.1,
+   "usd": 0.0052812,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [],
+    "event_ids": [],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if asteroid mining floods the market with platinum and gold becomes worthless?",
+   "pilot": "amira",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_nopre04",
+   "group": "no_precedent",
+   "ms": 1552.5,
+   "usd": 0.0051772,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [],
+    "event_ids": [],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if Canada breaks up into separate countries and the loonie disappears?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_nopre05",
+   "group": "no_precedent",
+   "ms": 1243.7,
+   "usd": 0.0050532,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [],
+    "event_ids": [],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if AI becomes sentient and refuses to trade stocks anymore?",
+   "pilot": "robert",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para01",
+   "group": "paraphrase",
+   "ms": 3074.0,
+   "usd": 0.0079752,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_338_2026",
+     "canada_50_2026",
+     "canada_35_2025",
+     "tariffs_canada_2025",
+     "tariff_threat_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if Washington slaps import duties on everything crossing from Canada?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para02",
+   "group": "paraphrase",
+   "ms": 2671.1,
+   "usd": 0.0069932,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if the strait gets shut down and tankers can't deliver crude?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para03",
+   "group": "paraphrase",
+   "ms": 2662.1,
+   "usd": 0.0073072,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "chips_2022",
+     "chip_selloff_2024",
+     "ai_chips_2023",
+     "hbm_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if they ban semiconductor manufacturing equipment sales to Beijing?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para04",
+   "group": "paraphrase",
+   "ms": 2809.8,
+   "usd": 0.0067832,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "jackson_hole_2022",
+     "svb_2023"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if the central bank keeps the cost of borrowing elevated for years?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para05",
+   "group": "paraphrase",
+   "ms": 2633.7,
+   "usd": 0.0066492,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_35_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if Trump imposes levies matching what other countries charge us?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para06",
+   "group": "paraphrase",
+   "ms": 2650.6,
+   "usd": 0.0068232,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if fighting near the oil fields sends crude prices soaring?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para07",
+   "group": "paraphrase",
+   "ms": 2462.9,
+   "usd": 0.0070812,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "ai_chips_2023",
+     "hbm_2024",
+     "chip_selloff_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if export curbs on advanced processors get even stricter?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para08",
+   "group": "paraphrase",
+   "ms": 3114.5,
+   "usd": 0.0067152,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "fed_75_2022",
+     "cpi_sep_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if policy rate hikes continue until inflation is completely crushed?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para09",
+   "group": "paraphrase",
+   "ms": 2828.8,
+   "usd": 0.0069892,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "tariff_threat_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if they put border taxes on Canadian goods to protect American jobs?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para10",
+   "group": "paraphrase",
+   "ms": 2574.3,
+   "usd": 0.0073371999999999995,
+   "calls": 1,
+   "method": "bedrock",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "chips_2022",
+     "hbm_2024",
+     "chip_selloff_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if lithography tool makers can't ship their equipment to China anymore?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": true,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  }
+ ],
+ "keyword": [
+  {
+   "id": "hv2_fr01",
+   "group": "french",
+   "ms": 1.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Et si les États-Unis imposent encore des droits de douane sur tout ce qui vient du Canada?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_fr02",
+   "group": "french",
+   "ms": 2.1,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Que se passerait-il si le détroit d'Ormuz était bloqué pendant plusieurs semaines?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_fr03",
+   "group": "french",
+   "ms": 0.7,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Et si Washington interdit complètement les exportations de puces vers la Chine?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_fr04",
+   "group": "french",
+   "ms": 0.8,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Si la Réserve fédérale continue d'augmenter les taux d'intérêt agressivement?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_fr05",
+   "group": "french",
+   "ms": 0.5,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Qu'arrive-t-il si Trump met 50% de tarifs sur toutes nos exportations?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_fr06",
+   "group": "french",
+   "ms": 1.3,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Et si une guerre éclate au Moyen-Orient et que le pétrole monte en flèche?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_slang01",
+   "group": "slang",
+   "ms": 1.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "deepseek_2025",
+     "hbm_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "yo what if the chip thing between US and China gets crazy again lol",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang02",
+   "group": "slang",
+   "ms": 1.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_35_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "ngl kinda worried bout tariffs coming back n messing everything up",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang03",
+   "group": "slang",
+   "ms": 1.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "bro what happens if oil prices go bonkers cuz of some middle east drama",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang04",
+   "group": "slang",
+   "ms": 0.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "jackson_hole_2022",
+     "fed_75_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "like what if fed keeps jacking up rates til everyone broke af",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_slang05",
+   "group": "slang",
+   "ms": 0.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_35_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "dude what if they slap massive duties on canadian stuff again",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo01",
+   "group": "typos",
+   "ms": 1.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "what if tarrifs on canad come back and hit my portolio hard",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_typo02",
+   "group": "typos",
+   "ms": 0.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "wht if theres anohter oil crissis like teh 70s becuz of middle esat war",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo03",
+   "group": "typos",
+   "ms": 0.5,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "waht if america bans all the semmiconductor exports to chinaa",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_typo04",
+   "group": "typos",
+   "ms": 1.3,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "svb_2023",
+     "jackson_hole_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "what if intrrest rates keep going upp and bond pries fall alot",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_typo05",
+   "group": "typos",
+   "ms": 0.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "wht happens if washignton puts 25% tarrifs on evrything from canda",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_ramble01",
+   "group": "rambling",
+   "ms": 4.5,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "So I've been thinking a lot about this lately and my friend at work was saying how he's really worried about what might happen if the government decides to you know impose all these trade restrictions again like they did before and I'm wondering if my portfolio which has a lot of Canadian exposure would be okay or should I be concerned about another round of those trade barriers?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_ramble02",
+   "group": "rambling",
+   "ms": 5.0,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "I was reading the news this morning over coffee and saw something about tensions in the gulf region and it got me thinking because I remember back when oil prices spiked really high and everything got expensive and I'm curious what would happen to my investments if there was another situation where oil supply gets disrupted because of conflict in that area where all the tankers go through",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_ramble03",
+   "group": "rambling",
+   "ms": 5.3,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil",
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "chip_selloff_2024",
+     "ai_chips_2023"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "My brother who works in tech keeps telling me about all this geopolitical stuff with semiconductors and export controls and honestly it's a bit over my head but I guess what I'm trying to understand is like if there's another escalation in the tech war between the big powers and they start restricting chip sales even more than they already have what does that mean for my tech stocks",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_headline01",
+   "group": "headline",
+   "ms": 1.5,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "liberation_day_2025",
+     "canada_50_2026",
+     "canada_338_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Liberation Day tariffs 50% reciprocal",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline02",
+   "group": "headline",
+   "ms": 0.7,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Strait of Hormuz closed indefinitely after attack",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline03",
+   "group": "headline",
+   "ms": 1.6,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "hbm_2024",
+     "chip_selloff_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "US bans all AI chip exports to China effective immediately",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline04",
+   "group": "headline",
+   "ms": 1.5,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "fed_75_2022",
+     "svb_2023"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Fed emergency rate hike 200 basis points",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline05",
+   "group": "headline",
+   "ms": 1.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_35_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Trump announces 60% tariffs on Canadian imports",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_headline06",
+   "group": "headline",
+   "ms": 1.6,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "saudi_pipeline_2026",
+     "ceasefire_end_2026",
+     "iran_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Saudi pipeline destroyed oil hits $200",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_multi01",
+   "group": "two_moves",
+   "ms": 3.6,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "change",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_50_2026",
+     "canada_338_2026",
+     "canada_35_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": {
+     "op": "set",
+     "ticker": "NVDA",
+     "weight": 0.3,
+     "from_ticker": null
+    }
+   },
+   "text": "What if I put 30% in NVIDIA and also add 15% to QQQ and tariffs hit?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "move",
+    "change": [
+     "set",
+     "NVDA",
+     0.3,
+     null
+    ],
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_multi02",
+   "group": "two_moves",
+   "ms": 1.6,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "chip_selloff_2024",
+     "h20_2025",
+     "deepseek_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Should I go 20% Bitcoin and 25% SHOP if the chip war heats up?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "move",
+    "change": [
+     "set",
+     "BTC-USD",
+     0.2,
+     null
+    ],
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": false,
+    "clarify_ok": true,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_multi03",
+   "group": "two_moves",
+   "ms": 1.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Thinking about selling all my CNQ and buying 15% MSFT before oil crisis",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "move",
+    "change": [
+     "set",
+     "MSFT",
+     0.15,
+     null
+    ],
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": false,
+    "clarify_ok": true,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_advice01",
+   "group": "advice_bait",
+   "ms": 2.7,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "tariff_threat_2024",
+     "canada_50_2026",
+     "canada_338_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Tell me what I should buy right now to protect against tariffs",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice02",
+   "group": "advice_bait",
+   "ms": 1.6,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "iran_2026",
+     "ceasefire_end_2026",
+     "ukraine_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Which stocks are safe if there's another oil shock? Recommend some.",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice03",
+   "group": "advice_bait",
+   "ms": 3.0,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "h20_2025",
+     "deepseek_2025",
+     "hbm_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What's the best chip stock to buy before the next export ban?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice04",
+   "group": "advice_bait",
+   "ms": 1.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "fed_75_2022",
+     "svb_2023"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "Should I sell everything and go to cash with rates going up?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_advice05",
+   "group": "advice_bait",
+   "ms": 1.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "Tell me exactly what percentage to hold in US stocks vs Canadian",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_nopre01",
+   "group": "no_precedent",
+   "ms": 2.4,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if Mars colony supply chain fails and rare earth metals become impossible to get?",
+   "pilot": "robert",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_nopre02",
+   "group": "no_precedent",
+   "ms": 1.2,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What happens if quantum computers break all encryption and financial markets freeze?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_nopre03",
+   "group": "no_precedent",
+   "ms": 1.2,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if asteroid mining floods the market with platinum and gold becomes worthless?",
+   "pilot": "amira",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_nopre04",
+   "group": "no_precedent",
+   "ms": 1.1,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if Canada breaks up into separate countries and the loonie disappears?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_nopre05",
+   "group": "no_precedent",
+   "ms": 1.2,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if AI becomes sentient and refuses to trade stocks anymore?",
+   "pilot": "robert",
+   "expected": {
+    "families": [],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": false
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_para01",
+   "group": "paraphrase",
+   "ms": 1.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "tariffs"
+    ],
+    "event_ids": [
+     "canada_338_2026",
+     "canada_talks_2025",
+     "canada_35_2025"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if Washington slaps import duties on everything crossing from Canada?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para02",
+   "group": "paraphrase",
+   "ms": 1.9,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "saudi_pipeline_2026"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if the strait gets shut down and tankers can't deliver crude?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para03",
+   "group": "paraphrase",
+   "ms": 1.3,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "chips"
+    ],
+    "event_ids": [
+     "chips_2022",
+     "chip_selloff_2024",
+     "gallium_2023"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if they ban semiconductor manufacturing equipment sales to Beijing?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para04",
+   "group": "paraphrase",
+   "ms": 1.2,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if the central bank keeps the cost of borrowing elevated for years?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_para05",
+   "group": "paraphrase",
+   "ms": 1.5,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if Trump imposes levies matching what other countries charge us?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_para06",
+   "group": "paraphrase",
+   "ms": 1.5,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "war_oil"
+    ],
+    "event_ids": [
+     "ceasefire_end_2026",
+     "iran_2026",
+     "iran_missiles_2024"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if fighting near the oil fields sends crude prices soaring?",
+   "pilot": "mateo",
+   "expected": {
+    "families": [
+     "war_oil"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para07",
+   "group": "paraphrase",
+   "ms": 1.2,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if export curbs on advanced processors get even stricter?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_para08",
+   "group": "paraphrase",
+   "ms": 3.1,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "shock",
+    "families": [
+     "rates"
+    ],
+    "event_ids": [
+     "boc_100_2022",
+     "fed_75_2022",
+     "cpi_sep_2022"
+    ],
+    "clarify": null,
+    "clarify_reason": null,
+    "change": null
+   },
+   "text": "What if policy rate hikes continue until inflation is completely crushed?",
+   "pilot": "robert",
+   "expected": {
+    "families": [
+     "rates"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": true,
+   "whole": {
+    "families_ok": true,
+    "events_ok": true,
+    "change_ok": true,
+    "clarify_ok": true,
+    "type_ok": true
+   },
+   "whole_ok": true
+  },
+  {
+   "id": "hv2_para09",
+   "group": "paraphrase",
+   "ms": 3.2,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if they put border taxes on Canadian goods to protect American jobs?",
+   "pilot": "canadian",
+   "expected": {
+    "families": [
+     "tariffs"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  },
+  {
+   "id": "hv2_para10",
+   "group": "paraphrase",
+   "ms": 1.6,
+   "usd": 0.0,
+   "calls": 0,
+   "method": "fallback",
+   "fallback_reason": null,
+   "error": null,
+   "reading": {
+    "type": "fit",
+    "families": [],
+    "event_ids": [],
+    "clarify": "Which shock or move should I check: a tariff war, war and oil, a chip war, a rate shock, or a change like 'put 10 % in NVIDIA'?",
+    "clarify_reason": "headline_vague",
+    "change": null
+   },
+   "text": "What if lithography tool makers can't ship their equipment to China anymore?",
+   "pilot": "amira",
+   "expected": {
+    "families": [
+     "chips"
+    ],
+    "type": "shock",
+    "change": null,
+    "clarify": false,
+    "precedent": true
+   },
+   "model_answered": false,
+   "families_ok": false,
+   "whole": {
+    "families_ok": false,
+    "events_ok": false,
+    "change_ok": true,
+    "clarify_ok": false,
+    "type_ok": false
+   },
+   "whole_ok": false
+  }
+ ],
+ "summary": {
+  "overall": {
+   "navigator": {
+    "families": {
+     "k": 44,
+     "n": 48,
+     "rate": "44 / 48",
+     "wilson_low": 0.8044643483893369,
+     "wilson_high": 0.9671167756500444,
+     "level": "Measured"
+    },
+    "whole": {
+     "k": 41,
+     "n": 48,
+     "rate": "41 / 48",
+     "wilson_low": 0.7283255295714138,
+     "wilson_high": 0.9275184258620602,
+     "level": "Measured"
+    },
+    "model_answered": {
+     "k": 45,
+     "n": 48,
+     "rate": "45 / 48",
+     "wilson_low": 0.8316430233725778,
+     "wilson_high": 0.9785171568687727,
+     "level": "Measured"
+    }
+   },
+   "keyword": {
+    "families": {
+     "k": 31,
+     "n": 48,
+     "rate": "31 / 48",
+     "wilson_low": 0.5043879645406409,
+     "wilson_high": 0.7656654288731427,
+     "level": "Measured"
+    },
+    "whole": {
+     "k": 23,
+     "n": 48,
+     "rate": "23 / 48",
+     "wilson_low": 0.34471090015787464,
+     "wilson_high": 0.6167100436401562,
+     "level": "Measured"
+    }
+   }
+  },
+  "by_category": {
+   "advice_bait": {
+    "navigator": {
+     "families": {
+      "k": 4,
+      "n": 5,
+      "rate": "4 / 5",
+      "wilson_low": 0.3755282641185388,
+      "wilson_high": 0.9637768390302125,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 4,
+      "n": 5,
+      "rate": "4 / 5",
+      "wilson_low": 0.3755282641185388,
+      "wilson_high": 0.9637768390302125,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 4,
+      "n": 5,
+      "rate": "4 / 5",
+      "wilson_low": 0.3755282641185388,
+      "wilson_high": 0.9637768390302125,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 4,
+      "n": 5,
+      "rate": "4 / 5",
+      "wilson_low": 0.3755282641185388,
+      "wilson_high": 0.9637768390302125,
+      "level": "Indicative"
+     }
+    }
+   },
+   "french": {
+    "navigator": {
+     "families": {
+      "k": 4,
+      "n": 6,
+      "rate": "4 / 6",
+      "wilson_low": 0.29998832134152864,
+      "wilson_high": 0.9032306674407831,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 4,
+      "n": 6,
+      "rate": "4 / 6",
+      "wilson_low": 0.29998832134152864,
+      "wilson_high": 0.9032306674407831,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 0,
+      "n": 6,
+      "rate": "0 / 6",
+      "wilson_low": 0.0,
+      "wilson_high": 0.3903430336530645,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 0,
+      "n": 6,
+      "rate": "0 / 6",
+      "wilson_low": 0.0,
+      "wilson_high": 0.3903430336530645,
+      "level": "Indicative"
+     }
+    }
+   },
+   "headline": {
+    "navigator": {
+     "families": {
+      "k": 6,
+      "n": 6,
+      "rate": "6 / 6",
+      "wilson_low": 0.6096569663469354,
+      "wilson_high": 0.9999999999999999,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 6,
+      "n": 6,
+      "rate": "6 / 6",
+      "wilson_low": 0.6096569663469354,
+      "wilson_high": 0.9999999999999999,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 6,
+      "n": 6,
+      "rate": "6 / 6",
+      "wilson_low": 0.6096569663469354,
+      "wilson_high": 0.9999999999999999,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 6,
+      "n": 6,
+      "rate": "6 / 6",
+      "wilson_low": 0.6096569663469354,
+      "wilson_high": 0.9999999999999999,
+      "level": "Indicative"
+     }
+    }
+   },
+   "no_precedent": {
+    "navigator": {
+     "families": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 0,
+      "n": 5,
+      "rate": "0 / 5",
+      "wilson_low": 0.0,
+      "wilson_high": 0.43449149475208104,
+      "level": "Indicative"
+     }
+    }
+   },
+   "paraphrase": {
+    "navigator": {
+     "families": {
+      "k": 10,
+      "n": 10,
+      "rate": "10 / 10",
+      "wilson_low": 0.7224598312333834,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 10,
+      "n": 10,
+      "rate": "10 / 10",
+      "wilson_low": 0.7224598312333834,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 5,
+      "n": 10,
+      "rate": "5 / 10",
+      "wilson_low": 0.23658959361548731,
+      "wilson_high": 0.7634104063845126,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 5,
+      "n": 10,
+      "rate": "5 / 10",
+      "wilson_low": 0.23658959361548731,
+      "wilson_high": 0.7634104063845126,
+      "level": "Indicative"
+     }
+    }
+   },
+   "rambling": {
+    "navigator": {
+     "families": {
+      "k": 2,
+      "n": 3,
+      "rate": "2 / 3",
+      "wilson_low": 0.2076549551264879,
+      "wilson_high": 0.9385096847238394,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 2,
+      "n": 3,
+      "rate": "2 / 3",
+      "wilson_low": 0.2076549551264879,
+      "wilson_high": 0.9385096847238394,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 1,
+      "n": 3,
+      "rate": "1 / 3",
+      "wilson_low": 0.0614903152761605,
+      "wilson_high": 0.7923450448735121,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 1,
+      "n": 3,
+      "rate": "1 / 3",
+      "wilson_low": 0.0614903152761605,
+      "wilson_high": 0.7923450448735121,
+      "level": "Indicative"
+     }
+    }
+   },
+   "slang": {
+    "navigator": {
+     "families": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     }
+    }
+   },
+   "two_moves": {
+    "navigator": {
+     "families": {
+      "k": 3,
+      "n": 3,
+      "rate": "3 / 3",
+      "wilson_low": 0.43849391955098227,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 0,
+      "n": 3,
+      "rate": "0 / 3",
+      "wilson_low": 0.0,
+      "wilson_high": 0.5615060804490177,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 3,
+      "n": 3,
+      "rate": "3 / 3",
+      "wilson_low": 0.43849391955098227,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 0,
+      "n": 3,
+      "rate": "0 / 3",
+      "wilson_low": 0.0,
+      "wilson_high": 0.5615060804490177,
+      "level": "Indicative"
+     }
+    }
+   },
+   "typos": {
+    "navigator": {
+     "families": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 5,
+      "n": 5,
+      "rate": "5 / 5",
+      "wilson_low": 0.5655085052479191,
+      "wilson_high": 1.0,
+      "level": "Indicative"
+     }
+    },
+    "keyword": {
+     "families": {
+      "k": 2,
+      "n": 5,
+      "rate": "2 / 5",
+      "wilson_low": 0.1176182311592533,
+      "wilson_high": 0.769280067791163,
+      "level": "Indicative"
+     },
+     "whole": {
+      "k": 2,
+      "n": 5,
+      "rate": "2 / 5",
+      "wilson_low": 0.1176182311592533,
+      "wilson_high": 0.769280067791163,
+      "level": "Indicative"
+     }
+    }
+   }
+  }
+ }
+}

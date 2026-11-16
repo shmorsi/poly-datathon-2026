@@ -1,0 +1,61 @@
+# Least privilege, shown: the IAM policy simulator on the live app's instance role, epicentre-runtime
+# Captured 2026-11-15 16:40 UTC: aws iam simulate-principal-policy --policy-source-arn <role ARN>
+# --action-names A --resource-arns R [--context-entries K=V], one call per row. The simulator reads the role's own
+# policies (identity policies, not organisation SCPs): 'allowed' is necessary; the live calls are the proof.
+# Allowed rows come from the role's own statements (each configured model, profile and guardrail resource; the vault's
+# records/*); the rest are actions and resources the app must never reach. Masked: <ACCT>, <GUARDRAIL_ID>, the bucket.
+
+expected      decision      action                                         resource  [context]
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:us-east-1:<ACCT>:inference-profile/us.anthropic.claude-sonnet-5-5
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-5-5
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:us-east-2::foundation-model/anthropic.claude-sonnet-5-5
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-sonnet-5-5
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:us-east-1:<ACCT>:inference-profile/global.anthropic.claude-sonnet-5-5
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:us-east-1:<ACCT>:inference-profile/global.anthropic.claude-sonnet-5
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-5
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-5-5  [aws:RequestedRegion=unspecified]
+allowed       allowed       bedrock:InvokeModel                            arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-5  [aws:RequestedRegion=unspecified]
+implicitDeny  implicitDeny  bedrock:InvokeModel                            arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-5-5
+allowed       allowed       bedrock:ApplyGuardrail                         arn:aws:bedrock:us-east-1:<ACCT>:guardrail/<GUARDRAIL_ID>
+allowed       allowed       bedrock:ApplyGuardrail                         arn:aws:bedrock:us-east-1:<ACCT>:guardrail-profile/us.guardrail.v1:0
+allowed       allowed       bedrock:ApplyGuardrail                         arn:aws:bedrock:us-east-2:<ACCT>:guardrail-profile/us.guardrail.v1:0
+allowed       allowed       bedrock:ApplyGuardrail                         arn:aws:bedrock:us-west-2:<ACCT>:guardrail-profile/us.guardrail.v1:0
+implicitDeny  implicitDeny  bedrock:InvokeModel                            arn:aws:bedrock:us-east-1::foundation-model/amazon.nova-pro-v1:0
+implicitDeny  implicitDeny  bedrock:InvokeModel                            arn:aws:bedrock:us-east-1:<ACCT>:inference-profile/us.anthropic.claude-opus-5-5
+implicitDeny  implicitDeny  bedrock:ApplyGuardrail                         arn:aws:bedrock:us-east-1:<ACCT>:guardrail/not-our-guardrail
+implicitDeny  implicitDeny  bedrock:ListFoundationModels                   *
+implicitDeny  implicitDeny  bedrock:CreateGuardrail                        *
+implicitDeny  implicitDeny  bedrock:UpdateGuardrail                        arn:aws:bedrock:us-east-1:<ACCT>:guardrail/<GUARDRAIL_ID>
+implicitDeny  implicitDeny  bedrock:CreateGuardrailVersion                 arn:aws:bedrock:us-east-1:<ACCT>:guardrail/<GUARDRAIL_ID>
+implicitDeny  implicitDeny  bedrock:DeleteGuardrail                        arn:aws:bedrock:us-east-1:<ACCT>:guardrail/<GUARDRAIL_ID>
+implicitDeny  implicitDeny  bedrock:PutModelInvocationLoggingConfiguration *
+allowed       allowed       s3:PutObject                                   arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+allowed       allowed       s3:PutObject                                   arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json  [s3:object-lock-mode=GOVERNANCE]
+allowed       allowed       s3:PutObjectRetention                          arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json  [s3:object-lock-mode=GOVERNANCE]
+allowed       allowed       s3:GetObject                                   arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+allowed       allowed       s3:GetObjectVersion                            arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+implicitDeny  implicitDeny  s3:PutObject                                   arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json  [s3:object-lock-mode=COMPLIANCE]
+implicitDeny  implicitDeny  s3:PutObjectRetention                          arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json  [s3:object-lock-mode=COMPLIANCE]
+implicitDeny  implicitDeny  s3:PutObject                                   arn:aws:s3:::epicentre-records-<ID>/other/x.json
+implicitDeny  implicitDeny  s3:GetObject                                   arn:aws:s3:::epicentre-records-<ID>/other/x.json
+implicitDeny  implicitDeny  s3:DeleteObject                                arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+implicitDeny  implicitDeny  s3:DeleteObjectVersion                         arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+implicitDeny  implicitDeny  s3:BypassGovernanceRetention                   arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+implicitDeny  implicitDeny  s3:PutObjectLegalHold                          arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+implicitDeny  implicitDeny  s3:PutObjectAcl                                arn:aws:s3:::epicentre-records-<ID>/records/r1/seal.json
+implicitDeny  implicitDeny  s3:ListBucket                                  arn:aws:s3:::epicentre-records-<ID>
+implicitDeny  implicitDeny  s3:ListBucketVersions                          arn:aws:s3:::epicentre-records-<ID>
+implicitDeny  implicitDeny  s3:PutBucketPolicy                             arn:aws:s3:::epicentre-records-<ID>
+implicitDeny  implicitDeny  s3:DeleteBucket                                arn:aws:s3:::epicentre-records-<ID>
+implicitDeny  implicitDeny  s3:PutBucketObjectLockConfiguration            arn:aws:s3:::epicentre-records-<ID>
+implicitDeny  implicitDeny  s3:PutObject                                   arn:aws:s3:::another-bucket/records/x.json
+implicitDeny  implicitDeny  s3:ListAllMyBuckets                            *
+implicitDeny  implicitDeny  s3:CreateBucket                                *
+implicitDeny  implicitDeny  iam:CreateRole                                 *
+implicitDeny  implicitDeny  iam:PassRole                                   *
+implicitDeny  implicitDeny  ec2:RunInstances                               *
+implicitDeny  implicitDeny  cloudwatch:PutMetricData                       *
+implicitDeny  implicitDeny  logs:CreateLogGroup                            *
+implicitDeny  implicitDeny  sts:AssumeRole                                 *
+
+51 rows; every decision as expected: yes

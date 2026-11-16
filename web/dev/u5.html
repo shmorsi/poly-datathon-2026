@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>EPICENTRE dev harness: lane U5, #money and #checklist</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/money.css">
+<script src="../lib.js" defer></script>
+<style>
+  .u5-bar { position: sticky; top: 0; z-index: 30; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 16px;
+    background: var(--pop); border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--ink-2); }
+  .u5-bar button { min-height: 32px; padding: 0 12px; border-radius: 6px; border: 1px solid var(--edge); background: none; cursor: pointer; }
+  .u5-bar button[aria-pressed="true"] { background: var(--starlight); color: var(--on-ink); }
+  body.u5-clean .u5-bar { display: none; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 7v6.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.35" fill="currentColor"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.25" fill="currentColor"/></symbol>
+    <symbol id="i-pending" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3" pathLength="25"/></symbol>
+    <symbol id="m-fact" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="currentColor"/></symbol>
+    <symbol id="m-assumption" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 1A5 5 0 0 0 6 11Z" fill="currentColor"/></symbol>
+    <symbol id="m-fiction" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.5 5v14M15.5 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13M6.5 12.5 12 18l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="2.4"/><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 6.5l4 4" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M6 5.5v13l9-6.5z" fill="currentColor"/><path d="M18 5.5v13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+<div class="u5-bar" id="u5-bar"><strong>U5 #money and #checklist</strong><span id="u5-runs"></span><span id="u5-note"></span></div>
+<main>
+  <section id="money" aria-label="Where the money and the risk sit"></section>
+  <section id="checklist" aria-label="The checks"></section>
+</main>
+<script type="module">
+  /* the real store and data layer (web/state.js, web/data.js), so this page reads runs exactly as the Replay page does.
+     ?investor=robert|mateo|amira|canadian  ?only=money|checklist  ?p=0..1 (freeze the twist)  ?all=1  ?open=<rule>
+     ?weight=<0..40> (the dial moved)  ?motion=0  ?clean=1 (no harness bar)  ?mode=live (the real server.py: run + recheck) */
+  import { store } from "../state.js";
+  import { loadRun, land } from "../data.js";
+  window.__errors = [];
+  const keep = (x) => window.__errors.push(String(x).slice(0, 300));
+  const err = console.error.bind(console);
+  console.error = (...a) => { keep(a.join(" ")); err(...a); };
+  addEventListener("error", (e) => keep(e.message));
+  addEventListener("unhandledrejection", (e) => keep(e.reason));
+  const q = new URLSearchParams(location.search);
+  if (q.get("motion") === "0") window.EPI_MOTION = false;
+  if (q.get("clean") === "1") document.body.classList.add("u5-clean");
+  const only = q.get("only");
+  if (only === "money") document.getElementById("checklist").remove();
+  if (only === "checklist") document.getElementById("money").remove();
+  await new Promise((r) => (window.PF ? r() : addEventListener("DOMContentLoaded", r, { once: true })));
+  store.set({ mode: "static" });
+  const IDS = ["robert", "mateo", "amira", "canadian"];
+  const pick = (id) => document.querySelectorAll("#u5-runs button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.id === id)));
+  async function setRun(id) {
+    const r = await loadRun(id);
+    land(r, { investor: id, question: r.question || "" });
+    pick(id);
+    document.getElementById("u5-note").textContent = `${id}: ${r.verdict}, ladder ${r.ladder ? "yes" : "no"}, not_2022 ${r.not_2022 ? "yes" : "no"}`;
+  }
+  for (const id of IDS) {
+    const b = document.createElement("button"); b.type = "button"; b.dataset.id = id; b.textContent = id;
+    b.addEventListener("click", () => setRun(id)); document.getElementById("u5-runs").append(b);
+  }
+  const mods = await Promise.all([import("../sections/money.js"), import("../sections/checklist.js")]);
+  const first = IDS.includes(q.get("investor")) ? q.get("investor") : "robert";
+  if (q.get("mode") === "live") {
+    /* ?mode=live (with server.py, EPICENTRE_NO_BEDROCK=1): the persona runs through the real POST /api/run, so the server keeps
+       the run and POST /api/recheck can judge it again with the limits typed in #checklist */
+    store.set({ mode: "live" });
+    const { runLive } = await import("../data.js");
+    const d = await (await fetch("/api/pilots", { cache: "no-store" })).json(), p = d.pilots[first];
+    await runLive({ portfolio: p.portfolio, amount: p.amount, pilot: first, question: p.question, profile: p.profile, limits: null, redteam: false }, () => {});
+    store.set({ investor: first });
+    document.getElementById("u5-note").textContent = `${first}: live run ${store.get().result && store.get().result.run_id}`;
+  } else await setRun(first);
+  const money = document.getElementById("money"), checklist = document.getElementById("checklist");
+  if (money) mods[0].mount(money, store);
+  if (checklist) mods[1].mount(checklist, store);
+  await new Promise((r) => setTimeout(r, 0));
+  if (q.has("weight")) store.set({ weightIndex: Number(q.get("weight")) });
+  if (q.has("p") && money && money.__u5) money.__u5.freeze(Number(q.get("p")));
+  if (q.get("all") === "1") checklist?.querySelector(".ck-all")?.click();
+  if (q.get("open")) checklist?.querySelector(`.ck-more[data-rule="${q.get("open")}"]`)?.click();
+  window.__u5 = { store, setRun };
+  document.documentElement.dataset.ready = "1";
+</script>
+</body>
+</html>

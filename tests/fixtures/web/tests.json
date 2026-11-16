@@ -1,0 +1,146 @@
+{
+ "version": 1,
+ "_note": "Shape fixture (seven tests, as the ai lane's data/demo_scripted.json) for tests/web_judge_test.mjs (lane judge), written before the ai lane's recording of data/demo_runs/tests.json; replace it with a copy of that file once it is recorded (keys and responses then come from the real runs).",
+ "tests": [
+  {
+   "id": "advice",
+   "label": "Ask it for advice",
+   "question": "Should I buy NVIDIA now?",
+   "shows": "The advice gate and Guardrails stopped it before any model call.",
+   "kind": "blocked",
+   "pilot": "robert",
+   "response": {
+    "status": "blocked",
+    "message": "EPICENTRE replays a move against the limits you set; it doesn't tell anyone what to do with a specific security, and it doesn't take personal data. Try: \"What if I put 40 % in NVIDIA and the tariff war flares up again?\"\n\nEducational simulation. This is not financial advice.",
+    "pilot": "robert",
+    "question": "Should I buy NVIDIA now?",
+    "as_of": "2026-11-12",
+    "recorded_at": "2026-11-15T16:31:00-05:00",
+    "guardrail": {
+     "input": {
+      "action": "GUARDRAIL_INTERVENED",
+      "blocked": true,
+      "error": null
+     },
+     "output": null
+    },
+    "trace": [
+     {
+      "step": "OBSERVE",
+      "tool": "guardrail.apply_guardrail(INPUT)",
+      "service": "Bedrock Guardrails",
+      "outputs": {
+       "action": "GUARDRAIL_INTERVENED",
+       "blocked": true,
+       "error": null
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "french",
+   "label": "Ask in French",
+   "question": "Et si je mettais 40 % dans NVIDIA et que Washington impose de nouveaux tarifs sur les produits canadiens ?",
+   "shows": "The AI reader read the French and picked the tariff shocks.",
+   "kind": "run",
+   "pilot": "robert",
+   "key": "a1b2c3d4e5f60001"
+  },
+  {
+   "id": "alias",
+   "label": "Use a nickname",
+   "question": "What if I put 30 % in RBC?",
+   "shows": "It read RBC as Royal Bank of Canada.",
+   "kind": "run",
+   "pilot": "robert",
+   "key": "a1b2c3d4e5f60002"
+  },
+  {
+   "id": "no_precedent",
+   "label": "Ask about something that never happened",
+   "question": "What if aliens invade Earth next year?",
+   "shows": "The shock check could not conclude: no close precedent.",
+   "kind": "run",
+   "pilot": "robert",
+   "key": "a1b2c3d4e5f60003"
+  },
+  {
+   "id": "clarify",
+   "label": "Be vague",
+   "question": "What if I put money in that electric car company?",
+   "shows": "It asked one question back instead of guessing.",
+   "kind": "clarify",
+   "pilot": "robert",
+   "response": {
+    "status": "clarify",
+    "message": "Which company do you mean, and how much of the portfolio? For example: \"What if I put 10 % in Tesla?\"\n\nEducational simulation. This is not financial advice.",
+    "pilot": "robert",
+    "question": "What if I put money in that electric car company?",
+    "as_of": "2026-11-12",
+    "recorded_at": "2026-11-15T16:32:00-05:00",
+    "guardrail": {
+     "input": {
+      "action": "NONE",
+      "blocked": false,
+      "error": null
+     },
+     "output": null
+    },
+    "trace": [
+     {
+      "step": "UNDERSTAND",
+      "tool": "agents.scenario.run_scenario",
+      "service": "Amazon Bedrock",
+      "outputs": {
+       "type": "move"
+      }
+     }
+    ]
+   }
+  },
+  {
+   "id": "reframe",
+   "label": "Ask yes or no",
+   "question": "Would adding 20 % SPY improve my diversification?",
+   "shows": "It said it cannot tell whether a move is right, then replayed it.",
+   "kind": "run",
+   "pilot": "canadian",
+   "key": "a1b2c3d4e5f60004"
+  },
+  {
+   "id": "source_short",
+   "label": "Fund it from too small a holding",
+   "question": "What if I move 40 % of my money from my Canadian bonds into NVIDIA?",
+   "shows": "it asked where the rest would come from: 35 % in Canadian bonds could not pay for 40 %",
+   "kind": "clarify",
+   "pilot": "robert",
+   "response": {
+    "status": "clarify",
+    "message": "Your Canadian bonds cannot pay for the whole move. Where should the rest come from?\n\nEducational simulation. This is not financial advice.",
+    "pilot": "robert",
+    "question": "What if I move 40 % of my money from my Canadian bonds into NVIDIA?",
+    "as_of": "2026-11-12",
+    "recorded_at": "2026-11-15T16:52:00-05:00",
+    "guardrail": {
+     "input": {
+      "action": "NONE",
+      "blocked": false,
+      "error": null
+     },
+     "output": null
+    },
+    "trace": [
+     {
+      "step": "UNDERSTAND",
+      "tool": "agents.scenario.run_scenario",
+      "service": "Amazon Bedrock",
+      "outputs": {
+       "type": "move"
+      }
+     }
+    ]
+   }
+  }
+ ]
+}

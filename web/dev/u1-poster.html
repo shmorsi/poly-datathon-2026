@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Dev tool: render the hero's Earth posters (lane U1)</title>
+<style>html, body { margin: 0; background: #000; } canvas { display: block; width: 1600px; height: 1600px; }</style>
+</head>
+<body>
+<canvas id="c" width="1600" height="1600"></canvas>
+<script type="module">
+  /* the poster of web/vendor/nasa/earth-poster-americas.jpg: web/globe.js itself (no stars, no shocks) on a 1600 px square at
+     device scale 1, turned to the hero's home view (20° N, 80° W), the disc 90 % of the frame. Open it in headless Chrome at dsf 1
+     and read window.__poster (a JPEG data URL). Re-render whenever globe.js's shaders, CAMERA_D or HOME change. */
+  import { createGlobe } from "../globe.js";
+  import { HOME } from "../lib/u1.js";
+  /* ?view=lat,lon: another turn (earth-poster-sweep.jpg is ?view=20,115, the first-five-second sweep's first frame) */
+  const q = new URLSearchParams(location.search).get("view"), [la, lo] = q ? q.split(",").map(Number) : [HOME.lat, HOME.lon];
+  const c = document.getElementById("c");
+  const g = createGlobe(c, { events: [], stars: false, preserve: true, view: { lat: la, lon: lo }, tierWidth: 4096,
+    frames: { hero: () => ({ cx: 800, cy: 800, r: 720 }) },
+    onReady() { g.requestRender(); requestAnimationFrame(() => requestAnimationFrame(() => {
+      const k = document.createElement("canvas"); k.width = k.height = 1600; const x = k.getContext("2d");
+      x.fillStyle = "#000"; x.fillRect(0, 0, 1600, 1600); x.drawImage(c, 0, 0);
+      window.__poster = k.toDataURL("image/jpeg", 0.8); })); } });
+</script>
+</body>
+</html>

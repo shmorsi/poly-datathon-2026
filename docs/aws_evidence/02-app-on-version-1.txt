@@ -1,0 +1,9 @@
+# The live app's guardrail version, read in the running container over Session Manager (2026-11-15 18:58 UTC).
+# The values printed are the version number and the lock days only (never the container's other variables).
+
+guardrail version in the running container: 1
+record lock days: 7
+container: epicentre Up 7 minutes (healthy)
+commit: 76b24ac
+
+The guardrail rows of 01-request-ids.txt are calls on this version; 05-dashboard.png shows them under 'version 1'.

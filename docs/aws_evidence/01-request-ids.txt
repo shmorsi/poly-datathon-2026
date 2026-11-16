@@ -1,0 +1,51 @@
+# Request ids of the final live runs through CloudFront (Sun 15 Nov, guardrail version 1), captured 2026-11-15 18:58 UTC.
+# One row per AWS call in each run's trace: the step, the service, the model, the latency, the usage and the AWS request id.
+# Request ids are kept (they are the proof, and they name nothing in the account); each run also shows in 05-dashboard.png.
+
+robert: verdict Incompatible
+  OBSERVE    Bedrock Guardrails  -                                     494 ms  {"topicPolicyUnits":1,"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1}  request 6ce487dd-bf71-42df-b975-5435ea86d738
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       2267 ms  {"inputTokens":2290,"outputTokens":296,"totalTokens":3933,"cacheWriteInputTokens":1347}  request 0e8a2561-a321-4fb5-aef7-1414ddcb0ccc
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       5867 ms  {"inputTokens":2617,"outputTokens":726,"totalTokens":6654,"cacheWriteInputTokens":3311}  request 1c0f8c59-e462-4721-8882-07b3ee5409f5
+  VERIFY     Bedrock Guardrails  -                                     356 ms  {"topicPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"contextualGroundingPolicyUnits":4}  request 119d2212-d20e-45bc-921b-b1e0d9c557f0
+mateo: verdict Incompatible
+  OBSERVE    Bedrock Guardrails  -                                     437 ms  {"topicPolicyUnits":1,"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1}  request 223aabe6-ae0b-47a7-90f1-5fb403059d69
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       2547 ms  {"inputTokens":2173,"outputTokens":315,"totalTokens":3835,"cacheReadInputTokens":1347}  request 3098f21f-a5d6-44c2-bd43-0de3f29f1a07
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       5683 ms  {"inputTokens":1894,"outputTokens":673,"totalTokens":5878,"cacheReadInputTokens":3311}  request 02bbbd5c-5669-4d77-b425-97a322790ec4
+  VERIFY     Bedrock Guardrails  -                                     398 ms  {"topicPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"contextualGroundingPolicyUnits":4}  request 509f6153-4c11-43a2-9be0-596d9ecbe0b7
+amira: verdict Tension
+  OBSERVE    Bedrock Guardrails  -                                     427 ms  {"topicPolicyUnits":1,"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1}  request 211053a2-ad1f-4af7-985a-166744cec459
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       2384 ms  {"inputTokens":2445,"outputTokens":291,"totalTokens":4083,"cacheReadInputTokens":1347}  request d312e17e-da45-4f3e-9baa-b29f4647fb90
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       5377 ms  {"inputTokens":1683,"outputTokens":628,"totalTokens":5622,"cacheReadInputTokens":3311}  request 92fee8a0-0bd4-4997-9f04-022e2fc2062c
+  VERIFY     Bedrock Guardrails  -                                     316 ms  {"topicPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"contextualGroundingPolicyUnits":3}  request 0e9914b4-eab4-4960-a04b-1d0f84661571
+canadian: verdict Tension
+  OBSERVE    Bedrock Guardrails  -                                     511 ms  {"topicPolicyUnits":1,"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1}  request 1742c103-0c4d-4178-a45e-f93848ae6e61
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       1184 ms  {"inputTokens":2100,"outputTokens":121,"totalTokens":3568,"cacheReadInputTokens":1347}  request 6e96e408-fab5-443c-85b2-e7489928e344
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       5107 ms  {"inputTokens":3068,"outputTokens":597,"totalTokens":6976,"cacheReadInputTokens":3311}  request 53f4ad7d-572f-4a11-ac22-ce428efa4ff1
+  VERIFY     Bedrock Guardrails  -                                     353 ms  {"topicPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"contextualGroundingPolicyUnits":5}  request da2e160a-9383-486e-83df-6ba7cdc78237
+scenario/read EN: method bedrock, model us.anthropic.claude-sonnet-5-5, guardrail request 031a4296-4b98-48d9-974a-416ceb3a584c
+scenario/read FR: method bedrock, model us.anthropic.claude-sonnet-5-5, guardrail request 3ec597d8-bdc5-4fed-8d48-7731b5f447d5
+
+# --- The saved runs the page and the docs show (written by scripts/evidence_request_ids.py from data/demo_runs) ---
+# The capture above names verdicts by their internal codes: Incompatible = Outside your limits, Tension =
+# Inside, with caveats, Compatible = Inside your limits. These rows use the page's words.
+robert: Outside your limits (saved run 4f31fbfe427a6d7e, recorded 2026-11-15T18:03:34-05:00)
+  OBSERVE    Bedrock Guardrails  -                                    546 ms  {"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 66579bb2-e7a8-42dd-9b77-63ff34a793aa
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       2224 ms  {"cacheWriteInputTokens":1347,"inputTokens":2986,"outputTokens":281,"totalTokens":4614}  request f84e8e10-97a9-4d56-8a5d-5d6875eb3156
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       5244 ms  {"cacheWriteInputTokens":3537,"inputTokens":9132,"outputTokens":591,"totalTokens":13260}  request 2a688af2-e498-44c2-abca-bdc97596ffe4
+  VERIFY     Bedrock Guardrails  -                                    735 ms  {"contextualGroundingPolicyUnits":13,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 32b1b42e-f90f-43d1-b712-bf579af49fb9
+mateo: Outside your limits (saved run 8b95c1a4da5b3827, recorded 2026-11-15T18:03:45-05:00)
+  OBSERVE    Bedrock Guardrails  -                                    638 ms  {"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 5ca31c52-a4f6-47c7-8a0a-6166964acfd2
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       2692 ms  {"cacheReadInputTokens":1347,"inputTokens":2824,"outputTokens":324,"totalTokens":4495}  request 4c9a7b6c-0f31-497b-a464-2318445a24b7
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       4920 ms  {"cacheReadInputTokens":3537,"inputTokens":3838,"outputTokens":538,"totalTokens":7913}  request 4997ce49-b5e5-4cfc-a3dd-1b083f3f4119
+  VERIFY     Bedrock Guardrails  -                                    616 ms  {"contextualGroundingPolicyUnits":6,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 5ac58a20-7539-4631-9022-5d03ff91943c
+amira: Inside, with caveats (saved run 58c624b04b14a698, recorded 2026-11-15T18:03:56-05:00)
+  OBSERVE    Bedrock Guardrails  -                                    601 ms  {"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 205e85a1-b650-4ade-8c7c-73c544e10408
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       2274 ms  {"cacheReadInputTokens":1347,"inputTokens":3175,"outputTokens":284,"totalTokens":4806}  request ff22fa70-6de8-46d0-859c-464a45ef81d6
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       5176 ms  {"cacheReadInputTokens":3537,"inputTokens":2544,"outputTokens":600,"totalTokens":6681}  request cf4d0612-4441-421a-b474-13eb4a6b91b5
+  VERIFY     Bedrock Guardrails  -                                    664 ms  {"contextualGroundingPolicyUnits":4,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 77fed75a-2f6a-4c5f-8de4-5965419bf832
+canadian: Inside your limits (saved run 89fae67055f95283, recorded 2026-11-15T18:04:10-05:00)
+  OBSERVE    Bedrock Guardrails  -                                    509 ms  {"contentPolicyUnits":1,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 1e428742-bb57-428c-a518-14b54d37b4d5
+  UNDERSTAND Amazon Bedrock      us.anthropic.claude-sonnet-5-5       1442 ms  {"cacheReadInputTokens":1347,"inputTokens":2789,"outputTokens":148,"totalTokens":4284}  request fdb18400-6e0c-40ee-9441-fbe77c02385b
+  EXPLAIN    Amazon Bedrock      us.anthropic.claude-sonnet-5-5       5375 ms  {"cacheReadInputTokens":3537,"inputTokens":8745,"outputTokens":599,"totalTokens":12881}  request ebebd3ab-b405-4658-99ac-155148a28d1f
+  VERIFY     Bedrock Guardrails  -                                    452 ms  {"contextualGroundingPolicyUnits":12,"sensitiveInformationPolicyUnits":1,"topicPolicyUnits":1}  request 7c849de0-164f-45f4-be23-82455c48777b
+# --- end of the saved runs ---

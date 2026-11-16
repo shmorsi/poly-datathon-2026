@@ -1,0 +1,2790 @@
+{
+ "run_id": "663294979c43",
+ "as_of": "2026-11-12",
+ "mode": "live",
+ "status": "ok",
+ "message": null,
+ "question": "Everyone is talking about NVIDIA. What if I put 40 % in it and the tariff war flares up again?",
+ "question_type": "change",
+ "pilot": "robert",
+ "amount": 600000,
+ "profile": {
+  "goal": "preservation",
+  "horizon_years": 4,
+  "risk": "moderate",
+  "esg": false,
+  "crypto": false,
+  "capacity": 90000,
+  "reaction_2022": "held",
+  "name": "Robert",
+  "age": 59,
+  "in_2022": "held",
+  "capacity_dollars": 90000
+ },
+ "limits": {
+  "floor": -0.15,
+  "floor_source": "capacity",
+  "band": "moderate",
+  "band_floor": -0.25,
+  "capacity_floor": -0.15,
+  "single_stock": 0.1,
+  "sector": 0.35,
+  "crypto": 0.0,
+  "crypto_tier": "preference",
+  "scenario_stress": -0.075,
+  "recovery_days": 486.618,
+  "risk_share": 0.5,
+  "esg_indirect_warn": 0.01,
+  "short_horizon_years": 3,
+  "edited": [],
+  "appetite_floor": -0.25,
+  "capacity_dollars": 90000
+ },
+ "portfolio": {
+  "XIU.TO": 0.27,
+  "XBB.TO": 0.21,
+  "GLD": 0.06,
+  "ZST.TO": 0.06,
+  "NVDA": 0.4
+ },
+ "verdict": "Incompatible",
+ "checks": [
+  {
+   "rule": "max_drawdown",
+   "tier": "hard",
+   "status": "fail",
+   "value": -0.3452439040250206,
+   "limit": -0.15,
+   "holding": null,
+   "reason": "In this history the mix's worst drop was −34.5 % ($207,146) from 2021-11-29 to 2022-10-14, beyond the −15.0 % ($90,000) you said you could absorb.",
+   "name": "Your floor",
+   "same_cause_as": null
+  },
+  {
+   "rule": "scenario_stress",
+   "tier": "soft",
+   "status": "warn",
+   "value": -0.08990116109252089,
+   "limit": -0.075,
+   "holding": null,
+   "reason": "In the 6 separate earlier Tariff war episodes the worst clean one cost 9.0 %, beyond half your floor (7.5 %) (Indicative (mixed with saudi_pipeline_2026)).",
+   "n_episodes": 6,
+   "family": "Tariff war",
+   "evidence": "Indicative (mixed with saudi_pipeline_2026)",
+   "name": "Shock check",
+   "same_cause_as": null
+  },
+  {
+   "rule": "single_stock",
+   "tier": "soft",
+   "status": "fail",
+   "value": 0.4,
+   "limit": 0.1,
+   "holding": "NVDA",
+   "reason": "NVDA is 40.0 % of the money, beyond the 10 % limit for one company.",
+   "name": "One company",
+   "same_cause_as": null
+  },
+  {
+   "rule": "sector",
+   "tier": "soft",
+   "status": "fail",
+   "value": 0.425947,
+   "limit": 0.35,
+   "holding": "NVDA",
+   "reason": "Information Technology is 42.6 % of the money, beyond the 35 % limit for one sector.",
+   "name": "One sector",
+   "same_cause_as": "single_stock"
+  },
+  {
+   "rule": "crypto",
+   "tier": "preference",
+   "status": "pass",
+   "value": 0,
+   "limit": 0.0,
+   "holding": null,
+   "reason": "No crypto is in the mix, as you asked.",
+   "name": "Crypto share",
+   "same_cause_as": null
+  },
+  {
+   "rule": "risk_concentration",
+   "tier": "warn",
+   "status": "warn",
+   "value": 0.8962048972452524,
+   "limit": 0.5,
+   "holding": "NVDA",
+   "reason": "NVDA carries 89.6 % of the portfolio's risk, beyond the 50 % warning level.",
+   "name": "Risk concentration",
+   "same_cause_as": null
+  },
+  {
+   "rule": "recovery",
+   "tier": "warn",
+   "status": "pass",
+   "value": 187,
+   "limit": 486.618,
+   "holding": null,
+   "reason": "The worst drop took 187 days to recover, inside the 487 days your horizon allows.",
+   "name": "Recovery time",
+   "same_cause_as": null
+  },
+  {
+   "rule": "short_horizon",
+   "tier": "warn",
+   "status": "pass",
+   "value": 4,
+   "limit": 3,
+   "holding": null,
+   "reason": "You need the money in 4 years, later than the 3-year short-horizon level.",
+   "name": "Short horizon",
+   "same_cause_as": null
+  }
+ ],
+ "facts": {
+  "T24": {
+   "label": "Fictional amount",
+   "value": 600000,
+   "unit": "CAD",
+   "entity": "your amount",
+   "sign": "positive",
+   "kind": "fiction"
+  },
+  "T25": {
+   "label": "Your floor, set by your capacity",
+   "value": -0.15,
+   "unit": "pct",
+   "entity": "your floor",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T26": {
+   "label": "What you said you could absorb",
+   "value": -90000,
+   "unit": "CAD",
+   "entity": "your floor",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T27": {
+   "label": "The move: NVDA set to",
+   "value": 0.4,
+   "unit": "pct",
+   "entity": "NVDA",
+   "sign": "positive",
+   "kind": "fiction"
+  },
+  "T28": {
+   "label": "Worst drop today",
+   "value": -0.1060653581864397,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T29": {
+   "label": "Worst drop after the move",
+   "value": -0.3452439040250206,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T30": {
+   "label": "Dollar loss at the worst drop after the move",
+   "value": -207146.34,
+   "unit": "CAD",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "fiction"
+  },
+  "T31": {
+   "label": "Worst 12-month drop after the move",
+   "value": -0.3452439040250206,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T32": {
+   "label": "Growth per year today",
+   "value": 0.08728364993362181,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T33": {
+   "label": "Growth per year after the move",
+   "value": 0.2522184560953584,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T34": {
+   "label": "Worst clean tariff war shock after the move",
+   "value": -0.08990116109252089,
+   "unit": "pct",
+   "entity": "tariffs",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T35": {
+   "label": "Shock limit (half your floor)",
+   "value": -0.075,
+   "unit": "pct",
+   "entity": "shock check",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T36": {
+   "label": "Clean tariff war shocks known",
+   "value": 6,
+   "unit": "count",
+   "entity": "tariffs",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T37": {
+   "label": "NVDA share of the risk after the move",
+   "value": 0.8962048972452524,
+   "unit": "pct",
+   "entity": "NVDA",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T38": {
+   "label": "Independent bets after the move",
+   "value": 1.1569882931917619,
+   "unit": "count",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T39": {
+   "label": "In this history, your floor breaks above 8 %",
+   "value": 0.08,
+   "unit": "pct",
+   "entity": "NVDA",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T40": {
+   "label": "Days to recover today",
+   "value": 416,
+   "unit": "days",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T41": {
+   "label": "Share of the worst drop inside rate-shock windows",
+   "value": 0.2490445376504196,
+   "unit": "pct",
+   "entity": "rates",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T42": {
+   "label": "Largest single-company share after the move",
+   "value": 0.4,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T43": {
+   "label": "One-company limit",
+   "value": 0.1,
+   "unit": "pct",
+   "entity": "one company",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T44": {
+   "label": "Largest sector share after the move",
+   "value": 0.425947,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T45": {
+   "label": "One-sector limit",
+   "value": 0.35,
+   "unit": "pct",
+   "entity": "one sector",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T46": {
+   "label": "Crypto share after the move",
+   "value": 0,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "zero",
+   "kind": "fact"
+  },
+  "T47": {
+   "label": "Crypto limit",
+   "value": 0.0,
+   "unit": "pct",
+   "entity": "crypto",
+   "sign": "zero",
+   "kind": "assumption"
+  },
+  "T48": {
+   "label": "Risk-share warning level",
+   "value": 0.5,
+   "unit": "pct",
+   "entity": "risk",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T49": {
+   "label": "Days counted by the recovery check after the move",
+   "value": 187,
+   "unit": "days",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T50": {
+   "label": "Recovery days your horizon allows",
+   "value": 487,
+   "unit": "days",
+   "entity": "recovery",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T51": {
+   "label": "Your horizon",
+   "value": 4,
+   "unit": "years",
+   "entity": "horizon",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T52": {
+   "label": "Short-horizon level",
+   "value": 3,
+   "unit": "years",
+   "entity": "horizon",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T59": {
+   "label": "Worst drop after the move on the dates from 2023 on (2022 left out)",
+   "value": -0.1692460973,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T60": {
+   "label": "The same drop on the fictional amount (amount × drawdown), dates from 2023 on",
+   "value": -101548,
+   "unit": "CAD",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "fiction"
+  },
+  "T61": {
+   "label": "In this replay, the smallest NVDA size that broke your floor (start months 2021-11 to 2023-11)",
+   "value": 0.09,
+   "unit": "pct",
+   "entity": "NVDA",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T62": {
+   "label": "In this replay, the largest first NVDA size that broke your floor (start months 2021-11 to 2023-11)",
+   "value": 0.35,
+   "unit": "pct",
+   "entity": "NVDA",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T63": {
+   "label": "By proxy: earlier crises replayed (1973 to 2020)",
+   "value": 11,
+   "unit": "count",
+   "entity": "deep history",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T64": {
+   "label": "By proxy: crises where today's mix broke your floor by more than 1 point",
+   "value": 2,
+   "unit": "count",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T65": {
+   "label": "By proxy: crises where today's mix touched your floor (beyond it by 1 point or less)",
+   "value": 1,
+   "unit": "count",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T66": {
+   "label": "By proxy: crises where the mix with the move broke your floor by more than 1 point",
+   "value": 5,
+   "unit": "count",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T67": {
+   "label": "By proxy: crises where the mix with the move touched your floor (beyond it by 1 point or less)",
+   "value": 0,
+   "unit": "count",
+   "entity": "after",
+   "sign": "zero",
+   "kind": "assumption"
+  },
+  "T68": {
+   "label": "By proxy: crises where the move fell no further than today's mix",
+   "value": 2,
+   "unit": "count",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T69": {
+   "label": "By proxy, Oil embargo and the 1973–74 bear market: worst fall, today's mix",
+   "value": -0.1522290274,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T70": {
+   "label": "By proxy, Oil embargo and the 1973–74 bear market: worst fall, with the move",
+   "value": -0.2957193814,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T71": {
+   "label": "By proxy, Oil embargo and the 1973–74 bear market: worst fall, the US chip industry alone",
+   "value": -0.5728187336,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T72": {
+   "label": "By proxy, The Volcker shock: worst fall, today's mix",
+   "value": -0.1614433095,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T73": {
+   "label": "By proxy, The Volcker shock: worst fall, with the move",
+   "value": -0.1618219339,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T74": {
+   "label": "By proxy, The Volcker shock: worst fall, the US chip industry alone",
+   "value": -0.2159568704,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T75": {
+   "label": "By proxy, Black Monday: worst fall, today's mix",
+   "value": -0.1059325522,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T76": {
+   "label": "By proxy, Black Monday: worst fall, with the move",
+   "value": -0.2033133766,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T77": {
+   "label": "By proxy, Black Monday: worst fall, the US chip industry alone",
+   "value": -0.352041061,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T78": {
+   "label": "By proxy, Iraq invades Kuwait: worst fall, today's mix",
+   "value": -0.0366979879,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T79": {
+   "label": "By proxy, Iraq invades Kuwait: worst fall, with the move",
+   "value": -0.1427577594,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T80": {
+   "label": "By proxy, Iraq invades Kuwait: worst fall, the US chip industry alone",
+   "value": -0.2960876665,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T81": {
+   "label": "By proxy, The 1994 bond rout: worst fall, today's mix",
+   "value": -0.0815221253,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T82": {
+   "label": "By proxy, The 1994 bond rout: worst fall, with the move",
+   "value": -0.0583019579,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T83": {
+   "label": "By proxy, The 1994 bond rout: worst fall, the US chip industry alone",
+   "value": -0.0542352157,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T84": {
+   "label": "By proxy, Russia defaults; LTCM nearly fails: worst fall, today's mix",
+   "value": -0.1165210109,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T85": {
+   "label": "By proxy, Russia defaults; LTCM nearly fails: worst fall, with the move",
+   "value": -0.124552601,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T86": {
+   "label": "By proxy, Russia defaults; LTCM nearly fails: worst fall, the US chip industry alone",
+   "value": -0.1792012308,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T87": {
+   "label": "By proxy, The dot-com bust: worst fall, today's mix",
+   "value": -0.1127925648,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T88": {
+   "label": "By proxy, The dot-com bust: worst fall, with the move",
+   "value": -0.5043904123,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T89": {
+   "label": "By proxy, The dot-com bust: worst fall, the US chip industry alone",
+   "value": -0.8253685373,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T90": {
+   "label": "By proxy, The global financial crisis: worst fall, today's mix",
+   "value": -0.169600061,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T91": {
+   "label": "By proxy, The global financial crisis: worst fall, with the move",
+   "value": -0.2374241009,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T92": {
+   "label": "By proxy, The global financial crisis: worst fall, the US chip industry alone",
+   "value": -0.4009996046,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T93": {
+   "label": "By proxy, Euro debt crisis: worst fall, today's mix",
+   "value": -0.033966777,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T94": {
+   "label": "By proxy, Euro debt crisis: worst fall, with the move",
+   "value": -0.0834769334,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T95": {
+   "label": "By proxy, Euro debt crisis: worst fall, the US chip industry alone",
+   "value": -0.1594310921,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T96": {
+   "label": "By proxy, The taper tantrum: worst fall, today's mix",
+   "value": -0.0445145009,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T97": {
+   "label": "By proxy, The taper tantrum: worst fall, with the move",
+   "value": -0.0155163101,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T98": {
+   "label": "By proxy, The taper tantrum: worst fall, the US chip industry alone",
+   "value": -0.0066790222,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T99": {
+   "label": "By proxy, The pandemic crash: worst fall, today's mix",
+   "value": -0.0878368932,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T100": {
+   "label": "By proxy, The pandemic crash: worst fall, with the move",
+   "value": -0.0970549224,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T101": {
+   "label": "By proxy, The pandemic crash: worst fall, the US chip industry alone",
+   "value": -0.1118330003,
+   "unit": "pct",
+   "entity": "the US chip industry",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T102": {
+   "label": "By proxy: the smallest margin by which the move broke your floor in every run (points)",
+   "value": 0.05,
+   "unit": "pp",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T103": {
+   "label": "By proxy: the largest margin by which the move broke your floor in every run (points)",
+   "value": 0.35,
+   "unit": "pp",
+   "entity": "after",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T104": {
+   "label": "NVDA alone (2021-11 to 2025-12, month-end): worst fall on its real prices",
+   "value": -0.6016121694,
+   "unit": "pct",
+   "entity": "NVDA",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T105": {
+   "label": "the US chip industry (2021-11 to 2025-12, month-end): worst fall, the stand-in for NVDA",
+   "value": -0.2699499358,
+   "unit": "pct",
+   "entity": "CHIPS",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T106": {
+   "label": "Check of the stand-ins (2021-11 to 2025-12): today's mix by proxy, worst fall",
+   "value": -0.0871276842,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T107": {
+   "label": "Check of the stand-ins (2021-11 to 2025-12): the mix with the move by proxy, worst fall",
+   "value": -0.1590251856,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T108": {
+   "label": "By proxy since 1971: worst fall of today's mix in any 4-year stretch",
+   "value": -0.1696,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T109": {
+   "label": "By proxy since 1971: worst fall of the mix with the move in any 4-year stretch",
+   "value": -0.5044,
+   "unit": "pct",
+   "entity": "after",
+   "sign": "negative",
+   "kind": "assumption"
+  }
+ },
+ "breaches": [
+  {
+   "peak_date": "2021-11-29",
+   "trough_date": "2022-10-14",
+   "recovery_date": "2023-04-19",
+   "depth": -0.345243904,
+   "peak_value": 623398.1,
+   "trough_value": 408173.7,
+   "loss_dollars": -207146.34,
+   "below_floor": [
+    [
+     "2022-01-25",
+     "2022-01-26"
+    ],
+    [
+     "2022-01-27",
+     "2022-01-28"
+    ],
+    [
+     "2022-03-14",
+     "2022-03-15"
+    ],
+    [
+     "2022-04-14",
+     "2022-04-18"
+    ],
+    [
+     "2022-04-20",
+     "2023-01-23"
+    ]
+   ]
+  },
+  {
+   "peak_date": "2025-01-23",
+   "trough_date": "2025-04-08",
+   "recovery_date": "2025-05-29",
+   "depth": -0.1692460973,
+   "peak_value": 1473669.54,
+   "trough_value": 1224256.72,
+   "loss_dollars": -101547.66,
+   "below_floor": [
+    [
+     "2025-04-04",
+     "2025-04-09"
+    ],
+    [
+     "2025-04-21",
+     "2025-04-22"
+    ]
+   ]
+  }
+ ],
+ "disclaimer": "Educational simulation. This is not financial advice.",
+ "kpis": {
+  "max_drawdown": {
+   "value": -0.3452439040250206,
+   "limit": -0.15,
+   "loss_dollars": -207146.34241501236
+  },
+  "scenario_stress": {
+   "value": -0.08990116109252089,
+   "limit": -0.075
+  },
+  "recovery_days": {
+   "value": 187,
+   "limit": 486.618
+  },
+  "exposure_canada": {
+   "value": 0.5258052471505699,
+   "limit": null
+  }
+ },
+ "baseline": {
+  "portfolio": {
+   "XIU.TO": 0.45,
+   "XBB.TO": 0.35,
+   "GLD": 0.1,
+   "ZST.TO": 0.1
+  },
+  "verdict": "Compatible",
+  "kpis": {
+   "max_drawdown": {
+    "value": -0.1060653581864397,
+    "limit": -0.15,
+    "loss_dollars": -63639.21491186382
+   },
+   "scenario_stress": {
+    "value": -0.05955048317796208,
+    "limit": -0.075
+   },
+   "recovery_days": {
+    "value": 416,
+    "limit": 486.618
+   },
+   "exposure_canada": {
+    "value": 0.8763420785842831,
+    "limit": null
+   }
+  }
+ },
+ "scenario": {
+  "type": "change",
+  "families": [
+   "tariffs"
+  ],
+  "event_ids": [
+   "canada_50_2026",
+   "canada_338_2026",
+   "liberation_day_2025",
+   "tariffs_canada_2025"
+  ],
+  "change": {
+   "op": "set",
+   "ticker": "NVDA",
+   "weight": 0.4,
+   "from_ticker": null
+  },
+  "check_order": [
+   "max_drawdown",
+   "single_stock",
+   "sector",
+   "scenario_stress",
+   "risk_concentration",
+   "crypto",
+   "recovery",
+   "short_horizon"
+  ],
+  "method": "bedrock"
+ },
+ "turbulence": {
+  "tariffs": {
+   "n": 6,
+   "worst_today": -0.05955048317796208,
+   "worst_after": -0.08990116109252089,
+   "evidence": "Indicative"
+  }
+ },
+ "series": {
+  "dates": [
+   "2021-11-12",
+   "2026-11-12"
+  ],
+  "today": [
+   100.0,
+   151.9460489041841
+  ],
+  "after": [
+   100.0,
+   307.8460913430646
+  ]
+ },
+ "metrics": {
+  "today": {
+   "max_drawdown": -0.1060653581864397,
+   "peak_date": "2022-03-04",
+   "trough_date": "2022-10-11",
+   "cagr": 0.08728364993362181
+  },
+  "after": {
+   "max_drawdown": -0.3452439040250206,
+   "peak_date": "2021-11-29",
+   "trough_date": "2022-10-14",
+   "cagr": 0.2522184560953584
+  }
+ },
+ "diversification": {
+  "today": {
+   "countries": {
+    "CAN": 0.8763420785842831
+   }
+  },
+  "after": {
+   "countries": {
+    "CAN": 0.5258052471505699
+   }
+  }
+ },
+ "tipping_point": {
+  "ticker": "NVDA",
+  "max_weight": 0.08,
+  "curve": [
+   {
+    "weight": 0.0,
+    "verdict": "Compatible",
+    "end_value": 911676
+   },
+   {
+    "weight": 0.01,
+    "verdict": "Compatible",
+    "end_value": 930070
+   },
+   {
+    "weight": 0.02,
+    "verdict": "Compatible",
+    "end_value": 948722
+   },
+   {
+    "weight": 0.03,
+    "verdict": "Compatible",
+    "end_value": 967631
+   },
+   {
+    "weight": 0.04,
+    "verdict": "Compatible",
+    "end_value": 986799
+   },
+   {
+    "weight": 0.05,
+    "verdict": "Compatible",
+    "end_value": 1006227
+   },
+   {
+    "weight": 0.06,
+    "verdict": "Compatible",
+    "end_value": 1025915
+   },
+   {
+    "weight": 0.07,
+    "verdict": "Compatible",
+    "end_value": 1045863
+   },
+   {
+    "weight": 0.08,
+    "verdict": "Compatible",
+    "end_value": 1066071
+   },
+   {
+    "weight": 0.09,
+    "verdict": "Incompatible",
+    "end_value": 1086540
+   },
+   {
+    "weight": 0.1,
+    "verdict": "Incompatible",
+    "end_value": 1107270
+   },
+   {
+    "weight": 0.11,
+    "verdict": "Incompatible",
+    "end_value": 1128261
+   },
+   {
+    "weight": 0.12,
+    "verdict": "Incompatible",
+    "end_value": 1149513
+   },
+   {
+    "weight": 0.13,
+    "verdict": "Incompatible",
+    "end_value": 1171025
+   },
+   {
+    "weight": 0.14,
+    "verdict": "Incompatible",
+    "end_value": 1192798
+   },
+   {
+    "weight": 0.15,
+    "verdict": "Incompatible",
+    "end_value": 1214832
+   },
+   {
+    "weight": 0.16,
+    "verdict": "Incompatible",
+    "end_value": 1237124
+   },
+   {
+    "weight": 0.17,
+    "verdict": "Incompatible",
+    "end_value": 1259676
+   },
+   {
+    "weight": 0.18,
+    "verdict": "Incompatible",
+    "end_value": 1282487
+   },
+   {
+    "weight": 0.19,
+    "verdict": "Incompatible",
+    "end_value": 1305555
+   },
+   {
+    "weight": 0.2,
+    "verdict": "Incompatible",
+    "end_value": 1328880
+   },
+   {
+    "weight": 0.21,
+    "verdict": "Incompatible",
+    "end_value": 1352462
+   },
+   {
+    "weight": 0.22,
+    "verdict": "Incompatible",
+    "end_value": 1376298
+   },
+   {
+    "weight": 0.23,
+    "verdict": "Incompatible",
+    "end_value": 1400388
+   },
+   {
+    "weight": 0.24,
+    "verdict": "Incompatible",
+    "end_value": 1424730
+   },
+   {
+    "weight": 0.25,
+    "verdict": "Incompatible",
+    "end_value": 1449324
+   },
+   {
+    "weight": 0.26,
+    "verdict": "Incompatible",
+    "end_value": 1474167
+   },
+   {
+    "weight": 0.27,
+    "verdict": "Incompatible",
+    "end_value": 1499259
+   },
+   {
+    "weight": 0.28,
+    "verdict": "Incompatible",
+    "end_value": 1524596
+   },
+   {
+    "weight": 0.29,
+    "verdict": "Incompatible",
+    "end_value": 1550179
+   },
+   {
+    "weight": 0.3,
+    "verdict": "Incompatible",
+    "end_value": 1576003
+   },
+   {
+    "weight": 0.31,
+    "verdict": "Incompatible",
+    "end_value": 1602069
+   },
+   {
+    "weight": 0.32,
+    "verdict": "Incompatible",
+    "end_value": 1628372
+   },
+   {
+    "weight": 0.33,
+    "verdict": "Incompatible",
+    "end_value": 1654912
+   },
+   {
+    "weight": 0.34,
+    "verdict": "Incompatible",
+    "end_value": 1681685
+   },
+   {
+    "weight": 0.35,
+    "verdict": "Incompatible",
+    "end_value": 1708689
+   },
+   {
+    "weight": 0.36,
+    "verdict": "Incompatible",
+    "end_value": 1735921
+   },
+   {
+    "weight": 0.37,
+    "verdict": "Incompatible",
+    "end_value": 1763379
+   },
+   {
+    "weight": 0.38,
+    "verdict": "Incompatible",
+    "end_value": 1791060
+   },
+   {
+    "weight": 0.39,
+    "verdict": "Incompatible",
+    "end_value": 1818960
+   },
+   {
+    "weight": 0.4,
+    "verdict": "Incompatible",
+    "end_value": 1847077
+   }
+  ]
+ },
+ "trace": [
+  {
+   "id": "T1",
+   "step": "OBSERVE",
+   "tool": "flight plan (your input)",
+   "inputs": {},
+   "source": "Entered by you (fictional, never stored)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T2",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {},
+   "source": "Your answers and the limits table",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T3",
+   "step": "OBSERVE",
+   "tool": "guardrail.apply_guardrail(INPUT)",
+   "inputs": {},
+   "source": "Amazon Bedrock Guardrails",
+   "as_of": "2026-11-12",
+   "ms": 601,
+   "service": "Bedrock Guardrails",
+   "model": null,
+   "request_id": "924235ab-20a9-4db0-8cf2-f53bc7c75509"
+  },
+  {
+   "id": "T4",
+   "step": "OBSERVE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "which": "today"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 514,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T5",
+   "step": "UNDERSTAND",
+   "tool": "navigator.search_events",
+   "inputs": {},
+   "source": "Read-only tool, computed by code",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null,
+   "detail": "called by the navigator"
+  },
+  {
+   "id": "T6",
+   "step": "UNDERSTAND",
+   "tool": "navigator.get_exposure",
+   "inputs": {},
+   "source": "Read-only tool, computed by code",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null,
+   "detail": "called by the navigator"
+  },
+  {
+   "id": "T7",
+   "step": "UNDERSTAND",
+   "tool": "navigator.model_turn",
+   "inputs": {},
+   "source": "Amazon Bedrock (the navigator chooses words only)",
+   "as_of": "2026-11-12",
+   "ms": 3053,
+   "service": "Amazon Bedrock",
+   "model": "us.anthropic.claude-sonnet-5-5",
+   "request_id": "ca96e1d9-734d-4cb1-81b0-334e91b29a9e"
+  },
+  {
+   "id": "T8",
+   "step": "UNDERSTAND",
+   "tool": "agents.scenario.run_scenario",
+   "inputs": {},
+   "source": "data/events.csv (sourced shocks known at as_of)",
+   "as_of": "2026-11-12",
+   "ms": 3203,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T9",
+   "step": "UNDERSTAND",
+   "tool": "agents.scenario.keyword_fallback",
+   "inputs": {},
+   "source": "data/events.csv (sourced shocks known at as_of)",
+   "as_of": "2026-11-12",
+   "ms": 9,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T10",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "which": "after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 451,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T11",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "which": "today"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 397,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T12",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "which": "illustration"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 416,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T13",
+   "step": "COMPARE",
+   "tool": "tools.metrics.rate_regime",
+   "inputs": {},
+   "source": "Bank of Canada V39079 (macro_rates.csv)",
+   "as_of": "2026-11-12",
+   "ms": 3,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T14",
+   "step": "COMPARE",
+   "tool": "tools.metrics.trailing_yield",
+   "inputs": {},
+   "source": "History, not a forecast: dividends per share that went ex-dividend in the 365 days to as_of (starter corporate_actions.csv, Yahoo Finance ex-dates, retrieved 2026-11-13; special or extra distributions included; may be incomplete for ETFs), USD amounts converted with the Bank of Canada USD/CAD rate of the ex-date, divided by the unadjusted CAD close of the last trading day, weighted by the portfolio",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T15",
+   "step": "COMPARE",
+   "tool": "tools.allocation.tipping_point",
+   "inputs": {},
+   "source": "governance.evaluate at each size, on the same replay data",
+   "as_of": "2026-11-12",
+   "ms": 4761,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T16",
+   "step": "COMPARE",
+   "tool": "tools.portfolio.portfolio_series",
+   "inputs": {},
+   "source": "tools.portfolio.apply_change + portfolio_series at each size of the curve",
+   "as_of": "2026-11-12",
+   "ms": 307,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T17",
+   "step": "COMPARE",
+   "tool": "tools.events.drawdown_attribution",
+   "inputs": {},
+   "source": "Share of the worst fall's trading days and of its log loss that sit inside each family's shock windows [t0, t+20] (storm catalog data/events.csv); a correlation, not a cause; history, not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 28,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T18",
+   "step": "COMPARE",
+   "tool": "tools.allocation.comparison_menu",
+   "inputs": {},
+   "source": "governance.evaluate on each variation, on the same replay data",
+   "as_of": "2026-11-12",
+   "ms": 2853,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T19",
+   "step": "COMPARE",
+   "tool": "tools.allocation.sensitivity",
+   "inputs": {},
+   "source": "governance.check_profile at each floor, no data reread",
+   "as_of": "2026-11-12",
+   "ms": 38,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T20",
+   "step": "COMPARE",
+   "tool": "tools.events.event_impact",
+   "inputs": {},
+   "source": "data/events.csv replayed on your mix (tools.events, tools.geo)",
+   "as_of": "2026-11-12",
+   "ms": 2377,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T21",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "which": "compare robert"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 401,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T22",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "which": "compare mateo"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 815,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T23",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "which": "compare amira"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 716,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T24",
+   "step": "OBSERVE",
+   "tool": "flight plan (your input)",
+   "inputs": {
+    "path": "amount",
+    "recipe": "flight_plan"
+   },
+   "source": "Entered by you (fictional, never stored)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T25",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "limits.floor",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T26",
+   "step": "OBSERVE",
+   "tool": "flight plan (your input)",
+   "inputs": {
+    "path": "profile.capacity",
+    "recipe": "flight_plan",
+    "formula": "-profile.capacity"
+   },
+   "source": "Entered by you (fictional, never stored)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T27",
+   "step": "UNDERSTAND",
+   "tool": "agents.scenario.run_scenario",
+   "inputs": {
+    "path": "scenario.change.weight",
+    "recipe": "flight_plan"
+   },
+   "source": "Your question, read by the navigator",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T28",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "metrics.today.max_drawdown",
+    "recipe": "evaluate.today"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T29",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "metrics.after.max_drawdown",
+    "recipe": "evaluate.after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T30",
+   "step": "COMPARE",
+   "tool": "amount × drawdown",
+   "inputs": {
+    "path": "metrics.after.max_drawdown",
+    "recipe": "evaluate.after",
+    "formula": "amount * metrics.after.max_drawdown"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T31",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "worst_rolling.after.value",
+    "recipe": "evaluate.after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T32",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "metrics.today.cagr",
+    "recipe": "evaluate.today"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T33",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "metrics.after.cagr",
+    "recipe": "evaluate.after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T34",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "turbulence.tariffs.worst_after",
+    "recipe": "evaluate.after"
+   },
+   "source": "Sourced shocks in data/events.csv, replayed on your mix (tools.events.turbulence)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T35",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "limits.scenario_stress",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T36",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "turbulence.tariffs.n",
+    "recipe": "evaluate.after"
+   },
+   "source": "Sourced shocks in data/events.csv, replayed on your mix (tools.events.turbulence)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T37",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "risk.after.shares",
+    "key": "NVDA",
+    "recipe": "evaluate.after"
+   },
+   "source": "Daily CAD returns of the held lines up to as_of, constant weights rebalanced daily; risk share = w_i (cov w)_i / (w' cov w) with the sample covariance; independent bets = Meucci's effective number of bets over the principal components; history, not a forecast. Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T38",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "risk.after.bets",
+    "recipe": "evaluate.after"
+   },
+   "source": "Daily CAD returns of the held lines up to as_of, constant weights rebalanced daily; risk share = w_i (cov w)_i / (w' cov w) with the sample covariance; independent bets = Meucci's effective number of bets over the principal components; history, not a forecast. Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T39",
+   "step": "COMPARE",
+   "tool": "tools.allocation.tipping_point",
+   "inputs": {
+    "path": "tipping_point.max_weight",
+    "recipe": "tipping_point"
+   },
+   "source": "governance.evaluate at each size, on the same replay data",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T40",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "metrics.today.recovery_days",
+    "recipe": "evaluate.today"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T41",
+   "step": "COMPARE",
+   "tool": "tools.events.drawdown_attribution",
+   "inputs": {
+    "path": "attribution.shares.rates",
+    "recipe": "attribution"
+   },
+   "source": "Share of the worst fall's trading days and of its log loss that sit inside each family's shock windows [t0, t+20] (storm catalog data/events.csv); a correlation, not a cause; history, not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T42",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "checks.value",
+    "key": "single_stock",
+    "recipe": "evaluate.after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T43",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "checks.limit",
+    "key": "single_stock",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T44",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "checks.value",
+    "key": "sector",
+    "recipe": "evaluate.after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T45",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "checks.limit",
+    "key": "sector",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T46",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "checks.value",
+    "key": "crypto",
+    "recipe": "evaluate.after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T47",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "checks.limit",
+    "key": "crypto",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T48",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "checks.limit",
+    "key": "risk_concentration",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T49",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "path": "checks.value",
+    "key": "recovery",
+    "recipe": "evaluate.after"
+   },
+   "source": "Computed from the portfolio series: CAGR over calendar days / 365.25; volatility = daily standard deviation x sqrt(252); drawdown against the running high; recovery = calendar days from the trough back to the previous peak; series: Yahoo Finance adjusted closes (AlphaForge starter pack, retrieved 2026-11-13); USD lines converted to CAD with the Bank of Canada USD/CAD rate carried forward; CNQ.TO corrected for the 2022-08-22 special distribution; constant weights rebalanced every day, base 100",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T50",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "checks.limit",
+    "key": "recovery",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T51",
+   "step": "OBSERVE",
+   "tool": "flight plan (your input)",
+   "inputs": {
+    "path": "checks.value",
+    "key": "short_horizon",
+    "recipe": "flight_plan"
+   },
+   "source": "Entered by you (fictional, never stored)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T52",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "path": "checks.limit",
+    "key": "short_horizon",
+    "recipe": "limits"
+   },
+   "source": "Your answers and the limits table (governance.load_limits)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T53",
+   "step": "COMPARE",
+   "tool": "ui.charts",
+   "inputs": {},
+   "source": "ui.charts (not installed)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T54",
+   "step": "EXPLAIN",
+   "tool": "agents.memory.load",
+   "inputs": {},
+   "source": "agents.memory: the defect types earlier debriefs made (types and counts only, never text)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T55",
+   "step": "EXPLAIN",
+   "tool": "explain.draft",
+   "inputs": {},
+   "source": "Amazon Bedrock, from the facts only",
+   "as_of": "2026-11-12",
+   "ms": 5868,
+   "service": "Amazon Bedrock",
+   "model": "us.anthropic.claude-sonnet-5-5",
+   "request_id": "a561b17d-600f-4886-bf1a-6261e68c9c06"
+  },
+  {
+   "id": "T56",
+   "step": "VERIFY",
+   "tool": "verify.receipt",
+   "inputs": {},
+   "source": "verify.py (deterministic, no model)",
+   "as_of": "2026-11-12",
+   "ms": 6,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T57",
+   "step": "VERIFY",
+   "tool": "guardrail.output",
+   "inputs": {},
+   "source": "Amazon Bedrock Guardrails (contextual grounding against the facts JSON)",
+   "as_of": "2026-11-12",
+   "ms": 743,
+   "service": "Bedrock Guardrails",
+   "model": null,
+   "request_id": "05afae09-b1b4-49ae-ae79-abc0ca11a971"
+  },
+  {
+   "id": "T58",
+   "step": "VERIFY",
+   "tool": "agents.memory.record",
+   "inputs": {},
+   "source": "agents.memory: the defect types earlier debriefs made (types and counts only, never text)",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T59",
+   "step": "COMPARE",
+   "tool": "result_extras.not_2022",
+   "inputs": {
+    "path": "not_2022.depth",
+    "recipe": "result_extras"
+   },
+   "source": "tools.portfolio.portfolio_series from 2023-01-01; tools.metrics.risk_metrics",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T60",
+   "step": "COMPARE",
+   "tool": "result_extras.not_2022",
+   "inputs": {
+    "path": "not_2022.loss_dollars",
+    "recipe": "result_extras"
+   },
+   "source": "tools.portfolio.portfolio_series from 2023-01-01; tools.metrics.risk_metrics",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T61",
+   "step": "COMPARE",
+   "tool": "result_extras.tipping_band",
+   "inputs": {
+    "path": "tipping_band.lo",
+    "recipe": "result_extras"
+   },
+   "source": "tools.portfolio.portfolio_series at each size of the curve, from each start month; floor rule only, 0.1 pp",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T62",
+   "step": "COMPARE",
+   "tool": "result_extras.tipping_band",
+   "inputs": {
+    "path": "tipping_band.hi",
+    "recipe": "result_extras"
+   },
+   "source": "tools.portfolio.portfolio_series at each size of the curve, from each start month; floor rule only, 0.1 pp",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T63",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.counts.n",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T64",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.counts.today_broke",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T65",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.counts.today_touched",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T66",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.counts.after_broke",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T67",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.counts.after_touched",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T68",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.counts.move_no_worse",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T69",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.oil_embargo_1973.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T70",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.oil_embargo_1973.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T71",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.oil_embargo_1973.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T72",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.volcker_1979.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T73",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.volcker_1979.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T74",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.volcker_1979.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T75",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.crash_1987.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T76",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.crash_1987.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T77",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.crash_1987.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T78",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.gulf_war_1990.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T79",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.gulf_war_1990.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T80",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.gulf_war_1990.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T81",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.bond_rout_1994.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T82",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.bond_rout_1994.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T83",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.bond_rout_1994.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T84",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.russia_ltcm_1998.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T85",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.russia_ltcm_1998.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T86",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.russia_ltcm_1998.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T87",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.dotcom_2000.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T88",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.dotcom_2000.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T89",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.dotcom_2000.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T90",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.gfc_2008.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T91",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.gfc_2008.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T92",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.gfc_2008.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T93",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.euro_2011.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T94",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.euro_2011.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T95",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.euro_2011.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T96",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.taper_2013.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T97",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.taper_2013.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T98",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.taper_2013.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T99",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.covid_2020.today",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T100",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.covid_2020.after",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T101",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.episodes.covid_2020.proxy_alone",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T102",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.robust_claims.after_broke.lo_pp",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T103",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.robust_claims.after_broke.hi_pp",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T104",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.gentle_case.real",
+    "recipe": "result_extras"
+   },
+   "source": "Starter prices, month-end, CAD",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T105",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_history",
+   "inputs": {
+    "path": "deep_history.gentle_case.stand_in",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): Fama/French US industry and Canada returns, Bank of Canada yields via Statistics Canada tables 10-10-0122-01 and 10-10-0125-01, World Bank gold, FRED USD/CAD; monthly, CAD. Data retrieved: not recorded. This already happened to markets like these; it is not a forecast.",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T106",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_validation",
+   "inputs": {
+    "path": "deep_validation.today_proxy",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): monthly, CAD, constant weights rebalanced monthly; tools.deep panel",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T107",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_validation",
+   "inputs": {
+    "path": "deep_validation.after_proxy",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): monthly, CAD, constant weights rebalanced monthly; tools.deep panel",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T108",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_windows",
+   "inputs": {
+    "path": "deep_windows.today.worst",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): monthly, CAD, constant weights rebalanced monthly; tools.deep panel",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T109",
+   "step": "COMPARE",
+   "tool": "result_extras.deep_windows",
+   "inputs": {
+    "path": "deep_windows.after.worst",
+    "recipe": "result_extras"
+   },
+   "source": "Proxy replay (assumption): monthly, CAD, constant weights rebalanced monthly; tools.deep panel",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  },
+  {
+   "id": "T110",
+   "step": "COMPARE",
+   "tool": "result_extras",
+   "inputs": {},
+   "source": "result_extras.extend (lane B3): the Replay keys, computed by code",
+   "as_of": "2026-11-12",
+   "ms": 1629,
+   "service": "Python",
+   "model": null,
+   "request_id": null
+  }
+ ],
+ "receipt": {
+  "verified": 15,
+  "total": 15,
+  "drafts": 1,
+  "missing": []
+ },
+ "guardrail": {
+  "input": {
+   "action": "NONE",
+   "blocked": false,
+   "request_id": "924235ab-20a9-4db0-8cf2-f53bc7c75509",
+   "grounding": null
+  },
+  "output": {
+   "action": "NONE",
+   "blocked": false,
+   "request_id": "05afae09-b1b4-49ae-ae79-abc0ca11a971",
+   "grounding": {
+    "score": 0.19,
+    "threshold": 0.7,
+    "detected": true
+   }
+  }
+ }
+}

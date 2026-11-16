@@ -1,0 +1,170 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 626" width="1000" height="626" font-family="Archivo, 'Archivo Fallback', Helvetica, Arial, sans-serif">
+<title>EPICENTRE: architecture and data flows</title>
+<desc>The browser calls Amazon CloudFront over HTTPS; CloudFront forwards to one Docker container on Amazon EC2 running the FastAPI server, which runs the five steps (OBSERVE, UNDERSTAND, COMPARE, EXPLAIN, VERIFY) on read-only data cut at the decision date. UNDERSTAND (the navigator) and EXPLAIN (the debrief) call Claude Sonnet 5.5 on Amazon Bedrock through the Converse API; OBSERVE and VERIFY call Amazon Bedrock Guardrails with ApplyGuardrail. A record the investor seals goes to a private, versioned S3 vault with Object Lock. CloudWatch shows the built-in metrics, never content, with model invocation logging off. IAM keeps the runtime role to those calls. The GitHub Pages static demo replays the saved real runs with no AWS call.</desc>
+<defs>
+  <marker id="arrow" viewBox="0 0 8 8" refX="7.2" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0.6 L8,4 L0,7.4 z" fill="#12151a"/></marker>
+  <marker id="arrow-2" viewBox="0 0 8 8" refX="7.2" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0,0.6 L8,4 L0,7.4 z" fill="#6b7380"/></marker>
+  <style>
+    text { fill: #12151a; font-size: 12.5px; }
+    .h { font-weight: 700; font-size: 13.5px; }
+    .cap { font-weight: 700; font-size: 13px; letter-spacing: .07em; font-stretch: 87.5%; }
+    .step { font-weight: 700; font-size: 13.5px; letter-spacing: .06em; fill: #8a6a3b; font-stretch: 87.5%; }
+    .role { fill: #4b5361; font-size: 12px; }
+    .lab { fill: #4b5361; font-size: 11.5px; }
+    .ours { fill: #ffffff; stroke: #12151a; stroke-width: 1; }
+    .aws { fill: #eef0f3; stroke: #12151a; stroke-width: 1; }
+    .frame { fill: none; stroke: #12151a; stroke-width: 1.2; }
+    .flow { fill: none; stroke: #12151a; stroke-width: 1.2; marker-end: url(#arrow); }
+    .both { fill: none; stroke: #12151a; stroke-width: 1.2; marker-start: url(#arrow); marker-end: url(#arrow); }
+    .soft { fill: none; stroke: #6b7380; stroke-width: 1.1; stroke-dasharray: 4 3; marker-end: url(#arrow-2); }
+  </style>
+</defs>
+<rect width="1000" height="626" fill="#ffffff"/>
+<text class="cap" x="10" y="15">EPICENTRE · ARCHITECTURE AND DATA FLOWS</text>
+<text class="lab" x="990" y="15" text-anchor="end">Every number comes from code; the models read and write words only.</text>
+
+<!-- outside AWS: the investor's browser and the static demo -->
+<rect class="ours" x="10" y="26" width="246" height="76" rx="3"/>
+<text class="h" x="22" y="46">Browser</text>
+<text x="22" y="64">the investor's words, mix, amount and</text>
+<text x="22" y="79">limits in (all fictional); the verdict, the</text>
+<text x="22" y="94">checks, the explanation and the trace out</text>
+<rect class="aws" x="736" y="26" width="254" height="76" rx="3"/>
+<text class="h" x="748" y="46">GitHub Pages · static demo</text>
+<text x="748" y="64">the four saved real runs, request ids</text>
+<text x="748" y="79">as recorded; no AWS call, so it still</text>
+<text x="748" y="94">works after the AWS account closes</text>
+<path class="soft" d="M736,64 L262,64"/>
+<text class="lab" x="499" y="57" text-anchor="middle">the same page, read from saved runs: no AWS call</text>
+<path class="both" d="M130,108 L130,154"/>
+<text class="lab" x="140" y="118">HTTPS: POST /api/run; the five steps stream back as they finish (NDJSON)</text>
+
+<!-- the AWS account -->
+<rect class="frame" x="18" y="126" width="972" height="476" rx="4"/>
+<text class="cap" x="958" y="144" text-anchor="end">AWS · US-EAST-1</text>
+
+<rect class="aws" x="30" y="156" width="200" height="80" rx="3"/>
+<text class="h" x="42" y="176">Amazon CloudFront</text>
+<text x="42" y="194">HTTPS in front, no caching;</text>
+<text x="42" y="209">adds the secret origin</text>
+<text x="42" y="224">header</text>
+
+<rect class="aws" x="351" y="156" width="448" height="80" rx="3"/>
+<text class="h" x="363" y="176">Amazon Bedrock · Claude Sonnet 5.5, Converse API</text>
+<text x="363" y="194">the navigator's one call and the debrief's call (one re-ask at most),</text>
+<text x="363" y="209">through the us. cross-Region inference profile; the token usage and</text>
+<text x="363" y="224">the AWS request id of every call land in the run's trace</text>
+
+<rect class="aws" x="815" y="156" width="160" height="80" rx="3"/>
+<text class="h" x="827" y="176">Amazon CloudWatch</text>
+<text x="827" y="194">dashboard: counts and</text>
+<text x="827" y="209">latency, never content;</text>
+<text x="827" y="224">invocation logging off</text>
+<path class="soft" d="M799,196 L813,196"/>
+
+<!-- one Docker container on EC2: the five steps; code computes every number -->
+<path class="both" d="M130,242 L130,262"/>
+<text class="lab" x="140" y="254">origin header, then password</text>
+<rect class="aws" x="30" y="262" width="945" height="178" rx="3"/>
+<text class="h" x="42" y="281">Amazon EC2 · Docker · FastAPI server</text>
+<text class="role" x="42" y="297">stateless; port 8000 open to CloudFront only</text>
+<path class="flow" d="M419,306 L419,238"/>
+<text class="lab" x="426" y="253">Converse: the navigator</text>
+<path class="flow" d="M725,306 L725,238"/>
+<text class="lab" x="732" y="253">Converse: the debrief</text>
+
+<rect class="ours" x="45" y="306" width="136" height="116" rx="3"/>
+<text class="h" x="55" y="326">Data, read-only</text>
+<text x="55" y="345" font-size="11.8">dated on or before</text>
+<text x="55" y="359" font-size="11.8">the decision date:</text>
+<text x="55" y="373" font-size="11.8">prices, FX, rates,</text>
+<text x="55" y="387" font-size="11.8">sourced shocks,</text>
+<text x="55" y="401" font-size="11.8">fund holdings,</text>
+<text x="55" y="415" font-size="11.8">values screen</text>
+
+<rect class="ours" x="198" y="306" width="136" height="116" rx="3"/>
+<text class="step" x="208" y="326">OBSERVE</text>
+<text class="role" x="208" y="342">code</text>
+<text x="208" y="360" font-size="12">reads the plan and</text>
+<text x="208" y="374" font-size="12">the limits; input</text>
+<text x="208" y="388" font-size="12">check, then the</text>
+<text x="208" y="402" font-size="12">advice gate; judges</text>
+<text x="208" y="416" font-size="12">today's mix</text>
+
+<rect class="ours" x="351" y="306" width="136" height="116" rx="3"/>
+<text class="step" x="361" y="326">UNDERSTAND</text>
+<text class="role" x="361" y="342">the navigator</text>
+<text x="361" y="360" font-size="12">words or a headline</text>
+<text x="361" y="374" font-size="12">become a move,</text>
+<text x="361" y="388" font-size="12">shock families and</text>
+<text x="361" y="402" font-size="12">precedents; code</text>
+<text x="361" y="416" font-size="12">checks every field</text>
+
+<rect class="ours" x="504" y="306" width="136" height="116" rx="3"/>
+<text class="step" x="514" y="326">COMPARE</text>
+<text class="role" x="514" y="342">code only</text>
+<text x="514" y="360" font-size="12">replays both mixes;</text>
+<text x="514" y="374" font-size="12">shocks by episode;</text>
+<text x="514" y="388" font-size="12">where it breaks;</text>
+<text x="514" y="402" font-size="12">the checklist and</text>
+<text x="514" y="416" font-size="12">the verdict</text>
+
+<rect class="ours" x="657" y="306" width="136" height="116" rx="3"/>
+<text class="step" x="667" y="326">EXPLAIN</text>
+<text class="role" x="667" y="342">the debrief</text>
+<text x="667" y="360" font-size="12">the four answers,</text>
+<text x="667" y="374" font-size="12">from the facts rows</text>
+<text x="667" y="388" font-size="12">only; one re-ask</text>
+<text x="667" y="402" font-size="12">at most</text>
+
+<rect class="ours" x="810" y="306" width="136" height="116" rx="3"/>
+<text class="step" x="820" y="326">VERIFY</text>
+<text class="role" x="820" y="342">the receipt, code</text>
+<text x="820" y="360" font-size="12">traces every number</text>
+<text x="820" y="374" font-size="12">to its facts row</text>
+<text x="820" y="388" font-size="12">before it is shown;</text>
+<text x="820" y="402" font-size="12">output score from</text>
+<text x="820" y="416" font-size="12">Guardrails, advisory</text>
+
+<path class="flow" d="M182,364 L196,364"/>
+<path class="flow" d="M335,364 L349,364"/>
+<path class="flow" d="M488,364 L502,364"/>
+<path class="flow" d="M641,364 L655,364"/>
+<path class="flow" d="M794,364 L808,364"/>
+
+<!-- the guardrail, the record vault, least privilege -->
+<path class="flow" d="M266,422 L266,464"/>
+<text class="lab" x="273" y="449">ApplyGuardrail: input</text>
+<path class="flow" d="M878,422 L878,464"/>
+<text class="lab" x="871" y="449" text-anchor="end">ApplyGuardrail: output</text>
+<rect class="aws" x="198" y="466" width="748" height="66" rx="3"/>
+<text class="h" x="210" y="486">Amazon Bedrock Guardrails · one guardrail, a numbered version</text>
+<text x="210" y="504">input: screens the question before any model</text>
+<text x="210" y="519">sees it; a check that cannot run fails closed</text>
+<text x="934" y="504" text-anchor="end">output: grounding and relevance of the</text>
+<text x="934" y="519" text-anchor="end">explanation against its facts, shown, advisory</text>
+<path class="soft" d="M946,499 L982,499 L982,212 L977,212"/>
+
+<path class="flow" d="M107,440 L107,464"/>
+<text class="lab" x="114" y="456">POST /api/record</text>
+<rect class="aws" x="30" y="466" width="151" height="66" rx="3"/>
+<text class="h" x="40" y="484">Amazon S3 · vault</text>
+<text x="40" y="499" font-size="12">private, versioned,</text>
+<text x="40" y="512" font-size="12">Object Lock: sealed</text>
+<text x="40" y="525" font-size="12">records only</text>
+
+<rect class="aws" x="30" y="546" width="945" height="46" rx="3"/>
+<text class="h" x="42" y="565">AWS IAM · least privilege</text>
+<text x="226" y="565">the runtime role may only invoke the named Sonnet inference profiles, apply our one guardrail and put or</text>
+<text x="42" y="582">get records/* in the vault; temporary credentials from the instance role (IMDSv2), none in the image or the repository; no SSH (Session Manager)</text>
+
+<!-- legend -->
+<rect class="ours" x="10" y="608" width="16" height="11" rx="2"/>
+<text class="lab" x="32" y="618">our code: Python, deterministic</text>
+<rect class="aws" x="232" y="608" width="16" height="11" rx="2"/>
+<text class="lab" x="254" y="618">AWS service</text>
+<path class="flow" d="M352,613.5 L386,613.5"/>
+<text class="lab" x="394" y="618">request, data or call</text>
+<path class="soft" d="M528,613.5 L562,613.5"/>
+<text class="lab" x="570" y="618">metrics, or no AWS call</text>
+</svg>

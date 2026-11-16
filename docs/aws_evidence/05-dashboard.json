@@ -1,0 +1,865 @@
+{
+  "evidence": "The CloudWatch dashboard 'epicentre' (its definition; the image is 05-dashboard.png)",
+  "captured": "2026-11-15T16:41:13Z",
+  "how": "aws cloudwatch get-dashboard --dashboard-name epicentre",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "body": {
+    "start": "-PT6H",
+    "periodOverride": "inherit",
+    "widgets": [
+      {
+        "type": "text",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 3,
+        "properties": {
+          "markdown": "## EPICENTRE live app · us-east-1\nBuilt-in AWS metrics only: counts, latencies and token totals, never content. Amazon Bedrock runs the navigator and the explanation; Bedrock Guardrails checks the question (input) and scores the explanation (output); one EC2 instance behind CloudFront serves the app. The Bedrock series are the model ids in config.py and count every caller of those ids in this account (the live app, the evaluation and development runs). **Bedrock model invocation logging is off**, so AWS stores no question or answer; the only thing ever stored is a decision record the investor explicitly seals (private, versioned S3 vault)."
+        }
+      },
+      {
+        "type": "metric",
+        "x": 0,
+        "y": 3,
+        "width": 8,
+        "height": 6,
+        "properties": {
+          "title": "Bedrock invocations per minute, by model id",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "Sum",
+          "metrics": [
+            [
+              "AWS/Bedrock",
+              "Invocations",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "label": "us.anthropic.claude-sonnet-5-5"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "Invocations",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-sonnet-5-5"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "Invocations",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-sonnet-5"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "Invocations",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "label": "us.anthropic.claude-haiku-5-5"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "Invocations",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-haiku-5-5"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 8,
+        "y": 3,
+        "width": 8,
+        "height": 6,
+        "properties": {
+          "title": "Bedrock latency p50 / p90 (ms)",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "p50",
+          "metrics": [
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "p50",
+                "label": "us.anthropic.claude-sonnet-5-5 · p50"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "p50",
+                "label": "global.anthropic.claude-sonnet-5-5 · p50"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "p50",
+                "label": "global.anthropic.claude-sonnet-5 · p50"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "p50",
+                "label": "us.anthropic.claude-haiku-5-5 · p50"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "p50",
+                "label": "global.anthropic.claude-haiku-5-5 · p50"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "p90",
+                "label": "us.anthropic.claude-sonnet-5-5 · p90"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "p90",
+                "label": "global.anthropic.claude-sonnet-5-5 · p90"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "p90",
+                "label": "global.anthropic.claude-sonnet-5 · p90"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "p90",
+                "label": "us.anthropic.claude-haiku-5-5 · p90"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationLatency",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "p90",
+                "label": "global.anthropic.claude-haiku-5-5 · p90"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 16,
+        "y": 3,
+        "width": 8,
+        "height": 6,
+        "properties": {
+          "title": "Bedrock tokens per minute (input / output)",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "Sum",
+          "metrics": [
+            [
+              "AWS/Bedrock",
+              "InputTokenCount",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "label": "us.anthropic.claude-sonnet-5-5 · input"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InputTokenCount",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-sonnet-5-5 · input"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InputTokenCount",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-sonnet-5 · input"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InputTokenCount",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "label": "us.anthropic.claude-haiku-5-5 · input"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InputTokenCount",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-haiku-5-5 · input"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "OutputTokenCount",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "label": "us.anthropic.claude-sonnet-5-5 · output"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "OutputTokenCount",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-sonnet-5-5 · output"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "OutputTokenCount",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-sonnet-5 · output"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "OutputTokenCount",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "label": "us.anthropic.claude-haiku-5-5 · output"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "OutputTokenCount",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "label": "global.anthropic.claude-haiku-5-5 · output"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 0,
+        "y": 9,
+        "width": 8,
+        "height": 6,
+        "properties": {
+          "title": "Bedrock throttles and errors (all config.py model ids)",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "Sum",
+          "metrics": [
+            [
+              {
+                "expression": "SUM([t0,t1,t2,t3,t4])",
+                "label": "Throttles",
+                "id": "tall"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationThrottles",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "id": "t0",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationThrottles",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "id": "t1",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationThrottles",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "Sum",
+                "id": "t2",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationThrottles",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "id": "t3",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationThrottles",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "id": "t4",
+                "visible": false
+              }
+            ],
+            [
+              {
+                "expression": "SUM([c0,c1,c2,c3,c4])",
+                "label": "Client errors",
+                "id": "call"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationClientErrors",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "id": "c0",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationClientErrors",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "id": "c1",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationClientErrors",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "Sum",
+                "id": "c2",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationClientErrors",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "id": "c3",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationClientErrors",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "id": "c4",
+                "visible": false
+              }
+            ],
+            [
+              {
+                "expression": "SUM([s0,s1,s2,s3,s4])",
+                "label": "Server errors",
+                "id": "sall"
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationServerErrors",
+              "ModelId",
+              "us.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "id": "s0",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationServerErrors",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5-5",
+              {
+                "stat": "Sum",
+                "id": "s1",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationServerErrors",
+              "ModelId",
+              "global.anthropic.claude-sonnet-5",
+              {
+                "stat": "Sum",
+                "id": "s2",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationServerErrors",
+              "ModelId",
+              "us.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "id": "s3",
+                "visible": false
+              }
+            ],
+            [
+              "AWS/Bedrock",
+              "InvocationServerErrors",
+              "ModelId",
+              "global.anthropic.claude-haiku-5-5",
+              {
+                "stat": "Sum",
+                "id": "s4",
+                "visible": false
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 8,
+        "y": 9,
+        "width": 8,
+        "height": 6,
+        "properties": {
+          "title": "Guardrail calls and interventions, by source",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "Sum",
+          "metrics": [
+            [
+              "AWS/Bedrock/Guardrails",
+              "Invocations",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailContentSource",
+              "Input",
+              {
+                "label": "Question checked (input)"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "Invocations",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailContentSource",
+              "Output",
+              {
+                "label": "Explanation scored (output)"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationsIntervened",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailContentSource",
+              "Input",
+              {
+                "label": "Question intervened (input)"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationsIntervened",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailContentSource",
+              "Output",
+              {
+                "label": "Explanation intervened (output)"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 16,
+        "y": 9,
+        "width": 8,
+        "height": 6,
+        "properties": {
+          "title": "Guardrail interventions by policy",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "Sum",
+          "metrics": [
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationsIntervened",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailPolicyType",
+              "TopicPolicy",
+              {
+                "label": "Topic policy (denied topics)"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationsIntervened",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailPolicyType",
+              "ContentPolicy",
+              {
+                "label": "Content filters (prompt attack)"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationsIntervened",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailPolicyType",
+              "SensitiveInformationPolicy",
+              {
+                "label": "Sensitive information (personal data)"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationsIntervened",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailPolicyType",
+              "ContextualGroundingPolicy",
+              {
+                "label": "Contextual grounding"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 0,
+        "y": 15,
+        "width": 6,
+        "height": 6,
+        "properties": {
+          "title": "Guardrail latency p50 / p90 (ms)",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "p50",
+          "metrics": [
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationLatency",
+              "Operation",
+              "ApplyGuardrail",
+              {
+                "stat": "p50",
+                "label": "ApplyGuardrail · p50"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "InvocationLatency",
+              "Operation",
+              "ApplyGuardrail",
+              {
+                "stat": "p90",
+                "label": "ApplyGuardrail · p90"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 6,
+        "y": 15,
+        "width": 6,
+        "height": 6,
+        "properties": {
+          "title": "Guardrail text units (the billing unit)",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "Sum",
+          "metrics": [
+            [
+              "AWS/Bedrock/Guardrails",
+              "TextUnitCount",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailContentSource",
+              "Input",
+              {
+                "label": "input"
+              }
+            ],
+            [
+              "AWS/Bedrock/Guardrails",
+              "TextUnitCount",
+              "Operation",
+              "ApplyGuardrail",
+              "GuardrailContentSource",
+              "Output",
+              {
+                "label": "output"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 12,
+        "y": 15,
+        "width": 6,
+        "height": 6,
+        "properties": {
+          "title": "Guardrail calls by guardrail version",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 60,
+          "stat": "Sum",
+          "metrics": [
+            [
+              {
+                "id": "v",
+                "label": "version ${PROP('Dim.GuardrailVersion')}",
+                "expression": "SEARCH('{AWS/Bedrock/Guardrails,GuardrailArn,GuardrailVersion} MetricName=\"Invocations\"', 'Sum', 60)"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      },
+      {
+        "type": "metric",
+        "x": 18,
+        "y": 15,
+        "width": 6,
+        "height": 6,
+        "properties": {
+          "title": "EC2 origin CPU (%)",
+          "region": "us-east-1",
+          "view": "timeSeries",
+          "stacked": false,
+          "period": 300,
+          "stat": "Average",
+          "metrics": [
+            [
+              "AWS/EC2",
+              "CPUUtilization",
+              "InstanceId",
+              "<INSTANCE_ID>",
+              {
+                "stat": "Average",
+                "label": "average"
+              }
+            ],
+            [
+              "AWS/EC2",
+              "CPUUtilization",
+              "InstanceId",
+              "<INSTANCE_ID>",
+              {
+                "stat": "Maximum",
+                "label": "maximum"
+              }
+            ]
+          ],
+          "yAxis": {
+            "left": {
+              "min": 0
+            }
+          },
+          "legend": {
+            "position": "bottom"
+          }
+        }
+      }
+    ]
+  }
+}

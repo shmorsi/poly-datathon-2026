@@ -1,0 +1,169 @@
+/* #dial, "Where it breaks" (lane U4). The night tokens of styles.css only: gold (terrain) is the floor, red the sizes outside,
+   amber the sizes with caveats, magenta the move's size and nothing else. Archivo for words, B612 for the instrument (the ruler
+   and its readouts). 1 px hairlines, no cards, the 12-column frame. Motion: transform and opacity, tokens only, none on keys. */
+.dial { --dial-pad: 16px; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-6);
+  padding-block: var(--s-8); align-items: end; }
+.dial-head { grid-column: 1 / span 5; align-self: start; }
+.dial-title { font-weight: 640; font-stretch: 62%; font-size: clamp(2.5rem, 1.5rem + 3vw, 4.75rem); line-height: .92; letter-spacing: -0.004em;
+  color: var(--starlight); }
+.dial-sentence { margin-top: var(--s-4); font-size: var(--t-h3); font-weight: 500; line-height: 1.3; letter-spacing: -0.006em; color: var(--starlight);
+  max-width: 34ch; }
+.dial-n { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+.dial-hint { margin-top: 2px; font-size: var(--t-xs); color: var(--haze); }
+.dial-num { font-family: var(--font-num); font-variant-numeric: tabular-nums; word-spacing: -0.16em; white-space: nowrap; }
+
+/* the readouts: what the size under the thumb did in the replay (exact Result values; they roll only after a jump) */
+.dial-read { grid-column: 6 / -1; align-self: start; display: grid; gap: var(--s-5); margin: 0; }
+.dial-now, .dial-measures { display: flex; flex-wrap: wrap; align-items: flex-start; gap: var(--s-4) var(--s-6); margin: 0; }
+.dial-now { align-items: center; }
+.dial-measures { padding-top: var(--s-4); border-top: 1px solid var(--rule); }
+.dial-cell { display: grid; gap: var(--s-1); min-width: 0; }
+.dial-cell dd { margin: 0; }
+.dial-k { font-size: var(--t-small); color: var(--ink-2); font-weight: 500; white-space: nowrap; }
+.dial-v { font-family: var(--font-num); font-weight: 700; font-size: clamp(1.5rem, 1.15rem + 0.9vw, 2rem); line-height: 1.1; color: var(--starlight);
+  font-variant-numeric: tabular-nums; word-spacing: -0.16em; white-space: nowrap; }
+.dial-v.dial-move-size { color: var(--magenta); font-size: clamp(2rem, 1.45rem + 1.5vw, 3rem); line-height: 1; min-width: 3.4ch; }
+.dial-cell-size .dial-k { color: var(--ink); }
+.dial-cell-status { min-width: 13.5em; }
+.dial-status { display: flex; align-items: center; gap: var(--s-2); font-size: var(--t-lead); font-weight: 600; line-height: 1.2; white-space: nowrap; color: var(--haze); }
+.dial-status[data-tone="inside"] { color: var(--clear); }
+.dial-status[data-tone="caveat"] { color: var(--caution); }
+.dial-status[data-tone="outside"] { color: var(--outside); }
+.dial-status[data-tone="neutral"] { color: var(--ink); }
+.dial-whatif { margin: 0; font-size: var(--t-small); color: var(--ink-2); }
+.dial-whatif[hidden] { display: none; }
+.dial-strip .dial-status { display: inline-flex; font-size: var(--t-small); vertical-align: -0.1em; }
+.dial-strip:not(.is-whatif) .dial-status { display: none; }    /* at the asked size the stage's lamp says the verdict */
+.dial-strip .dial-whatif { margin-top: 2px; font-size: var(--t-xs); }
+.dial-status-icon { display: inline-flex; }
+.dial-status-icon:empty { display: none; }       /* "Held above your floor" has no mark, and no gap where one would be */
+.dial-icon { width: 1.05em; height: 1.05em; flex: none; }
+.dial-qual { font-size: var(--t-small); color: var(--haze); }
+.dial-sub { font-size: var(--t-small); color: var(--ink-2); white-space: nowrap; }
+.dial-sub.is-quiet { visibility: hidden; }
+.dial-floor { color: var(--terrain); }
+
+/* the ruler: the comb of worst falls over an engraved scale; the thumb is the one focusable slider */
+.dial-ruler { grid-column: 1 / -1; padding-top: var(--s-3); border-top: 1px solid var(--rule); }
+.dial-ruler-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: var(--s-1) var(--s-4); min-height: 32px; }
+.dial-label { font-size: var(--t-small); color: var(--ink-2); }
+.dial-key { display: inline-flex; align-items: center; gap: var(--s-2); font-size: var(--t-xs); color: var(--haze); }
+.dial-key-bar { width: 2px; height: 12px; background: var(--ink-2); }
+.dial-ruler-body { position: relative; padding-top: var(--s-2); }
+.dial-notch-row { position: relative; height: 28px; }
+.dial-notch-label { position: absolute; top: 2px; left: calc(var(--dial-pad) + var(--x) * (100% - 1px - 2 * var(--dial-pad))); margin: 0; font-size: var(--t-small); font-weight: 600; line-height: 1.2;
+  color: var(--terrain); white-space: nowrap; transform: translateX(-50%); }
+.dial-band-line { margin-top: var(--s-2); font-size: var(--t-body); color: var(--ink); max-width: 46ch; }
+.dial-band-row { position: relative; height: 52px; }      /* its own line of air above the cut's label */
+.dial-band-label { position: absolute; top: 0; left: calc(var(--dial-pad) + var(--x0) * (100% - 1px - 2 * var(--dial-pad))); margin: 0; font-size: var(--t-xs); font-weight: 500; line-height: 1.2; color: var(--terrain);
+  white-space: nowrap; transform: translateX(-6px); }
+.dial-band-label[data-align="end"] { left: calc(var(--dial-pad) + var(--x1) * (100% - 1px - 2 * var(--dial-pad))); transform: translateX(calc(-100% + 6px)); }
+.dial-band-bracket { position: absolute; top: 24px; left: calc(var(--dial-pad) + var(--x0) * (100% - 1px - 2 * var(--dial-pad)));
+  width: calc((var(--x1) - var(--x0)) * (100% - 1px - 2 * var(--dial-pad))); height: 8px;
+  border: 1px solid var(--terrain); border-bottom: 0; opacity: .8; }
+.dial-notch-label[data-align="start"] { left: 0; transform: none; }
+.dial-notch-label[data-align="end"] { left: auto; right: 0; transform: none; }
+.dial-notch-why { font-weight: 500; }
+.dial-track { position: relative; height: 136px; overflow: clip; touch-action: pan-y; cursor: pointer; user-select: none; -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent; }
+.dial-scale { position: absolute; left: 0; top: 0; overflow: visible; }
+.dial-zero { stroke: var(--rule); stroke-width: 1; shape-rendering: crispEdges; }
+.dial-bar { shape-rendering: crispEdges; }
+.dial-bar-held { fill: var(--ink); fill-opacity: .42; }            /* the floor's classes (R20): held is neutral ink, never green */
+.dial-bar-touched { fill: var(--caution); fill-opacity: .85; }
+.dial-bar-broke { fill: var(--outside); fill-opacity: .85; }
+.dial-bar-none { fill: var(--haze); fill-opacity: .4; }
+.dial-floor-line { stroke: var(--terrain); stroke-width: 1; shape-rendering: crispEdges; }
+.dial-floor-line.dial-floor-flash { stroke: var(--starlight); opacity: 0; }
+.dial-floor-t { font-family: var(--font-text); font-size: var(--t-xs); font-weight: 600; fill: var(--terrain); paint-order: stroke; stroke: var(--sky); stroke-width: 6px;
+  stroke-linejoin: round; word-spacing: -0.04em; }
+.dial-wash-outside { fill: var(--outside); fill-opacity: .07; }
+.dial-wash-caveat { fill: var(--caution); fill-opacity: .06; }
+.dial-hatch-line { stroke-width: 1; }
+.dial-hatch-line.dial-hatch-outside { stroke: var(--outside); stroke-opacity: .5; }
+.dial-hatch-line.dial-hatch-caveat { stroke: var(--caution); stroke-opacity: .45; }
+.dial-tick { stroke: var(--ink); stroke-width: 1; shape-rendering: crispEdges; }
+.dial-tick-0 { stroke-opacity: .3; }
+.dial-tick-1 { stroke-opacity: .5; }
+.dial-tick-2 { stroke-opacity: .75; }
+.dial-base { stroke: var(--edge); stroke-width: 1; shape-rendering: crispEdges; }
+.dial-axis { font-family: var(--font-num); font-size: var(--t-xs); fill: var(--haze); word-spacing: -0.16em; }
+.dial-notch line { stroke: var(--terrain); stroke-width: 1.5; }
+.dial-notch path { fill: var(--terrain); stroke: none; }
+.dial-notch.dial-notch-flash { opacity: 0; }
+.dial-notch.dial-notch-flash line { stroke: var(--starlight); }
+.dial-notch.dial-notch-flash path { fill: var(--starlight); }
+
+/* under the axis: where the investor is today and the size asked; away from it, "asked" becomes the way back */
+.dial-marks { position: relative; height: 32px; }
+.dial-mark { position: absolute; top: 0; left: calc(var(--dial-pad) + var(--x) * (100% - 1px - 2 * var(--dial-pad))); font-size: var(--t-xs); font-weight: 500; line-height: 16px; color: var(--haze);
+  white-space: nowrap; transform: translateX(-50%); }
+.dial-mark[data-align="start"] { left: 0; transform: none; }
+.dial-mark[data-align="end"] { left: auto; right: 0; transform: none; }
+.dial-mark.dial-mark-move { color: var(--magenta); }
+.dial-mark-back { top: -8px; }
+.dial:not(.is-away) .dial-mark-back, .dial.is-away .dial-mark-move { visibility: hidden; }
+.dial-back { background: none; border: 0; padding: var(--s-2) 0; min-height: 32px; color: var(--ink); font-size: var(--t-small); font-weight: 600; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--ink-tint); white-space: nowrap; }
+
+/* the thumb: the current size's own bar in magenta (a black casing keeps it off the comb), a hairline down to the knob on the ruler.
+   The hit area is 48 px wide and the track's full height. */
+.dial-move { position: absolute; left: 0; top: 0; width: 48px; height: 100%; margin-left: -24px; touch-action: pan-y; cursor: grab; outline: none; }
+.is-dragging .dial-move { cursor: grabbing; }
+.dial-move-line { position: absolute; left: 23px; width: 2px; background: var(--magenta); opacity: .55; }
+.dial-move-stem { position: absolute; left: 21px; width: 6px; background: var(--sky); transform-origin: 50% 0; }
+.dial-move-stem::after { content: ""; position: absolute; inset: 0 1px; background: var(--magenta); }
+.dial-move-tip { position: absolute; left: 28px; top: 0; padding: 0 4px; font-family: var(--font-num); font-size: var(--t-xs); font-weight: 700; line-height: 16px;
+  color: var(--starlight); background: var(--sky); white-space: nowrap; word-spacing: -0.16em; pointer-events: none; }
+.dial-move-tip.is-left { left: auto; right: 28px; }
+.dial-move-knob { position: absolute; left: 15px; width: 18px; height: 18px; border-radius: 50%; background: var(--magenta); box-shadow: 0 0 0 2px var(--sky); }
+.dial:not(.is-pointer) .dial-move:focus-visible .dial-move-knob { outline: 2px solid var(--focus); outline-offset: 3px; }
+.dial-fine { grid-column: 1 / -1; margin-top: calc(-1 * var(--s-3)); font-size: var(--t-small); color: var(--haze); }
+
+/* the strip: the same ruler, compact, for a slot under the race chart (the stage's lamp says the verdict there) */
+.dial.dial-strip { display: block; padding: 0; }
+.dial-strip .dial-ruler-head { min-height: 0; }
+.dial-strip .dial-label { color: var(--ink-2); }
+.dial-strip .dial-num.dial-move-size { color: var(--magenta); font-weight: 700; }
+.dial-strip .dial-notch-row { height: 24px; }
+.dial-strip .dial-track { height: 96px; }
+
+@media (max-width: 1099px) {
+  .dial-head, .dial-read { grid-column: 1 / -1; }
+}
+@media (max-width: 600px) {
+  .dial { row-gap: var(--s-5); padding-block: var(--s-7); }
+  .dial-now, .dial-measures { gap: var(--s-4) var(--s-6); }
+  .dial-cell-status { min-width: 0; }
+  .dial-status { white-space: normal; }
+  .dial-sentence { font-size: var(--t-lead); }
+  .dial-track { height: 116px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .dial-move-knob { transition: transform var(--dur-press) var(--ease-out); }
+  .is-dragging .dial-move-knob { transform: scale(1.12); }
+  .dial-back { transition: opacity var(--dur-tip) var(--ease-out), text-decoration-color var(--dur-tip) var(--ease-out); }
+  .dial-back:active { transform: scale(0.97); }
+  .dial-notch.dial-notch-flash.is-flash, .dial-floor-flash.is-flash { animation: dial-flash var(--dur-list) var(--ease-out); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dial-back:active { opacity: .82; }
+}
+@media (hover: hover) and (pointer: fine) {
+  .dial-back:hover { text-decoration-color: var(--ink); }
+}
+@keyframes dial-flash { 0% { opacity: 0; } 30% { opacity: 1; } 100% { opacity: 0; } }
+
+/* ---- lane clarity (ruling R22): the standalone #dial is its question, its answer and one large figure; the ruler, the readouts
+   and the start-month band fold into "Show the details" (the drag lives under the race, in the stage; the strip is untouched) ---- */
+.dial.frame { align-items: start; row-gap: var(--s-5); }
+.dial.frame > .cl-head, .dial.frame > .dial-big, .dial.frame > .dial-fine, .dial.frame > .cl-fold { grid-column: 1 / -1; }
+.dial.frame > .dial-fine { margin-top: 0; color: var(--ink-2); }
+.dial-big { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-2) var(--s-4); }
+.dial-big-n { font: 600 var(--t-readout-xl)/0.9 var(--font-text); font-stretch: 72%; font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
+  color: var(--starlight); border-radius: var(--r-tag); }
+.dial-big-l { font-size: var(--t-lead); line-height: 1.3; color: var(--ink); max-width: 36ch; }
+.dial.frame .cl-details { row-gap: var(--s-6); }
+.dial.frame .cl-details > .dial-read, .dial.frame .cl-details > .dial-ruler, .dial.frame .cl-details > .dial-band-line { grid-column: 1 / -1; }
+.dial.frame .cl-details > .dial-band-line { margin: 0; font-size: var(--t-body); color: var(--ink); max-width: 64ch; }

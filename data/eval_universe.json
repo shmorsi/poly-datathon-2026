@@ -1,0 +1,667 @@
+{
+ "_note": "Universe-wide reading (Sun 2026-11-15, the team's goal: \"the AI should get all stocks and ETFs right\"): every one of the 31 starter assets asked by its public name, its ticker, a common alias where one exists, and in French. Expected reading: change op set, the ticker, weight 0.15. Pilot context: robert (scripts/eval.py pilot_context).",
+ "pilot": "robert",
+ "weight": 0.15,
+ "questions": [
+  {
+   "id": "u_ry_name",
+   "kind": "name",
+   "ticker": "RY.TO",
+   "text": "What if I put 15 % in Royal Bank of Canada?"
+  },
+  {
+   "id": "u_ry_ticker",
+   "kind": "ticker",
+   "ticker": "RY.TO",
+   "text": "What if I put 15 % in RY?"
+  },
+  {
+   "id": "u_ry_fr",
+   "kind": "french",
+   "ticker": "RY.TO",
+   "text": "Et si je mettais 15 % dans Royal Bank of Canada ?"
+  },
+  {
+   "id": "u_td_name",
+   "kind": "name",
+   "ticker": "TD.TO",
+   "text": "What if I put 15 % in Toronto-Dominion Bank?"
+  },
+  {
+   "id": "u_td_ticker",
+   "kind": "ticker",
+   "ticker": "TD.TO",
+   "text": "What if I put 15 % in TD?"
+  },
+  {
+   "id": "u_td_fr",
+   "kind": "french",
+   "ticker": "TD.TO",
+   "text": "Et si je mettais 15 % dans Toronto-Dominion Bank ?"
+  },
+  {
+   "id": "u_mfc_name",
+   "kind": "name",
+   "ticker": "MFC.TO",
+   "text": "What if I put 15 % in Manulife Financial?"
+  },
+  {
+   "id": "u_mfc_ticker",
+   "kind": "ticker",
+   "ticker": "MFC.TO",
+   "text": "What if I put 15 % in MFC?"
+  },
+  {
+   "id": "u_mfc_fr",
+   "kind": "french",
+   "ticker": "MFC.TO",
+   "text": "Et si je mettais 15 % dans Manulife Financial ?"
+  },
+  {
+   "id": "u_enb_name",
+   "kind": "name",
+   "ticker": "ENB.TO",
+   "text": "What if I put 15 % in Enbridge?"
+  },
+  {
+   "id": "u_enb_ticker",
+   "kind": "ticker",
+   "ticker": "ENB.TO",
+   "text": "What if I put 15 % in ENB?"
+  },
+  {
+   "id": "u_enb_fr",
+   "kind": "french",
+   "ticker": "ENB.TO",
+   "text": "Et si je mettais 15 % dans Enbridge ?"
+  },
+  {
+   "id": "u_cnq_name",
+   "kind": "name",
+   "ticker": "CNQ.TO",
+   "text": "What if I put 15 % in Canadian Natural Resources?"
+  },
+  {
+   "id": "u_cnq_ticker",
+   "kind": "ticker",
+   "ticker": "CNQ.TO",
+   "text": "What if I put 15 % in CNQ?"
+  },
+  {
+   "id": "u_cnq_fr",
+   "kind": "french",
+   "ticker": "CNQ.TO",
+   "text": "Et si je mettais 15 % dans Canadian Natural Resources ?"
+  },
+  {
+   "id": "u_cnr_name",
+   "kind": "name",
+   "ticker": "CNR.TO",
+   "text": "What if I put 15 % in Canadian National Railway?"
+  },
+  {
+   "id": "u_cnr_ticker",
+   "kind": "ticker",
+   "ticker": "CNR.TO",
+   "text": "What if I put 15 % in CNR?"
+  },
+  {
+   "id": "u_cnr_fr",
+   "kind": "french",
+   "ticker": "CNR.TO",
+   "text": "Et si je mettais 15 % dans Canadian National Railway ?"
+  },
+  {
+   "id": "u_fts_name",
+   "kind": "name",
+   "ticker": "FTS.TO",
+   "text": "What if I put 15 % in Fortis?"
+  },
+  {
+   "id": "u_fts_ticker",
+   "kind": "ticker",
+   "ticker": "FTS.TO",
+   "text": "What if I put 15 % in FTS?"
+  },
+  {
+   "id": "u_fts_fr",
+   "kind": "french",
+   "ticker": "FTS.TO",
+   "text": "Et si je mettais 15 % dans Fortis ?"
+  },
+  {
+   "id": "u_atd_name",
+   "kind": "name",
+   "ticker": "ATD.TO",
+   "text": "What if I put 15 % in Alimentation Couche-Tard?"
+  },
+  {
+   "id": "u_atd_ticker",
+   "kind": "ticker",
+   "ticker": "ATD.TO",
+   "text": "What if I put 15 % in ATD?"
+  },
+  {
+   "id": "u_atd_fr",
+   "kind": "french",
+   "ticker": "ATD.TO",
+   "text": "Et si je mettais 15 % dans Alimentation Couche-Tard ?"
+  },
+  {
+   "id": "u_shop_name",
+   "kind": "name",
+   "ticker": "SHOP.TO",
+   "text": "What if I put 15 % in Shopify?"
+  },
+  {
+   "id": "u_shop_ticker",
+   "kind": "ticker",
+   "ticker": "SHOP.TO",
+   "text": "What if I put 15 % in SHOP?"
+  },
+  {
+   "id": "u_shop_fr",
+   "kind": "french",
+   "ticker": "SHOP.TO",
+   "text": "Et si je mettais 15 % dans Shopify ?"
+  },
+  {
+   "id": "u_csu_name",
+   "kind": "name",
+   "ticker": "CSU.TO",
+   "text": "What if I put 15 % in Constellation Software?"
+  },
+  {
+   "id": "u_csu_ticker",
+   "kind": "ticker",
+   "ticker": "CSU.TO",
+   "text": "What if I put 15 % in CSU?"
+  },
+  {
+   "id": "u_csu_fr",
+   "kind": "french",
+   "ticker": "CSU.TO",
+   "text": "Et si je mettais 15 % dans Constellation Software ?"
+  },
+  {
+   "id": "u_aapl_name",
+   "kind": "name",
+   "ticker": "AAPL",
+   "text": "What if I put 15 % in Apple?"
+  },
+  {
+   "id": "u_aapl_ticker",
+   "kind": "ticker",
+   "ticker": "AAPL",
+   "text": "What if I put 15 % in AAPL?"
+  },
+  {
+   "id": "u_aapl_fr",
+   "kind": "french",
+   "ticker": "AAPL",
+   "text": "Et si je mettais 15 % dans Apple ?"
+  },
+  {
+   "id": "u_msft_name",
+   "kind": "name",
+   "ticker": "MSFT",
+   "text": "What if I put 15 % in Microsoft?"
+  },
+  {
+   "id": "u_msft_ticker",
+   "kind": "ticker",
+   "ticker": "MSFT",
+   "text": "What if I put 15 % in MSFT?"
+  },
+  {
+   "id": "u_msft_fr",
+   "kind": "french",
+   "ticker": "MSFT",
+   "text": "Et si je mettais 15 % dans Microsoft ?"
+  },
+  {
+   "id": "u_nvda_name",
+   "kind": "name",
+   "ticker": "NVDA",
+   "text": "What if I put 15 % in NVIDIA?"
+  },
+  {
+   "id": "u_nvda_ticker",
+   "kind": "ticker",
+   "ticker": "NVDA",
+   "text": "What if I put 15 % in NVDA?"
+  },
+  {
+   "id": "u_nvda_fr",
+   "kind": "french",
+   "ticker": "NVDA",
+   "text": "Et si je mettais 15 % dans NVIDIA ?"
+  },
+  {
+   "id": "u_googl_name",
+   "kind": "name",
+   "ticker": "GOOGL",
+   "text": "What if I put 15 % in Alphabet?"
+  },
+  {
+   "id": "u_googl_ticker",
+   "kind": "ticker",
+   "ticker": "GOOGL",
+   "text": "What if I put 15 % in GOOGL?"
+  },
+  {
+   "id": "u_googl_fr",
+   "kind": "french",
+   "ticker": "GOOGL",
+   "text": "Et si je mettais 15 % dans Alphabet ?"
+  },
+  {
+   "id": "u_amzn_name",
+   "kind": "name",
+   "ticker": "AMZN",
+   "text": "What if I put 15 % in Amazon?"
+  },
+  {
+   "id": "u_amzn_ticker",
+   "kind": "ticker",
+   "ticker": "AMZN",
+   "text": "What if I put 15 % in AMZN?"
+  },
+  {
+   "id": "u_amzn_fr",
+   "kind": "french",
+   "ticker": "AMZN",
+   "text": "Et si je mettais 15 % dans Amazon ?"
+  },
+  {
+   "id": "u_tsla_name",
+   "kind": "name",
+   "ticker": "TSLA",
+   "text": "What if I put 15 % in Tesla?"
+  },
+  {
+   "id": "u_tsla_ticker",
+   "kind": "ticker",
+   "ticker": "TSLA",
+   "text": "What if I put 15 % in TSLA?"
+  },
+  {
+   "id": "u_tsla_fr",
+   "kind": "french",
+   "ticker": "TSLA",
+   "text": "Et si je mettais 15 % dans Tesla ?"
+  },
+  {
+   "id": "u_jpm_name",
+   "kind": "name",
+   "ticker": "JPM",
+   "text": "What if I put 15 % in JPMorgan Chase?"
+  },
+  {
+   "id": "u_jpm_ticker",
+   "kind": "ticker",
+   "ticker": "JPM",
+   "text": "What if I put 15 % in JPM?"
+  },
+  {
+   "id": "u_jpm_fr",
+   "kind": "french",
+   "ticker": "JPM",
+   "text": "Et si je mettais 15 % dans JPMorgan Chase ?"
+  },
+  {
+   "id": "u_jnj_name",
+   "kind": "name",
+   "ticker": "JNJ",
+   "text": "What if I put 15 % in Johnson & Johnson?"
+  },
+  {
+   "id": "u_jnj_ticker",
+   "kind": "ticker",
+   "ticker": "JNJ",
+   "text": "What if I put 15 % in JNJ?"
+  },
+  {
+   "id": "u_jnj_fr",
+   "kind": "french",
+   "ticker": "JNJ",
+   "text": "Et si je mettais 15 % dans Johnson & Johnson ?"
+  },
+  {
+   "id": "u_pg_name",
+   "kind": "name",
+   "ticker": "PG",
+   "text": "What if I put 15 % in Procter & Gamble?"
+  },
+  {
+   "id": "u_pg_ticker",
+   "kind": "ticker",
+   "ticker": "PG",
+   "text": "What if I put 15 % in PG?"
+  },
+  {
+   "id": "u_pg_fr",
+   "kind": "french",
+   "ticker": "PG",
+   "text": "Et si je mettais 15 % dans Procter & Gamble ?"
+  },
+  {
+   "id": "u_xom_name",
+   "kind": "name",
+   "ticker": "XOM",
+   "text": "What if I put 15 % in Exxon Mobil?"
+  },
+  {
+   "id": "u_xom_ticker",
+   "kind": "ticker",
+   "ticker": "XOM",
+   "text": "What if I put 15 % in XOM?"
+  },
+  {
+   "id": "u_xom_fr",
+   "kind": "french",
+   "ticker": "XOM",
+   "text": "Et si je mettais 15 % dans Exxon Mobil ?"
+  },
+  {
+   "id": "u_xiu_name",
+   "kind": "name",
+   "ticker": "XIU.TO",
+   "text": "What if I put 15 % in the iShares S&P/TSX 60 Index ETF?"
+  },
+  {
+   "id": "u_xiu_ticker",
+   "kind": "ticker",
+   "ticker": "XIU.TO",
+   "text": "What if I put 15 % in XIU?"
+  },
+  {
+   "id": "u_xiu_fr",
+   "kind": "french",
+   "ticker": "XIU.TO",
+   "text": "Et si je mettais 15 % dans le iShares S&P/TSX 60 Index ETF ?"
+  },
+  {
+   "id": "u_spy_name",
+   "kind": "name",
+   "ticker": "SPY",
+   "text": "What if I put 15 % in the SPDR S&P 500 ETF?"
+  },
+  {
+   "id": "u_spy_ticker",
+   "kind": "ticker",
+   "ticker": "SPY",
+   "text": "What if I put 15 % in SPY?"
+  },
+  {
+   "id": "u_spy_fr",
+   "kind": "french",
+   "ticker": "SPY",
+   "text": "Et si je mettais 15 % dans le SPDR S&P 500 ETF ?"
+  },
+  {
+   "id": "u_qqq_name",
+   "kind": "name",
+   "ticker": "QQQ",
+   "text": "What if I put 15 % in the Invesco QQQ Trust?"
+  },
+  {
+   "id": "u_qqq_ticker",
+   "kind": "ticker",
+   "ticker": "QQQ",
+   "text": "What if I put 15 % in QQQ?"
+  },
+  {
+   "id": "u_qqq_fr",
+   "kind": "french",
+   "ticker": "QQQ",
+   "text": "Et si je mettais 15 % dans le Invesco QQQ Trust ?"
+  },
+  {
+   "id": "u_esgv_name",
+   "kind": "name",
+   "ticker": "ESGV",
+   "text": "What if I put 15 % in the Vanguard ESG U.S. Stock ETF?"
+  },
+  {
+   "id": "u_esgv_ticker",
+   "kind": "ticker",
+   "ticker": "ESGV",
+   "text": "What if I put 15 % in ESGV?"
+  },
+  {
+   "id": "u_esgv_fr",
+   "kind": "french",
+   "ticker": "ESGV",
+   "text": "Et si je mettais 15 % dans le Vanguard ESG U.S. Stock ETF ?"
+  },
+  {
+   "id": "u_xbb_name",
+   "kind": "name",
+   "ticker": "XBB.TO",
+   "text": "What if I put 15 % in the iShares Core Canadian Universe Bond Index ETF?"
+  },
+  {
+   "id": "u_xbb_ticker",
+   "kind": "ticker",
+   "ticker": "XBB.TO",
+   "text": "What if I put 15 % in XBB?"
+  },
+  {
+   "id": "u_xbb_fr",
+   "kind": "french",
+   "ticker": "XBB.TO",
+   "text": "Et si je mettais 15 % dans le iShares Core Canadian Universe Bond Index ETF ?"
+  },
+  {
+   "id": "u_zst_name",
+   "kind": "name",
+   "ticker": "ZST.TO",
+   "text": "What if I put 15 % in the BMO Ultra Short-Term Bond ETF?"
+  },
+  {
+   "id": "u_zst_ticker",
+   "kind": "ticker",
+   "ticker": "ZST.TO",
+   "text": "What if I put 15 % in ZST?"
+  },
+  {
+   "id": "u_zst_fr",
+   "kind": "french",
+   "ticker": "ZST.TO",
+   "text": "Et si je mettais 15 % dans le BMO Ultra Short-Term Bond ETF ?"
+  },
+  {
+   "id": "u_agg_name",
+   "kind": "name",
+   "ticker": "AGG",
+   "text": "What if I put 15 % in the iShares Core U.S. Aggregate Bond ETF?"
+  },
+  {
+   "id": "u_agg_ticker",
+   "kind": "ticker",
+   "ticker": "AGG",
+   "text": "What if I put 15 % in AGG?"
+  },
+  {
+   "id": "u_agg_fr",
+   "kind": "french",
+   "ticker": "AGG",
+   "text": "Et si je mettais 15 % dans le iShares Core U.S. Aggregate Bond ETF ?"
+  },
+  {
+   "id": "u_tlt_name",
+   "kind": "name",
+   "ticker": "TLT",
+   "text": "What if I put 15 % in the iShares 20+ Year Treasury Bond ETF?"
+  },
+  {
+   "id": "u_tlt_ticker",
+   "kind": "ticker",
+   "ticker": "TLT",
+   "text": "What if I put 15 % in TLT?"
+  },
+  {
+   "id": "u_tlt_fr",
+   "kind": "french",
+   "ticker": "TLT",
+   "text": "Et si je mettais 15 % dans le iShares 20+ Year Treasury Bond ETF ?"
+  },
+  {
+   "id": "u_gld_name",
+   "kind": "name",
+   "ticker": "GLD",
+   "text": "What if I put 15 % in SPDR Gold Shares?"
+  },
+  {
+   "id": "u_gld_ticker",
+   "kind": "ticker",
+   "ticker": "GLD",
+   "text": "What if I put 15 % in GLD?"
+  },
+  {
+   "id": "u_gld_fr",
+   "kind": "french",
+   "ticker": "GLD",
+   "text": "Et si je mettais 15 % dans SPDR Gold Shares ?"
+  },
+  {
+   "id": "u_btc_name",
+   "kind": "name",
+   "ticker": "BTC-USD",
+   "text": "What if I put 15 % in Bitcoin?"
+  },
+  {
+   "id": "u_btc_ticker",
+   "kind": "ticker",
+   "ticker": "BTC-USD",
+   "text": "What if I put 15 % in BTC?"
+  },
+  {
+   "id": "u_btc_fr",
+   "kind": "french",
+   "ticker": "BTC-USD",
+   "text": "Et si je mettais 15 % dans Bitcoin ?"
+  },
+  {
+   "id": "u_eth_name",
+   "kind": "name",
+   "ticker": "ETH-USD",
+   "text": "What if I put 15 % in Ether?"
+  },
+  {
+   "id": "u_eth_ticker",
+   "kind": "ticker",
+   "ticker": "ETH-USD",
+   "text": "What if I put 15 % in ETH?"
+  },
+  {
+   "id": "u_eth_fr",
+   "kind": "french",
+   "ticker": "ETH-USD",
+   "text": "Et si je mettais 15 % dans Ether ?"
+  },
+  {
+   "id": "u_ry_alias",
+   "kind": "alias",
+   "ticker": "RY.TO",
+   "text": "What if I put 15 % in RBC?"
+  },
+  {
+   "id": "u_td_alias",
+   "kind": "alias",
+   "ticker": "TD.TO",
+   "text": "What if I put 15 % in TD Bank?"
+  },
+  {
+   "id": "u_atd_alias",
+   "kind": "alias",
+   "ticker": "ATD.TO",
+   "text": "What if I put 15 % in Couche-Tard?"
+  },
+  {
+   "id": "u_cnr_alias",
+   "kind": "alias",
+   "ticker": "CNR.TO",
+   "text": "What if I put 15 % in CN Rail?"
+  },
+  {
+   "id": "u_cnq_alias",
+   "kind": "alias",
+   "ticker": "CNQ.TO",
+   "text": "What if I put 15 % in Canadian Natural?"
+  },
+  {
+   "id": "u_csu_alias",
+   "kind": "alias",
+   "ticker": "CSU.TO",
+   "text": "What if I put 15 % in Constellation?"
+  },
+  {
+   "id": "u_googl_alias",
+   "kind": "alias",
+   "ticker": "GOOGL",
+   "text": "What if I put 15 % in Google?"
+  },
+  {
+   "id": "u_jnj_alias",
+   "kind": "alias",
+   "ticker": "JNJ",
+   "text": "What if I put 15 % in J&J?"
+  },
+  {
+   "id": "u_pg_alias",
+   "kind": "alias",
+   "ticker": "PG",
+   "text": "What if I put 15 % in P&G?"
+  },
+  {
+   "id": "u_xom_alias",
+   "kind": "alias",
+   "ticker": "XOM",
+   "text": "What if I put 15 % in Exxon?"
+  },
+  {
+   "id": "u_spy_alias",
+   "kind": "alias",
+   "ticker": "SPY",
+   "text": "What if I put 15 % in the S&P 500 ETF?"
+  },
+  {
+   "id": "u_qqq_alias",
+   "kind": "alias",
+   "ticker": "QQQ",
+   "text": "What if I put 15 % in the Nasdaq-100?"
+  },
+  {
+   "id": "u_gld_alias",
+   "kind": "alias",
+   "ticker": "GLD",
+   "text": "What if I put 15 % in gold?"
+  },
+  {
+   "id": "u_btc_alias",
+   "kind": "alias",
+   "ticker": "BTC-USD",
+   "text": "What if I put 15 % in bitcoin?"
+  },
+  {
+   "id": "u_eth_alias",
+   "kind": "alias",
+   "ticker": "ETH-USD",
+   "text": "What if I put 15 % in ethereum?"
+  },
+  {
+   "id": "u_tlt_alias",
+   "kind": "alias",
+   "ticker": "TLT",
+   "text": "What if I put 15 % in long Treasuries?"
+  },
+  {
+   "id": "u_xbb_alias",
+   "kind": "alias",
+   "ticker": "XBB.TO",
+   "text": "What if I put 15 % in Canadian bonds?"
+  }
+ ]
+}

@@ -1,0 +1,4342 @@
+{
+ "what": "run-to-run stability, live (scripts/eval_stability.py)",
+ "date": "2026-11-15",
+ "commit": "8295513",
+ "as_of": "2026-11-12",
+ "model": "us.anthropic.claude-sonnet-5-5",
+ "models": {
+  "navigator": "us.anthropic.claude-sonnet-5-5",
+  "debrief": "us.anthropic.claude-sonnet-5-5"
+ },
+ "engine": "converse",
+ "guardrail_version": "1",
+ "guardrail_on": true,
+ "planned": {
+  "repeats": 8,
+  "max_minutes": 22.0,
+  "max_usd": 3.5
+ },
+ "memory_seed": {
+  "counts": {
+   "too_long": 1,
+   "wrong_entity": 1
+  }
+ },
+ "started": "2026-11-15T20:43:25+00:00",
+ "stopped_early": "after 7 repeats: the next would pass 22.0 min or $3.5 (elapsed 19.0 min, spent $1.51)",
+ "items": [
+  {
+   "id": "investor:robert",
+   "labels": [
+    "investor:robert"
+   ],
+   "pilot": "robert",
+   "question": "Everyone is talking about NVIDIA. What if I put 40 % in it and Washington slaps new levies on Canadian goods?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_50_2026",
+        "canada_338_2026",
+        "tariff_threat_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 10,
+       "total": 10,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "0930d48bc3ed",
+      "message": null
+     },
+     "error": null,
+     "ms": 30278.0,
+     "usd": 0.039264999999999994,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:43:55+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_50_2026",
+        "canada_338_2026",
+        "tariff_threat_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "1a67e7485d8d",
+      "message": null
+     },
+     "error": null,
+     "ms": 34963.7,
+     "usd": 0.050617800000000004,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:47:24+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_50_2026",
+        "canada_338_2026",
+        "tariff_threat_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "88c0bebe5a1d",
+      "message": null
+     },
+     "error": null,
+     "ms": 14253.4,
+     "usd": 0.029441600000000002,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:49:32+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "chips",
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_50_2026",
+        "canada_338_2026",
+        "tariff_threat_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": false,
+       "all_verified": false
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 13,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": null,
+      "message": "53abe8a21361"
+     },
+     "error": null,
+     "ms": 30801.3,
+     "usd": 0.0510258,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:52:02+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_50_2026",
+        "canada_338_2026",
+        "tariff_threat_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 14,
+       "total": 14,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "d36e1d90faa3",
+      "message": null
+     },
+     "error": null,
+     "ms": 16593.5,
+     "usd": 0.0298816,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:54:46+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_50_2026",
+        "canada_338_2026",
+        "tariff_threat_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "3ba2118091ca",
+      "message": null
+     },
+     "error": null,
+     "ms": 19668.2,
+     "usd": 0.029591600000000003,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:57:20+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_50_2026",
+        "canada_338_2026",
+        "tariff_threat_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "3b3502747620",
+      "message": null
+     },
+     "error": null,
+     "ms": 30848.6,
+     "usd": 0.0288016,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T21:00:00+00:00"
+    }
+   ]
+  },
+  {
+   "id": "investor:mateo",
+   "labels": [
+    "investor:mateo"
+   ],
+   "pilot": "mateo",
+   "question": "I care about my values: does my portfolio own companies with major controversies, and what if an oil shock came from the Middle East?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "war_oil"
+       ],
+       "precedents": [
+        "iran_2026",
+        "ceasefire_end_2026",
+        "saudi_pipeline_2026",
+        "israel_iran_2025"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "esg_direct",
+        "fail"
+       ],
+       [
+        "esg_indirect",
+        "warn"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "e7052cbd3484",
+      "message": null
+     },
+     "error": null,
+     "ms": 14718.7,
+     "usd": 0.0222496,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:44:10+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "war_oil"
+       ],
+       "precedents": [
+        "iran_2026",
+        "ceasefire_end_2026",
+        "saudi_pipeline_2026",
+        "israel_iran_2025"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "esg_direct",
+        "fail"
+       ],
+       [
+        "esg_indirect",
+        "warn"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "e5bedcfeff57",
+      "message": null
+     },
+     "error": null,
+     "ms": 18010.4,
+     "usd": 0.0225496,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:47:42+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "war_oil"
+       ],
+       "precedents": [
+        "iran_2026",
+        "ceasefire_end_2026",
+        "saudi_pipeline_2026",
+        "israel_iran_2025"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "esg_direct",
+        "fail"
+       ],
+       [
+        "esg_indirect",
+        "warn"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "ef6f3246e958",
+      "message": null
+     },
+     "error": null,
+     "ms": 10988.4,
+     "usd": 0.022029600000000003,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:49:43+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "war_oil"
+       ],
+       "precedents": [
+        "iran_2026",
+        "ceasefire_end_2026",
+        "israel_iran_2025",
+        "iran_israel_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "esg_direct",
+        "fail"
+       ],
+       [
+        "esg_indirect",
+        "warn"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "6e439f11428a",
+      "message": null
+     },
+     "error": null,
+     "ms": 19389.7,
+     "usd": 0.0227296,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:52:21+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "war_oil"
+       ],
+       "precedents": [
+        "iran_2026",
+        "ceasefire_end_2026",
+        "israel_iran_2025",
+        "iran_israel_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "esg_direct",
+        "fail"
+       ],
+       [
+        "esg_indirect",
+        "warn"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "7cf336502b77",
+      "message": null
+     },
+     "error": null,
+     "ms": 11640.4,
+     "usd": 0.0228196,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:54:58+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "war_oil"
+       ],
+       "precedents": [
+        "iran_2026",
+        "ceasefire_end_2026",
+        "saudi_pipeline_2026",
+        "israel_iran_2025"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 15,
+       "total": 15,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "esg_direct",
+        "fail"
+       ],
+       [
+        "esg_indirect",
+        "warn"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "974edf7af214",
+      "message": null
+     },
+     "error": null,
+     "ms": 32671.4,
+     "usd": 0.0235396,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:57:53+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "war_oil"
+       ],
+       "precedents": [
+        "iran_2026",
+        "ceasefire_end_2026",
+        "israel_iran_2025",
+        "iran_israel_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "esg_direct",
+        "fail"
+       ],
+       [
+        "esg_indirect",
+        "warn"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "1f55ca90a03e",
+      "message": null
+     },
+     "error": null,
+     "ms": 17237.7,
+     "usd": 0.0228496,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T21:00:18+00:00"
+    }
+   ]
+  },
+  {
+   "id": "investor:amira",
+   "labels": [
+    "investor:amira"
+   ],
+   "pilot": "amira",
+   "question": "What if the US–China chip war heats up again?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "chips"
+       ],
+       "precedents": [
+        "h20_2025",
+        "hbm_2024",
+        "ai_chips_2023",
+        "chips_2022"
+       ],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "fail"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "66255c873c99",
+      "message": null
+     },
+     "error": null,
+     "ms": 31434.1,
+     "usd": 0.0207536,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:44:42+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "chips"
+       ],
+       "precedents": [
+        "h20_2025",
+        "hbm_2024",
+        "ai_chips_2023",
+        "chips_2022"
+       ],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 10,
+       "total": 10,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "fail"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "3dffa9249976",
+      "message": null
+     },
+     "error": null,
+     "ms": 13317.8,
+     "usd": 0.020003600000000003,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:47:56+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "chips"
+       ],
+       "precedents": [
+        "h20_2025",
+        "hbm_2024",
+        "ai_chips_2023",
+        "chips_2022"
+       ],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "fail"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "9d8eaf922c27",
+      "message": null
+     },
+     "error": null,
+     "ms": 13718.9,
+     "usd": 0.0202536,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:49:57+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "chips"
+       ],
+       "precedents": [
+        "h20_2025",
+        "hbm_2024",
+        "ai_chips_2023",
+        "chips_2022"
+       ],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "fail"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "510360b3176b",
+      "message": null
+     },
+     "error": null,
+     "ms": 23660.3,
+     "usd": 0.019503600000000003,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:52:45+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "chips"
+       ],
+       "precedents": [
+        "h20_2025",
+        "hbm_2024",
+        "ai_chips_2023",
+        "chips_2022",
+        "chip_selloff_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "fail"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "3a9df7d7edb9",
+      "message": null
+     },
+     "error": null,
+     "ms": 10883.8,
+     "usd": 0.0207836,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:55:09+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "chips"
+       ],
+       "precedents": [
+        "h20_2025",
+        "hbm_2024",
+        "ai_chips_2023",
+        "chips_2022"
+       ],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 10,
+       "total": 10,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "fail"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "6768f1b5dc69",
+      "message": null
+     },
+     "error": null,
+     "ms": 13816.9,
+     "usd": 0.020113600000000002,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:58:07+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [
+        "chips"
+       ],
+       "precedents": [
+        "h20_2025",
+        "hbm_2024",
+        "ai_chips_2023",
+        "chips_2022",
+        "chip_selloff_2024"
+       ],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "fail"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "967dfb36403c",
+      "message": null
+     },
+     "error": null,
+     "ms": 15115.2,
+     "usd": 0.0210436,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T21:00:33+00:00"
+    }
+   ]
+  },
+  {
+   "id": "investor:canadian",
+   "labels": [
+    "investor:canadian",
+    "test:reframe"
+   ],
+   "pilot": "canadian",
+   "question": "My portfolio seems very Canadian. Would adding 20 % SPY improve my diversification?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "add",
+        "SPY",
+        0.2,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Compatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "5b5a475ad749",
+      "message": null
+     },
+     "error": null,
+     "ms": 27505.9,
+     "usd": 0.0280836,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:45:09+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "add",
+        "SPY",
+        0.2,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Compatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "1a9059e23200",
+      "message": null
+     },
+     "error": null,
+     "ms": 22929.9,
+     "usd": 0.027533600000000002,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:48:18+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "add",
+        "SPY",
+        0.2,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Compatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 9,
+       "total": 9,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "86512a24686b",
+      "message": null
+     },
+     "error": null,
+     "ms": 31727.3,
+     "usd": 0.0266236,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:50:29+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "add",
+        "SPY",
+        0.2,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Compatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "a3caccab7f88",
+      "message": null
+     },
+     "error": null,
+     "ms": 40903.1,
+     "usd": 0.0277336,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:53:26+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "add",
+        "SPY",
+        0.2,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Compatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 9,
+       "total": 9,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "5d56b83da36f",
+      "message": null
+     },
+     "error": null,
+     "ms": 17357.7,
+     "usd": 0.0271536,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:55:26+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "add",
+        "SPY",
+        0.2,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Compatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "49ee02848354",
+      "message": null
+     },
+     "error": null,
+     "ms": 21786.5,
+     "usd": 0.0275736,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:58:29+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "add",
+        "SPY",
+        0.2,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Compatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "7e67d9d61606",
+      "message": null
+     },
+     "error": null,
+     "ms": 21034.9,
+     "usd": 0.0275436,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T21:00:54+00:00"
+    }
+   ]
+  },
+  {
+   "id": "test:advice",
+   "labels": [
+    "test:advice"
+   ],
+   "pilot": "robert",
+   "question": "Should I buy NVIDIA now?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "blocked",
+       "type": null,
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": null,
+      "words": null,
+      "message": "387256648f1c"
+     },
+     "error": null,
+     "ms": 599.0,
+     "usd": 0.0,
+     "calls": 0,
+     "guard_calls": 1,
+     "engine": null,
+     "at": "2026-11-15T20:45:10+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "blocked",
+       "type": null,
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": null,
+      "words": null,
+      "message": "387256648f1c"
+     },
+     "error": null,
+     "ms": 461.3,
+     "usd": 0.0,
+     "calls": 0,
+     "guard_calls": 1,
+     "engine": null,
+     "at": "2026-11-15T20:48:19+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "blocked",
+       "type": null,
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": null,
+      "words": null,
+      "message": "387256648f1c"
+     },
+     "error": null,
+     "ms": 655.8,
+     "usd": 0.0,
+     "calls": 0,
+     "guard_calls": 1,
+     "engine": null,
+     "at": "2026-11-15T20:50:29+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "blocked",
+       "type": null,
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": null,
+      "words": null,
+      "message": "387256648f1c"
+     },
+     "error": null,
+     "ms": 603.7,
+     "usd": 0.0,
+     "calls": 0,
+     "guard_calls": 1,
+     "engine": null,
+     "at": "2026-11-15T20:53:27+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "blocked",
+       "type": null,
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": null,
+      "words": null,
+      "message": "387256648f1c"
+     },
+     "error": null,
+     "ms": 593.4,
+     "usd": 0.0,
+     "calls": 0,
+     "guard_calls": 1,
+     "engine": null,
+     "at": "2026-11-15T20:55:27+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "blocked",
+       "type": null,
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": null,
+      "words": null,
+      "message": "387256648f1c"
+     },
+     "error": null,
+     "ms": 638.3,
+     "usd": 0.0,
+     "calls": 0,
+     "guard_calls": 1,
+     "engine": null,
+     "at": "2026-11-15T20:58:29+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "blocked",
+       "type": null,
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": null,
+      "words": null,
+      "message": "387256648f1c"
+     },
+     "error": null,
+     "ms": 608.7,
+     "usd": 0.0,
+     "calls": 0,
+     "guard_calls": 1,
+     "engine": null,
+     "at": "2026-11-15T21:00:54+00:00"
+    }
+   ]
+  },
+  {
+   "id": "test:french",
+   "labels": [
+    "test:french"
+   ],
+   "pilot": "robert",
+   "question": "Et si je mettais 40 % dans NVIDIA et que Washington impose de nouveaux tarifs sur les produits canadiens ?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_338_2026",
+        "tariff_threat_2024",
+        "canada_50_2026"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "26e754c93e60",
+      "message": null
+     },
+     "error": null,
+     "ms": 31465.0,
+     "usd": 0.029507600000000002,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:45:41+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_338_2026",
+        "tariff_threat_2024",
+        "canada_50_2026"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "46fecbd6cdc5",
+      "message": null
+     },
+     "error": null,
+     "ms": 16066.0,
+     "usd": 0.0288776,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:48:35+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_338_2026",
+        "tariff_threat_2024",
+        "canada_50_2026"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "262887bc52af",
+      "message": null
+     },
+     "error": null,
+     "ms": 20963.5,
+     "usd": 0.0296276,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:50:50+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_338_2026",
+        "tariff_threat_2024",
+        "canada_50_2026"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 14,
+       "total": 14,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "e402874bdb78",
+      "message": null
+     },
+     "error": null,
+     "ms": 20210.6,
+     "usd": 0.0296676,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:53:47+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_338_2026",
+        "tariff_threat_2024",
+        "canada_50_2026"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 14,
+       "total": 14,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "c98090b94e3f",
+      "message": null
+     },
+     "error": null,
+     "ms": 18716.5,
+     "usd": 0.029877600000000004,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:55:46+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_338_2026",
+        "tariff_threat_2024",
+        "canada_50_2026"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 15,
+       "total": 15,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "9068f71f6913",
+      "message": null
+     },
+     "error": null,
+     "ms": 20410.8,
+     "usd": 0.030187600000000002,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:58:50+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "NVDA",
+        0.4,
+        null
+       ],
+       "families": [
+        "tariffs"
+       ],
+       "precedents": [
+        "canada_338_2026",
+        "tariff_threat_2024",
+        "canada_50_2026"
+       ],
+       "clarify": false
+      },
+      "verdict": "Incompatible",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 14,
+       "total": 14,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "fail"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "d6394d0d5e63",
+      "message": null
+     },
+     "error": null,
+     "ms": 23810.9,
+     "usd": 0.030147600000000004,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T21:01:18+00:00"
+    }
+   ]
+  },
+  {
+   "id": "test:alias",
+   "labels": [
+    "test:alias"
+   ],
+   "pilot": "robert",
+   "question": "What if I put 30 % in RBC?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "RY.TO",
+        0.3,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "2e1cb3fb3f72",
+      "message": null
+     },
+     "error": null,
+     "ms": 42719.3,
+     "usd": 0.0481318,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:46:24+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "RY.TO",
+        0.3,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "e493429e5ff8",
+      "message": null
+     },
+     "error": null,
+     "ms": 29232.7,
+     "usd": 0.047625799999999996,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:49:04+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "RY.TO",
+        0.3,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "b49a62fd5083",
+      "message": null
+     },
+     "error": null,
+     "ms": 24662.3,
+     "usd": 0.0490258,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:51:15+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "RY.TO",
+        0.3,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "e5cc17f19584",
+      "message": null
+     },
+     "error": null,
+     "ms": 27758.6,
+     "usd": 0.0268996,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:54:15+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "RY.TO",
+        0.3,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "5dcc007a9771",
+      "message": null
+     },
+     "error": null,
+     "ms": 49423.4,
+     "usd": 0.0486158,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:56:35+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "RY.TO",
+        0.3,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 12,
+       "total": 12,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "2a2247d80935",
+      "message": null
+     },
+     "error": null,
+     "ms": 23814.3,
+     "usd": 0.0270896,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:59:14+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "change",
+       "move": [
+        "set",
+        "RY.TO",
+        0.3,
+        null
+       ],
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 13,
+       "total": 13,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "pass"
+       ],
+       [
+        "scenario_stress",
+        "pass"
+       ],
+       [
+        "sector",
+        "fail"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "fail"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "fc3c74cb8ae1",
+      "message": null
+     },
+     "error": null,
+     "ms": 40375.9,
+     "usd": 0.0270596,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T21:01:59+00:00"
+    }
+   ]
+  },
+  {
+   "id": "test:no_precedent",
+   "labels": [
+    "test:no_precedent"
+   ],
+   "pilot": "robert",
+   "question": "What if aliens invade Earth next year?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 8,
+       "total": 8,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "7575dc00c497",
+      "message": null
+     },
+     "error": null,
+     "ms": 20279.3,
+     "usd": 0.0324658,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:46:44+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 9,
+       "total": 9,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "e5a8e8531c04",
+      "message": null
+     },
+     "error": null,
+     "ms": 9566.6,
+     "usd": 0.0186076,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:49:14+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 9,
+       "total": 9,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "1a8005ca070d",
+      "message": null
+     },
+     "error": null,
+     "ms": 11172.9,
+     "usd": 0.0185476,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:51:26+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 8,
+       "total": 8,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "8f25970b110c",
+      "message": null
+     },
+     "error": null,
+     "ms": 10560.3,
+     "usd": 0.0187976,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:54:25+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 11,
+       "total": 11,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "2aa997354630",
+      "message": null
+     },
+     "error": null,
+     "ms": 20238.5,
+     "usd": 0.0338298,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:56:55+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 10,
+       "total": 10,
+       "drafts": 1,
+       "first_try_clean": true
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "6ec264c56ff9",
+      "message": null
+     },
+     "error": null,
+     "ms": 10709.5,
+     "usd": 0.0188476,
+     "calls": 2,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T20:59:24+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "ok",
+       "type": "shock",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": false
+      },
+      "verdict": "Tension",
+      "receipt": {
+       "clean": true,
+       "all_verified": true
+      },
+      "receipt_counts": {
+       "verified": 7,
+       "total": 7,
+       "drafts": 2,
+       "first_try_clean": false
+      },
+      "checks": [
+       [
+        "crypto",
+        "pass"
+       ],
+       [
+        "max_drawdown",
+        "pass"
+       ],
+       [
+        "recovery",
+        "pass"
+       ],
+       [
+        "risk_concentration",
+        "warn"
+       ],
+       [
+        "scenario_stress",
+        "warn"
+       ],
+       [
+        "sector",
+        "pass"
+       ],
+       [
+        "short_horizon",
+        "pass"
+       ],
+       [
+        "single_stock",
+        "pass"
+       ]
+      ],
+      "method": "bedrock",
+      "words": "bc70b9e09e54",
+      "message": null
+     },
+     "error": null,
+     "ms": 23076.2,
+     "usd": 0.0333378,
+     "calls": 3,
+     "guard_calls": 2,
+     "engine": "converse",
+     "at": "2026-11-15T21:02:22+00:00"
+    }
+   ]
+  },
+  {
+   "id": "test:clarify",
+   "labels": [
+    "test:clarify"
+   ],
+   "pilot": "robert",
+   "question": "What if I put money in that electric car company?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "36dbb17d5a4a"
+     },
+     "error": null,
+     "ms": 2354.4,
+     "usd": 0.0067074,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:46:47+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "36dbb17d5a4a"
+     },
+     "error": null,
+     "ms": 1975.7,
+     "usd": 0.0066673999999999995,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:49:16+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "74a178bf63d1"
+     },
+     "error": null,
+     "ms": 2536.3,
+     "usd": 0.0066574,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:51:29+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "36dbb17d5a4a"
+     },
+     "error": null,
+     "ms": 2300.3,
+     "usd": 0.0067074,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:54:28+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "36dbb17d5a4a"
+     },
+     "error": null,
+     "ms": 2796.7,
+     "usd": 0.0066673999999999995,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:56:58+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "36dbb17d5a4a"
+     },
+     "error": null,
+     "ms": 2182.4,
+     "usd": 0.0066673999999999995,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:59:27+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "36dbb17d5a4a"
+     },
+     "error": null,
+     "ms": 2463.9,
+     "usd": 0.0066673999999999995,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T21:02:24+00:00"
+    }
+   ]
+  },
+  {
+   "id": "test:source_short",
+   "labels": [
+    "test:source_short"
+   ],
+   "pilot": "robert",
+   "question": "What if I move 40 % of my money from my Canadian bonds into NVIDIA?",
+   "repeats": [
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "4be5196fd7fa"
+     },
+     "error": null,
+     "ms": 2696.4,
+     "usd": 0.0074454,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:46:49+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "4be5196fd7fa"
+     },
+     "error": null,
+     "ms": 2285.3,
+     "usd": 0.0073754,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:49:18+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "4be5196fd7fa"
+     },
+     "error": null,
+     "ms": 2524.1,
+     "usd": 0.0073754,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:51:31+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "4be5196fd7fa"
+     },
+     "error": null,
+     "ms": 2226.8,
+     "usd": 0.007215399999999999,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:54:30+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "4be5196fd7fa"
+     },
+     "error": null,
+     "ms": 2559.3,
+     "usd": 0.007175399999999999,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:57:01+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "4be5196fd7fa"
+     },
+     "error": null,
+     "ms": 2889.0,
+     "usd": 0.0073754,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T20:59:29+00:00"
+    },
+    {
+     "fingerprint": {
+      "plan": {
+       "status": "clarify",
+       "type": "change",
+       "move": null,
+       "families": [],
+       "precedents": [],
+       "clarify": true
+      },
+      "verdict": null,
+      "receipt": null,
+      "receipt_counts": null,
+      "checks": [],
+      "method": "bedrock",
+      "words": null,
+      "message": "4be5196fd7fa"
+     },
+     "error": null,
+     "ms": 2831.2,
+     "usd": 0.0073754,
+     "calls": 1,
+     "guard_calls": 1,
+     "engine": "converse",
+     "at": "2026-11-15T21:02:27+00:00"
+    }
+   ]
+  }
+ ],
+ "finished": "2026-11-15T21:02:27+00:00",
+ "minutes": 19.0
+}

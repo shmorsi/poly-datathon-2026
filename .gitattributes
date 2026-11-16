@@ -1,0 +1,3 @@
+# A ZIP download from GitHub (git archive) writes the commit hash into .commit, so a copy with no .git can say
+# which code it is (pipeline._commit).
+.commit export-subst

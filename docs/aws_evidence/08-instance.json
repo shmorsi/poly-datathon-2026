@@ -1,0 +1,67 @@
+{
+  "evidence": "The instance's hardening (IMDSv2 required, no key pair, the runtime role, an encrypted volume)",
+  "captured": "2026-11-15T16:40:48Z",
+  "how": "aws ec2 describe-instances / describe-volumes",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "instance": {
+    "InstanceId": "<INSTANCE_ID>",
+    "InstanceType": "t3.small",
+    "ImageId": "<AMI_ID>",
+    "KeyName": null,
+    "MetadataOptions": {
+      "State": "applied",
+      "HttpTokens": "required",
+      "HttpPutResponseHopLimit": 2,
+      "HttpEndpoint": "enabled",
+      "HttpProtocolIpv6": "disabled",
+      "InstanceMetadataTags": "disabled"
+    },
+    "IamInstanceProfile": {
+      "Arn": "arn:aws:iam::<ACCT>:instance-profile/epicentre-runtime",
+      "Id": "<PROFILE_ID>"
+    },
+    "SecurityGroups": [
+      {
+        "GroupId": "<SG_ID>",
+        "GroupName": "epicentre-origin"
+      }
+    ],
+    "Tags": [
+      {
+        "Key": "Name",
+        "Value": "epicentre"
+      },
+      {
+        "Key": "Project",
+        "Value": "epicentre"
+      },
+      {
+        "Key": "project",
+        "Value": "poly-datathon-2026"
+      }
+    ],
+    "State": {
+      "Code": 16,
+      "Name": "running"
+    },
+    "LaunchTime": "2026-11-15T05:05:22+00:00"
+  },
+  "volumes": [
+    {
+      "VolumeId": "<VOLUME_ID>",
+      "Size": 20,
+      "VolumeType": "gp3",
+      "Encrypted": true,
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "epicentre"
+        },
+        {
+          "Key": "Name",
+          "Value": "epicentre"
+        }
+      ]
+    }
+  ]
+}

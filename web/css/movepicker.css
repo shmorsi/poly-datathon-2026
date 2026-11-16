@@ -1,0 +1,143 @@
+/* Lane picker: the hero's step markers (R24 and the design director: ① what the investor holds, lane hold; ② the move in their
+   words; ③ the one Replay pill) and "Try another move", ONE row under the question: the asset (a face over the real <select>;
+   on a fine pointer the instrument's own list, web/sections/movelist.js), the size (a stepper with a B612 readout and a level
+   line) and where the money comes from. Night tokens only (web/styles.css). Magenta = the move: the dot of the picked asset,
+   the size's level line and the selected row of the list, nothing else. 1 px hairlines, one lift, 4 px grid. Motion answers a
+   press or an opening only (the digits' roll, the list, the words settling), and none of it under reduced motion. */
+
+/* ---- a step: its number in a 1 px ring, then its words (hold's ① uses the same two classes) ---- */
+.step { display: flex; align-items: center; gap: 10px; font: 600 15px/1.3 var(--font-text); color: var(--starlight); text-wrap: pretty; }
+.step-n { display: inline-grid; place-items: center; flex: none; width: 22px; height: 22px; border: 1px solid var(--ink-2); border-radius: 50%;
+  font: 600 14px/1 var(--font-text); font-variant-numeric: tabular-nums; color: var(--starlight); }
+.hx-ask > .hx-step { margin-bottom: var(--s-2); }
+/* ③: the step's circle, the one Replay pill (56 px, the design director), then the run's own years */
+.hx-go-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); margin-top: var(--s-5); }
+#hero .hx-go { position: relative; min-height: 56px; padding: 0 28px; border-radius: 999px; font: 600 18px/1 var(--font-text); }
+#hero .hx-go::after { content: ""; position: absolute; inset: -1px; border: 1px solid var(--starlight); border-radius: inherit; opacity: 0;
+  pointer-events: none; }
+#hero .hx-go .hx-go-i { width: 14px; height: 14px; }
+.hx-go-years { font-size: 15px; color: var(--ink-2); }
+
+/* ---- the row: the asset, the size, where the money comes from (one row on a desktop; the source wraps under on a phone) ---- */
+.mp { margin-top: var(--s-3); }
+.mp-lead { margin-bottom: 6px; font-size: 14px; line-height: 1.3; color: var(--ink-2); }
+.mp-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2); }   /* the globe has its own column now (R41) */
+
+/* the asset: the face (dot, name, ticker, chevron) under a transparent native select that takes every click, key and tap */
+.mp-field { position: relative; display: flex; align-items: center; min-width: 0; height: 44px; padding: 0 var(--s-3);
+  border: 1px solid var(--rule); border-radius: var(--r-input); background: var(--paper);
+  transition: border-color var(--dur-tip) var(--ease-out), background-color var(--dur-tip) var(--ease-out), opacity var(--dur-tip) var(--ease-out); }
+.mp-asset { flex: 1 1 158px; }                  /* at 1280: "NVIDIA NVDA" and "from all your other holdings" both fit */
+.mp-from { flex: 1 1 254px; }
+.mp-pre { flex: none; font-size: 14px; color: var(--haze); }
+.mp-from .mp-name { font-size: 14px; font-weight: 500; color: var(--ink); }   /* "from all your other holdings" fits at 1280 */
+.mp-tk:empty { display: none; }                 /* no ticker (every other holding): no phantom gap */
+.mp-from.is-equal .mp-name { color: var(--ink-2); }
+.mp-field.is-off { opacity: .55; }
+.mp-field.is-off .mp-select { cursor: default; }
+.mp-face { display: flex; align-items: center; gap: 6px; width: 100%; min-width: 0; pointer-events: none; }
+.mp-dot { flex: none; width: 8px; height: 8px; border-radius: 50%; border: 1.5px solid var(--edge); }
+.mp-asset.is-move .mp-dot { border-color: var(--magenta); background: var(--magenta); box-shadow: 0 0 0 3px var(--magenta-wash); }
+.mp-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; font-weight: 600; color: var(--starlight); }
+.mp-asset.is-empty .mp-name { font-weight: 500; color: var(--ink-2); }
+.mp-tk { flex: none; font-size: 14px; color: var(--haze); white-space: nowrap; }
+.mp-chev { flex: none; width: 14px; height: 14px; margin-left: auto; color: var(--ink-2); }
+.mp-select { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; font-size: 16px;
+  color-scheme: dark; background: var(--pop); color: var(--ink); }
+.mp-field:has(.mp-select:focus-visible) { outline: 2px solid var(--focus); outline-offset: 3px; }
+.mp-select option, .mp-select optgroup { background: var(--pop); color: var(--ink); }
+
+/* fine pointers: the face opens the instrument's own list (web/sections/movelist.js); touch screens keep the system menu */
+.mp-open { display: none; position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 0; border: 0;
+  border-radius: inherit; background: transparent; cursor: pointer; }
+.mp-open:focus-visible { outline: none; }
+.mp-field:has(.mp-open:focus-visible), .mp-field.is-open { outline: 2px solid var(--focus); outline-offset: 3px; }
+.mp-field.is-open { outline-color: var(--edge); }
+.mp-field.is-open .mp-chev { transform: rotate(180deg); }
+@media (hover: hover) and (pointer: fine) {
+  .mp-field.has-list .mp-select { display: none; }
+  .mp-field.has-list .mp-open { display: block; }
+}
+.mp-list { position: fixed; z-index: var(--z-drawer); overflow-y: auto; overscroll-behavior: contain; padding: var(--s-1) 0 var(--s-2);
+  border: 1px solid var(--rule); border-radius: var(--r-panel); background: var(--pop); box-shadow: 0 20px 48px rgba(0, 0, 0, .6);
+  scrollbar-width: thin; scrollbar-color: var(--edge) transparent; }
+.mp-list:focus { outline: none; }
+.mp-group-h { position: sticky; top: calc(-1 * var(--s-1)); z-index: 1; padding: var(--s-3) var(--s-4) var(--s-1); background: var(--pop);
+  font-size: 14px; font-weight: 600; color: var(--haze); }
+.mp-opt { display: grid; grid-template-columns: 8px minmax(0, 1fr) auto; column-gap: var(--s-3); align-items: baseline;
+  padding: 7px var(--s-4); color: var(--ink); cursor: pointer; }
+.mp-opt + .mp-opt { border-top: 1px solid rgba(255, 255, 255, .04); }
+.mp-opt-dot { align-self: center; width: 6px; height: 6px; border-radius: 50%; }
+.mp-opt-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 15px; }
+.mp-opt-tk { font-size: 14px; color: var(--haze); white-space: nowrap; }
+.mp-opt-hint { grid-column: 2 / -1; margin-top: 1px; font-size: 14px; color: var(--ink-2); }
+.mp-opt.is-active { background: var(--paper-2); }
+.mp-opt[aria-selected="true"] .mp-opt-dot { background: var(--magenta); box-shadow: 0 0 0 3px var(--magenta-wash); }
+.mp-opt[aria-selected="true"] .mp-opt-name { color: var(--starlight); font-weight: 600; }
+
+/* the size: minus, the readout, plus; the level line along the bottom edge is the size out of 50 % */
+.mp-size { position: relative; display: inline-flex; align-items: stretch; flex: none; height: 44px; overflow: hidden;
+  border: 1px solid var(--rule); border-radius: var(--r-input); background: var(--paper);
+  transition: border-color var(--dur-tip) var(--ease-out); }
+.mp-step { display: grid; place-items: center; width: 36px; padding: 0; border: 0; background: transparent; color: var(--ink); cursor: pointer;
+  -webkit-tap-highlight-color: transparent; transition: color var(--dur-tip) var(--ease-out), background-color var(--dur-tip) var(--ease-out); }
+.mp-step-i { width: 14px; height: 14px; }
+.mp-step:disabled { color: var(--edge); cursor: default; }
+.mp-step:focus-visible { outline-offset: -3px; }
+.mp-digits { display: inline-flex; align-items: baseline; justify-content: center; min-width: 52px; padding: 0 2px;
+  font-family: var(--font-num); font-weight: 700; color: var(--starlight); }
+.mp-pct { width: 2.2ch; padding: 0 0 4px; border: 0; background: transparent; color: inherit; font: 700 17px/38px var(--font-num);
+  font-variant-numeric: tabular-nums; text-align: right; appearance: textfield; -moz-appearance: textfield; }
+.mp-pct::-webkit-outer-spin-button, .mp-pct::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.mp-pct:focus-visible { outline: none; }
+.mp-size:has(.mp-pct:focus-visible) { outline: 2px solid var(--focus); outline-offset: 3px; }
+.mp-unit { margin-left: 3px; padding-bottom: 4px; font: 700 14px/38px var(--font-num); color: var(--ink-2); }
+.mp-gauge { position: absolute; left: 10px; right: 10px; bottom: 6px; height: 2px; border-radius: 1px; background: var(--rule); pointer-events: none; }
+.mp-gauge > i { display: block; height: 100%; border-radius: 1px; background: var(--magenta); transform-origin: 0 50%; transform: scaleX(var(--p, .4)); }
+.mp-size.is-off { border-color: var(--rule); }
+.mp-size.is-off .mp-digits { color: var(--haze); }
+.mp-size.is-off .mp-gauge > i { opacity: 0; }
+
+/* static mode: the saved replays as chips (the page's one chip style), the investor's own question first */
+.mp-saved { display: flex; flex-wrap: wrap; gap: var(--s-2); margin-top: var(--s-3); }
+.mp-chip { min-height: 30px; padding: 0 10px; font-size: 14px; }
+
+/* the one note line: the honest line (static), or what is inside a picked fund */
+.mp-note { margin-top: var(--s-2); max-width: 62ch; font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.mp-note a { color: var(--ink); text-decoration-color: var(--ink-tint); }
+
+@media (hover: hover) and (pointer: fine) {
+  .mp-field:not(.is-off):hover { border-color: var(--edge); background: var(--paper-2); }
+  .mp-size:not(.is-off):hover { border-color: var(--edge); }
+  .mp-step:not(:disabled):hover { background: var(--paper); color: var(--starlight); }
+  .mp-note a:hover { text-decoration-color: var(--starlight); }
+}
+
+/* phones: the asset and the size share the first line, where the money comes from takes the second; ③'s pill takes the
+   width its circle leaves, the years under it */
+@media (max-width: 760px) {
+  .mp-asset { flex: 1 1 150px; }
+  .mp-from { flex: 1 1 100%; }
+  #hero .hx-go-row .hx-go { flex: 1 1 0; width: auto; }
+  .hx-go-years { flex-basis: 100%; padding-left: 34px; }
+}
+
+/* motion (no-preference only): a press answers with a small give, the digits roll one notch, the level line follows */
+@media (prefers-reduced-motion: no-preference) {
+  .mp-step:not(:disabled):active .mp-step-i { transform: scale(.86); }
+  .mp-step-i { transition: transform var(--dur-press) var(--ease-out); }
+  .mp-gauge > i { transition: transform var(--dur-list) var(--ease-out); }
+  .mp-digits.is-up { animation: mp-up var(--dur-tip) var(--ease-out); }
+  .mp-digits.is-down { animation: mp-down var(--dur-tip) var(--ease-out); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hx-q.is-new { animation: mp-words var(--dur-list) var(--ease-out); }
+  #hero .hx-go.is-armed::after { animation: mp-arm var(--dur-story) var(--ease-out); }
+  .mp-list:not([hidden]) { animation: mp-open var(--dur-tip) var(--ease-out); transform-origin: 50% 0; }
+  .mp-chev { transition: transform var(--dur-tip) var(--ease-out); }
+}
+@keyframes mp-open { from { opacity: 0; transform: translateY(-4px); } }
+@keyframes mp-words { from { opacity: .45; } }
+@keyframes mp-arm { from { opacity: .7; transform: scale(1); } to { opacity: 0; transform: scale(1.08, 1.36); } }   /* about a 10 px ring around the 56 px pill */
+@keyframes mp-up { from { transform: translateY(32%); opacity: .2; } }
+@keyframes mp-down { from { transform: translateY(-32%); opacity: .2; } }

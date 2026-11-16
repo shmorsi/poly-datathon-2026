@@ -1,0 +1,212 @@
+{
+ "_note": "Fictional pilots (official personas of the case) and the team's documented assumptions (spec §5), not regulation. Weights and limits are fractions; amounts in CAD.",
+ "risk_levels": {
+  "low": {
+   "max_drawdown": -0.15,
+   "max_single_stock": 0.1,
+   "max_sector": 0.3,
+   "max_crypto": 0.0
+  },
+  "moderate": {
+   "max_drawdown": -0.25,
+   "max_single_stock": 0.1,
+   "max_sector": 0.35,
+   "max_crypto": 0.0
+  },
+  "high": {
+   "max_drawdown": -0.45,
+   "max_single_stock": 0.2,
+   "max_sector": 0.4,
+   "max_crypto": 0.1
+  }
+ },
+ "thresholds": {
+  "scenario_stress_fraction": 0.5,
+  "esg_indirect_warn": 0.01,
+  "rounding_pp": 0.1,
+  "recovery_fraction_of_horizon": 0.3333,
+  "short_horizon_years": 3,
+  "risk_share_warn": 0.5
+ },
+ "pilots": {
+  "robert": {
+   "name": "Robert",
+   "age": 59,
+   "blurb": "59, healthcare professional, retiring in about four years. $600,000; says he could absorb a $90,000 loss. Held on in 2022.",
+   "amount": 600000,
+   "profile": {
+    "goal": "preservation",
+    "horizon_years": 4,
+    "risk": "moderate",
+    "esg": false,
+    "crypto": false,
+    "capacity": 90000,
+    "reaction_2022": "held"
+   },
+   "portfolio": {
+    "XIU.TO": 0.45,
+    "XBB.TO": 0.35,
+    "GLD": 0.1,
+    "ZST.TO": 0.1
+   },
+   "request": {
+    "op": "set",
+    "ticker": "NVDA",
+    "weight": 0.4,
+    "from_ticker": null
+   },
+   "question": "Everyone is talking about NVIDIA. What if I put 40 % in it and Washington slaps new levies on Canadian goods?",
+   "lesson": "His numbers say no: the move breaks the floor his own capacity sets, even though it grew faster. A good outcome is not a good decision."
+  },
+  "mateo": {
+   "name": "Mateo",
+   "age": 41,
+   "blurb": "41, operations manager, two children. $250,000 for 10 years, balance between growth and stability; ESG matters to him.",
+   "amount": 250000,
+   "profile": {
+    "goal": "balance",
+    "horizon_years": 10,
+    "risk": "moderate",
+    "esg": true,
+    "crypto": false,
+    "capacity": 62500,
+    "reaction_2022": "held"
+   },
+   "portfolio": {
+    "XIU.TO": 0.35,
+    "XBB.TO": 0.35,
+    "CNQ.TO": 0.08,
+    "MSFT": 0.1,
+    "GLD": 0.12
+   },
+   "request": null,
+   "question": "I care about my values: does my portfolio own companies with major controversies, and what if an oil shock came from the Middle East?",
+   "lesson": "His values say no, not his numbers: an oil producer held directly, and energy names inside his index ETF."
+  },
+  "amira": {
+   "name": "Amira",
+   "age": 26,
+   "blurb": "26, software engineer. $80,000 for 15 years or more; bought more in 2022; drawn to AI and crypto, but not only tech.",
+   "amount": 80000,
+   "profile": {
+    "goal": "growth",
+    "horizon_years": 15,
+    "risk": "high",
+    "esg": false,
+    "crypto": true,
+    "capacity": 36000,
+    "reaction_2022": "bought"
+   },
+   "portfolio": {
+    "NVDA": 0.15,
+    "QQQ": 0.15,
+    "SHOP.TO": 0.1,
+    "BTC-USD": 0.15,
+    "XIU.TO": 0.3,
+    "XBB.TO": 0.15
+   },
+   "request": null,
+   "question": "What if the US–China chip war heats up again?",
+   "lesson": "High risk is accepted, but not anything: the crypto share is capped and one bet is not diversification."
+  },
+  "canadian": {
+   "name": "Too Canadian?",
+   "age": null,
+   "blurb": "The workshop's own question: a portfolio that looks very Canadian, judged with Mateo's band and capacity, no ESG screen.",
+   "amount": 250000,
+   "profile": {
+    "goal": "balance",
+    "horizon_years": 10,
+    "risk": "moderate",
+    "esg": false,
+    "crypto": false,
+    "capacity": 62500,
+    "reaction_2022": "held"
+   },
+   "portfolio": {
+    "XIU.TO": 0.6,
+    "XBB.TO": 0.3,
+    "ZST.TO": 0.1
+   },
+   "request": {
+    "op": "add",
+    "ticker": "SPY",
+    "weight": 0.2,
+    "from_ticker": null
+   },
+   "question": "My portfolio seems very Canadian. Would adding 20 % SPY improve my diversification?",
+   "lesson": "Diversification is about where the risk sits, not how many lines: Canada's share of the money and of the risk, before and after."
+  }
+ },
+ "storm_cards": {
+  "tariffs": {
+   "label": "Tariff war",
+   "families": [
+    "tariffs"
+   ],
+   "question": "What if the tariff war flares up again?"
+  },
+  "war_oil": {
+   "label": "War & oil",
+   "families": [
+    "war_oil"
+   ],
+   "question": "What if a war sends oil prices up again?"
+  },
+  "chips": {
+   "label": "Chip war",
+   "families": [
+    "chips"
+   ],
+   "question": "What if the US–China chip war heats up again?"
+  },
+  "rates": {
+   "label": "Rate shock",
+   "families": [
+    "rates"
+   ],
+   "question": "What if rates jump again like in 2022?"
+  }
+ },
+ "illustration_mixes": {
+  "low": {
+   "XBB.TO": 0.25,
+   "ZST.TO": 0.25,
+   "XIU.TO": 0.25,
+   "SPY": 0.15,
+   "GLD": 0.1
+  },
+  "moderate": {
+   "XBB.TO": 0.3,
+   "XIU.TO": 0.35,
+   "SPY": 0.25,
+   "GLD": 0.1
+  },
+  "moderate_esg": {
+   "XBB.TO": 0.35,
+   "ESGV": 0.55,
+   "GLD": 0.1
+  },
+  "high": {
+   "XBB.TO": 0.15,
+   "XIU.TO": 0.3,
+   "SPY": 0.2,
+   "QQQ": 0.25,
+   "GLD": 0.1
+  },
+  "high_crypto": {
+   "XBB.TO": 0.15,
+   "XIU.TO": 0.3,
+   "SPY": 0.2,
+   "QQQ": 0.15,
+   "BTC-USD": 0.1,
+   "GLD": 0.1
+  },
+  "high_esg": {
+   "XBB.TO": 0.2,
+   "ESGV": 0.5,
+   "QQQ": 0.2,
+   "GLD": 0.1
+  }
+ }
+}

@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>U3 harness: the race chart</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/race.css">
+<style>
+  body { padding: 24px var(--margin); }
+  .h-bar { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; margin-bottom: 16px; font-size: 14px; color: var(--ink-2); }
+  .h-bar label { display: inline-flex; gap: 8px; align-items: center; }
+  .h-stage { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; height: min(68vh, 620px); }
+  .h-globe { border: 1px solid var(--rule); border-radius: 12px; display: grid; place-items: center; color: var(--haze); font-size: 13px; }
+  .h-chart { min-width: 0; height: 100%; }
+  body.is-full .h-stage { grid-template-columns: 1fr; }
+  body.is-full .h-globe { display: none; }
+  body.is-auto .h-stage { height: auto; }
+  @media (max-width: 639px) { .h-stage { grid-template-columns: 1fr; height: auto; } .h-globe { height: 160px; } .h-chart { height: 520px; } }
+</style>
+<script defer src="../lib.js"></script>
+</head>
+<body>
+<div class="h-bar">
+  <label>Investor <select id="run"><option>robert</option><option>mateo</option><option>amira</option><option>canadian</option></select></label>
+  <label>Size <input id="w" type="range" min="0" max="40" step="1"><span id="wv"></span></label>
+  <label>p <input id="p" type="range" min="0" max="1000" step="1" value="1000"></label>
+  <button id="play" class="btn btn-quiet" type="button">Play the race</button>
+</div>
+<div class="h-stage"><div class="h-globe">globe (lane U1)</div><div class="h-chart" id="chart"></div></div>
+<script type="module">
+  window.__errors = [];
+  addEventListener("error", (e) => window.__errors.push(String(e.message)));
+  addEventListener("unhandledrejection", (e) => window.__errors.push(String(e.reason)));
+  const q = new URLSearchParams(location.search);
+  if (q.get("full")) document.body.classList.add("is-full");
+  if (q.get("auto")) document.body.classList.add("is-auto");
+  const { createRace, raceModel, raceModelFromSeries } = await import("../race.js");
+  while (!globalThis.PF) await new Promise((r) => setTimeout(r, 10));
+  const $ = (s) => document.querySelector(s);
+  let race = null, result = null;
+  async function load(id) {
+    result = await (await fetch(`/runs/${id}.json`, { cache: "no-store" })).json();
+    if (q.get("cap") && !result.capacity && id === "robert")   // DEV ONLY: a synthetic capacity key until lane fin-backend's lands (R35)
+      result.capacity = { amount: 600000, capacity: 90000, line: 510000, today: { line: 510000, sessions_below: 0, episodes: [] },
+        after: { line: 510000, sessions_below: 188, first_below: "2022-04-22", last_below: "2023-01-19", episodes: [{ first_date: "2022-04-22", last_date: "2023-01-19", sessions: 188 }] } };
+    if (race) race.destroy();
+    const w = q.get("w") !== null && id === (q.get("run") || "robert") ? Number(q.get("w")) : null;
+    if (q.get("window")) {                   // lane U8's case: one monthly window ("YYYY-MM"), compact, numbers only from Result keys
+      const s = result.series, A = result.amount, seen = new Set(), idx = [];
+      s.dates.forEach((d, k) => { const m = d.slice(0, 7); if (!seen.has(m)) { seen.add(m); idx.push(k); } });
+      const b = (result.breaches || [])[0];
+      const wm = raceModelFromSeries({ dates: idx.map((k) => s.dates[k].slice(0, 7)), today: idx.map((k) => (s.today[k] * A) / 100),
+        after: s.after ? idx.map((k) => (s.after[k] * A) / 100) : null, amount: A, floor: result.limits.floor,
+        worst: b ? { date: b.trough_date.slice(0, 7), depth: b.depth, dollars: b.loss_dollars, label: "2022" } : null });
+      race = createRace($("#chart"), wm, { compact: true, legend: false, note: "Monthly points. This already happened; it is not a forecast." });
+    } else race = createRace($("#chart"), raceModel(result, w), { p: Number(q.get("p") ?? 1) });
+    const m = race.model;
+    $("#w").disabled = !m || m.weightIndex === null;
+    if (m && m.weightIndex !== null) { $("#w").value = m.weightIndex; $("#wv").textContent = m.labels.after; }
+    $("#p").value = Math.round(race.p * 1000);
+    window.__race = race;
+    window.__ready = true;
+  }
+  $("#run").value = q.get("run") || "robert";
+  $("#run").addEventListener("change", (e) => load(e.target.value));
+  $("#w").addEventListener("input", (e) => { race.setWeight(Number(e.target.value)); $("#wv").textContent = race.model.labels.after; });
+  $("#p").addEventListener("input", (e) => race.draw(Number(e.target.value) / 1000));
+  $("#play").addEventListener("click", () => {
+    const t0 = performance.now(), dur = 2400;
+    const step = (now) => { const p = Math.min(1, (now - t0) / dur); race.draw(p); $("#p").value = Math.round(p * 1000); if (p < 1) requestAnimationFrame(step); };
+    requestAnimationFrame(step);
+  });
+  await load($("#run").value);
+</script>
+</body>
+</html>

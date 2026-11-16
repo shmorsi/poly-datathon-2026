@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dev harness: the dial (lane U4)</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/dial.css">
+<script src="../lib.js" defer></script>
+<style>
+  /* harness only: a stand-in lamp and race so the dial's wiring is visible; the real ones are lanes U2 and U3 */
+  .dev-bar { position: sticky; top: 0; z-index: 5; display: flex; flex-wrap: wrap; gap: 8px 16px; align-items: center; padding: 8px var(--margin);
+    background: #0b0d10; border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--haze); }
+  .dev-bar b { color: var(--ink); font-weight: 600; }
+  .dev-fixture { color: var(--caution); }
+  .dev-stage { width: var(--page); margin: 24px auto 0; display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: end; }
+  .dev-stage svg { width: 100%; height: 200px; display: block; border-bottom: 1px solid var(--rule); }
+  .dev-lamp { font: 700 15px var(--font-num); white-space: nowrap; }
+  .dev-hide .dev-bar, .dev-hide .dev-stage { display: none; }
+  .dev-strip { width: var(--page); margin: 16px auto 0; }
+</style>
+</head>
+<body>
+<div class="dev-bar" id="devbar"><b>Lane U4 harness</b><span id="devinfo">loading</span></div>
+<div class="dev-stage" id="devstage"><svg id="devrace" viewBox="0 0 1000 200" preserveAspectRatio="none"></svg><span class="dev-lamp" id="devlamp"></span></div>
+<main>
+  <section id="dial" aria-labelledby="dial-title"></section>
+</main>
+<script type="module">
+  const q = new URLSearchParams(location.search);
+  window.__errors = [];
+  addEventListener("error", (e) => window.__errors.push(String(e.message)));
+  addEventListener("unhandledrejection", (e) => window.__errors.push(String(e.reason)));
+  const origError = console.error.bind(console);
+  console.error = (...a) => { window.__errors.push(a.map(String).join(" ")); origError(...a); };
+  if (q.get("motion") === "0") window.EPI_MOTION = false;
+  if (q.get("slow")) for (const k of ["dur-lamp", "dur-list", "dur-press"]) {     // dev only: stretch the motion tokens to capture frames
+    const v = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--" + k)) || 0;
+    document.documentElement.style.setProperty("--" + k, `${v * Number(q.get("slow"))}ms`);
+  }
+  if (q.get("chrome") === "0") document.documentElement.classList.add("dev-hide");
+
+  /* the store: U0's web/state.js when it exists, else a stand-in with the same API (INTERFACES.md) */
+  function standIn() {
+    let state = { mode: "static", investor: null, result: null, view: null, weightIndex: null, phase: "landed", race: null, replay: 0 };
+    const subs = new Map();
+    return {
+      get: () => state,
+      set(patch) {
+        const changed = Object.keys(patch).filter((k) => state[k] !== patch[k]);
+        state = { ...state, ...patch };
+        for (const k of changed) for (const fn of subs.get(k) || []) fn(state[k], state);
+        if (changed.length) for (const fn of subs.get("*") || []) fn(state, state);
+      },
+      on(key, fn) { if (!subs.has(key)) subs.set(key, new Set()); subs.get(key).add(fn); return () => subs.get(key).delete(fn); },
+    };
+  }
+  let store, storeSrc = "stand-in store";
+  try { ({ store } = await import("../state.js")); storeSrc = "web/state.js"; } catch { store = standIn(); }
+  await new Promise((r) => (window.PF ? r() : addEventListener("DOMContentLoaded", r)));
+
+  const run = q.get("run") || "robert";
+  const result = await (await fetch(`/runs/${run}.json`)).json();
+  const notes = [];
+  /* dev fixtures, off by default and named on screen: they exercise keys another lane has not landed yet (B3) */
+  if (q.get("band") && result.tipping_point) {
+    const [lo, hi] = q.get("band").split(",").map(Number);
+    result.tipping_band = { lo: lo / 100, hi: hi / 100, starts: ["2021-11", "2022-11", "2023-11"] };
+    notes.push(`dev fixture: tipping_band ${lo}–${hi} % injected`);
+  }
+  if (q.get("dollars") === "1" && result.tipping_point) {
+    for (const c of result.tipping_point.curve) c.loss_dollars = Math.round(result.amount * c.max_drawdown);
+    notes.push("dev fixture: curve loss_dollars = amount × max_drawdown injected");
+  }
+
+  /* a stand-in race (lane U3 owns the real one): today grey, the move magenta, setWeight(i) swaps the magenta path */
+  const tp = result.tipping_point, svg = document.getElementById("devrace"), lamp = document.getElementById("devlamp");
+  let calls = 0;
+  function pathOf(vals) {
+    const lo = Math.min(...tp.paths.values.flat()), hi = Math.max(...tp.paths.values.flat());
+    return vals.map((v, k) => `${(k / (vals.length - 1)) * 1000},${190 - ((v - lo) / (hi - lo)) * 180}`).join(" ");
+  }
+  const NS = "http://www.w3.org/2000/svg", grey = document.createElementNS(NS, "polyline"), mag = document.createElementNS(NS, "polyline");
+  for (const [n, c, o] of [[grey, "#C9D7E8", .45], [mag, "#FF5FC8", 1]]) { n.setAttribute("fill", "none"); n.setAttribute("stroke", c); n.setAttribute("stroke-opacity", o); n.setAttribute("vector-effect", "non-scaling-stroke"); n.setAttribute("stroke-width", 1.5); svg.append(n); }
+  const race = tp ? { setWeight(i) { calls++; mag.setAttribute("points", pathOf(tp.paths.values[i])); info(); } } : null;
+  if (tp) { grey.setAttribute("points", pathOf(tp.paths.values[0])); }
+  function info() {
+    const s = store.get(), i = s.weightIndex;
+    const v = i === null || i === undefined ? s.result && s.result.verdict : tp && tp.curve[i] && tp.curve[i].verdict;
+    lamp.textContent = `lamp: ${v || "none"}`;
+    document.getElementById("devinfo").textContent = `${storeSrc} · run ${run} · weightIndex ${i === null || i === undefined ? "null" : i} · race.setWeight calls ${calls}` + (notes.length ? "" : "");
+  }
+  for (const n of notes) { const t = document.createElement("span"); t.className = "dev-fixture"; t.textContent = n; document.getElementById("devbar").append(t); }
+
+  store.set({ investor: run, result, view: window.PF.view(result) });
+  const { mount, mountStrip } = await import("../sections/dial.js");
+  await mount(document.getElementById("dial"), store);
+  if (q.get("strip")) {               // the compact ruler a stage could host under its chart, in step with the full dial
+    const slot = document.createElement("div");
+    slot.className = "dev-strip";
+    document.getElementById("devstage").after(slot);
+    await mountStrip(slot, store);
+  }
+  if (race) { mag.setAttribute("points", pathOf(tp.paths.values[tp.paths.values.length - 1])); store.set({ race }); }
+  store.on("weightIndex", info);
+  info();
+  if (q.get("w") !== null && q.get("w") !== "") { const w = Number(q.get("w")); store.set({ weightIndex: w }); if (race) race.setWeight(w); }
+  window.__epi = { store, ready: () => true };
+</script>
+</body>
+</html>

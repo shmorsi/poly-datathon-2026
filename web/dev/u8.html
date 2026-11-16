@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPICENTRE dev harness: lane U8, #deep</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/deep.css">
+  <script src="../lib.js" defer></script>
+  <style>
+    .u8-bar { position: sticky; top: 0; z-index: 30; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 16px;
+      background: var(--pop); border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--ink-2); }
+    .u8-bar button { min-height: 32px; padding: 0 12px; border-radius: 6px; border: 1px solid var(--edge); background: none; cursor: pointer; }
+    .u8-bar button[aria-pressed="true"] { background: var(--starlight); color: var(--on-ink); }
+    .u8-pad { height: 40vh; display: grid; place-items: center; color: var(--haze); font-size: 13px; }
+    body.u8-clean .u8-bar, body.u8-clean .u8-pad { display: none; }
+  </style>
+</head>
+<body>
+  <div class="u8-bar" id="u8-bar"><strong>U8 #deep</strong><span id="u8-runs"></span><span id="u8-note"></span></div>
+  <div class="u8-pad">scroll: the section below arms its motion on entry</div>
+  <main>
+    <section id="deep"></section>
+  </main>
+  <div class="u8-pad">end</div>
+  <script type="module">
+    /* a stand-alone store with the INTERFACES.md contract (get / set / on), so this page needs nothing from other lanes */
+    const listeners = new Map();
+    let state = Object.freeze({ mode: "static", investor: "robert", result: null, view: null });
+    const store = {
+      get: () => state,
+      set(patch) {
+        const changed = Object.keys(patch).filter((k) => !Object.is(state[k], patch[k]));
+        if (!changed.length) return;
+        state = Object.freeze({ ...state, ...patch });
+        for (const k of changed) for (const fn of (listeners.get(k) || []).slice()) { try { fn(state[k], state); } catch (e) { console.error(e); } }
+      },
+      on(k, fn) { const a = listeners.get(k) || []; a.push(fn); listeners.set(k, a); return () => a.splice(a.indexOf(fn), 1); },
+    };
+    window.__errors = [];
+    addEventListener("error", (e) => window.__errors.push(String(e.message)));
+    addEventListener("unhandledrejection", (e) => window.__errors.push(String(e.reason)));
+    const q = new URLSearchParams(location.search);
+    if (q.get("motion") === "0") window.EPI_MOTION = false;
+    if (q.get("clean") === "1") document.body.classList.add("u8-clean");
+    const RUNS = ["robert", "mateo", "amira", "canadian"];
+    const pick = (id) => document.querySelectorAll("#u8-runs button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.id === id)));
+    async function setRun(id) {
+      const res = await fetch(`/runs/${id}.json`, { cache: "no-store" });
+      const text = await res.text();
+      const result = JSON.parse(text.replace(/\bNaN\b/g, "null"));        // the lane fixture was written by Python with NaN
+      store.set({ investor: result.pilot || id, result, view: window.PF.view(result) });
+      pick(id);
+      document.getElementById("u8-note").textContent = `run ${id}, deep_history ${result.deep_history ? "present" : "absent"}`;
+    }
+    for (const id of RUNS) {
+      const b = document.createElement("button"); b.type = "button"; b.dataset.id = id; b.textContent = id;
+      b.addEventListener("click", () => setRun(id)); document.getElementById("u8-runs").append(b);
+    }
+    await new Promise((r) => (window.PF ? r() : addEventListener("DOMContentLoaded", r, { once: true })));
+    const { mount } = await import("../sections/deep.js");
+    mount(document.getElementById("deep"), store);
+    window.__u8 = { store, setRun, ready: setRun(q.get("run") || "robert") };
+    await window.__u8.ready;
+    document.documentElement.dataset.ready = "1";
+  </script>
+</body>
+</html>

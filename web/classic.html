@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>EPICENTRE (classic page): replay the shock before you act</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Replay a tempting move on real 2021 to 2026 market history and see it against the limits you set, in dollars. Educational simulation, not financial advice.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='3' fill='%23fff'/%3E%3Ccircle cx='8' cy='8' r='6.5' fill='none' stroke='%239FE6FF' stroke-width='1'/%3E%3C/svg%3E">
+<link rel="preload" href="vendor/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/B612-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/nasa/earth-poster.jpg" as="image" fetchpriority="high">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="classic.css">
+<script src="lib.js" defer></script>
+<script type="module" src="classic.js"></script>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 7v6.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.35" fill="currentColor"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.25" fill="currentColor"/></symbol>
+    <symbol id="i-pending" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3" pathLength="25"/></symbol>
+    <symbol id="m-fact" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="currentColor"/></symbol>
+    <symbol id="m-assumption" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 1A5 5 0 0 0 6 11Z" fill="currentColor"/></symbol>
+    <symbol id="m-fiction" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.5 5v14M15.5 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13M6.5 12.5 12 18l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="2.4"/><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<header class="bar" id="bar">
+  <a class="mark" href="#hero" aria-label="EPICENTRE, back to the top">EPICENTRE</a>
+  <span class="label" id="fake-badge" hidden>FAKE data for design review</span>
+  <button class="pause" id="pause" type="button" aria-pressed="false" aria-label="Pause motion" title="Pause motion"><svg class="icon" aria-hidden="true"><use href="#i-pause"/></svg></button>
+</header>
+
+<main>
+  <section class="hero" id="hero" aria-labelledby="hero-title">
+    <canvas id="globe" aria-hidden="true"></canvas>
+    <div class="hero-grid">
+      <h1 class="display" id="hero-title">Replay the shock before you act.</h1>
+      <div class="globe-slot" id="globe-slot" aria-hidden="true">
+        <img class="poster" id="poster" src="vendor/nasa/earth-poster.jpg" alt="" width="1024" height="1024" decoding="async" fetchpriority="high">
+        <svg class="rings" id="rings" viewBox="-1 -1 2 2" preserveAspectRatio="xMidYMid meet"></svg>
+      </div>
+      <p class="answer-line" id="hero-line" data-slot></p>
+      <div class="hero-act">
+        <a class="btn btn-primary" id="replay" href="#cockpit" data-slot><span id="replay-label">Replay the move</span><svg class="icon" aria-hidden="true"><use href="#i-down"/></svg></a>
+        <p class="hero-note">Educational simulation: nothing is bought or sold.</p>
+      </div>
+    </div>
+    <div class="readout" id="readout" data-slot hidden>
+      <div class="ruler" id="ruler" aria-hidden="true"><b id="playhead"></b></div>
+      <p class="readout-n" id="readout-n"></p>
+      <p class="readout-span" id="readout-span"></p>
+    </div>
+    <p class="sr" id="hero-summary"></p>
+  </section>
+
+  <section class="act thesis" id="thesis" aria-labelledby="thesis-title">
+    <div class="frame thesis-grid">
+      <div class="thesis-copy">
+        <h2 class="statement" id="thesis-title">A good outcome is not a good decision.</h2>
+        <p class="lead" id="thesis-line" data-slot></p>
+      </div>
+      <figure class="fall" id="thesis-fall">
+        <div class="chart" id="thesis-chart"></div>
+        <figcaption class="chart-foot" id="thesis-foot"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="cockpit" id="cockpit" aria-labelledby="cockpit-title">
+    <h2 class="sr" id="cockpit-title">Your move, checked against your limits</h2>
+    <div class="frame cockpit-grid">
+      <div class="col-left">
+        <section class="you" id="you" aria-label="You">
+          <div class="tabs" role="tablist" aria-label="Investor">
+            <button class="tab" role="tab" id="tab-robert" data-id="robert" aria-selected="true" aria-controls="card">Robert</button>
+            <button class="tab" role="tab" id="tab-mateo" data-id="mateo" aria-selected="false" aria-controls="card" tabindex="-1">Mateo</button>
+            <button class="tab" role="tab" id="tab-amira" data-id="amira" aria-selected="false" aria-controls="card" tabindex="-1">Amira</button>
+            <button class="tab" role="tab" id="tab-canadian" data-id="canadian" aria-selected="false" aria-controls="card" tabindex="-1">Too Canadian?</button>
+          </div>
+          <article class="card" id="card" role="tabpanel" aria-labelledby="tab-robert">
+            <div class="card-body" id="card-body">
+              <div class="who"><h3 id="who-name"></h3>
+                <span class="tag"><svg class="kind" aria-hidden="true"><use href="#m-fiction"/></svg>Fictional investor</span></div>
+              <p class="who-line" id="who-line"></p>
+              <dl class="facts" id="facts"></dl>
+              <div class="card-foot"><button class="linkbtn" id="start" type="button" aria-expanded="false" aria-controls="five">Start with you</button>
+                <span>Fictional illustration, not a recommendation.</span></div>
+            </div>
+            <form class="five" id="five" hidden novalidate>
+              <label class="q" for="f-goal">1. What is this money for?</label>
+              <select class="field" id="f-goal" name="goal">
+                <option value="preservation">Preserve capital, with some growth</option><option value="balance">Balance growth and stability</option>
+                <option value="growth">Grow capital over the long term</option><option value="income">Income</option></select>
+              <label class="q" for="f-horizon">2. When will you need it? (years)</label>
+              <input class="field num-in" id="f-horizon" name="horizon" type="number" inputmode="numeric" min="1" max="40" step="1">
+              <fieldset><legend>3. The largest loss you could absorb without changing your plans</legend>
+                <div class="opts"><input class="field num-in" id="f-loss" name="loss" type="number" inputmode="decimal" min="0" aria-label="The largest loss">
+                  <label><input type="radio" name="unit" value="$" checked> dollars</label><label><input type="radio" name="unit" value="%"> % of the amount</label></div></fieldset>
+              <fieldset><legend>4. In 2022, when stocks and bonds fell together, you…</legend>
+                <div class="opts"><label><input type="radio" name="in_2022" value="sold"> Sold</label><label><input type="radio" name="in_2022" value="held"> Held</label>
+                  <label><input type="radio" name="in_2022" value="bought more"> Bought more</label></div></fieldset>
+              <fieldset><legend>5. Preferences</legend>
+                <div class="opts"><label><input type="checkbox" name="esg"> Screen out companies with major controversies</label>
+                  <label><input type="checkbox" name="crypto"> Crypto is allowed</label></div></fieldset>
+              <p class="err" id="five-err" role="alert"></p>
+              <div class="five-act"><button class="btn btn-quiet" type="submit">Use these answers</button><button class="linkbtn" id="five-cancel" type="button">Cancel</button></div>
+            </form>
+          </article>
+        </section>
+
+        <section class="move" id="move" aria-labelledby="move-title">
+          <h3 id="move-title">What are you about to do?</h3>
+          <form id="ask" autocomplete="off">
+            <label class="sr" for="q">Your move, in plain words</label>
+            <textarea class="q-box" id="q" name="q" rows="2" spellcheck="false"></textarea>
+            <p class="read-as" id="read-as" data-slot hidden><span>Read as</span><span class="chip-move" id="read-as-move"></span><span>the rest scaled down</span></p>
+            <div class="run-row">
+              <button class="btn btn-primary" id="run" type="submit"><svg class="icon spin" id="run-spin" aria-hidden="true" hidden><use href="#i-spin"/></svg><span id="run-label">Run the check</span></button>
+              <p class="ask-line" id="ask-line" role="status"></p>
+            </div>
+          </form>
+          <ol class="runlog" id="runlog" aria-live="polite" aria-label="The check, step by step"></ol>
+        </section>
+      </div>
+
+      <div class="col-right" id="answer" role="region" aria-label="The answer">
+        <div class="labels" id="labels" aria-label="About this run"></div>
+        <p class="today-line is-off" id="today-line"><svg class="icon" aria-hidden="true"><use href="#i-in"/></svg><span id="today-word"></span></p>
+        <div class="lamp" id="lamp" data-tone="idle" tabindex="-1"><p class="lamp-word"><svg class="icon" aria-hidden="true"><use id="lamp-icon" href="#i-pending"/></svg><span id="lamp-word">Not run yet</span></p></div>
+        <p class="dollar" id="dollar"></p>
+        <p class="dollar-note" id="dollar-note"></p>
+        <figure class="fall" id="fall">
+          <div class="chart" id="chart"></div>
+          <figcaption class="chart-foot" id="chart-foot"></figcaption>
+        </figure>
+        <ul class="rows" id="rows" aria-label="The checklist, deciding rows first"></ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="frame"><strong id="disclaimer">Educational simulation. This is not financial advice.</strong>
+  <span id="source-line"></span></div></footer>
+</body>
+</html>

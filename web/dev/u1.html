@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dev harness: the globe and the hero (lane U1)</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/hero.css">
+<script src="../lib.js" defer></script>
+<style>
+  /* harness only: a stand-in #replay stage (the real one is lane U2) so setLayout("stage") and project() can be seen */
+  .dev-panel { position: fixed; left: 8px; bottom: 8px; z-index: 60; display: flex; flex-wrap: wrap; gap: 6px; max-width: 560px; padding: 8px;
+    background: rgba(0, 0, 0, .86); border: 1px solid var(--rule); border-radius: 8px; font-size: 12px; color: var(--haze); }
+  .dev-panel output { flex-basis: 100%; font: 11px/1.4 var(--font-num); white-space: pre-wrap; }
+  .dev-shot .dev-panel { display: none; }
+  #replay.dev-replay { height: 200vh; }
+  .dev-stage { position: sticky; top: 0; height: 100vh; }
+  .dev-read { position: absolute; left: var(--margin); top: calc(var(--bar) + 16px); right: var(--margin); font-size: 15px; color: var(--ink-2); }
+  .dev-chart { position: absolute; left: 36%; right: var(--margin); top: 26%; bottom: 20%; border-bottom: 1px solid var(--rule); }
+  .dev-chart span { position: absolute; bottom: -22px; transform: translateX(-50%); font: 11px var(--font-num); color: var(--haze); }
+  .dev-chart i { position: absolute; bottom: 0; width: 1px; height: 8px; background: var(--signal); }
+  .dev-leader { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; overflow: visible; }
+  .dev-leader line { stroke: var(--signal); stroke-width: 1; }
+  #dial.dev-next { min-height: 100vh; padding: calc(var(--bar) + 32px) var(--margin); color: var(--ink-2); }
+</style>
+</head>
+<body>
+<header id="bar" style="position:fixed;inset:0 0 auto 0;height:var(--bar);z-index:30;display:flex;align-items:center;padding-inline:var(--margin)">
+  <span style="font:700 15px var(--font-num);letter-spacing:.14em;color:#fff">EPICENTRE</span></header>
+<main>
+  <section id="hero"></section>
+  <section id="replay" class="dev-replay" aria-label="Stand-in stage">
+    <div class="dev-stage">
+      <p class="dev-read">Stand-in for lane U2's stage: the READ strip would be here.</p>
+      <div class="dev-chart" id="dev-chart"></div>
+      <svg class="dev-leader" aria-hidden="true"><line id="dev-line" x1="0" y1="0" x2="0" y2="0" opacity="0"/></svg>
+    </div>
+  </section>
+  <section id="dial" class="dev-next"><p>Stand-in for the next section.</p></section>
+</main>
+<div class="dev-panel" id="dev-panel"></div>
+<script type="module">
+  import { store } from "../state.js";
+  import { loadRun, land, detectMode } from "../data.js";
+  import { mount } from "../sections/hero.js";
+  import { worstPrecedent, askedFamily, ignitionOrder, shocksOf } from "../lib/u1.js";
+  const q = new URLSearchParams(location.search);
+  window.__errors = [];
+  addEventListener("error", (e) => window.__errors.push(String(e.message)));
+  addEventListener("unhandledrejection", (e) => window.__errors.push(String(e.reason)));
+  const origError = console.error.bind(console);
+  console.error = (...a) => { window.__errors.push(a.map(String).join(" ")); origError(...a); };
+  if (q.get("motion") === "0") window.EPI_MOTION = false;
+  if (q.get("shot")) document.documentElement.classList.add("dev-shot");
+  if (q.get("nogl")) { const gc = HTMLCanvasElement.prototype.getContext;   /* no WebGL: the poster and its SVG rings */
+    HTMLCanvasElement.prototype.getContext = function (t, ...a) { return /webgl/.test(t) ? null : gc.call(this, t, ...a); }; }
+  /* a frozen clock for motion frames: __clock.freeze(), then __clock.at(ms) after an animation starts */
+  const realNow = performance.now.bind(performance); let frozen = null;
+  performance.now = () => (frozen === null ? realNow() : frozen);
+  window.__clock = { freeze() { frozen = realNow(); return frozen; }, at(ms) { frozen = window.__clock.t0 + ms; const g = store.get().globe; g && g.requestRender(); },
+    mark() { window.__clock.t0 = performance.now(); }, thaw() { frozen = null; } };
+  if (q.get("freeze")) window.__clock.freeze();
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  await new Promise((r) => (window.PF ? r() : addEventListener("DOMContentLoaded", r)));
+  const investor = q.get("investor") || "robert";
+  store.set({ mode: q.get("static") ? "static" : await detectMode(), investor });
+  land(await loadRun(investor));
+  store.on("investor", async (id) => land(await loadRun(id)));
+  mount(document.getElementById("hero"), store);
+  const chart = document.getElementById("dev-chart"), line = document.getElementById("dev-line");
+  const t0 = Date.parse("2021-11-12"), t1 = Date.parse("2026-11-12");
+  function axis() {
+    chart.replaceChildren();
+    for (const y of [2022, 2023, 2024, 2025, 2026]) { const s = document.createElement("span"); s.textContent = y; s.style.left = `${(Date.parse(y + "-01-01") - t0) / (t1 - t0) * 100}%`; chart.append(s); }
+    const v = store.get().view, fam = askedFamily(store.get().result);
+    for (const e of shocksOf(v).filter((x) => x.family === fam)) { const i = document.createElement("i"); i.style.left = `${(Date.parse(e.date) - t0) / (t1 - t0) * 100}%`; chart.append(i); }
+  }
+  axis(); store.on("view", axis);
+  function leader() {
+    const g = store.get().globe, w = worstPrecedent(store.get().view, askedFamily(store.get().result));
+    if (!g || !w) { line.setAttribute("opacity", 0); return; }
+    const p = g.project(w.lat, w.lon), b = chart.getBoundingClientRect(), st = chart.parentElement.getBoundingClientRect();
+    const x = b.left + (Date.parse(w.date) - t0) / (t1 - t0) * b.width;
+    line.setAttribute("x1", p.x - st.left); line.setAttribute("y1", p.y - st.top); line.setAttribute("x2", x - st.left); line.setAttribute("y2", b.bottom - st.top);
+    line.setAttribute("opacity", p.visible ? 1 : 0);
+  }
+  /* what lane U2's timeline does with the globe: EPICENTRE (flyTo + one ring), HANDOFF (setLayout stage + the leader) */
+  async function play() {
+    const g = store.get().globe, w = worstPrecedent(store.get().view, askedFamily(store.get().result));
+    store.set({ phase: "reading" }); line.setAttribute("opacity", 0);
+    scrollTo(0, document.getElementById("replay").offsetTop); await sleep(700);
+    store.set({ phase: "flying" });
+    if (g && w) { await g.flyTo(w.lat, w.lon, 900); await g.setLayout("stage", 600); }
+    leader(); store.set({ phase: "landed" });
+  }
+  addEventListener("scroll", () => { if (store.get().phase === "landed") leader(); }, { passive: true });
+  const panel = document.getElementById("dev-panel"), out = document.createElement("output");
+  const btn = (label, fn) => { const b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.textContent = label; b.onclick = fn; panel.append(b); };
+  btn("play stage", play);
+  btn("hero layout", () => { const g = store.get().globe; scrollTo(0, 0); store.set({ phase: "idle" }); g && g.setLayout("hero", 700); });
+  btn("ignite again", () => { const g = store.get().globe; g && g.igniteAll(ignitionOrder(shocksOf(store.get().view)), 4000); });
+  btn("focus none", () => store.get().globe && store.get().globe.focusFamily(null));
+  for (const id of ["robert", "mateo", "amira", "canadian"]) btn(id, () => store.set({ investor: id }));
+  panel.append(out);
+  store.on("*", () => { const s = store.get(); out.value = `mode ${s.mode} · ${s.investor} · phase ${s.phase} · globe ${s.globe ? s.globe.layout : "none"} · errors ${window.__errors.length}`; });
+  window.__u1 = { store, play, leader, sleep, fam: () => askedFamily(store.get().result), worst: () => worstPrecedent(store.get().view, askedFamily(store.get().result)) };
+</script>
+</body>
+</html>

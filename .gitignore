@@ -1,0 +1,17 @@
+.venv/
+.env
+__pycache__/
+*.pyc
+.DS_Store
+.streamlit/secrets.toml
+*.pem
+credentials
+.aws/
+data/cache/
+data/runs/
+.claude/settings.local.json
+data/starter
+data/etf_holdings.csv
+docs/research/2026-11-14-etf-holdings.md
+*.bak
+.superpowers/

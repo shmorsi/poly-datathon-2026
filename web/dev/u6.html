@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>U6 harness: why, thread, navigator off</title>
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/why.css">
+<script src="../lib.js" defer></script>
+<style>body{min-height:100vh} .u6-pad{height:var(--u6-pad,0px)}</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 7v6.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.35" fill="currentColor"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.25" fill="currentColor"/></symbol>
+    <symbol id="i-pending" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3" pathLength="25"/></symbol>
+    <symbol id="m-fact" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="currentColor"/></symbol>
+    <symbol id="m-assumption" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 1A5 5 0 0 0 6 11Z" fill="currentColor"/></symbol>
+    <symbol id="m-fiction" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.5 5v14M15.5 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13M6.5 12.5 12 18l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="2.4"/><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+<main>
+  <div class="u6-pad"></div>
+  <section id="why"></section>
+</main>
+<script type="module">
+/* Lane U6 harness (dev only): ?run=<id> (dev server /runs/<id>.json), ?mode=static|live, ?motion=0, ?thread=T29, ?off=1 */
+const q = new URLSearchParams(location.search);
+window.__errors = [];
+addEventListener("error", (e) => window.__errors.push(String(e.message)));
+addEventListener("unhandledrejection", (e) => window.__errors.push(String(e.reason)));
+if (q.get("motion") === "0") window.EPI_MOTION = false;
+if (q.get("clock") === "1") {          // capture only: a virtual clock, so motion frames land at an exact p (window.__clock(ms))
+  let clock = 0;
+  window.__clock = (t) => { clock = t; };
+  performance.now = () => clock;
+  window.requestAnimationFrame = (cb) => setTimeout(() => cb(clock), 16);
+}
+function makeStore(init) {
+  let s = { ...init }; const ls = new Map();
+  return {
+    get: () => s,
+    set(p) { const ch = Object.keys(p).filter((k) => s[k] !== p[k]); s = { ...s, ...p };
+      for (const k of ch) for (const fn of ls.get(k) || []) fn(s[k], s);
+      if (ch.length) for (const fn of ls.get("*") || []) fn(s, s); },
+    on(k, fn) { if (!ls.has(k)) ls.set(k, []); ls.get(k).push(fn); return () => ls.set(k, ls.get(k).filter((f) => f !== fn)); },
+  };
+}
+await new Promise((r) => (document.readyState === "loading" ? addEventListener("DOMContentLoaded", r) : r()));
+const id = q.get("run") || "robert";
+const result = await (await fetch(`/runs/${id}.json`)).json();
+const store = makeStore({ mode: q.get("mode") || "static", investor: result.pilot || "robert", result: null, view: null, weightIndex: null, thread: null });
+window.__u6 = { store };
+const { mount } = await import("../sections/why.js");
+mount(document.getElementById("why"), store);
+store.set({ result, view: window.PF.view(result) });
+if (q.get("thread")) store.set({ thread: q.get("thread") });
+if (q.get("off") === "1") document.querySelector(".nav-switch")?.click();
+window.__u6.ready = true;
+</script>
+</body>
+</html>

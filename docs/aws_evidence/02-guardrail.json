@@ -1,0 +1,170 @@
+{
+  "evidence": "Guardrail version 1 (published Sun 15 Nov from the evaluated DRAFT, unchanged)",
+  "captured": "2026-11-15T16:39:36Z",
+  "how": "aws bedrock get-guardrail --guardrail-identifier <GUARDRAIL_ID> --guardrail-version 1",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "guardrail": {
+    "name": "epicentre-guardrail",
+    "description": "Frozen Sun 15 Nov 2026: the evaluated DRAFT as it ran live, unchanged (lane b6)",
+    "guardrailId": "<GUARDRAIL_ID>",
+    "guardrailArn": "arn:aws:bedrock:us-east-1:<ACCT>:guardrail/<GUARDRAIL_ID>",
+    "version": "1",
+    "status": "READY",
+    "topicPolicy": {
+      "topics": [
+        {
+          "name": "BuySellHoldVerdictRequest",
+          "definition": "A person asking the assistant a question whose answer is buy, sell or hold for a real trade in a specific security.",
+          "examples": [],
+          "type": "DENY",
+          "inputAction": "BLOCK",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": false
+        },
+        {
+          "name": "BuySellHoldVerdictReply",
+          "definition": "A reply that tells a person to buy, sell or hold a specific real security now.",
+          "examples": [],
+          "type": "DENY",
+          "inputAction": "NONE",
+          "outputAction": "NONE",
+          "inputEnabled": false,
+          "outputEnabled": true
+        },
+        {
+          "name": "WhatIfReplayQuestion",
+          "definition": "A person asking what a hypothetical change to their portfolio, or a market shock, would have done to it, replayed on past market history.",
+          "examples": [],
+          "type": "DENY",
+          "inputAction": "NONE",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": false
+        },
+        {
+          "name": "PortfolioFitQuestion",
+          "definition": "A person asking whether their portfolio, or a change to it, fits the goals, horizon and limits they set.",
+          "examples": [],
+          "type": "DENY",
+          "inputAction": "NONE",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": false
+        },
+        {
+          "name": "PortfolioChangeNote",
+          "definition": "A short note naming a hypothetical change to a portfolio, such as adding a percentage of a fund or replacing one holding with another.",
+          "examples": [],
+          "type": "DENY",
+          "inputAction": "NONE",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": false
+        },
+        {
+          "name": "VagueQuestion",
+          "definition": "A short, vague question that names no security, amount, event or goal, so what it asks is unclear.",
+          "examples": [],
+          "type": "DENY",
+          "inputAction": "NONE",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": false
+        }
+      ],
+      "tier": {
+        "tierName": "STANDARD"
+      }
+    },
+    "contentPolicy": {
+      "filters": [
+        {
+          "type": "PROMPT_ATTACK",
+          "inputStrength": "HIGH",
+          "outputStrength": "NONE",
+          "inputAction": "BLOCK",
+          "inputEnabled": true,
+          "outputEnabled": false
+        }
+      ],
+      "tier": {
+        "tierName": "STANDARD"
+      }
+    },
+    "sensitiveInformationPolicy": {
+      "piiEntities": [
+        {
+          "type": "CA_SOCIAL_INSURANCE_NUMBER",
+          "action": "BLOCK",
+          "inputAction": "BLOCK",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": true
+        },
+        {
+          "type": "CREDIT_DEBIT_CARD_NUMBER",
+          "action": "BLOCK",
+          "inputAction": "BLOCK",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": true
+        },
+        {
+          "type": "INTERNATIONAL_BANK_ACCOUNT_NUMBER",
+          "action": "BLOCK",
+          "inputAction": "BLOCK",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": true
+        },
+        {
+          "type": "EMAIL",
+          "action": "BLOCK",
+          "inputAction": "BLOCK",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": true
+        },
+        {
+          "type": "PHONE",
+          "action": "BLOCK",
+          "inputAction": "BLOCK",
+          "outputAction": "NONE",
+          "inputEnabled": true,
+          "outputEnabled": true
+        }
+      ],
+      "regexes": []
+    },
+    "contextualGroundingPolicy": {
+      "filters": [
+        {
+          "type": "GROUNDING",
+          "threshold": 0.7,
+          "action": "NONE",
+          "enabled": true
+        },
+        {
+          "type": "RELEVANCE",
+          "threshold": 0.7,
+          "action": "NONE",
+          "enabled": true
+        }
+      ],
+      "tier": {
+        "tierName": "CLASSIC"
+      }
+    },
+    "crossRegionDetails": {
+      "guardrailProfileId": "us.guardrail.v1:0",
+      "guardrailProfileArn": "arn:aws:bedrock:us-east-1:<ACCT>:guardrail-profile/us.guardrail.v1:0"
+    },
+    "createdAt": "2026-11-15T15:06:59+00:00",
+    "updatedAt": "2026-11-15T15:07:00.241978+00:00",
+    "statusReasons": [],
+    "failureRecommendations": [],
+    "blockedInputMessaging": "EPICENTRE replays a move against the limits you set; it doesn't tell anyone what to do with a specific security, and it doesn't take personal data. Try: \"What if I put 40 % in NVIDIA and the tariff war flares up again?\"",
+    "blockedOutputsMessaging": "This explanation was withheld by the safety check. The verdict and charts come straight from the data."
+  }
+}

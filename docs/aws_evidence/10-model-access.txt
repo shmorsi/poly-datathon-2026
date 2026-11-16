@@ -1,0 +1,40 @@
+# Model access from an admin shell: scripts/check_bedrock.py (one short Converse call) and the inference profiles
+# of config.py (aws bedrock get-inference-profile). Captured 2026-11-15 16:41 UTC.
+
+EPICENTRE - Bedrock access check
+region       us-east-1
+model        us.anthropic.claude-sonnet-5-5
+ok           True
+latency      983 ms (server 733 ms)
+usage        inputTokens=16 outputTokens=5 totalTokens=21 cacheReadInputTokens=0 cacheWriteInputTokens=0
+stopReason   end_turn
+RequestId    333435b8-ef1f-4ea1-a82d-d84a91da4c53
+text         Ready
+
+{
+  "us.anthropic.claude-sonnet-5-5": {
+    "status": "ACTIVE",
+    "type": "SYSTEM_DEFINED",
+    "models": [
+      "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-5-5",
+      "arn:aws:bedrock:us-east-2::foundation-model/anthropic.claude-sonnet-5-5",
+      "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-sonnet-5-5"
+    ]
+  },
+  "global.anthropic.claude-sonnet-5-5": {
+    "status": "ACTIVE",
+    "type": "SYSTEM_DEFINED",
+    "models": [
+      "arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-5-5",
+      "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-5-5"
+    ]
+  },
+  "global.anthropic.claude-sonnet-5": {
+    "status": "ACTIVE",
+    "type": "SYSTEM_DEFINED",
+    "models": [
+      "arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-5",
+      "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-5"
+    ]
+  }
+}

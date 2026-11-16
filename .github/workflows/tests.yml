@@ -1,0 +1,29 @@
+# The offline test suite on every push and pull request to main.
+# README.md shows this workflow's badge under the title.
+# No secrets and no AWS credentials, and no network beyond pip. The live tests are deselected by pytest.ini
+# (addopts -m "not live"), and every test that needs the licensed starter data or the local ETF holdings skips
+# with its stated reason on a fresh clone, because neither is ever committed.
+name: tests
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+permissions:
+  contents: read
+jobs:
+  offline-suite:
+    name: Offline suite (Python 3.12)
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      AWS_EC2_METADATA_DISABLED: "true"   # boto3 must not probe the instance metadata address
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install the pinned requirements
+        run: python -m pip install -r requirements.txt
+      - name: Run the offline suite
+        run: python -m pytest -q

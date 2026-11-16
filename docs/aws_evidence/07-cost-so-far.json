@@ -1,0 +1,935 @@
+{
+  "evidence": "The account's cost so far (Cost Explorer)",
+  "captured": "2026-11-15T16:40:57Z",
+  "how": "aws ce get-cost-and-usage --granularity DAILY --metrics UnblendedCost --group-by Type=DIMENSION,Key=SERVICE",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "period": "2026-11-01 to 2026-11-16 (end exclusive; Cost Explorer lags by up to a day, so today is partial)",
+  "total_usd": 5.33,
+  "by_service_usd": {
+    "Amazon Elastic Compute Cloud - Compute": 3.49,
+    "AWS CloudTrail": 1.01,
+    "AmazonCloudWatch": 0.24,
+    "Amazon Bedrock": 0.23,
+    "Amazon Virtual Private Cloud": 0.18,
+    "EC2 - Other": 0.14,
+    "AWS Secrets Manager": 0.04,
+    "Amazon Simple Storage Service": 0.0,
+    "AWS Glue": 0.0,
+    "AWS Lambda": 0.0,
+    "AWS Key Management Service": 0.0,
+    "Amazon CloudFront": 0.0,
+    "AWS CloudFormation": 0.0
+  },
+  "note": "UnblendedCost before any event credit; each Cost Explorer API request costs USD 0.01 (one was made)",
+  "raw": [
+    {
+      "TimePeriod": {
+        "Start": "2026-11-01",
+        "End": "2026-11-02"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01138",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0003018",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-02",
+        "End": "2026-11-03"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0082",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000173",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-03",
+        "End": "2026-11-04"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.006",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000055",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-04",
+        "End": "2026-11-05"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01516",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Key Management Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000003",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000017",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-05",
+        "End": "2026-11-06"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01676",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000103",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-06",
+        "End": "2026-11-07"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0145",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000005",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-07",
+        "End": "2026-11-08"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01208",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000024",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000155",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-08",
+        "End": "2026-11-09"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0141",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000034",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000105",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-09",
+        "End": "2026-11-10"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01814",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000031",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Key Management Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000003",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000207",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-10",
+        "End": "2026-11-11"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01788",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000034",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.00001",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-11",
+        "End": "2026-11-12"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01564",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000032",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000005",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-12",
+        "End": "2026-11-13"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.01412",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000033",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000012",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-13",
+        "End": "2026-11-14"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudFormation"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.03258",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000034",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Key Management Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000012",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Lambda"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0002341962",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Secrets Manager"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0077033408",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon CloudFront"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "EC2 - Other"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0356824606",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Elastic Compute Cloud - Compute"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.7594901647",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000102",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Virtual Private Cloud"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.03617639",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AmazonCloudWatch"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0562704248",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-14",
+        "End": "2026-11-15"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.19226",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000035",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Key Management Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000003",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Secrets Manager"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0266666688",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Bedrock"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000123",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon CloudFront"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000099858",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "EC2 - Other"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.1026472345",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Elastic Compute Cloud - Compute"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "2.54016",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Simple Storage Service"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000205",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Virtual Private Cloud"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.12",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AmazonCloudWatch"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.169583325",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    },
+    {
+      "TimePeriod": {
+        "Start": "2026-11-15",
+        "End": "2026-11-16"
+      },
+      "Total": {},
+      "Groups": [
+        {
+          "Keys": [
+            "AWS CloudTrail"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.62014",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Glue"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.000009",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AWS Secrets Manager"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0044444448",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Bedrock"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.23105",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "EC2 - Other"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.0000840591",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Elastic Compute Cloud - Compute"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.1930698353",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "Amazon Virtual Private Cloud"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.02",
+              "Unit": "USD"
+            }
+          }
+        },
+        {
+          "Keys": [
+            "AmazonCloudWatch"
+          ],
+          "Metrics": {
+            "UnblendedCost": {
+              "Amount": "0.013749999",
+              "Unit": "USD"
+            }
+          }
+        }
+      ],
+      "Estimated": true
+    }
+  ]
+}

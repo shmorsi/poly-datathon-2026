@@ -1,0 +1,7 @@
+{
+  "evidence": "Bedrock model invocation logging is not configured (red gate 6: it would store the questions and answers; the only thing the project ever stores is a record the investor seals)",
+  "captured": "2026-11-15T16:39:46Z",
+  "how": "aws bedrock get-model-invocation-logging-configuration (an empty answer: no loggingConfig)",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "answer": {}
+}

@@ -1,0 +1,4180 @@
+{
+ "_note": "FAKE values for UI development, not tool output",
+ "run_id": "fake-robert-001",
+ "as_of": "2026-11-12",
+ "mode": "demo_replay",
+ "status": "ok",
+ "message": null,
+ "question": "Everyone is talking about NVIDIA. What if I put 40 % in it and Washington slaps new levies on Canadian goods?",
+ "question_type": "change",
+ "pilot": "robert",
+ "amount": 600000,
+ "profile": {
+  "goal": "preservation",
+  "horizon_years": 4,
+  "risk": "moderate",
+  "esg": false,
+  "crypto": false,
+  "capacity": 90000,
+  "reaction_2022": "held"
+ },
+ "limits": {
+  "floor": -0.15,
+  "floor_source": "capacity",
+  "single_stock": 0.1,
+  "sector": 0.35,
+  "crypto": 0.0,
+  "scenario_stress": -0.075,
+  "recovery_days": 487,
+  "risk_share": 0.5
+ },
+ "portfolio": {
+  "NVDA": 0.4,
+  "XIU.TO": 0.27,
+  "XBB.TO": 0.21,
+  "GLD": 0.06,
+  "ZST.TO": 0.06
+ },
+ "baseline": {
+  "portfolio": {
+   "XIU.TO": 0.45,
+   "XBB.TO": 0.35,
+   "GLD": 0.1,
+   "ZST.TO": 0.1
+  },
+  "verdict": "Compatible",
+  "checks": [
+   {
+    "rule": "max_drawdown",
+    "tier": "hard",
+    "status": "pass",
+    "value": -0.106,
+    "limit": -0.15,
+    "holding": null,
+    "reason": "In this history the mix's worst drop was 10.6 % ($63,600), inside the 15 % ($90,000) you said you could absorb."
+   },
+   {
+    "rule": "scenario_stress",
+    "tier": "soft",
+    "status": "pass",
+    "value": -0.06,
+    "limit": -0.075,
+    "holding": null,
+    "reason": "The worst clean tariff-storm episode cost 6.0 %, inside half your floor (7.5 %)."
+   },
+   {
+    "rule": "single_stock",
+    "tier": "soft",
+    "status": "pass",
+    "value": 0.034,
+    "limit": 0.1,
+    "holding": "RY.TO",
+    "reason": "The largest single company, RY.TO, is 3.4 % of the money, inside the 10 % limit."
+   },
+   {
+    "rule": "sector",
+    "tier": "soft",
+    "status": "pass",
+    "value": 0.149,
+    "limit": 0.35,
+    "holding": null,
+    "reason": "The largest sector, Financials, is 14.9 % of the money, inside the 35 % limit."
+   },
+   {
+    "rule": "crypto",
+    "tier": "soft",
+    "status": "pass",
+    "value": 0.0,
+    "limit": 0.0,
+    "holding": null,
+    "reason": "No crypto is held; the limit is 0 %."
+   },
+   {
+    "rule": "risk_concentration",
+    "tier": "warn",
+    "status": "pass",
+    "value": 0.47,
+    "limit": 0.5,
+    "holding": null,
+    "reason": "The largest line carries 47 % of the risk, inside the 50 % warning level."
+   },
+   {
+    "rule": "recovery",
+    "tier": "warn",
+    "status": "pass",
+    "value": 416,
+    "limit": 487,
+    "holding": null,
+    "reason": "The worst drop took 416 days to recover, inside the 487 days your horizon allows."
+   },
+   {
+    "rule": "short_horizon",
+    "tier": "warn",
+    "status": "pass",
+    "value": 4,
+    "limit": 3,
+    "holding": null,
+    "reason": "You need the money in 4 years, beyond the 3-year short-horizon level."
+   },
+   {
+    "rule": "missing_data",
+    "tier": "warn",
+    "status": "pass",
+    "value": 0,
+    "limit": 0,
+    "holding": null,
+    "reason": "Every held asset has a complete price history."
+   }
+  ],
+  "metrics": {
+   "cagr": 0.087,
+   "volatility": 0.062,
+   "max_drawdown": -0.106,
+   "peak_date": "2022-01-04",
+   "trough_date": "2022-10-14",
+   "recovery_days": 416,
+   "days_since_trough": 1490,
+   "sharpe": 0.84,
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12"
+  },
+  "kpis": {
+   "max_drawdown": {
+    "value": -0.106,
+    "limit": -0.15
+   },
+   "scenario_stress": {
+    "value": -0.06,
+    "limit": -0.075
+   },
+   "recovery_days": {
+    "value": 416,
+    "limit": 487
+   },
+   "exposure_canada": {
+    "value": 0.9,
+    "limit": null
+   }
+  }
+ },
+ "aligned": {
+  "weights": {
+   "XBB.TO": 0.3,
+   "XIU.TO": 0.35,
+   "SPY": 0.25,
+   "GLD": 0.1
+  },
+  "label": "Fictional illustration, not a recommendation"
+ },
+ "scenario": {
+  "type": "change",
+  "families": [
+   "tariffs"
+  ],
+  "event_ids": [
+   "tariff_threat_2024",
+   "tariffs_order_2025",
+   "tariffs_canada_2025",
+   "liberation_day_2025",
+   "tariff_pause_2025",
+   "canada_talks_2025",
+   "scotus_ieepa_2026"
+  ],
+  "reasons": {
+   "tariff_threat_2024": "tariffs family, Canada in the event's regions and 90 % of your money is Canadian, keyword 'tariff'",
+   "tariffs_order_2025": "tariffs family, Canada in the event's regions and 90 % of your money is Canadian, keyword 'tariff'",
+   "tariffs_canada_2025": "tariffs family, Canada in the event's regions and 90 % of your money is Canadian, keyword 'tariff'",
+   "liberation_day_2025": "tariffs family, Canada in the event's regions and 90 % of your money is Canadian, keyword 'tariff'",
+   "tariff_pause_2025": "tariffs family, a positive shock: shown apart, never inside a loss range",
+   "canada_talks_2025": "tariffs family, Canada in the event's regions and 90 % of your money is Canadian, keyword 'tariff'",
+   "scotus_ieepa_2026": "tariffs family, Canada in the event's regions and 90 % of your money is Canadian, mixed with iran_2026 (Indicative), keyword 'tariff'"
+  },
+  "rejected": {
+   "war_oil": "no region overlap with your portfolio, score 0.12",
+   "chips": "the question names no chip event; NVDA is in the move, score 0.31",
+   "rates": "the question names no rate event, score 0.18"
+  },
+  "tool_calls": [
+   {
+    "tool": "search_events",
+    "input": {
+     "query": "tariff war flares up again",
+     "family": "tariffs",
+     "regions": [
+      "USA",
+      "CAN"
+     ]
+    },
+    "output_summary": "7 known tariff events ranked by code, top score 0.91",
+    "ms": 38
+   },
+   {
+    "tool": "propose_change",
+    "input": {
+     "op": "set",
+     "ticker": "NVDA",
+     "weight": 0.4,
+     "from_ticker": null
+    },
+    "output_summary": "NVDA 40 %, other lines x 0.6, weights sum to 1",
+    "ms": 4
+   },
+   {
+    "tool": "get_exposure",
+    "input": {},
+    "output_summary": "Today: 90 % Canada, 10 % global (gold), 90 % CAD",
+    "ms": 21
+   }
+  ],
+  "method": "bedrock",
+  "intent": "more AI exposure",
+  "check_order": [
+   "max_drawdown",
+   "scenario_stress",
+   "single_stock",
+   "sector",
+   "risk_concentration",
+   "recovery",
+   "short_horizon",
+   "crypto",
+   "missing_data"
+  ],
+  "clarify": null,
+  "widened": null,
+  "weather": {
+   "headline": "the tariff war flares up again",
+   "families": [
+    "tariffs"
+   ],
+   "regions": [
+    "USA",
+    "CAN"
+   ],
+   "no_precedent": false
+  }
+ },
+ "events": [
+  {
+   "event_id": "ukraine_2022",
+   "date": "2022-02-24",
+   "title": "Russia invades Ukraine",
+   "description": "Russia invades Ukraine; European stock markets fall and oil climbs.",
+   "family": "war_oil",
+   "sign": "negative",
+   "regions": [
+    "UKR",
+    "RUS",
+    "EUR"
+   ],
+   "lat": 50.45,
+   "lon": 30.52,
+   "source_url": "https://www.cnbc.com/2022/02/24/global-markets-roiled-as-russia-invades-ukraine.html",
+   "known": true,
+   "in_progress": false,
+   "episode": "war_oil_feb_2022",
+   "confounded": false,
+   "t0": "2022-02-24",
+   "window_end": "2022-03-24",
+   "trough_date": "2022-03-08",
+   "today": {
+    "trough": -0.021,
+    "ret_20": -0.004,
+    "fx_effect": 0.0015,
+    "percentile": 0.62
+   },
+   "after": {
+    "trough": -0.052,
+    "ret_20": -0.013,
+    "fx_effect": 0.0042,
+    "percentile": 0.71
+   },
+   "exposed": [
+    {
+     "ticker": "CNQ.TO",
+     "channel": "sector",
+     "via": "XIU.TO"
+    },
+    {
+     "ticker": "ENB.TO",
+     "channel": "sector",
+     "via": "XIU.TO"
+    }
+   ]
+  },
+  {
+   "event_id": "fed_75_2022",
+   "date": "2022-06-15",
+   "title": "The Fed raises rates by 0.75 point",
+   "description": "The Fed raises its benchmark rate by three-quarters of a point to a 1.5 %-1.75 % range, its most aggressive hike since 1994.",
+   "family": "rates",
+   "sign": "negative",
+   "regions": [
+    "USA"
+   ],
+   "lat": 38.89,
+   "lon": -77.05,
+   "source_url": "https://www.cnbc.com/2022/06/15/fed-hikes-its-benchmark-interest-rate-by-three-quarters-of-a-point-the-biggest-increase-since-1994.html",
+   "known": true,
+   "in_progress": false,
+   "episode": "rates_jun_2022",
+   "confounded": false,
+   "t0": "2022-06-15",
+   "window_end": "2022-07-18",
+   "trough_date": "2022-06-24",
+   "today": {
+    "trough": -0.034,
+    "ret_20": -0.012,
+    "fx_effect": 0.0012,
+    "percentile": 0.88
+   },
+   "after": {
+    "trough": -0.126,
+    "ret_20": -0.071,
+    "fx_effect": 0.0055,
+    "percentile": 0.96
+   },
+   "exposed": [
+    {
+     "ticker": "NVDA",
+     "channel": "country",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "cpi_sep_2022",
+   "date": "2022-09-13",
+   "title": "Hotter-than-expected US inflation (August CPI)",
+   "description": "A hotter-than-expected August inflation report revives fears of an aggressive Fed.",
+   "family": "rates",
+   "sign": "negative",
+   "regions": [
+    "USA"
+   ],
+   "lat": 38.89,
+   "lon": -77.05,
+   "source_url": "https://www.cnbc.com/2022/09/12/stock-futures-are-higher-as-wall-street-awaits-key-inflation-report-.html",
+   "known": true,
+   "in_progress": false,
+   "episode": "rates_sep_2022",
+   "confounded": false,
+   "t0": "2022-09-13",
+   "window_end": "2022-10-12",
+   "trough_date": "2022-09-30",
+   "today": {
+    "trough": -0.041,
+    "ret_20": -0.019,
+    "fx_effect": 0.002,
+    "percentile": 0.93
+   },
+   "after": {
+    "trough": -0.158,
+    "ret_20": -0.094,
+    "fx_effect": 0.0068,
+    "percentile": 0.985
+   },
+   "exposed": [
+    {
+     "ticker": "NVDA",
+     "channel": "country",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "chips_2022",
+   "date": "2022-10-07",
+   "title": "US export controls on advanced chips to China",
+   "description": "The Bureau of Industry and Security restricts China's access to advanced chips and chip-making equipment.",
+   "family": "chips",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "CHN",
+    "TWN"
+   ],
+   "lat": 39.9,
+   "lon": 116.4,
+   "source_url": "https://www.bis.gov/press-release/commerce-implements-new-export-controls-advanced-computing-semiconductor-manufacturing-items-peoples",
+   "known": true,
+   "in_progress": false,
+   "episode": "chips_oct_2022",
+   "confounded": false,
+   "t0": "2022-10-07",
+   "window_end": "2022-11-07",
+   "trough_date": "2022-10-14",
+   "today": {
+    "trough": -0.024,
+    "ret_20": -0.008,
+    "fx_effect": 0.001,
+    "percentile": 0.75
+   },
+   "after": {
+    "trough": -0.138,
+    "ret_20": -0.082,
+    "fx_effect": 0.0049,
+    "percentile": 0.97
+   },
+   "exposed": [
+    {
+     "ticker": "NVDA",
+     "channel": "sector",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "israel_2023",
+   "date": "2023-10-09",
+   "title": "Hamas attack on Israel (first trading day)",
+   "description": "First trading day after the 7 October attack: oil jumps while gold and bonds rise.",
+   "family": "war_oil",
+   "sign": "negative",
+   "regions": [
+    "ISR",
+    "PSE"
+   ],
+   "lat": 31.5,
+   "lon": 34.47,
+   "source_url": "https://www.investmentnews.com/equities/oil-spikes-and-equities-fall-following-hamas-attack-on-israel/244284",
+   "known": true,
+   "in_progress": false,
+   "episode": "war_oil_oct_2023",
+   "confounded": false,
+   "t0": "2023-10-09",
+   "window_end": "2023-11-07",
+   "trough_date": "2023-10-12",
+   "today": {
+    "trough": -0.011,
+    "ret_20": -0.003,
+    "fx_effect": 0.0009,
+    "percentile": 0.45
+   },
+   "after": {
+    "trough": -0.029,
+    "ret_20": -0.01,
+    "fx_effect": 0.0021,
+    "percentile": 0.55
+   },
+   "exposed": [
+    {
+     "ticker": "CNQ.TO",
+     "channel": "sector",
+     "via": "XIU.TO"
+    },
+    {
+     "ticker": "ENB.TO",
+     "channel": "sector",
+     "via": "XIU.TO"
+    }
+   ]
+  },
+  {
+   "event_id": "tariff_threat_2024",
+   "date": "2024-11-26",
+   "title": "Threat of 25 % tariffs on Canada and Mexico",
+   "description": "The president-elect promises an order on 20 January imposing 25 % tariffs on all products from Canada and Mexico, and 10 % more on China.",
+   "family": "tariffs",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "CAN",
+    "MEX",
+    "CHN"
+   ],
+   "lat": 45.42,
+   "lon": -75.7,
+   "source_url": "https://www.cnbc.com/2024/11/26/trumps-tariff-threats-signal-start-of-a-wild-ride-in-currency-markets.html",
+   "known": true,
+   "in_progress": false,
+   "episode": "tariffs_nov_2024",
+   "confounded": false,
+   "t0": "2024-11-26",
+   "window_end": "2024-12-26",
+   "trough_date": "2024-12-03",
+   "today": {
+    "trough": -0.01,
+    "ret_20": -0.003,
+    "fx_effect": 0.0016,
+    "percentile": 0.35
+   },
+   "after": {
+    "trough": -0.019,
+    "ret_20": -0.006,
+    "fx_effect": 0.003,
+    "percentile": 0.4
+   },
+   "exposed": [
+    {
+     "ticker": "XIU.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "NVDA",
+     "channel": "currency",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "deepseek_2025",
+   "date": "2025-01-27",
+   "title": "DeepSeek shock hits AI stocks",
+   "description": "A low-cost Chinese AI model triggers a sharp fall in chip stocks.",
+   "family": "chips",
+   "sign": "negative",
+   "regions": [
+    "CHN",
+    "USA"
+   ],
+   "lat": 30.27,
+   "lon": 120.15,
+   "source_url": "https://fortune.com/2025/01/27/nvidia-deepseek-rout-tech-stocks/",
+   "known": true,
+   "in_progress": false,
+   "episode": "chips_jan_2025",
+   "confounded": false,
+   "t0": "2025-01-27",
+   "window_end": "2025-02-25",
+   "trough_date": "2025-01-27",
+   "today": {
+    "trough": -0.018,
+    "ret_20": -0.006,
+    "fx_effect": 0.0008,
+    "percentile": 0.66
+   },
+   "after": {
+    "trough": -0.112,
+    "ret_20": -0.049,
+    "fx_effect": 0.0038,
+    "percentile": 0.95
+   },
+   "exposed": [
+    {
+     "ticker": "NVDA",
+     "channel": "sector",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "tariffs_order_2025",
+   "date": "2025-02-03",
+   "title": "US tariff orders: Canada, Mexico, China",
+   "description": "Executive orders of 1 February: 25 % tariffs on Canada and Mexico (10 % on Canadian energy) and 10 % on China. First trading day 3 February.",
+   "family": "tariffs",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "CAN",
+    "MEX",
+    "CHN"
+   ],
+   "lat": 38.9,
+   "lon": -77.04,
+   "source_url": "https://www.whitehouse.gov/fact-sheets/2025/02/fact-sheet-president-donald-j-trump-imposes-tariffs-on-imports-from-canada-mexico-and-china/",
+   "known": true,
+   "in_progress": false,
+   "episode": "tariffs_feb_mar_2025",
+   "confounded": false,
+   "t0": "2025-02-03",
+   "window_end": "2025-03-04",
+   "trough_date": "2025-02-28",
+   "today": {
+    "trough": -0.031,
+    "ret_20": -0.011,
+    "fx_effect": 0.0018,
+    "percentile": 0.82
+   },
+   "after": {
+    "trough": -0.058,
+    "ret_20": -0.017,
+    "fx_effect": 0.0031,
+    "percentile": 0.84
+   },
+   "exposed": [
+    {
+     "ticker": "XIU.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "XBB.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "NVDA",
+     "channel": "currency",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "tariffs_canada_2025",
+   "date": "2025-03-04",
+   "title": "25 % US tariffs on Canada take effect",
+   "description": "The US tariffs on Canada take effect; Canada retaliates with 25 % on C$30 billion of imports.",
+   "family": "tariffs",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "CAN"
+   ],
+   "lat": 45.42,
+   "lon": -75.7,
+   "source_url": "https://www.kitco.com/news/off-the-wire/2025-03-04/tsx-hits-near-two-month-low-us-tariffs-take-effect",
+   "known": true,
+   "in_progress": false,
+   "episode": "tariffs_feb_mar_2025",
+   "confounded": false,
+   "t0": "2025-03-04",
+   "window_end": "2025-04-01",
+   "trough_date": "2025-03-10",
+   "today": {
+    "trough": -0.027,
+    "ret_20": -0.009,
+    "fx_effect": 0.0014,
+    "percentile": 0.79
+   },
+   "after": {
+    "trough": -0.049,
+    "ret_20": -0.02,
+    "fx_effect": 0.0027,
+    "percentile": 0.81
+   },
+   "exposed": [
+    {
+     "ticker": "XIU.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "XBB.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "NVDA",
+     "channel": "currency",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "liberation_day_2025",
+   "date": "2025-04-03",
+   "title": "Liberation Day reciprocal tariffs",
+   "description": "Announced 2 April after the close: a 10 % baseline tariff and reciprocal tariffs of 11 % to 50 %.",
+   "family": "tariffs",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "CHN",
+    "CAN",
+    "EUR"
+   ],
+   "lat": 38.9,
+   "lon": -77.04,
+   "source_url": "https://www.pbs.org/newshour/economy/u-s-stocks-shoot-to-historic-gains-after-trump-pauses-most-of-his-tariffs",
+   "known": true,
+   "in_progress": false,
+   "episode": "tariffs_apr_2025",
+   "confounded": false,
+   "t0": "2025-04-03",
+   "window_end": "2025-05-02",
+   "trough_date": "2025-04-08",
+   "today": {
+    "trough": -0.06,
+    "ret_20": -0.021,
+    "fx_effect": 0.0033,
+    "percentile": 0.92
+   },
+   "after": {
+    "trough": -0.09,
+    "ret_20": -0.033,
+    "fx_effect": 0.0052,
+    "percentile": 0.9
+   },
+   "exposed": [
+    {
+     "ticker": "XIU.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "NVDA",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "GLD",
+     "channel": "currency",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "tariff_pause_2025",
+   "date": "2025-04-09",
+   "title": "90-day pause on reciprocal tariffs",
+   "description": "Positive shock: a 90-day pause on the reciprocal tariffs.",
+   "family": "tariffs",
+   "sign": "positive",
+   "regions": [
+    "USA"
+   ],
+   "lat": 38.9,
+   "lon": -77.04,
+   "source_url": "https://www.pbs.org/newshour/economy/u-s-stocks-shoot-to-historic-gains-after-trump-pauses-most-of-his-tariffs",
+   "known": true,
+   "in_progress": false,
+   "episode": "tariffs_apr_2025",
+   "confounded": false,
+   "t0": "2025-04-09",
+   "window_end": "2025-05-08",
+   "trough_date": null,
+   "today": {
+    "trough": 0.0,
+    "ret_20": 0.034,
+    "fx_effect": -0.0011,
+    "percentile": 0.0
+   },
+   "after": {
+    "trough": 0.0,
+    "ret_20": 0.062,
+    "fx_effect": -0.0021,
+    "percentile": 0.0
+   },
+   "exposed": [
+    {
+     "ticker": "NVDA",
+     "channel": "country",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "canada_talks_2025",
+   "date": "2025-10-24",
+   "title": "Trade talks with Canada ended",
+   "description": "Washington ends trade talks with Canada after an Ontario advertisement quoting Ronald Reagan.",
+   "family": "tariffs",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "CAN"
+   ],
+   "lat": 45.42,
+   "lon": -75.7,
+   "source_url": "https://www.bloomberg.com/news/articles/2025-10-24/trump-says-all-trade-talks-with-canada-are-terminated",
+   "known": true,
+   "in_progress": false,
+   "episode": "tariffs_oct_2025",
+   "confounded": false,
+   "t0": "2025-10-24",
+   "window_end": "2025-11-21",
+   "trough_date": "2025-11-20",
+   "today": {
+    "trough": -0.012,
+    "ret_20": -0.004,
+    "fx_effect": 0.0006,
+    "percentile": 0.48
+   },
+   "after": {
+    "trough": -0.024,
+    "ret_20": -0.009,
+    "fx_effect": 0.0011,
+    "percentile": 0.52
+   },
+   "exposed": [
+    {
+     "ticker": "XIU.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "XBB.TO",
+     "channel": "country",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "scotus_ieepa_2026",
+   "date": "2026-02-20",
+   "title": "Supreme Court strikes down the IEEPA tariffs",
+   "description": "The Supreme Court rules 6-3 that IEEPA does not authorize tariffs, invalidating the reciprocal tariffs; that evening a 10 % global tariff is signed.",
+   "family": "tariffs",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "CAN",
+    "MEX",
+    "CHN"
+   ],
+   "lat": 38.9,
+   "lon": -77.04,
+   "source_url": "https://www.cnbc.com/2026/02/20/trump-global-trade-tariff-supreme-court.html",
+   "known": true,
+   "in_progress": false,
+   "episode": "tariffs_feb_2026",
+   "confounded": true,
+   "t0": "2026-02-20",
+   "window_end": "2026-03-20",
+   "trough_date": "2026-03-10",
+   "today": {
+    "trough": -0.022,
+    "ret_20": -0.007,
+    "fx_effect": 0.001,
+    "percentile": 0.7
+   },
+   "after": {
+    "trough": -0.071,
+    "ret_20": -0.03,
+    "fx_effect": 0.0033,
+    "percentile": 0.8
+   },
+   "exposed": [
+    {
+     "ticker": "XIU.TO",
+     "channel": "country",
+     "via": "direct"
+    },
+    {
+     "ticker": "NVDA",
+     "channel": "currency",
+     "via": "direct"
+    }
+   ]
+  },
+  {
+   "event_id": "iran_2026",
+   "date": "2026-03-02",
+   "title": "US-Israeli strikes on Iran",
+   "description": "Strikes on Saturday 28 February raise risk for the Strait of Hormuz. First trading day 2 March.",
+   "family": "war_oil",
+   "sign": "negative",
+   "regions": [
+    "USA",
+    "ISR",
+    "IRN"
+   ],
+   "lat": 35.69,
+   "lon": 51.39,
+   "source_url": "https://www.spglobal.com/energy/en/news-research/latest-news/crude-oil/022826-us-and-israel-strike-iran-raising-oil-supply-security-risks",
+   "known": true,
+   "in_progress": false,
+   "episode": "war_oil_mar_2026",
+   "confounded": false,
+   "t0": "2026-03-02",
+   "window_end": "2026-03-30",
+   "trough_date": "2026-03-09",
+   "today": {
+    "trough": -0.018,
+    "ret_20": -0.006,
+    "fx_effect": 0.0009,
+    "percentile": 0.58
+   },
+   "after": {
+    "trough": -0.044,
+    "ret_20": -0.015,
+    "fx_effect": 0.0023,
+    "percentile": 0.66
+   },
+   "exposed": [
+    {
+     "ticker": "CNQ.TO",
+     "channel": "sector",
+     "via": "XIU.TO"
+    },
+    {
+     "ticker": "ENB.TO",
+     "channel": "sector",
+     "via": "XIU.TO"
+    }
+   ]
+  }
+ ],
+ "turbulence": {
+  "tariffs": {
+   "n": 4,
+   "worst_today": -0.06,
+   "worst_after": -0.09,
+   "mean_after": -0.0478,
+   "evidence": "Measured",
+   "episodes": [
+    {
+     "episode": "tariffs_nov_2024",
+     "event_ids": [
+      "tariff_threat_2024"
+     ],
+     "trough_today": -0.01,
+     "trough_after": -0.019,
+     "confounded": false
+    },
+    {
+     "episode": "tariffs_feb_mar_2025",
+     "event_ids": [
+      "tariffs_order_2025",
+      "tariffs_canada_2025"
+     ],
+     "trough_today": -0.031,
+     "trough_after": -0.058,
+     "confounded": false
+    },
+    {
+     "episode": "tariffs_apr_2025",
+     "event_ids": [
+      "liberation_day_2025",
+      "tariff_pause_2025"
+     ],
+     "trough_today": -0.06,
+     "trough_after": -0.09,
+     "confounded": false
+    },
+    {
+     "episode": "tariffs_oct_2025",
+     "event_ids": [
+      "canada_talks_2025"
+     ],
+     "trough_today": -0.012,
+     "trough_after": -0.024,
+     "confounded": false
+    },
+    {
+     "episode": "tariffs_feb_2026",
+     "event_ids": [
+      "scotus_ieepa_2026"
+     ],
+     "trough_today": -0.022,
+     "trough_after": -0.071,
+     "confounded": true
+    }
+   ]
+  },
+  "war_oil": {
+   "n": 3,
+   "worst_today": -0.021,
+   "worst_after": -0.052,
+   "mean_after": -0.0417,
+   "evidence": "Measured",
+   "episodes": [
+    {
+     "episode": "war_oil_feb_2022",
+     "event_ids": [
+      "ukraine_2022"
+     ],
+     "trough_today": -0.021,
+     "trough_after": -0.052,
+     "confounded": false
+    },
+    {
+     "episode": "war_oil_oct_2023",
+     "event_ids": [
+      "israel_2023"
+     ],
+     "trough_today": -0.011,
+     "trough_after": -0.029,
+     "confounded": false
+    },
+    {
+     "episode": "war_oil_mar_2026",
+     "event_ids": [
+      "iran_2026"
+     ],
+     "trough_today": -0.018,
+     "trough_after": -0.044,
+     "confounded": false
+    }
+   ]
+  },
+  "chips": {
+   "n": 2,
+   "worst_today": -0.024,
+   "worst_after": -0.138,
+   "mean_after": -0.125,
+   "evidence": "Indicative",
+   "episodes": [
+    {
+     "episode": "chips_oct_2022",
+     "event_ids": [
+      "chips_2022"
+     ],
+     "trough_today": -0.024,
+     "trough_after": -0.138,
+     "confounded": false
+    },
+    {
+     "episode": "chips_jan_2025",
+     "event_ids": [
+      "deepseek_2025"
+     ],
+     "trough_today": -0.018,
+     "trough_after": -0.112,
+     "confounded": false
+    }
+   ]
+  },
+  "rates": {
+   "n": 2,
+   "worst_today": -0.041,
+   "worst_after": -0.158,
+   "mean_after": -0.142,
+   "evidence": "Indicative",
+   "episodes": [
+    {
+     "episode": "rates_jun_2022",
+     "event_ids": [
+      "fed_75_2022"
+     ],
+     "trough_today": -0.034,
+     "trough_after": -0.126,
+     "confounded": false
+    },
+    {
+     "episode": "rates_sep_2022",
+     "event_ids": [
+      "cpi_sep_2022"
+     ],
+     "trough_today": -0.041,
+     "trough_after": -0.158,
+     "confounded": false
+    }
+   ]
+  }
+ },
+ "series": {
+  "dates": [
+   "2021-11-12",
+   "2021-12-31",
+   "2022-01-31",
+   "2022-02-28",
+   "2022-03-31",
+   "2022-04-29",
+   "2022-05-31",
+   "2022-06-30",
+   "2022-07-29",
+   "2022-08-31",
+   "2022-09-30",
+   "2022-10-31",
+   "2022-11-30",
+   "2022-12-30",
+   "2023-01-31",
+   "2023-02-28",
+   "2023-03-31",
+   "2023-04-28",
+   "2023-05-31",
+   "2023-06-30",
+   "2023-07-31",
+   "2023-08-31",
+   "2023-09-29",
+   "2023-10-31",
+   "2023-11-30",
+   "2023-12-29",
+   "2024-01-31",
+   "2024-02-29",
+   "2024-03-29",
+   "2024-04-30",
+   "2024-05-31",
+   "2024-06-28",
+   "2024-07-31",
+   "2024-08-30",
+   "2024-09-30",
+   "2024-10-31",
+   "2024-11-29",
+   "2024-12-31",
+   "2025-01-31",
+   "2025-02-28",
+   "2025-03-31",
+   "2025-04-30",
+   "2025-05-30",
+   "2025-06-30",
+   "2025-07-31",
+   "2025-08-29",
+   "2025-09-30",
+   "2025-10-31",
+   "2025-11-28",
+   "2025-12-31",
+   "2026-01-30",
+   "2026-02-27",
+   "2026-03-31",
+   "2026-04-30",
+   "2026-05-29",
+   "2026-06-30",
+   "2026-07-31",
+   "2026-08-31",
+   "2026-09-30",
+   "2026-10-30",
+   "2026-11-12"
+  ],
+  "today": [
+   100.0,
+   100.5,
+   97.0,
+   96.0,
+   97.5,
+   92.0,
+   92.5,
+   90.0,
+   93.0,
+   91.0,
+   89.9,
+   91.0,
+   94.0,
+   93.0,
+   96.0,
+   96.8,
+   97.6,
+   98.4,
+   99.2,
+   100.0,
+   100.8,
+   101.6,
+   102.4,
+   103.2,
+   104.0,
+   105.29,
+   106.57,
+   107.86,
+   109.14,
+   110.43,
+   111.71,
+   113.0,
+   114.29,
+   115.57,
+   116.86,
+   118.14,
+   119.43,
+   120.71,
+   122.0,
+   121.67,
+   121.33,
+   121.0,
+   122.73,
+   124.45,
+   126.18,
+   127.91,
+   129.64,
+   131.36,
+   133.09,
+   134.82,
+   136.55,
+   138.27,
+   140.0,
+   141.45,
+   142.9,
+   144.35,
+   145.8,
+   147.25,
+   148.7,
+   150.15,
+   151.6
+  ],
+  "after": [
+   100.0,
+   101.5,
+   91.0,
+   88.0,
+   90.0,
+   80.0,
+   79.0,
+   72.0,
+   77.0,
+   73.0,
+   66.6,
+   70.0,
+   75.0,
+   73.0,
+   80.0,
+   85.0,
+   90.0,
+   95.0,
+   100.0,
+   105.0,
+   110.0,
+   115.0,
+   120.0,
+   125.0,
+   130.0,
+   138.75,
+   147.5,
+   156.25,
+   165.0,
+   172.5,
+   180.0,
+   188.33,
+   196.67,
+   205.0,
+   213.33,
+   221.67,
+   230.0,
+   246.0,
+   262.0,
+   247.23,
+   232.47,
+   217.7,
+   225.77,
+   233.85,
+   241.93,
+   250.0,
+   255.0,
+   260.0,
+   265.0,
+   270.0,
+   275.0,
+   280.0,
+   285.0,
+   287.75,
+   290.5,
+   293.25,
+   296.0,
+   298.75,
+   301.5,
+   304.25,
+   307.0
+  ],
+  "aligned": [
+   100.0,
+   100.3,
+   97.0,
+   95.5,
+   97.0,
+   91.5,
+   91.0,
+   88.5,
+   92.0,
+   90.0,
+   87.4,
+   89.0,
+   92.0,
+   92.58,
+   93.17,
+   93.75,
+   94.33,
+   94.92,
+   95.5,
+   96.08,
+   96.67,
+   97.25,
+   97.83,
+   98.42,
+   99.0,
+   100.14,
+   101.29,
+   102.43,
+   103.57,
+   104.71,
+   105.86,
+   107.0,
+   108.14,
+   109.29,
+   110.43,
+   111.57,
+   112.71,
+   113.86,
+   115.0,
+   114.67,
+   114.33,
+   114.0,
+   115.45,
+   116.91,
+   118.36,
+   119.82,
+   121.27,
+   122.73,
+   124.18,
+   125.64,
+   127.09,
+   128.55,
+   130.0,
+   131.36,
+   132.72,
+   134.09,
+   135.45,
+   136.81,
+   138.18,
+   139.54,
+   140.9
+  ]
+ },
+ "metrics": {
+  "today": {
+   "cagr": 0.087,
+   "volatility": 0.062,
+   "max_drawdown": -0.106,
+   "peak_date": "2022-01-04",
+   "trough_date": "2022-10-14",
+   "recovery_days": 416,
+   "days_since_trough": 1490,
+   "sharpe": 0.84,
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12"
+  },
+  "after": {
+   "cagr": 0.252,
+   "volatility": 0.268,
+   "max_drawdown": -0.345,
+   "peak_date": "2021-11-29",
+   "trough_date": "2022-10-14",
+   "recovery_days": 241,
+   "days_since_trough": 1490,
+   "sharpe": 0.81,
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12"
+  },
+  "aligned": {
+   "cagr": 0.071,
+   "volatility": 0.075,
+   "max_drawdown": -0.129,
+   "peak_date": "2022-01-04",
+   "trough_date": "2022-10-14",
+   "recovery_days": 380,
+   "days_since_trough": 1490,
+   "sharpe": 0.48,
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12"
+  }
+ },
+ "worst_rolling": {
+  "today": {
+   "value": -0.106,
+   "peak_date": "2022-01-04",
+   "trough_date": "2022-10-14"
+  },
+  "after": {
+   "value": -0.345,
+   "peak_date": "2021-11-29",
+   "trough_date": "2022-10-14"
+  }
+ },
+ "kpis": {
+  "max_drawdown": {
+   "value": -0.345,
+   "limit": -0.15
+  },
+  "scenario_stress": {
+   "value": -0.09,
+   "limit": -0.075
+  },
+  "recovery_days": {
+   "value": 241,
+   "limit": 487
+  },
+  "exposure_canada": {
+   "value": 0.54,
+   "limit": null
+  }
+ },
+ "risk": {
+  "today": {
+   "shares": {
+    "XIU.TO": 0.47,
+    "XBB.TO": 0.3,
+    "GLD": 0.18,
+    "ZST.TO": 0.05
+   },
+   "bets": 2.9
+  },
+  "after": {
+   "shares": {
+    "NVDA": 0.86,
+    "XIU.TO": 0.07,
+    "XBB.TO": 0.03,
+    "GLD": 0.03,
+    "ZST.TO": 0.01
+   },
+   "bets": 1.3
+  }
+ },
+ "diversification": {
+  "today": {
+   "countries": {
+    "CAN": 0.9,
+    "GLOBAL": 0.1
+   },
+   "currencies": {
+    "CAD": 0.9,
+    "USD": 0.1,
+    "OTHER": 0.0
+   },
+   "sectors": {
+    "Financials": 0.149,
+    "Energy": 0.075,
+    "Industrials": 0.052,
+    "Materials": 0.045,
+    "Information Technology": 0.043
+   },
+   "can_risk_share": 0.82
+  },
+  "after": {
+   "countries": {
+    "CAN": 0.54,
+    "USA": 0.4,
+    "GLOBAL": 0.06
+   },
+   "currencies": {
+    "CAD": 0.54,
+    "USD": 0.46,
+    "OTHER": 0.0
+   },
+   "sectors": {
+    "Information Technology": 0.426,
+    "Financials": 0.089,
+    "Energy": 0.045,
+    "Industrials": 0.031,
+    "Materials": 0.027
+   },
+   "can_risk_share": 0.11
+  }
+ },
+ "lookthrough": {
+  "today": {
+   "stocks": {
+    "RY.TO": {
+     "direct": 0.0,
+     "via": [
+      {
+       "etf": "XIU.TO",
+       "weight": 0.034
+      }
+     ],
+     "total": 0.034
+    },
+    "ENB.TO": {
+     "direct": 0.0,
+     "via": [
+      {
+       "etf": "XIU.TO",
+       "weight": 0.016
+      }
+     ],
+     "total": 0.016
+    },
+    "CNQ.TO": {
+     "direct": 0.0,
+     "via": [
+      {
+       "etf": "XIU.TO",
+       "weight": 0.016
+      }
+     ],
+     "total": 0.016
+    }
+   },
+   "sectors": {
+    "Financials": 0.149,
+    "Energy": 0.075,
+    "Industrials": 0.052,
+    "Materials": 0.045,
+    "Information Technology": 0.043
+   },
+   "countries": {
+    "CAN": 0.9,
+    "GLOBAL": 0.1
+   },
+   "esg_indirect": {},
+   "coverage": {
+    "XIU.TO": 0.77
+   },
+   "snapshot": {
+    "XIU.TO": "2026-11-12"
+   },
+   "mode": "lookthrough",
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12"
+  },
+  "after": {
+   "stocks": {
+    "NVDA": {
+     "direct": 0.4,
+     "via": [],
+     "total": 0.4
+    },
+    "RY.TO": {
+     "direct": 0.0,
+     "via": [
+      {
+       "etf": "XIU.TO",
+       "weight": 0.02
+      }
+     ],
+     "total": 0.02
+    },
+    "ENB.TO": {
+     "direct": 0.0,
+     "via": [
+      {
+       "etf": "XIU.TO",
+       "weight": 0.01
+      }
+     ],
+     "total": 0.01
+    },
+    "CNQ.TO": {
+     "direct": 0.0,
+     "via": [
+      {
+       "etf": "XIU.TO",
+       "weight": 0.009
+      }
+     ],
+     "total": 0.009
+    }
+   },
+   "sectors": {
+    "Information Technology": 0.426,
+    "Financials": 0.089,
+    "Energy": 0.045,
+    "Industrials": 0.031,
+    "Materials": 0.027
+   },
+   "countries": {
+    "CAN": 0.54,
+    "USA": 0.4,
+    "GLOBAL": 0.06
+   },
+   "esg_indirect": {},
+   "coverage": {
+    "XIU.TO": 0.77
+   },
+   "snapshot": {
+    "XIU.TO": "2026-11-12"
+   },
+   "mode": "lookthrough",
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12"
+  }
+ },
+ "checks": [
+  {
+   "rule": "max_drawdown",
+   "tier": "hard",
+   "status": "fail",
+   "value": -0.345,
+   "limit": -0.15,
+   "holding": null,
+   "reason": "In this history the mix fell 34.5 % ($207,000) from 2021-11-29 to 2022-10-14, beyond the 15 % ($90,000) you said you could absorb."
+  },
+  {
+   "rule": "scenario_stress",
+   "tier": "soft",
+   "status": "fail",
+   "value": -0.09,
+   "limit": -0.075,
+   "holding": null,
+   "reason": "The worst clean tariff-storm episode cost 9.0 % ($54,000), beyond half your floor (7.5 %)."
+  },
+  {
+   "rule": "single_stock",
+   "tier": "soft",
+   "status": "fail",
+   "value": 0.4,
+   "limit": 0.1,
+   "holding": "NVDA",
+   "reason": "NVDA is 40.0 % of the money, beyond the 10 % limit for one company."
+  },
+  {
+   "rule": "sector",
+   "tier": "soft",
+   "status": "fail",
+   "value": 0.426,
+   "limit": 0.35,
+   "holding": "NVDA",
+   "reason": "Information Technology is 42.6 % of the money, beyond the 35 % limit (same cause as NVDA)."
+  },
+  {
+   "rule": "crypto",
+   "tier": "soft",
+   "status": "pass",
+   "value": 0.0,
+   "limit": 0.0,
+   "holding": null,
+   "reason": "No crypto is held; the limit is 0 %."
+  },
+  {
+   "rule": "risk_concentration",
+   "tier": "warn",
+   "status": "warn",
+   "value": 0.86,
+   "limit": 0.5,
+   "holding": "NVDA",
+   "reason": "NVDA carries 86 % of the risk, beyond the 50 % warning level."
+  },
+  {
+   "rule": "recovery",
+   "tier": "warn",
+   "status": "pass",
+   "value": 241,
+   "limit": 487,
+   "holding": null,
+   "reason": "The worst drop took 241 days to recover, inside the 487 days your horizon allows."
+  },
+  {
+   "rule": "short_horizon",
+   "tier": "warn",
+   "status": "pass",
+   "value": 4,
+   "limit": 3,
+   "holding": null,
+   "reason": "You need the money in 4 years, beyond the 3-year short-horizon level."
+  },
+  {
+   "rule": "missing_data",
+   "tier": "warn",
+   "status": "pass",
+   "value": 0,
+   "limit": 0,
+   "holding": null,
+   "reason": "Every held asset has a complete price history."
+  }
+ ],
+ "verdict": "Incompatible",
+ "tipping_point": {
+  "ticker": "NVDA",
+  "max_weight": 0.08,
+  "curve": [
+   {
+    "weight": 0.0,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.106,
+    "scenario_shock": -0.06
+   },
+   {
+    "weight": 0.01,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.1115,
+    "scenario_shock": -0.0607
+   },
+   {
+    "weight": 0.02,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.117,
+    "scenario_shock": -0.0615
+   },
+   {
+    "weight": 0.03,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.1225,
+    "scenario_shock": -0.0622
+   },
+   {
+    "weight": 0.04,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.128,
+    "scenario_shock": -0.063
+   },
+   {
+    "weight": 0.05,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.1335,
+    "scenario_shock": -0.0638
+   },
+   {
+    "weight": 0.06,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.139,
+    "scenario_shock": -0.0645
+   },
+   {
+    "weight": 0.07,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.1445,
+    "scenario_shock": -0.0653
+   },
+   {
+    "weight": 0.08,
+    "verdict": "Compatible",
+    "fails": 0,
+    "max_drawdown": -0.15,
+    "scenario_shock": -0.066
+   },
+   {
+    "weight": 0.09,
+    "verdict": "Incompatible",
+    "fails": 1,
+    "max_drawdown": -0.156,
+    "scenario_shock": -0.0668
+   },
+   {
+    "weight": 0.1,
+    "verdict": "Incompatible",
+    "fails": 1,
+    "max_drawdown": -0.1621,
+    "scenario_shock": -0.0675
+   },
+   {
+    "weight": 0.11,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.1682,
+    "scenario_shock": -0.0683
+   },
+   {
+    "weight": 0.12,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.1743,
+    "scenario_shock": -0.069
+   },
+   {
+    "weight": 0.13,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.1804,
+    "scenario_shock": -0.0697
+   },
+   {
+    "weight": 0.14,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.1865,
+    "scenario_shock": -0.0705
+   },
+   {
+    "weight": 0.15,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.1926,
+    "scenario_shock": -0.0712
+   },
+   {
+    "weight": 0.16,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.1987,
+    "scenario_shock": -0.072
+   },
+   {
+    "weight": 0.17,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.2048,
+    "scenario_shock": -0.0727
+   },
+   {
+    "weight": 0.18,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.2109,
+    "scenario_shock": -0.0735
+   },
+   {
+    "weight": 0.19,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.217,
+    "scenario_shock": -0.0742
+   },
+   {
+    "weight": 0.2,
+    "verdict": "Incompatible",
+    "fails": 2,
+    "max_drawdown": -0.2231,
+    "scenario_shock": -0.075
+   },
+   {
+    "weight": 0.21,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2292,
+    "scenario_shock": -0.0757
+   },
+   {
+    "weight": 0.22,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2353,
+    "scenario_shock": -0.0765
+   },
+   {
+    "weight": 0.23,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2414,
+    "scenario_shock": -0.0772
+   },
+   {
+    "weight": 0.24,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2475,
+    "scenario_shock": -0.078
+   },
+   {
+    "weight": 0.25,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2535,
+    "scenario_shock": -0.0788
+   },
+   {
+    "weight": 0.26,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2596,
+    "scenario_shock": -0.0795
+   },
+   {
+    "weight": 0.27,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2657,
+    "scenario_shock": -0.0803
+   },
+   {
+    "weight": 0.28,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2718,
+    "scenario_shock": -0.081
+   },
+   {
+    "weight": 0.29,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2779,
+    "scenario_shock": -0.0817
+   },
+   {
+    "weight": 0.3,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.284,
+    "scenario_shock": -0.0825
+   },
+   {
+    "weight": 0.31,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2901,
+    "scenario_shock": -0.0832
+   },
+   {
+    "weight": 0.32,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.2962,
+    "scenario_shock": -0.084
+   },
+   {
+    "weight": 0.33,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.3023,
+    "scenario_shock": -0.0847
+   },
+   {
+    "weight": 0.34,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.3084,
+    "scenario_shock": -0.0855
+   },
+   {
+    "weight": 0.35,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.3145,
+    "scenario_shock": -0.0862
+   },
+   {
+    "weight": 0.36,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.3206,
+    "scenario_shock": -0.087
+   },
+   {
+    "weight": 0.37,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.3267,
+    "scenario_shock": -0.0877
+   },
+   {
+    "weight": 0.38,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.3328,
+    "scenario_shock": -0.0885
+   },
+   {
+    "weight": 0.39,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.3389,
+    "scenario_shock": -0.0892
+   },
+   {
+    "weight": 0.4,
+    "verdict": "Incompatible",
+    "fails": 3,
+    "max_drawdown": -0.345,
+    "scenario_shock": -0.09
+   }
+  ],
+  "still_failing": null
+ },
+ "variations": [
+  {
+   "label": "NVDA at 8 %, the threshold size in this history",
+   "change": {
+    "op": "set",
+    "ticker": "NVDA",
+    "weight": 0.08,
+    "from_ticker": null
+   },
+   "verdict": "Compatible",
+   "binding_rule": null,
+   "max_drawdown": -0.15,
+   "scenario_shock": -0.066
+  },
+  {
+   "label": "40 % in QQQ instead (NVDA is 6.5 % of QQQ)",
+   "change": {
+    "op": "set",
+    "ticker": "QQQ",
+    "weight": 0.4,
+    "from_ticker": null
+   },
+   "verdict": "Incompatible",
+   "binding_rule": "max_drawdown",
+   "max_drawdown": -0.241,
+   "scenario_shock": -0.081
+  },
+  {
+   "label": "NVDA 40 %, funded entirely from XIU.TO",
+   "change": {
+    "op": "set",
+    "ticker": "NVDA",
+    "weight": 0.4,
+    "from_ticker": "XIU.TO"
+   },
+   "verdict": "Incompatible",
+   "binding_rule": "max_drawdown",
+   "max_drawdown": -0.301,
+   "scenario_shock": -0.083
+  }
+ ],
+ "sensitivity": {
+  "floor_flip": -0.345,
+  "sentence": "Outside your limits until your floor is -34.5 % or lower; at that floor the verdict would be Inside, with caveats, because NVDA would still be beyond the 10 % single-company limit."
+ },
+ "attribution": {
+  "shares": {
+   "rates": 0.46,
+   "war_oil": 0.12,
+   "chips": 0.09,
+   "tariffs": 0.0
+  },
+  "days_share": {
+   "rates": 0.23,
+   "war_oil": 0.08,
+   "chips": 0.03,
+   "tariffs": 0.0
+  },
+  "peak_date": "2021-11-29",
+  "trough_date": "2022-10-14"
+ },
+ "compare": [
+  {
+   "pilot": "robert",
+   "name": "Robert",
+   "verdict": "Incompatible",
+   "binding_rule": "max_drawdown",
+   "reason": "The mix fell 34.5 % in 2022, beyond the 15 % floor set by his capacity ($90,000 of $600,000)."
+  },
+  {
+   "pilot": "mateo",
+   "name": "Mateo",
+   "verdict": "Incompatible",
+   "binding_rule": "max_drawdown",
+   "reason": "The mix fell 34.5 % in 2022, beyond the 25 % floor of a moderate investor."
+  },
+  {
+   "pilot": "amira",
+   "name": "Amira",
+   "verdict": "Tension",
+   "binding_rule": "single_stock",
+   "reason": "NVDA is 40.0 % of the money, beyond her 20 % single-company limit; the 34.5 % drop is inside her 45 % floor."
+  }
+ ],
+ "price_of_values": null,
+ "time_machine": {
+  "months": [
+   {
+    "as_of": "2021-12-31",
+    "verdict": "Tension",
+    "binding_rule": "single_stock",
+    "known_storms": []
+   },
+   {
+    "as_of": "2022-01-31",
+    "verdict": "Tension",
+    "binding_rule": "single_stock",
+    "known_storms": []
+   },
+   {
+    "as_of": "2022-02-28",
+    "verdict": "Tension",
+    "binding_rule": "single_stock",
+    "known_storms": []
+   },
+   {
+    "as_of": "2022-03-31",
+    "verdict": "Tension",
+    "binding_rule": "single_stock",
+    "known_storms": [
+     "ukraine_2022"
+    ]
+   },
+   {
+    "as_of": "2022-04-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022"
+    ]
+   },
+   {
+    "as_of": "2022-05-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022"
+    ]
+   },
+   {
+    "as_of": "2022-06-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022"
+    ]
+   },
+   {
+    "as_of": "2022-07-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022"
+    ]
+   },
+   {
+    "as_of": "2022-08-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022"
+    ]
+   },
+   {
+    "as_of": "2022-09-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022"
+    ]
+   },
+   {
+    "as_of": "2022-10-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022"
+    ]
+   },
+   {
+    "as_of": "2022-11-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2022-12-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-01-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-02-28",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-03-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-04-28",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-05-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-06-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-07-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-08-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-09-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-10-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022"
+    ]
+   },
+   {
+    "as_of": "2023-11-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2023-12-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-01-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-02-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-03-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-04-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-05-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-06-28",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-07-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-08-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-09-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-10-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-11-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023"
+    ]
+   },
+   {
+    "as_of": "2024-12-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024"
+    ]
+   },
+   {
+    "as_of": "2025-01-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024"
+    ]
+   },
+   {
+    "as_of": "2025-02-28",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025"
+    ]
+   },
+   {
+    "as_of": "2025-03-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025"
+    ]
+   },
+   {
+    "as_of": "2025-04-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025"
+    ]
+   },
+   {
+    "as_of": "2025-05-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025"
+    ]
+   },
+   {
+    "as_of": "2025-06-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025"
+    ]
+   },
+   {
+    "as_of": "2025-07-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025"
+    ]
+   },
+   {
+    "as_of": "2025-08-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025"
+    ]
+   },
+   {
+    "as_of": "2025-09-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025"
+    ]
+   },
+   {
+    "as_of": "2025-10-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025"
+    ]
+   },
+   {
+    "as_of": "2025-11-28",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025"
+    ]
+   },
+   {
+    "as_of": "2025-12-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025"
+    ]
+   },
+   {
+    "as_of": "2026-01-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025"
+    ]
+   },
+   {
+    "as_of": "2026-02-27",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025"
+    ]
+   },
+   {
+    "as_of": "2026-03-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   },
+   {
+    "as_of": "2026-04-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   },
+   {
+    "as_of": "2026-05-29",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   },
+   {
+    "as_of": "2026-06-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   },
+   {
+    "as_of": "2026-07-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   },
+   {
+    "as_of": "2026-08-31",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   },
+   {
+    "as_of": "2026-09-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   },
+   {
+    "as_of": "2026-10-30",
+    "verdict": "Incompatible",
+    "binding_rule": "max_drawdown",
+    "known_storms": [
+     "ukraine_2022",
+     "fed_75_2022",
+     "cpi_sep_2022",
+     "chips_2022",
+     "israel_2023",
+     "tariff_threat_2024",
+     "deepseek_2025",
+     "tariffs_order_2025",
+     "tariffs_canada_2025",
+     "liberation_day_2025",
+     "tariff_pause_2025",
+     "canada_talks_2025",
+     "scotus_ieepa_2026",
+     "iran_2026"
+    ]
+   }
+  ]
+ },
+ "deep_history": {
+  "frequency": "monthly",
+  "window": {
+   "start": "1973-01",
+   "end": "2021-10"
+  },
+  "proxy": {
+   "today": {
+    "strength": "strong",
+    "direction": null,
+    "n_months": 49,
+    "window": {
+     "start": "2021-12",
+     "end": "2025-12"
+    },
+    "corr": 0.97,
+    "te_ann": 0.02,
+    "drawdown_real": -0.094,
+    "drawdown_proxy": -0.088,
+    "drawdown_gap": 0.006,
+    "uncovered": [],
+    "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+    "as_of": "2026-11-12"
+   },
+   "after": {
+    "strength": "weak",
+    "direction": "gentler",
+    "n_months": 49,
+    "window": {
+     "start": "2021-12",
+     "end": "2025-12"
+    },
+    "corr": 0.86,
+    "te_ann": 0.13,
+    "drawdown_real": -0.32,
+    "drawdown_proxy": -0.16,
+    "drawdown_gap": 0.16,
+    "uncovered": [],
+    "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+    "as_of": "2026-11-12"
+   }
+  },
+  "episodes": [
+   {
+    "episode_id": "oil_embargo_1973",
+    "title": "Oil embargo and the 1973\u201374 bear market",
+    "start": "1973-01",
+    "end": "1974-12",
+    "kind": "oil_shock",
+    "family": "war_oil",
+    "place": "Kuwait City (OAPEC embargo)",
+    "lat": 29.37,
+    "lon": 47.98,
+    "source_url": "https://www.federalreservehistory.org/essays/oil-shock-of-1973-74",
+    "today": {
+     "episode_id": "oil_embargo_1973",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.155,
+     "peak": "1973-05",
+     "trough": "1974-09",
+     "peak_value": 100.0,
+     "trough_value": 84.5,
+     "loss_dollars": 93000,
+     "recovery_months": 9,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "oil_embargo_1973",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.34,
+     "peak": "1973-05",
+     "trough": "1974-09",
+     "peak_value": 100.0,
+     "trough_value": 66.0,
+     "loss_dollars": 204000,
+     "recovery_months": null,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "volcker_1979",
+    "title": "The Volcker shock",
+    "start": "1979-09",
+    "end": "1982-07",
+    "kind": "rate_shock",
+    "family": "rates",
+    "place": "Washington, D.C. (Federal Reserve)",
+    "lat": 38.89,
+    "lon": -77.05,
+    "source_url": "https://www.federalreservehistory.org/essays/anti-inflation-measures",
+    "today": {
+     "episode_id": "volcker_1979",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.165,
+     "peak": "1980-11",
+     "trough": "1982-06",
+     "peak_value": 103.0,
+     "trough_value": 86.005,
+     "loss_dollars": 99000,
+     "recovery_months": 5,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "volcker_1979",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.18,
+     "peak": "1980-11",
+     "trough": "1982-06",
+     "peak_value": 103.0,
+     "trough_value": 84.46,
+     "loss_dollars": 108000,
+     "recovery_months": 12,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "crash_1987",
+    "title": "Black Monday",
+    "start": "1987-07",
+    "end": "1987-12",
+    "kind": "crash",
+    "family": null,
+    "place": "New York (NYSE)",
+    "lat": 40.71,
+    "lon": -74.01,
+    "source_url": "https://www.federalreservehistory.org/essays/stock-market-crash-of-1987",
+    "today": {
+     "episode_id": "crash_1987",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.105,
+     "peak": "1987-08",
+     "trough": "1987-11",
+     "peak_value": 106.0,
+     "trough_value": 94.87,
+     "loss_dollars": 63000,
+     "recovery_months": 13,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "crash_1987",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.12,
+     "peak": "1987-08",
+     "trough": "1987-11",
+     "peak_value": 106.0,
+     "trough_value": 93.28,
+     "loss_dollars": 72000,
+     "recovery_months": 20,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "gulf_war_1990",
+    "title": "Iraq invades Kuwait",
+    "start": "1990-06",
+    "end": "1991-01",
+    "kind": "oil_shock",
+    "family": "war_oil",
+    "place": "Kuwait City",
+    "lat": 29.37,
+    "lon": 47.98,
+    "source_url": "https://history.state.gov/milestones/1989-1992/gulf-war",
+    "today": {
+     "episode_id": "gulf_war_1990",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.04,
+     "peak": "1990-06",
+     "trough": "1990-10",
+     "peak_value": 109.0,
+     "trough_value": 104.64,
+     "loss_dollars": 24000,
+     "recovery_months": 3,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "gulf_war_1990",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.06,
+     "peak": "1990-06",
+     "trough": "1990-10",
+     "peak_value": 109.0,
+     "trough_value": 102.46,
+     "loss_dollars": 36000,
+     "recovery_months": 5,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "bond_rout_1994",
+    "title": "The 1994 bond rout",
+    "start": "1994-01",
+    "end": "1994-12",
+    "kind": "rate_shock",
+    "family": "rates",
+    "place": "Washington, D.C. (Federal Reserve)",
+    "lat": 38.89,
+    "lon": -77.05,
+    "source_url": "https://www.federalreserve.gov/fomc/19940204default.htm",
+    "today": {
+     "episode_id": "bond_rout_1994",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.08,
+     "peak": "1994-01",
+     "trough": "1994-06",
+     "peak_value": 112.0,
+     "trough_value": 103.04,
+     "loss_dollars": 48000,
+     "recovery_months": 8,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "bond_rout_1994",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.1,
+     "peak": "1994-01",
+     "trough": "1994-06",
+     "peak_value": 112.0,
+     "trough_value": 100.8,
+     "loss_dollars": 60000,
+     "recovery_months": 10,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "russia_ltcm_1998",
+    "title": "Russia defaults; LTCM nearly fails",
+    "start": "1998-04",
+    "end": "1998-10",
+    "kind": "credit_crisis",
+    "family": null,
+    "place": "Moscow",
+    "lat": 55.76,
+    "lon": 37.62,
+    "source_url": "https://www.federalreservehistory.org/essays/ltcm-near-failure",
+    "today": {
+     "episode_id": "russia_ltcm_1998",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.12,
+     "peak": "1998-04",
+     "trough": "1998-08",
+     "peak_value": 115.0,
+     "trough_value": 101.2,
+     "loss_dollars": 72000,
+     "recovery_months": 8,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "russia_ltcm_1998",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.14,
+     "peak": "1998-04",
+     "trough": "1998-08",
+     "peak_value": 115.0,
+     "trough_value": 98.9,
+     "loss_dollars": 84000,
+     "recovery_months": 12,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "dotcom_2000",
+    "title": "The dot-com bust",
+    "start": "2000-01",
+    "end": "2002-12",
+    "kind": "crash",
+    "family": null,
+    "place": "New York (Nasdaq)",
+    "lat": 40.76,
+    "lon": -73.99,
+    "source_url": "https://www.nber.org/news/business-cycle-dating-committee-announcement-november-26-2001",
+    "today": {
+     "episode_id": "dotcom_2000",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.11,
+     "peak": "2000-08",
+     "trough": "2001-09",
+     "peak_value": 118.0,
+     "trough_value": 105.02,
+     "loss_dollars": 66000,
+     "recovery_months": 24,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "dotcom_2000",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.52,
+     "peak": "2000-08",
+     "trough": "2001-09",
+     "peak_value": 118.0,
+     "trough_value": 56.64,
+     "loss_dollars": 312000,
+     "recovery_months": 120,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "gfc_2008",
+    "title": "The global financial crisis",
+    "start": "2007-06",
+    "end": "2009-06",
+    "kind": "credit_crisis",
+    "family": null,
+    "place": "New York (Lehman Brothers)",
+    "lat": 40.76,
+    "lon": -73.98,
+    "source_url": "https://www.federalreservehistory.org/essays/great-recession-and-its-aftermath",
+    "today": {
+     "episode_id": "gfc_2008",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.17,
+     "peak": "2008-05",
+     "trough": "2009-02",
+     "peak_value": 121.0,
+     "trough_value": 100.43,
+     "loss_dollars": 102000,
+     "recovery_months": 12,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "gfc_2008",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.45,
+     "peak": "2008-05",
+     "trough": "2009-02",
+     "peak_value": 121.0,
+     "trough_value": 66.55,
+     "loss_dollars": 270000,
+     "recovery_months": 44,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "euro_2011",
+    "title": "Euro debt crisis",
+    "start": "2011-03",
+    "end": "2011-12",
+    "kind": "credit_crisis",
+    "family": null,
+    "place": "Athens",
+    "lat": 37.98,
+    "lon": 23.73,
+    "source_url": "https://www.ecb.europa.eu/press/pr/date/2011/html/pr110807.en.html",
+    "today": {
+     "episode_id": "euro_2011",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.035,
+     "peak": "2011-05",
+     "trough": "2011-09",
+     "peak_value": 124.0,
+     "trough_value": 119.66,
+     "loss_dollars": 21000,
+     "recovery_months": 4,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "euro_2011",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.05,
+     "peak": "2011-05",
+     "trough": "2011-09",
+     "peak_value": 124.0,
+     "trough_value": 117.8,
+     "loss_dollars": 30000,
+     "recovery_months": 6,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "taper_2013",
+    "title": "The taper tantrum",
+    "start": "2013-04",
+    "end": "2013-12",
+    "kind": "rate_shock",
+    "family": "rates",
+    "place": "Washington, D.C. (Federal Reserve)",
+    "lat": 38.89,
+    "lon": -77.05,
+    "source_url": "https://www.federalreserve.gov/newsevents/testimony/bernanke20130522a.htm",
+    "today": {
+     "episode_id": "taper_2013",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.045,
+     "peak": "2013-04",
+     "trough": "2013-06",
+     "peak_value": 127.0,
+     "trough_value": 121.285,
+     "loss_dollars": 27000,
+     "recovery_months": 4,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "taper_2013",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.07,
+     "peak": "2013-04",
+     "trough": "2013-06",
+     "peak_value": 127.0,
+     "trough_value": 118.11,
+     "loss_dollars": 42000,
+     "recovery_months": 5,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   },
+   {
+    "episode_id": "covid_2020",
+    "title": "The pandemic crash",
+    "start": "2020-01",
+    "end": "2020-06",
+    "kind": "pandemic",
+    "family": null,
+    "place": "Wuhan",
+    "lat": 30.59,
+    "lon": 114.31,
+    "source_url": "https://www.who.int/news-room/speeches/item/who-director-general-s-opening-remarks-at-the-media-briefing-on-covid-19---11-march-2020",
+    "today": {
+     "episode_id": "covid_2020",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.09,
+     "peak": "2020-01",
+     "trough": "2020-03",
+     "peak_value": 130.0,
+     "trough_value": 118.3,
+     "loss_dollars": 54000,
+     "recovery_months": 4,
+     "beyond_floor": false,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    },
+    "after": {
+     "episode_id": "covid_2020",
+     "replayable": true,
+     "uncovered": [],
+     "depth": -0.16,
+     "peak": "2020-01",
+     "trough": "2020-03",
+     "peak_value": 130.0,
+     "trough_value": 109.2,
+     "loss_dollars": 96000,
+     "recovery_months": 8,
+     "beyond_floor": true,
+     "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+     "as_of": "2026-11-12"
+    }
+   }
+  ],
+  "summary": {
+   "today": {
+    "breaches": 3,
+    "replayable": 11,
+    "worst_episode": "gfc_2008",
+    "worst_depth": -0.17,
+    "worst_loss_dollars": 102000
+   },
+   "after": {
+    "breaches": 5,
+    "replayable": 11,
+    "worst_episode": "dotcom_2000",
+    "worst_depth": -0.52,
+    "worst_loss_dollars": 312000
+   }
+  },
+  "sentence": "\u25d0 Older history (proxies, monthly; not used in the verdict): your mix today fell beyond your floor of \u221215 % in 3 of 11 earlier crises (worst: The global financial crisis, \u221217.0 %, $102,000). The move: 5 of 11 (worst: The dot-com bust, \u221252.0 %, $312,000). Proxy weak for the move: read the older episodes as the gentler case.",
+  "source": "FAKE: invented numbers for UI development, not tool output (the real fragment is a proxy replay, monthly, CAD)",
+  "as_of": "2026-11-12"
+ },
+ "facts": {
+  "T1": {
+   "label": "Worst drop, mix after the move",
+   "value": -0.345,
+   "unit": "%",
+   "entity": "portfolio after",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T2": {
+   "label": "Worst drop in dollars, mix after the move",
+   "value": 207000,
+   "unit": "$",
+   "entity": "portfolio after",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T3": {
+   "label": "Your floor (set by capacity)",
+   "value": -0.15,
+   "unit": "%",
+   "entity": "your floor",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T4": {
+   "label": "What you said you could absorb",
+   "value": 90000,
+   "unit": "$",
+   "entity": "your capacity",
+   "sign": "none",
+   "kind": "assumption"
+  },
+  "T5": {
+   "label": "Worst drop, today's mix",
+   "value": -0.106,
+   "unit": "%",
+   "entity": "portfolio today",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T6": {
+   "label": "Worst tariff-storm episode, mix after the move",
+   "value": -0.09,
+   "unit": "%",
+   "entity": "tariffs family",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T7": {
+   "label": "Worst tariff-storm episode, today's mix",
+   "value": -0.06,
+   "unit": "%",
+   "entity": "tariffs family",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T8": {
+   "label": "Single-storm limit (half your floor)",
+   "value": -0.075,
+   "unit": "%",
+   "entity": "tariffs family",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T9": {
+   "label": "NVDA share of the money after the move",
+   "value": 0.4,
+   "unit": "%",
+   "entity": "NVDA",
+   "sign": "none",
+   "kind": "fact"
+  },
+  "T10": {
+   "label": "NVDA share of the risk after the move",
+   "value": 0.86,
+   "unit": "%",
+   "entity": "NVDA",
+   "sign": "none",
+   "kind": "fact"
+  },
+  "T11": {
+   "label": "Largest NVDA size inside your limits in this history",
+   "value": 0.08,
+   "unit": "%",
+   "entity": "NVDA",
+   "sign": "none",
+   "kind": "scenario"
+  },
+  "T12": {
+   "label": "Share of the 2022 loss inside rate-shock windows",
+   "value": 0.46,
+   "unit": "%",
+   "entity": "rates family",
+   "sign": "none",
+   "kind": "fact"
+  },
+  "T13": {
+   "label": "Annual growth, mix after the move",
+   "value": 0.252,
+   "unit": "%",
+   "entity": "portfolio after",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T14": {
+   "label": "Annual growth, today's mix",
+   "value": 0.087,
+   "unit": "%",
+   "entity": "portfolio today",
+   "sign": "positive",
+   "kind": "fact"
+  }
+ },
+ "debrief": {
+  "verdict_sentence": "Outside your limits: the mix after the move fell 34.5 % [T1], beyond the 15 % floor you set [T3].",
+  "sections": {
+   "data": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "why": [
+    4,
+    5
+   ],
+   "limits": [
+    6,
+    7
+   ],
+   "would_change": [
+    8,
+    9
+   ]
+  },
+  "sentences": [
+   {
+    "text": "From 2021-11-29 to 2022-10-14 the mix after the move lost $207,000, or 34.5 % [T1][T2].",
+    "kind": "fact",
+    "refs": [
+     "T1",
+     "T2"
+    ]
+   },
+   {
+    "text": "Today's mix fell at most 10.6 % [T5].",
+    "kind": "fact",
+    "refs": [
+     "T5"
+    ]
+   },
+   {
+    "text": "NVDA would be 40 % of the money and 86 % of the risk [T9][T10].",
+    "kind": "fact",
+    "refs": [
+     "T9",
+     "T10"
+    ]
+   },
+   {
+    "text": "The worst tariff storm cost 9.0 % after the move and 6.0 % today [T6][T7].",
+    "kind": "fact",
+    "refs": [
+     "T6",
+     "T7"
+    ]
+   },
+   {
+    "text": "Your floor is 15 % because you said you could absorb $90,000 [T3][T4].",
+    "kind": "assumption",
+    "refs": [
+     "T3",
+     "T4"
+    ]
+   },
+   {
+    "text": "Half of it, 7.5 %, limits any single storm [T8].",
+    "kind": "assumption",
+    "refs": [
+     "T8"
+    ]
+   },
+   {
+    "text": "Rate-shock windows account for 46 % of the 2022 loss, a correlation, not a cause [T12].",
+    "kind": "fact",
+    "refs": [
+     "T12"
+    ]
+   },
+   {
+    "text": "This replays what already happened in a single regime; it is not a forecast.",
+    "kind": "limit",
+    "refs": []
+   },
+   {
+    "text": "In this history NVDA at 8 % stays inside your limits [T11].",
+    "kind": "scenario",
+    "refs": [
+     "T11"
+    ]
+   },
+   {
+    "text": "A different floor would change the verdict.",
+    "kind": "assumption",
+    "refs": []
+   }
+  ]
+ },
+ "receipt": {
+  "verified": 14,
+  "total": 14,
+  "unverified": [],
+  "wrong_entity": [],
+  "missing": [],
+  "future_refs": [],
+  "defects": [],
+  "matches": [
+   {
+    "sentence": "verdict",
+    "number": "34.5 %",
+    "ref": "T1"
+   },
+   {
+    "sentence": "verdict",
+    "number": "15 %",
+    "ref": "T3"
+   },
+   {
+    "sentence": 0,
+    "number": "$207,000",
+    "ref": "T2"
+   },
+   {
+    "sentence": 0,
+    "number": "34.5 %",
+    "ref": "T1"
+   },
+   {
+    "sentence": 1,
+    "number": "10.6 %",
+    "ref": "T5"
+   },
+   {
+    "sentence": 2,
+    "number": "40 %",
+    "ref": "T9"
+   },
+   {
+    "sentence": 2,
+    "number": "86 %",
+    "ref": "T10"
+   },
+   {
+    "sentence": 3,
+    "number": "9.0 %",
+    "ref": "T6"
+   },
+   {
+    "sentence": 3,
+    "number": "6.0 %",
+    "ref": "T7"
+   },
+   {
+    "sentence": 4,
+    "number": "15 %",
+    "ref": "T3"
+   },
+   {
+    "sentence": 4,
+    "number": "$90,000",
+    "ref": "T4"
+   },
+   {
+    "sentence": 5,
+    "number": "7.5 %",
+    "ref": "T8"
+   },
+   {
+    "sentence": 6,
+    "number": "46 %",
+    "ref": "T12"
+   },
+   {
+    "sentence": 8,
+    "number": "8 %",
+    "ref": "T11"
+   }
+  ]
+ },
+ "redteam": null,
+ "guardrail": {
+  "input": {
+   "action": "NONE",
+   "blocked": false,
+   "topic_hit": false,
+   "prompt_attack": false,
+   "pii_hit": false,
+   "grounding": null,
+   "relevance": null,
+   "automated_reasoning": null,
+   "message": null,
+   "error": null,
+   "latency_ms": 212,
+   "usage": {
+    "textUnits": 1
+   }
+  },
+  "output": {
+   "action": "NONE",
+   "blocked": false,
+   "topic_hit": false,
+   "prompt_attack": false,
+   "pii_hit": false,
+   "grounding": {
+    "score": 0.93,
+    "threshold": 0.7,
+    "detected": false
+   },
+   "relevance": {
+    "score": 0.88,
+    "threshold": 0.7,
+    "detected": false
+   },
+   "automated_reasoning": null,
+   "message": null,
+   "error": null,
+   "latency_ms": 348,
+   "usage": {
+    "textUnits": 2
+   }
+  },
+  "automated_reasoning": null
+ },
+ "trace": [
+  {
+   "id": "T15",
+   "step": "OBSERVE",
+   "tool": "guardrail.apply_guardrail(INPUT)",
+   "inputs": {
+    "text": "<question>"
+   },
+   "outputs": {
+    "action": "NONE",
+    "blocked": false
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 212,
+   "service": "Amazon Bedrock Guardrails",
+   "model": null,
+   "usage": {
+    "textUnits": 1
+   },
+   "request_id": "FAKE-GR-0001"
+  },
+  {
+   "id": "T3",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "capacity": 90000,
+    "reaction_2022": "held"
+   },
+   "outputs": {
+    "floor": -0.15,
+    "floor_source": "capacity",
+    "band_floor": -0.25
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 3,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T4",
+   "step": "OBSERVE",
+   "tool": "flight_plan",
+   "inputs": {
+    "capacity": 90000
+   },
+   "outputs": {
+    "capacity": 90000
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 0,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T8",
+   "step": "OBSERVE",
+   "tool": "governance.load_limits",
+   "inputs": {
+    "floor": -0.15
+   },
+   "outputs": {
+    "scenario_stress": -0.075
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 1,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T9",
+   "step": "OBSERVE",
+   "tool": "tools.lookthrough.look_through",
+   "inputs": {
+    "weights": "after"
+   },
+   "outputs": {
+    "NVDA": {
+     "direct": 0.4,
+     "via": [],
+     "total": 0.4
+    }
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 27,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T16",
+   "step": "UNDERSTAND",
+   "tool": "agents.scenario.run_scenario",
+   "inputs": {
+    "question": "<question>"
+   },
+   "outputs": {
+    "type": "change",
+    "families": [
+     "tariffs"
+    ],
+    "method": "bedrock"
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 2310,
+   "service": "Amazon Bedrock",
+   "model": "us.anthropic.claude-sonnet-5-5",
+   "usage": {
+    "inputTokens": 1840,
+    "outputTokens": 212,
+    "cacheReadInputTokens": 1500
+   },
+   "request_id": "FAKE-BR-0001"
+  },
+  {
+   "id": "T17",
+   "step": "UNDERSTAND",
+   "tool": "search_events",
+   "inputs": {
+    "family": "tariffs"
+   },
+   "outputs": {
+    "ranked": 7,
+    "top_score": 0.91
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 38,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T18",
+   "step": "UNDERSTAND",
+   "tool": "propose_change",
+   "inputs": {
+    "op": "set",
+    "ticker": "NVDA",
+    "weight": 0.4
+   },
+   "outputs": {
+    "sum": 1.0
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 4,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T19",
+   "step": "UNDERSTAND",
+   "tool": "get_exposure",
+   "inputs": {},
+   "outputs": {
+    "CAN": 0.9,
+    "GLOBAL": 0.1
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 21,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T5",
+   "step": "COMPARE",
+   "tool": "tools.metrics.risk_metrics",
+   "inputs": {
+    "weights": "today"
+   },
+   "outputs": {
+    "max_drawdown": -0.106,
+    "peak_date": "2022-01-04",
+    "trough_date": "2022-10-14"
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 38,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T14",
+   "step": "COMPARE",
+   "tool": "tools.metrics.risk_metrics",
+   "inputs": {
+    "weights": "today"
+   },
+   "outputs": {
+    "cagr": 0.087
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 37,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T1",
+   "step": "COMPARE",
+   "tool": "tools.metrics.risk_metrics",
+   "inputs": {
+    "weights": "after"
+   },
+   "outputs": {
+    "max_drawdown": -0.345,
+    "peak_date": "2021-11-29",
+    "trough_date": "2022-10-14"
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 41,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T2",
+   "step": "COMPARE",
+   "tool": "pipeline.dollars",
+   "inputs": {
+    "amount": 600000,
+    "value": -0.345
+   },
+   "outputs": {
+    "loss_dollars": 207000
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 1,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T13",
+   "step": "COMPARE",
+   "tool": "tools.metrics.risk_metrics",
+   "inputs": {
+    "weights": "after"
+   },
+   "outputs": {
+    "cagr": 0.252
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 40,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T7",
+   "step": "COMPARE",
+   "tool": "tools.events.turbulence",
+   "inputs": {
+    "weights": "today",
+    "families": [
+     "tariffs"
+    ]
+   },
+   "outputs": {
+    "tariffs": {
+     "n": 4,
+     "worst": -0.06,
+     "evidence": "Measured"
+    }
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 109,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T6",
+   "step": "COMPARE",
+   "tool": "tools.events.turbulence",
+   "inputs": {
+    "weights": "after",
+    "families": [
+     "tariffs"
+    ]
+   },
+   "outputs": {
+    "tariffs": {
+     "n": 4,
+     "worst": -0.09,
+     "evidence": "Measured"
+    }
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 112,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T10",
+   "step": "COMPARE",
+   "tool": "tools.risk.risk_contributions",
+   "inputs": {
+    "weights": "after"
+   },
+   "outputs": {
+    "shares": {
+     "NVDA": 0.86
+    },
+    "bets": 1.3
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 64,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T12",
+   "step": "COMPARE",
+   "tool": "tools.events.drawdown_attribution",
+   "inputs": {
+    "peak": "2021-11-29"
+   },
+   "outputs": {
+    "shares": {
+     "rates": 0.46
+    },
+    "days_share": {
+     "rates": 0.23
+    }
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 33,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T11",
+   "step": "COMPARE",
+   "tool": "tools.allocation.tipping_point",
+   "inputs": {
+    "ticker": "NVDA",
+    "max_weight": 0.4
+   },
+   "outputs": {
+    "max_weight": 0.08,
+    "still_failing": null
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 905,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T20",
+   "step": "COMPARE",
+   "tool": "governance.evaluate",
+   "inputs": {
+    "weights": "after"
+   },
+   "outputs": {
+    "verdict": "Incompatible",
+    "fails": 3
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 57,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T21",
+   "step": "EXPLAIN",
+   "tool": "agents.explainer.explain",
+   "inputs": {
+    "facts": 14,
+    "verdict": "Outside"
+   },
+   "outputs": {
+    "sentences": 10,
+    "stop_reason": "end_turn"
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 3120,
+   "service": "Amazon Bedrock",
+   "model": "us.anthropic.claude-sonnet-5-5",
+   "usage": {
+    "inputTokens": 2210,
+    "outputTokens": 318,
+    "cacheReadInputTokens": 1900
+   },
+   "request_id": "FAKE-BR-0002"
+  },
+  {
+   "id": "T22",
+   "step": "VERIFY",
+   "tool": "verify.verify_numbers",
+   "inputs": {
+    "sentences": 11
+   },
+   "outputs": {
+    "verified": 14,
+    "total": 14,
+    "defects": []
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 6,
+   "service": "Python",
+   "model": null,
+   "usage": null,
+   "request_id": null
+  },
+  {
+   "id": "T23",
+   "step": "VERIFY",
+   "tool": "guardrail.apply_guardrail(OUTPUT)",
+   "inputs": {
+    "grounding_source": "<facts JSON>"
+   },
+   "outputs": {
+    "action": "NONE",
+    "grounding": 0.93,
+    "relevance": 0.88
+   },
+   "source": "FAKE: data/fake/make_fake.py",
+   "as_of": "2026-11-12",
+   "ms": 348,
+   "service": "Amazon Bedrock Guardrails",
+   "model": null,
+   "usage": {
+    "textUnits": 2
+   },
+   "request_id": "FAKE-GR-0002"
+  }
+ ],
+ "figures": {
+  "flight_paths": {
+   "data": [],
+   "layout": {}
+  },
+  "storm_map": {
+   "data": [],
+   "layout": {}
+  },
+  "turbulence": {
+   "data": [],
+   "layout": {}
+  },
+  "risk_share": {
+   "data": [],
+   "layout": {}
+  },
+  "diversification": {
+   "data": [],
+   "layout": {}
+  },
+  "size_curve": {
+   "data": [],
+   "layout": {}
+  }
+ },
+ "realized": null
+}

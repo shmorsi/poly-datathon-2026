@@ -1,0 +1,36 @@
+# The final redeploy of the live app, Sun 15 Nov 2026, 18:25:41 to 18:26:01 EST
+# Captured 2026-11-15 23:29 UTC. Masked: ids, host names and the password never appear.
+# The runbook of deploy.md section 11 (/tmp/epi_deploy/b6_redeploy.sh), no new AWS resource and no IAM change. The commit
+# carries the faster-runs fix (12b3b0f, judge_memo), R51 (ec88ffe) and the final saved runs (3e3196f).
+
+## The redeploy's own log
+  commit: 788bd36 [D] plan B (approved): B-Q1 (judge_memo, faster live run
+  image built
+  mounts: starter yes, holdings 74 lines, deep panel no
+  pre-flight, guardrail version 1 with the instance role: ok
+  container started
+  health: {"data":true,"bedrock":true,"guardrail":true,"holdings":false,"deep":false}
+  env names: EPICENTRE_COMMIT EPICENTRE_GUARDRAIL_ID EPICENTRE_GUARDRAIL_VERSION EPICENTRE_ORIGIN_SECRET EPICENTRE_PASSWORD EPICENTRE_RECORD_BUCKET EPICENTRE_RECORD_LOCK_DAYS EPICENTRE_REQUIRE_PASSWORD
+  loopback, no header (403): 403
+  loopback, header, no password (401): 401
+  loopback, header + password (200): 200
+  epicentre epicentre Up 2 seconds (health: starting)
+
+## The live checks through CloudFront, right after (Robert's mix; the password was read from a file into memory)
+  health: 200 {"data":true,"bedrock":true,"guardrail":true,"holdings":false,"deep":false}
+  robert40: HTTP 200 in 30.6s | status ok | verdict Outside your limits | today Inside, with caveats | change {"op": "set", "ticker": "NVDA", "weight": 0.4, "from_ticker": null} | families ['tariffs'] | blocked False | model calls 3 | not-pass checks [('max_drawdown', 'fail'), ('scenario_stress', 'warn'), ('single_stock', 'fail'), ('sector', 'fail'), ('risk_concentration', 'warn'), ('missing_data', 'warn')]
+  robert100: HTTP 200 in 34.6s | status ok | verdict Outside your limits | today Inside, with caveats | change {"op": "set", "ticker": "NVDA", "weight": 1.0, "from_ticker": null} | families ['chips'] | blocked False | model calls 2 | not-pass checks [('max_drawdown', 'fail'), ('scenario_stress', 'warn'), ('single_stock', 'fail'), ('sector', 'fail'), ('risk_concentration', 'warn')]
+  aliens: HTTP 200 in 14.9s | status ok | verdict Inside, with caveats | today None | change null | families [] | blocked False | model calls 3 | not-pass checks [('scenario_stress', 'warn'), ('single_stock', 'warn'), ('sector', 'warn'), ('risk_concentration', 'warn'), ('missing_data', 'warn')]
+  advice: HTTP 200 in 0.6s | status blocked | verdict None | today None | change null | families None | blocked True | model calls 0 | not-pass checks []
+  record: HTTP 200, status stored, retain_until 2026-11-22T23:28:49Z, sha256 == seal True
+  record in S3: lock GOVERNANCE | S3 SHA-256 == seal True | versions in the vault: 3
+
+## Reading them
+- Robert, 40 % in NVIDIA (his own question): Outside your limits; 100 % in NVIDIA: Outside your limits. The times are
+  end to end through CloudFront, the whole NDJSON stream of the run.
+- "What if aliens invade Earth next year?": Inside, with caveats. The shock check says it cannot conclude (no close
+  precedent) and stays soft, so it moves nothing (R51). The caveat comes from two checks that exist only because this
+  live server reads funds directly: missing_data (XIU.TO could not be looked through) and risk_concentration (XIU.TO
+  counted as one line). With the laptop's holdings file (send_data.sh) the same question reads as the saved runs do.
+- The buy-or-sell question: refused by the input guardrail, no model call.
+- One record sealed by the page's own builder and stored in the vault (GOVERNANCE; S3's SHA-256 equals the seal).

@@ -1,0 +1,19 @@
+{
+ "commit": "c47b096",
+ "date": "2026-11-16",
+ "errors": 0,
+ "failed": 0,
+ "lookahead": {
+  "name": "scramble the future",
+  "passed": true,
+  "tests": [
+   "tests/test_proofs.py::test_scramble_keeps_the_seal_of_an_honest_decision",
+   "tests/test_proofs.py::test_scramble_breaks_the_seal_of_a_leaky_decision",
+   "tests/test_data.py::test_perturbation_scrambles_every_later_row_and_every_key_stays_identical"
+  ]
+ },
+ "passed": 2341,
+ "seconds": 122.59,
+ "skipped": 1,
+ "total": 2342
+}

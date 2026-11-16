@@ -1,0 +1,403 @@
+{
+ "_note": "navcheck case (k), live run on main dcc67d8, Sun Nov 15: the navigator abstained (no close precedent), the debrief's verdict sentence still said the shock check stayed inside. Facts and checks of that Result only.",
+ "question": "What if the Fed cuts rates to zero?",
+ "as_of": "2026-11-12",
+ "verdict": "Tension",
+ "checks": [
+  {
+   "rule": "max_drawdown",
+   "tier": "hard",
+   "status": "pass",
+   "value": -0.1060653581864397,
+   "limit": -0.15,
+   "n_episodes": null,
+   "family": null,
+   "evidence": null
+  },
+  {
+   "rule": "scenario_stress",
+   "tier": "soft",
+   "status": "warn",
+   "value": null,
+   "limit": -0.075,
+   "n_episodes": 0,
+   "family": "",
+   "evidence": "Can't say"
+  },
+  {
+   "rule": "single_stock",
+   "tier": "soft",
+   "status": "pass",
+   "value": 0.04311,
+   "limit": 0.1,
+   "n_episodes": null,
+   "family": null,
+   "evidence": null
+  },
+  {
+   "rule": "sector",
+   "tier": "soft",
+   "status": "pass",
+   "value": 0.185535,
+   "limit": 0.35,
+   "n_episodes": null,
+   "family": null,
+   "evidence": null
+  },
+  {
+   "rule": "crypto",
+   "tier": "preference",
+   "status": "pass",
+   "value": 0,
+   "limit": 0.0,
+   "n_episodes": null,
+   "family": null,
+   "evidence": null
+  },
+  {
+   "rule": "risk_concentration",
+   "tier": "warn",
+   "status": "warn",
+   "value": 0.7112003376944437,
+   "limit": 0.5,
+   "n_episodes": null,
+   "family": null,
+   "evidence": null
+  },
+  {
+   "rule": "recovery",
+   "tier": "warn",
+   "status": "pass",
+   "value": 416,
+   "limit": 486.618,
+   "n_episodes": null,
+   "family": null,
+   "evidence": null
+  },
+  {
+   "rule": "short_horizon",
+   "tier": "warn",
+   "status": "pass",
+   "value": 4,
+   "limit": 3,
+   "n_episodes": null,
+   "family": null,
+   "evidence": null
+  }
+ ],
+ "facts": {
+  "T20": {
+   "label": "Fictional amount",
+   "value": 600000,
+   "unit": "CAD",
+   "entity": "your amount",
+   "sign": "positive",
+   "kind": "fiction"
+  },
+  "T21": {
+   "label": "Your floor, set by your capacity",
+   "value": -0.15,
+   "unit": "pct",
+   "entity": "your floor",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T22": {
+   "label": "The amount set as your limit (assumed for this fictional profile)",
+   "value": -90000,
+   "unit": "CAD",
+   "entity": "your floor",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T23": {
+   "label": "Worst drop today",
+   "value": -0.1060653581864397,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T24": {
+   "label": "Growth per year today",
+   "value": 0.08728364993362181,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T25": {
+   "label": "Shock limit (half your floor)",
+   "value": -0.075,
+   "unit": "pct",
+   "entity": "shock check",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T26": {
+   "label": "Days to recover today",
+   "value": 416,
+   "unit": "days",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T27": {
+   "label": "Share of the worst drop inside rate-shock windows",
+   "value": 0.20998684912282944,
+   "unit": "pct",
+   "entity": "rates",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T28": {
+   "label": "Largest single-company share today",
+   "value": 0.04311,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T29": {
+   "label": "One-company limit",
+   "value": 0.1,
+   "unit": "pct",
+   "entity": "one company",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T30": {
+   "label": "Largest sector share today",
+   "value": 0.185535,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T31": {
+   "label": "One-sector limit",
+   "value": 0.35,
+   "unit": "pct",
+   "entity": "one sector",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T32": {
+   "label": "Crypto share today",
+   "value": 0,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "zero",
+   "kind": "fact"
+  },
+  "T33": {
+   "label": "Crypto limit",
+   "value": 0.0,
+   "unit": "pct",
+   "entity": "crypto",
+   "sign": "zero",
+   "kind": "assumption"
+  },
+  "T34": {
+   "label": "Largest line's share of the risk today",
+   "value": 0.7112003376944437,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fact"
+  },
+  "T35": {
+   "label": "Risk-share warning level",
+   "value": 0.5,
+   "unit": "pct",
+   "entity": "risk",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T36": {
+   "label": "Recovery days your horizon gives",
+   "value": 487,
+   "unit": "days",
+   "entity": "recovery",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T37": {
+   "label": "Your horizon",
+   "value": 4,
+   "unit": "years",
+   "entity": "horizon",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T38": {
+   "label": "Short-horizon level",
+   "value": 3,
+   "unit": "years",
+   "entity": "horizon",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T40": {
+   "label": "Ended at, your mix today (2026-11-12, on your fictional amount)",
+   "value": 911676,
+   "unit": "CAD",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "fiction"
+  },
+  "T41": {
+   "label": "Worst drop today on the dates from 2023 on (2022 left out)",
+   "value": -0.0605912231,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "fact"
+  },
+  "T42": {
+   "label": "The same drop on your fictional amount (amount × drawdown), dates from 2023 on",
+   "value": -36355,
+   "unit": "CAD",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "fiction"
+  },
+  "T43": {
+   "label": "By proxy: earlier crises replayed (1973 to 2020)",
+   "value": 11,
+   "unit": "count",
+   "entity": "earlier crises",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T44": {
+   "label": "By proxy: crises where your mix today broke your floor by more than 1 point in every sensitivity run",
+   "value": 0,
+   "unit": "count",
+   "entity": "today",
+   "sign": "zero",
+   "kind": "assumption"
+  },
+  "T45": {
+   "label": "By proxy: crises where your mix today held in every sensitivity run",
+   "value": 8,
+   "unit": "count",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T46": {
+   "label": "By proxy: crises too close to call for your mix today (within 1 point of your floor, or changing with the sensitivity runs)",
+   "value": 3,
+   "unit": "count",
+   "entity": "today",
+   "sign": "positive",
+   "kind": "assumption"
+  },
+  "T47": {
+   "label": "By proxy, Oil embargo and the 1973–74 bear market: worst fall, your mix today",
+   "value": -0.1522290274,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T48": {
+   "label": "By proxy, The Volcker shock: worst fall, your mix today",
+   "value": -0.1614433095,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T49": {
+   "label": "By proxy, Black Monday: worst fall, your mix today",
+   "value": -0.1059325522,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T50": {
+   "label": "By proxy, Iraq invades Kuwait: worst fall, your mix today",
+   "value": -0.0366979879,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T51": {
+   "label": "By proxy, The 1994 bond rout: worst fall, your mix today",
+   "value": -0.0815221253,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T52": {
+   "label": "By proxy, Russia defaults; LTCM nearly fails: worst fall, your mix today",
+   "value": -0.1165210109,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T53": {
+   "label": "By proxy, The dot-com bust: worst fall, your mix today",
+   "value": -0.1127925648,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T54": {
+   "label": "By proxy, The global financial crisis: worst fall, your mix today",
+   "value": -0.169600061,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T55": {
+   "label": "By proxy, Euro debt crisis: worst fall, your mix today",
+   "value": -0.033966777,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T56": {
+   "label": "By proxy, The taper tantrum: worst fall, your mix today",
+   "value": -0.0445145009,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T57": {
+   "label": "By proxy, The pandemic crash: worst fall, your mix today",
+   "value": -0.0878368932,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T58": {
+   "label": "Check of the stand-ins (2021-11 to 2025-12): your mix today by proxy, worst fall",
+   "value": -0.0871276842,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  },
+  "T59": {
+   "label": "By proxy since 1971: worst fall of your mix today in any 4-year stretch",
+   "value": -0.1696,
+   "unit": "pct",
+   "entity": "today",
+   "sign": "negative",
+   "kind": "assumption"
+  }
+ },
+ "debrief_verdict_sentence": "Inside, with caveats: none of your limits broke, and the shock check you asked about, a rate move, stayed inside the shock limit."
+}

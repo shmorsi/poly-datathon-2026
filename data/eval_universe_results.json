@@ -1,0 +1,8146 @@
+{
+ "first_pass": {
+  "meta": {
+   "date": "2026-11-15",
+   "model": "us.anthropic.claude-sonnet-5-5",
+   "engine": "converse",
+   "commit": "ef34575",
+   "pilot": "robert",
+   "as_of": "2026-11-12",
+   "questions": 110,
+   "rule": "change op set, the expected ticker, weight 0.15 within 0.0005"
+  },
+  "keyword": {
+   "rows": [
+    {
+     "id": "u_ry_name",
+     "kind": "name",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in Royal Bank of Canada?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.9
+    },
+    {
+     "id": "u_ry_ticker",
+     "kind": "ticker",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RY?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_ry_fr",
+     "kind": "french",
+     "ticker": "RY.TO",
+     "text": "Et si je mettais 15 % dans Royal Bank of Canada ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_td_name",
+     "kind": "name",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in Toronto-Dominion Bank?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_td_ticker",
+     "kind": "ticker",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_td_fr",
+     "kind": "french",
+     "ticker": "TD.TO",
+     "text": "Et si je mettais 15 % dans Toronto-Dominion Bank ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_mfc_name",
+     "kind": "name",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in Manulife Financial?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_mfc_ticker",
+     "kind": "ticker",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in MFC?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_mfc_fr",
+     "kind": "french",
+     "ticker": "MFC.TO",
+     "text": "Et si je mettais 15 % dans Manulife Financial ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_enb_name",
+     "kind": "name",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in Enbridge?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_enb_ticker",
+     "kind": "ticker",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in ENB?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_enb_fr",
+     "kind": "french",
+     "ticker": "ENB.TO",
+     "text": "Et si je mettais 15 % dans Enbridge ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_cnq_name",
+     "kind": "name",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural Resources?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_cnq_ticker",
+     "kind": "ticker",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in CNQ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_cnq_fr",
+     "kind": "french",
+     "ticker": "CNQ.TO",
+     "text": "Et si je mettais 15 % dans Canadian Natural Resources ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_cnr_name",
+     "kind": "name",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in Canadian National Railway?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_cnr_ticker",
+     "kind": "ticker",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CNR?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_cnr_fr",
+     "kind": "french",
+     "ticker": "CNR.TO",
+     "text": "Et si je mettais 15 % dans Canadian National Railway ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_fts_name",
+     "kind": "name",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in Fortis?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_fts_ticker",
+     "kind": "ticker",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in FTS?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_fts_fr",
+     "kind": "french",
+     "ticker": "FTS.TO",
+     "text": "Et si je mettais 15 % dans Fortis ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_atd_name",
+     "kind": "name",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Alimentation Couche-Tard?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_atd_ticker",
+     "kind": "ticker",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in ATD?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_atd_fr",
+     "kind": "french",
+     "ticker": "ATD.TO",
+     "text": "Et si je mettais 15 % dans Alimentation Couche-Tard ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_shop_name",
+     "kind": "name",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in Shopify?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_shop_ticker",
+     "kind": "ticker",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in SHOP?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_shop_fr",
+     "kind": "french",
+     "ticker": "SHOP.TO",
+     "text": "Et si je mettais 15 % dans Shopify ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_csu_name",
+     "kind": "name",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation Software?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_csu_ticker",
+     "kind": "ticker",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in CSU?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_csu_fr",
+     "kind": "french",
+     "ticker": "CSU.TO",
+     "text": "Et si je mettais 15 % dans Constellation Software ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_aapl_name",
+     "kind": "name",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in Apple?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_aapl_ticker",
+     "kind": "ticker",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in AAPL?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_aapl_fr",
+     "kind": "french",
+     "ticker": "AAPL",
+     "text": "Et si je mettais 15 % dans Apple ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_msft_name",
+     "kind": "name",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in Microsoft?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_msft_ticker",
+     "kind": "ticker",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in MSFT?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_msft_fr",
+     "kind": "french",
+     "ticker": "MSFT",
+     "text": "Et si je mettais 15 % dans Microsoft ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_nvda_name",
+     "kind": "name",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVIDIA?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_nvda_ticker",
+     "kind": "ticker",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVDA?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_nvda_fr",
+     "kind": "french",
+     "ticker": "NVDA",
+     "text": "Et si je mettais 15 % dans NVIDIA ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_googl_name",
+     "kind": "name",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Alphabet?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_googl_ticker",
+     "kind": "ticker",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in GOOGL?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_googl_fr",
+     "kind": "french",
+     "ticker": "GOOGL",
+     "text": "Et si je mettais 15 % dans Alphabet ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_amzn_name",
+     "kind": "name",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in Amazon?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_amzn_ticker",
+     "kind": "ticker",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in AMZN?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_amzn_fr",
+     "kind": "french",
+     "ticker": "AMZN",
+     "text": "Et si je mettais 15 % dans Amazon ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_tsla_name",
+     "kind": "name",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in Tesla?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_tsla_ticker",
+     "kind": "ticker",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in TSLA?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_tsla_fr",
+     "kind": "french",
+     "ticker": "TSLA",
+     "text": "Et si je mettais 15 % dans Tesla ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_jpm_name",
+     "kind": "name",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPMorgan Chase?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_jpm_ticker",
+     "kind": "ticker",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPM?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_jpm_fr",
+     "kind": "french",
+     "ticker": "JPM",
+     "text": "Et si je mettais 15 % dans JPMorgan Chase ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_jnj_name",
+     "kind": "name",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in Johnson & Johnson?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_jnj_ticker",
+     "kind": "ticker",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in JNJ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_jnj_fr",
+     "kind": "french",
+     "ticker": "JNJ",
+     "text": "Et si je mettais 15 % dans Johnson & Johnson ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_pg_name",
+     "kind": "name",
+     "ticker": "PG",
+     "text": "What if I put 15 % in Procter & Gamble?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_pg_ticker",
+     "kind": "ticker",
+     "ticker": "PG",
+     "text": "What if I put 15 % in PG?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_pg_fr",
+     "kind": "french",
+     "ticker": "PG",
+     "text": "Et si je mettais 15 % dans Procter & Gamble ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_xom_name",
+     "kind": "name",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon Mobil?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_xom_ticker",
+     "kind": "ticker",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in XOM?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_xom_fr",
+     "kind": "french",
+     "ticker": "XOM",
+     "text": "Et si je mettais 15 % dans Exxon Mobil ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_xiu_name",
+     "kind": "name",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in the iShares S&P/TSX 60 Index ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_xiu_ticker",
+     "kind": "ticker",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in XIU?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_xiu_fr",
+     "kind": "french",
+     "ticker": "XIU.TO",
+     "text": "Et si je mettais 15 % dans le iShares S&P/TSX 60 Index ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_spy_name",
+     "kind": "name",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the SPDR S&P 500 ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_spy_ticker",
+     "kind": "ticker",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in SPY?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_spy_fr",
+     "kind": "french",
+     "ticker": "SPY",
+     "text": "Et si je mettais 15 % dans le SPDR S&P 500 ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_qqq_name",
+     "kind": "name",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Invesco QQQ Trust?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_qqq_ticker",
+     "kind": "ticker",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in QQQ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_qqq_fr",
+     "kind": "french",
+     "ticker": "QQQ",
+     "text": "Et si je mettais 15 % dans le Invesco QQQ Trust ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_esgv_name",
+     "kind": "name",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in the Vanguard ESG U.S. Stock ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_esgv_ticker",
+     "kind": "ticker",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in ESGV?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_esgv_fr",
+     "kind": "french",
+     "ticker": "ESGV",
+     "text": "Et si je mettais 15 % dans le Vanguard ESG U.S. Stock ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_xbb_name",
+     "kind": "name",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in the iShares Core Canadian Universe Bond Index ETF?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.8
+    },
+    {
+     "id": "u_xbb_ticker",
+     "kind": "ticker",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in XBB?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_xbb_fr",
+     "kind": "french",
+     "ticker": "XBB.TO",
+     "text": "Et si je mettais 15 % dans le iShares Core Canadian Universe Bond Index ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_zst_name",
+     "kind": "name",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in the BMO Ultra Short-Term Bond ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_zst_ticker",
+     "kind": "ticker",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in ZST?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_zst_fr",
+     "kind": "french",
+     "ticker": "ZST.TO",
+     "text": "Et si je mettais 15 % dans le BMO Ultra Short-Term Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_agg_name",
+     "kind": "name",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in the iShares Core U.S. Aggregate Bond ETF?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.8
+    },
+    {
+     "id": "u_agg_ticker",
+     "kind": "ticker",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in AGG?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AGG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_agg_fr",
+     "kind": "french",
+     "ticker": "AGG",
+     "text": "Et si je mettais 15 % dans le iShares Core U.S. Aggregate Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_tlt_name",
+     "kind": "name",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in the iShares 20+ Year Treasury Bond ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_tlt_ticker",
+     "kind": "ticker",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in TLT?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_tlt_fr",
+     "kind": "french",
+     "ticker": "TLT",
+     "text": "Et si je mettais 15 % dans le iShares 20+ Year Treasury Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_gld_name",
+     "kind": "name",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in SPDR Gold Shares?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_gld_ticker",
+     "kind": "ticker",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in GLD?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_gld_fr",
+     "kind": "french",
+     "ticker": "GLD",
+     "text": "Et si je mettais 15 % dans SPDR Gold Shares ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.3
+    },
+    {
+     "id": "u_btc_name",
+     "kind": "name",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in Bitcoin?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_btc_ticker",
+     "kind": "ticker",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in BTC?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_btc_fr",
+     "kind": "french",
+     "ticker": "BTC-USD",
+     "text": "Et si je mettais 15 % dans Bitcoin ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_eth_name",
+     "kind": "name",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in Ether?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_eth_ticker",
+     "kind": "ticker",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ETH?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_eth_fr",
+     "kind": "french",
+     "ticker": "ETH-USD",
+     "text": "Et si je mettais 15 % dans Ether ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.2
+    },
+    {
+     "id": "u_ry_alias",
+     "kind": "alias",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RBC?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_td_alias",
+     "kind": "alias",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD Bank?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.8
+    },
+    {
+     "id": "u_atd_alias",
+     "kind": "alias",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Couche-Tard?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_cnr_alias",
+     "kind": "alias",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CN Rail?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_cnq_alias",
+     "kind": "alias",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_csu_alias",
+     "kind": "alias",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_googl_alias",
+     "kind": "alias",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Google?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_jnj_alias",
+     "kind": "alias",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in J&J?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_pg_alias",
+     "kind": "alias",
+     "ticker": "PG",
+     "text": "What if I put 15 % in P&G?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_xom_alias",
+     "kind": "alias",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_spy_alias",
+     "kind": "alias",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the S&P 500 ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_qqq_alias",
+     "kind": "alias",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Nasdaq-100?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_gld_alias",
+     "kind": "alias",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in gold?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_btc_alias",
+     "kind": "alias",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in bitcoin?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_eth_alias",
+     "kind": "alias",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ethereum?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_tlt_alias",
+     "kind": "alias",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in long Treasuries?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_xbb_alias",
+     "kind": "alias",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in Canadian bonds?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    }
+   ],
+   "overall": {
+    "k": 70,
+    "n": 110,
+    "rate": "70 / 110",
+    "wilson_low": 0.5432749318492441,
+    "wilson_high": 0.7202491226264484,
+    "level": "Measured"
+   },
+   "by_kind": {
+    "name": {
+     "k": 29,
+     "n": 31,
+     "rate": "29 / 31",
+     "wilson_low": 0.7928101168125354,
+     "wilson_high": 0.9821255922249368,
+     "level": "Measured"
+    },
+    "ticker": {
+     "k": 30,
+     "n": 31,
+     "rate": "30 / 31",
+     "wilson_low": 0.8380554282383037,
+     "wilson_high": 0.9942829259130554,
+     "level": "Measured"
+    },
+    "alias": {
+     "k": 11,
+     "n": 17,
+     "rate": "11 / 17",
+     "wilson_low": 0.4129996672121182,
+     "wilson_high": 0.826905138560951,
+     "level": "Indicative"
+    },
+    "french": {
+     "k": 0,
+     "n": 31,
+     "rate": "0 / 31",
+     "wilson_low": 0.0,
+     "wilson_high": 0.11025900073475385,
+     "level": "Measured"
+    }
+   }
+  },
+  "navigator": {
+   "rows": [
+    {
+     "id": "u_ry_name",
+     "kind": "name",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in Royal Bank of Canada?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1273.8
+    },
+    {
+     "id": "u_ry_ticker",
+     "kind": "ticker",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RY?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1289.6
+    },
+    {
+     "id": "u_ry_fr",
+     "kind": "french",
+     "ticker": "RY.TO",
+     "text": "Et si je mettais 15 % dans Royal Bank of Canada ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1617.9
+    },
+    {
+     "id": "u_td_name",
+     "kind": "name",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in Toronto-Dominion Bank?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1224.8
+    },
+    {
+     "id": "u_td_ticker",
+     "kind": "ticker",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1192.8
+    },
+    {
+     "id": "u_td_fr",
+     "kind": "french",
+     "ticker": "TD.TO",
+     "text": "Et si je mettais 15 % dans Toronto-Dominion Bank ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1479.1
+    },
+    {
+     "id": "u_mfc_name",
+     "kind": "name",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in Manulife Financial?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1317.0
+    },
+    {
+     "id": "u_mfc_ticker",
+     "kind": "ticker",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in MFC?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1508.5
+    },
+    {
+     "id": "u_mfc_fr",
+     "kind": "french",
+     "ticker": "MFC.TO",
+     "text": "Et si je mettais 15 % dans Manulife Financial ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1127.4
+    },
+    {
+     "id": "u_enb_name",
+     "kind": "name",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in Enbridge?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1211.5
+    },
+    {
+     "id": "u_enb_ticker",
+     "kind": "ticker",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in ENB?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1386.1
+    },
+    {
+     "id": "u_enb_fr",
+     "kind": "french",
+     "ticker": "ENB.TO",
+     "text": "Et si je mettais 15 % dans Enbridge ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1367.8
+    },
+    {
+     "id": "u_cnq_name",
+     "kind": "name",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural Resources?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2915.2
+    },
+    {
+     "id": "u_cnq_ticker",
+     "kind": "ticker",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in CNQ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1256.1
+    },
+    {
+     "id": "u_cnq_fr",
+     "kind": "french",
+     "ticker": "CNQ.TO",
+     "text": "Et si je mettais 15 % dans Canadian Natural Resources ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1383.1
+    },
+    {
+     "id": "u_cnr_name",
+     "kind": "name",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in Canadian National Railway?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1200.9
+    },
+    {
+     "id": "u_cnr_ticker",
+     "kind": "ticker",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CNR?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1369.2
+    },
+    {
+     "id": "u_cnr_fr",
+     "kind": "french",
+     "ticker": "CNR.TO",
+     "text": "Et si je mettais 15 % dans Canadian National Railway ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1456.8
+    },
+    {
+     "id": "u_fts_name",
+     "kind": "name",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in Fortis?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1166.4
+    },
+    {
+     "id": "u_fts_ticker",
+     "kind": "ticker",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in FTS?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1128.8
+    },
+    {
+     "id": "u_fts_fr",
+     "kind": "french",
+     "ticker": "FTS.TO",
+     "text": "Et si je mettais 15 % dans Fortis ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1468.1
+    },
+    {
+     "id": "u_atd_name",
+     "kind": "name",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Alimentation Couche-Tard?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1148.8
+    },
+    {
+     "id": "u_atd_ticker",
+     "kind": "ticker",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in ATD?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1352.2
+    },
+    {
+     "id": "u_atd_fr",
+     "kind": "french",
+     "ticker": "ATD.TO",
+     "text": "Et si je mettais 15 % dans Alimentation Couche-Tard ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1369.8
+    },
+    {
+     "id": "u_shop_name",
+     "kind": "name",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in Shopify?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2121.3
+    },
+    {
+     "id": "u_shop_ticker",
+     "kind": "ticker",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in SHOP?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1378.6
+    },
+    {
+     "id": "u_shop_fr",
+     "kind": "french",
+     "ticker": "SHOP.TO",
+     "text": "Et si je mettais 15 % dans Shopify ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1310.0
+    },
+    {
+     "id": "u_csu_name",
+     "kind": "name",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation Software?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1304.4
+    },
+    {
+     "id": "u_csu_ticker",
+     "kind": "ticker",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in CSU?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1306.2
+    },
+    {
+     "id": "u_csu_fr",
+     "kind": "french",
+     "ticker": "CSU.TO",
+     "text": "Et si je mettais 15 % dans Constellation Software ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1429.7
+    },
+    {
+     "id": "u_aapl_name",
+     "kind": "name",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in Apple?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1349.2
+    },
+    {
+     "id": "u_aapl_ticker",
+     "kind": "ticker",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in AAPL?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1596.8
+    },
+    {
+     "id": "u_aapl_fr",
+     "kind": "french",
+     "ticker": "AAPL",
+     "text": "Et si je mettais 15 % dans Apple ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1356.2
+    },
+    {
+     "id": "u_msft_name",
+     "kind": "name",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in Microsoft?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1287.3
+    },
+    {
+     "id": "u_msft_ticker",
+     "kind": "ticker",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in MSFT?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1222.1
+    },
+    {
+     "id": "u_msft_fr",
+     "kind": "french",
+     "ticker": "MSFT",
+     "text": "Et si je mettais 15 % dans Microsoft ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1581.2
+    },
+    {
+     "id": "u_nvda_name",
+     "kind": "name",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVIDIA?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2070.2
+    },
+    {
+     "id": "u_nvda_ticker",
+     "kind": "ticker",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVDA?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1506.0
+    },
+    {
+     "id": "u_nvda_fr",
+     "kind": "french",
+     "ticker": "NVDA",
+     "text": "Et si je mettais 15 % dans NVIDIA ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan used advice words or markup); the keyword rules answered.",
+     "error": null,
+     "ms": 2443.9
+    },
+    {
+     "id": "u_googl_name",
+     "kind": "name",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Alphabet?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1317.0
+    },
+    {
+     "id": "u_googl_ticker",
+     "kind": "ticker",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in GOOGL?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1297.7
+    },
+    {
+     "id": "u_googl_fr",
+     "kind": "french",
+     "ticker": "GOOGL",
+     "text": "Et si je mettais 15 % dans Alphabet ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1335.0
+    },
+    {
+     "id": "u_amzn_name",
+     "kind": "name",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in Amazon?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2755.8
+    },
+    {
+     "id": "u_amzn_ticker",
+     "kind": "ticker",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in AMZN?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1294.4
+    },
+    {
+     "id": "u_amzn_fr",
+     "kind": "french",
+     "ticker": "AMZN",
+     "text": "Et si je mettais 15 % dans Amazon ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1315.6
+    },
+    {
+     "id": "u_tsla_name",
+     "kind": "name",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in Tesla?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1303.2
+    },
+    {
+     "id": "u_tsla_ticker",
+     "kind": "ticker",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in TSLA?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1971.1
+    },
+    {
+     "id": "u_tsla_fr",
+     "kind": "french",
+     "ticker": "TSLA",
+     "text": "Et si je mettais 15 % dans Tesla ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1396.3
+    },
+    {
+     "id": "u_jpm_name",
+     "kind": "name",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPMorgan Chase?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1312.9
+    },
+    {
+     "id": "u_jpm_ticker",
+     "kind": "ticker",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPM?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1269.2
+    },
+    {
+     "id": "u_jpm_fr",
+     "kind": "french",
+     "ticker": "JPM",
+     "text": "Et si je mettais 15 % dans JPMorgan Chase ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1342.6
+    },
+    {
+     "id": "u_jnj_name",
+     "kind": "name",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in Johnson & Johnson?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1351.8
+    },
+    {
+     "id": "u_jnj_ticker",
+     "kind": "ticker",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in JNJ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1099.2
+    },
+    {
+     "id": "u_jnj_fr",
+     "kind": "french",
+     "ticker": "JNJ",
+     "text": "Et si je mettais 15 % dans Johnson & Johnson ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1343.8
+    },
+    {
+     "id": "u_pg_name",
+     "kind": "name",
+     "ticker": "PG",
+     "text": "What if I put 15 % in Procter & Gamble?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1198.2
+    },
+    {
+     "id": "u_pg_ticker",
+     "kind": "ticker",
+     "ticker": "PG",
+     "text": "What if I put 15 % in PG?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1264.6
+    },
+    {
+     "id": "u_pg_fr",
+     "kind": "french",
+     "ticker": "PG",
+     "text": "Et si je mettais 15 % dans Procter & Gamble ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1240.1
+    },
+    {
+     "id": "u_xom_name",
+     "kind": "name",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon Mobil?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1233.3
+    },
+    {
+     "id": "u_xom_ticker",
+     "kind": "ticker",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in XOM?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1270.7
+    },
+    {
+     "id": "u_xom_fr",
+     "kind": "french",
+     "ticker": "XOM",
+     "text": "Et si je mettais 15 % dans Exxon Mobil ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1420.3
+    },
+    {
+     "id": "u_xiu_name",
+     "kind": "name",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in the iShares S&P/TSX 60 Index ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2139.8
+    },
+    {
+     "id": "u_xiu_ticker",
+     "kind": "ticker",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in XIU?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1410.2
+    },
+    {
+     "id": "u_xiu_fr",
+     "kind": "french",
+     "ticker": "XIU.TO",
+     "text": "Et si je mettais 15 % dans le iShares S&P/TSX 60 Index ETF ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "add",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1374.0
+    },
+    {
+     "id": "u_spy_name",
+     "kind": "name",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the SPDR S&P 500 ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1291.0
+    },
+    {
+     "id": "u_spy_ticker",
+     "kind": "ticker",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in SPY?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1258.3
+    },
+    {
+     "id": "u_spy_fr",
+     "kind": "french",
+     "ticker": "SPY",
+     "text": "Et si je mettais 15 % dans le SPDR S&P 500 ETF ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "add",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1436.7
+    },
+    {
+     "id": "u_qqq_name",
+     "kind": "name",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Invesco QQQ Trust?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1332.9
+    },
+    {
+     "id": "u_qqq_ticker",
+     "kind": "ticker",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in QQQ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1258.6
+    },
+    {
+     "id": "u_qqq_fr",
+     "kind": "french",
+     "ticker": "QQQ",
+     "text": "Et si je mettais 15 % dans le Invesco QQQ Trust ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "add",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1330.8
+    },
+    {
+     "id": "u_esgv_name",
+     "kind": "name",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in the Vanguard ESG U.S. Stock ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1187.6
+    },
+    {
+     "id": "u_esgv_ticker",
+     "kind": "ticker",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in ESGV?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1035.9
+    },
+    {
+     "id": "u_esgv_fr",
+     "kind": "french",
+     "ticker": "ESGV",
+     "text": "Et si je mettais 15 % dans le Vanguard ESG U.S. Stock ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1323.9
+    },
+    {
+     "id": "u_xbb_name",
+     "kind": "name",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in the iShares Core Canadian Universe Bond Index ETF?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1471.1
+    },
+    {
+     "id": "u_xbb_ticker",
+     "kind": "ticker",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in XBB?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1433.7
+    },
+    {
+     "id": "u_xbb_fr",
+     "kind": "french",
+     "ticker": "XBB.TO",
+     "text": "Et si je mettais 15 % dans le iShares Core Canadian Universe Bond Index ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1457.5
+    },
+    {
+     "id": "u_zst_name",
+     "kind": "name",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in the BMO Ultra Short-Term Bond ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1301.9
+    },
+    {
+     "id": "u_zst_ticker",
+     "kind": "ticker",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in ZST?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1370.7
+    },
+    {
+     "id": "u_zst_fr",
+     "kind": "french",
+     "ticker": "ZST.TO",
+     "text": "Et si je mettais 15 % dans le BMO Ultra Short-Term Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1377.3
+    },
+    {
+     "id": "u_agg_name",
+     "kind": "name",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in the iShares Core U.S. Aggregate Bond ETF?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1302.8
+    },
+    {
+     "id": "u_agg_ticker",
+     "kind": "ticker",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in AGG?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AGG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1207.6
+    },
+    {
+     "id": "u_agg_fr",
+     "kind": "french",
+     "ticker": "AGG",
+     "text": "Et si je mettais 15 % dans le iShares Core U.S. Aggregate Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1470.8
+    },
+    {
+     "id": "u_tlt_name",
+     "kind": "name",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in the iShares 20+ Year Treasury Bond ETF?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "size_ambiguous",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1417.5
+    },
+    {
+     "id": "u_tlt_ticker",
+     "kind": "ticker",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in TLT?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1312.3
+    },
+    {
+     "id": "u_tlt_fr",
+     "kind": "french",
+     "ticker": "TLT",
+     "text": "Et si je mettais 15 % dans le iShares 20+ Year Treasury Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan invented a move the investor did not ask for); the keyword rules answered.",
+     "error": null,
+     "ms": 1416.0
+    },
+    {
+     "id": "u_gld_name",
+     "kind": "name",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in SPDR Gold Shares?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2260.5
+    },
+    {
+     "id": "u_gld_ticker",
+     "kind": "ticker",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in GLD?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1298.6
+    },
+    {
+     "id": "u_gld_fr",
+     "kind": "french",
+     "ticker": "GLD",
+     "text": "Et si je mettais 15 % dans SPDR Gold Shares ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1245.3
+    },
+    {
+     "id": "u_btc_name",
+     "kind": "name",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in Bitcoin?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1258.7
+    },
+    {
+     "id": "u_btc_ticker",
+     "kind": "ticker",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in BTC?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1305.2
+    },
+    {
+     "id": "u_btc_fr",
+     "kind": "french",
+     "ticker": "BTC-USD",
+     "text": "Et si je mettais 15 % dans Bitcoin ?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1268.4
+    },
+    {
+     "id": "u_eth_name",
+     "kind": "name",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in Ether?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1534.2
+    },
+    {
+     "id": "u_eth_ticker",
+     "kind": "ticker",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ETH?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1307.5
+    },
+    {
+     "id": "u_eth_fr",
+     "kind": "french",
+     "ticker": "ETH-USD",
+     "text": "Et si je mettais 15 % dans Ether ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1407.4
+    },
+    {
+     "id": "u_ry_alias",
+     "kind": "alias",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RBC?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1426.6
+    },
+    {
+     "id": "u_td_alias",
+     "kind": "alias",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD Bank?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1313.4
+    },
+    {
+     "id": "u_atd_alias",
+     "kind": "alias",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Couche-Tard?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1228.4
+    },
+    {
+     "id": "u_cnr_alias",
+     "kind": "alias",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CN Rail?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1280.0
+    },
+    {
+     "id": "u_cnq_alias",
+     "kind": "alias",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2229.0
+    },
+    {
+     "id": "u_csu_alias",
+     "kind": "alias",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1181.5
+    },
+    {
+     "id": "u_googl_alias",
+     "kind": "alias",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Google?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1284.0
+    },
+    {
+     "id": "u_jnj_alias",
+     "kind": "alias",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in J&J?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1310.0
+    },
+    {
+     "id": "u_pg_alias",
+     "kind": "alias",
+     "ticker": "PG",
+     "text": "What if I put 15 % in P&G?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1262.0
+    },
+    {
+     "id": "u_xom_alias",
+     "kind": "alias",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1316.4
+    },
+    {
+     "id": "u_spy_alias",
+     "kind": "alias",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the S&P 500 ETF?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "size_ambiguous",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1408.3
+    },
+    {
+     "id": "u_qqq_alias",
+     "kind": "alias",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Nasdaq-100?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "size_ambiguous",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1441.6
+    },
+    {
+     "id": "u_gld_alias",
+     "kind": "alias",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in gold?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1266.9
+    },
+    {
+     "id": "u_btc_alias",
+     "kind": "alias",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in bitcoin?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the change names a ticker outside the dataset); the keyword rules answered.",
+     "error": null,
+     "ms": 1283.5
+    },
+    {
+     "id": "u_eth_alias",
+     "kind": "alias",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ethereum?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the plan asked a question about a move the code can read); the keyword rules answered.",
+     "error": null,
+     "ms": 1161.5
+    },
+    {
+     "id": "u_tlt_alias",
+     "kind": "alias",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in long Treasuries?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1354.7
+    },
+    {
+     "id": "u_xbb_alias",
+     "kind": "alias",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in Canadian bonds?",
+     "ok": false,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "ticker_unknown",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1416.6
+    }
+   ],
+   "overall": {
+    "k": 77,
+    "n": 110,
+    "rate": "77 / 110",
+    "wilson_low": 0.6087996416446292,
+    "wilson_high": 0.7777023049197199,
+    "level": "Measured"
+   },
+   "by_kind": {
+    "name": {
+     "k": 28,
+     "n": 31,
+     "rate": "28 / 31",
+     "wilson_low": 0.7509971000182295,
+     "wilson_high": 0.966535963905356,
+     "level": "Measured"
+    },
+    "ticker": {
+     "k": 30,
+     "n": 31,
+     "rate": "30 / 31",
+     "wilson_low": 0.8380554282383037,
+     "wilson_high": 0.9942829259130554,
+     "level": "Measured"
+    },
+    "alias": {
+     "k": 9,
+     "n": 17,
+     "rate": "9 / 17",
+     "wilson_low": 0.30962897311549487,
+     "wilson_high": 0.738351988039119,
+     "level": "Indicative"
+    },
+    "french": {
+     "k": 10,
+     "n": 31,
+     "rate": "10 / 31",
+     "wilson_low": 0.18569230747313034,
+     "wilson_high": 0.49859314440049185,
+     "level": "Measured"
+    }
+   },
+   "model_answered": {
+    "k": 79,
+    "n": 110,
+    "rate": "79 / 110",
+    "wilson_low": 0.627848700681053,
+    "wilson_high": 0.793789786480055,
+    "level": "Measured"
+   }
+  }
+ },
+ "second_pass": {
+  "meta": {
+   "date": "2026-11-15",
+   "model": "us.anthropic.claude-sonnet-5-5",
+   "engine": "converse",
+   "commit": "ef34575",
+   "pilot": "robert",
+   "as_of": "2026-11-12",
+   "questions": 110,
+   "rule": "change op set, the expected ticker, weight 0.15 within 0.0005"
+  },
+  "keyword": {
+   "rows": [
+    {
+     "id": "u_ry_name",
+     "kind": "name",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in Royal Bank of Canada?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2.8
+    },
+    {
+     "id": "u_ry_ticker",
+     "kind": "ticker",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RY?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_ry_fr",
+     "kind": "french",
+     "ticker": "RY.TO",
+     "text": "Et si je mettais 15 % dans Royal Bank of Canada ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_td_name",
+     "kind": "name",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in Toronto-Dominion Bank?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_td_ticker",
+     "kind": "ticker",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_td_fr",
+     "kind": "french",
+     "ticker": "TD.TO",
+     "text": "Et si je mettais 15 % dans Toronto-Dominion Bank ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_mfc_name",
+     "kind": "name",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in Manulife Financial?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_mfc_ticker",
+     "kind": "ticker",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in MFC?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_mfc_fr",
+     "kind": "french",
+     "ticker": "MFC.TO",
+     "text": "Et si je mettais 15 % dans Manulife Financial ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_enb_name",
+     "kind": "name",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in Enbridge?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_enb_ticker",
+     "kind": "ticker",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in ENB?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_enb_fr",
+     "kind": "french",
+     "ticker": "ENB.TO",
+     "text": "Et si je mettais 15 % dans Enbridge ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_cnq_name",
+     "kind": "name",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural Resources?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_cnq_ticker",
+     "kind": "ticker",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in CNQ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_cnq_fr",
+     "kind": "french",
+     "ticker": "CNQ.TO",
+     "text": "Et si je mettais 15 % dans Canadian Natural Resources ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_cnr_name",
+     "kind": "name",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in Canadian National Railway?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_cnr_ticker",
+     "kind": "ticker",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CNR?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_cnr_fr",
+     "kind": "french",
+     "ticker": "CNR.TO",
+     "text": "Et si je mettais 15 % dans Canadian National Railway ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_fts_name",
+     "kind": "name",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in Fortis?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_fts_ticker",
+     "kind": "ticker",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in FTS?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_fts_fr",
+     "kind": "french",
+     "ticker": "FTS.TO",
+     "text": "Et si je mettais 15 % dans Fortis ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_atd_name",
+     "kind": "name",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Alimentation Couche-Tard?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_atd_ticker",
+     "kind": "ticker",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in ATD?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_atd_fr",
+     "kind": "french",
+     "ticker": "ATD.TO",
+     "text": "Et si je mettais 15 % dans Alimentation Couche-Tard ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_shop_name",
+     "kind": "name",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in Shopify?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_shop_ticker",
+     "kind": "ticker",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in SHOP?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_shop_fr",
+     "kind": "french",
+     "ticker": "SHOP.TO",
+     "text": "Et si je mettais 15 % dans Shopify ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_csu_name",
+     "kind": "name",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation Software?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_csu_ticker",
+     "kind": "ticker",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in CSU?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_csu_fr",
+     "kind": "french",
+     "ticker": "CSU.TO",
+     "text": "Et si je mettais 15 % dans Constellation Software ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_aapl_name",
+     "kind": "name",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in Apple?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_aapl_ticker",
+     "kind": "ticker",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in AAPL?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_aapl_fr",
+     "kind": "french",
+     "ticker": "AAPL",
+     "text": "Et si je mettais 15 % dans Apple ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_msft_name",
+     "kind": "name",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in Microsoft?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_msft_ticker",
+     "kind": "ticker",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in MSFT?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_msft_fr",
+     "kind": "french",
+     "ticker": "MSFT",
+     "text": "Et si je mettais 15 % dans Microsoft ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_nvda_name",
+     "kind": "name",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVIDIA?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_nvda_ticker",
+     "kind": "ticker",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVDA?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_nvda_fr",
+     "kind": "french",
+     "ticker": "NVDA",
+     "text": "Et si je mettais 15 % dans NVIDIA ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_googl_name",
+     "kind": "name",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Alphabet?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_googl_ticker",
+     "kind": "ticker",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in GOOGL?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_googl_fr",
+     "kind": "french",
+     "ticker": "GOOGL",
+     "text": "Et si je mettais 15 % dans Alphabet ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_amzn_name",
+     "kind": "name",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in Amazon?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_amzn_ticker",
+     "kind": "ticker",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in AMZN?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_amzn_fr",
+     "kind": "french",
+     "ticker": "AMZN",
+     "text": "Et si je mettais 15 % dans Amazon ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_tsla_name",
+     "kind": "name",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in Tesla?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_tsla_ticker",
+     "kind": "ticker",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in TSLA?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_tsla_fr",
+     "kind": "french",
+     "ticker": "TSLA",
+     "text": "Et si je mettais 15 % dans Tesla ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_jpm_name",
+     "kind": "name",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPMorgan Chase?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_jpm_ticker",
+     "kind": "ticker",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPM?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_jpm_fr",
+     "kind": "french",
+     "ticker": "JPM",
+     "text": "Et si je mettais 15 % dans JPMorgan Chase ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_jnj_name",
+     "kind": "name",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in Johnson & Johnson?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_jnj_ticker",
+     "kind": "ticker",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in JNJ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_jnj_fr",
+     "kind": "french",
+     "ticker": "JNJ",
+     "text": "Et si je mettais 15 % dans Johnson & Johnson ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_pg_name",
+     "kind": "name",
+     "ticker": "PG",
+     "text": "What if I put 15 % in Procter & Gamble?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_pg_ticker",
+     "kind": "ticker",
+     "ticker": "PG",
+     "text": "What if I put 15 % in PG?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_pg_fr",
+     "kind": "french",
+     "ticker": "PG",
+     "text": "Et si je mettais 15 % dans Procter & Gamble ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_xom_name",
+     "kind": "name",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon Mobil?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_xom_ticker",
+     "kind": "ticker",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in XOM?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_xom_fr",
+     "kind": "french",
+     "ticker": "XOM",
+     "text": "Et si je mettais 15 % dans Exxon Mobil ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_xiu_name",
+     "kind": "name",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in the iShares S&P/TSX 60 Index ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_xiu_ticker",
+     "kind": "ticker",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in XIU?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_xiu_fr",
+     "kind": "french",
+     "ticker": "XIU.TO",
+     "text": "Et si je mettais 15 % dans le iShares S&P/TSX 60 Index ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_spy_name",
+     "kind": "name",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the SPDR S&P 500 ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_spy_ticker",
+     "kind": "ticker",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in SPY?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_spy_fr",
+     "kind": "french",
+     "ticker": "SPY",
+     "text": "Et si je mettais 15 % dans le SPDR S&P 500 ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_qqq_name",
+     "kind": "name",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Invesco QQQ Trust?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_qqq_ticker",
+     "kind": "ticker",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in QQQ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_qqq_fr",
+     "kind": "french",
+     "ticker": "QQQ",
+     "text": "Et si je mettais 15 % dans le Invesco QQQ Trust ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_esgv_name",
+     "kind": "name",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in the Vanguard ESG U.S. Stock ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_esgv_ticker",
+     "kind": "ticker",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in ESGV?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_esgv_fr",
+     "kind": "french",
+     "ticker": "ESGV",
+     "text": "Et si je mettais 15 % dans le Vanguard ESG U.S. Stock ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_xbb_name",
+     "kind": "name",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in the iShares Core Canadian Universe Bond Index ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.3
+    },
+    {
+     "id": "u_xbb_ticker",
+     "kind": "ticker",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in XBB?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_xbb_fr",
+     "kind": "french",
+     "ticker": "XBB.TO",
+     "text": "Et si je mettais 15 % dans le iShares Core Canadian Universe Bond Index ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_zst_name",
+     "kind": "name",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in the BMO Ultra Short-Term Bond ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_zst_ticker",
+     "kind": "ticker",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in ZST?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_zst_fr",
+     "kind": "french",
+     "ticker": "ZST.TO",
+     "text": "Et si je mettais 15 % dans le BMO Ultra Short-Term Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.6
+    },
+    {
+     "id": "u_agg_name",
+     "kind": "name",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in the iShares Core U.S. Aggregate Bond ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AGG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.6
+    },
+    {
+     "id": "u_agg_ticker",
+     "kind": "ticker",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in AGG?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "AGG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.8
+    },
+    {
+     "id": "u_agg_fr",
+     "kind": "french",
+     "ticker": "AGG",
+     "text": "Et si je mettais 15 % dans le iShares Core U.S. Aggregate Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_tlt_name",
+     "kind": "name",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in the iShares 20+ Year Treasury Bond ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.3
+    },
+    {
+     "id": "u_tlt_ticker",
+     "kind": "ticker",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in TLT?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_tlt_fr",
+     "kind": "french",
+     "ticker": "TLT",
+     "text": "Et si je mettais 15 % dans le iShares 20+ Year Treasury Bond ETF ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.7
+    },
+    {
+     "id": "u_gld_name",
+     "kind": "name",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in SPDR Gold Shares?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_gld_ticker",
+     "kind": "ticker",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in GLD?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_gld_fr",
+     "kind": "french",
+     "ticker": "GLD",
+     "text": "Et si je mettais 15 % dans SPDR Gold Shares ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_btc_name",
+     "kind": "name",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in Bitcoin?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_btc_ticker",
+     "kind": "ticker",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in BTC?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_btc_fr",
+     "kind": "french",
+     "ticker": "BTC-USD",
+     "text": "Et si je mettais 15 % dans Bitcoin ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.5
+    },
+    {
+     "id": "u_eth_name",
+     "kind": "name",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in Ether?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_eth_ticker",
+     "kind": "ticker",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ETH?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_eth_fr",
+     "kind": "french",
+     "ticker": "ETH-USD",
+     "text": "Et si je mettais 15 % dans Ether ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.4
+    },
+    {
+     "id": "u_ry_alias",
+     "kind": "alias",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RBC?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_td_alias",
+     "kind": "alias",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD Bank?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_atd_alias",
+     "kind": "alias",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Couche-Tard?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_cnr_alias",
+     "kind": "alias",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CN Rail?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.1
+    },
+    {
+     "id": "u_cnq_alias",
+     "kind": "alias",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.2
+    },
+    {
+     "id": "u_csu_alias",
+     "kind": "alias",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_googl_alias",
+     "kind": "alias",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Google?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_jnj_alias",
+     "kind": "alias",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in J&J?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_pg_alias",
+     "kind": "alias",
+     "ticker": "PG",
+     "text": "What if I put 15 % in P&G?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 0.9
+    },
+    {
+     "id": "u_xom_alias",
+     "kind": "alias",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_spy_alias",
+     "kind": "alias",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the S&P 500 ETF?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_qqq_alias",
+     "kind": "alias",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Nasdaq-100?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_gld_alias",
+     "kind": "alias",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in gold?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.4
+    },
+    {
+     "id": "u_btc_alias",
+     "kind": "alias",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in bitcoin?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_eth_alias",
+     "kind": "alias",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ethereum?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.3
+    },
+    {
+     "id": "u_tlt_alias",
+     "kind": "alias",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in long Treasuries?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    },
+    {
+     "id": "u_xbb_alias",
+     "kind": "alias",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in Canadian bonds?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1.0
+    }
+   ],
+   "overall": {
+    "k": 79,
+    "n": 110,
+    "rate": "79 / 110",
+    "wilson_low": 0.627848700681053,
+    "wilson_high": 0.793789786480055,
+    "level": "Measured"
+   },
+   "by_kind": {
+    "name": {
+     "k": 31,
+     "n": 31,
+     "rate": "31 / 31",
+     "wilson_low": 0.889740999265246,
+     "wilson_high": 0.9999999999999999,
+     "level": "Measured"
+    },
+    "ticker": {
+     "k": 31,
+     "n": 31,
+     "rate": "31 / 31",
+     "wilson_low": 0.889740999265246,
+     "wilson_high": 0.9999999999999999,
+     "level": "Measured"
+    },
+    "alias": {
+     "k": 17,
+     "n": 17,
+     "rate": "17 / 17",
+     "wilson_low": 0.8156763396284354,
+     "wilson_high": 1.0,
+     "level": "Indicative"
+    },
+    "french": {
+     "k": 0,
+     "n": 31,
+     "rate": "0 / 31",
+     "wilson_low": 0.0,
+     "wilson_high": 0.11025900073475385,
+     "level": "Measured"
+    }
+   }
+  },
+  "navigator": {
+   "rows": [
+    {
+     "id": "u_ry_name",
+     "kind": "name",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in Royal Bank of Canada?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1554.9
+    },
+    {
+     "id": "u_ry_ticker",
+     "kind": "ticker",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RY?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1327.1
+    },
+    {
+     "id": "u_ry_fr",
+     "kind": "french",
+     "ticker": "RY.TO",
+     "text": "Et si je mettais 15 % dans Royal Bank of Canada ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1326.6
+    },
+    {
+     "id": "u_td_name",
+     "kind": "name",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in Toronto-Dominion Bank?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1213.6
+    },
+    {
+     "id": "u_td_ticker",
+     "kind": "ticker",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1299.1
+    },
+    {
+     "id": "u_td_fr",
+     "kind": "french",
+     "ticker": "TD.TO",
+     "text": "Et si je mettais 15 % dans Toronto-Dominion Bank ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1374.4
+    },
+    {
+     "id": "u_mfc_name",
+     "kind": "name",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in Manulife Financial?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1432.8
+    },
+    {
+     "id": "u_mfc_ticker",
+     "kind": "ticker",
+     "ticker": "MFC.TO",
+     "text": "What if I put 15 % in MFC?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1339.2
+    },
+    {
+     "id": "u_mfc_fr",
+     "kind": "french",
+     "ticker": "MFC.TO",
+     "text": "Et si je mettais 15 % dans Manulife Financial ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MFC.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1360.4
+    },
+    {
+     "id": "u_enb_name",
+     "kind": "name",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in Enbridge?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1386.5
+    },
+    {
+     "id": "u_enb_ticker",
+     "kind": "ticker",
+     "ticker": "ENB.TO",
+     "text": "What if I put 15 % in ENB?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1403.2
+    },
+    {
+     "id": "u_enb_fr",
+     "kind": "french",
+     "ticker": "ENB.TO",
+     "text": "Et si je mettais 15 % dans Enbridge ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ENB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1346.0
+    },
+    {
+     "id": "u_cnq_name",
+     "kind": "name",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural Resources?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1380.9
+    },
+    {
+     "id": "u_cnq_ticker",
+     "kind": "ticker",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in CNQ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1301.2
+    },
+    {
+     "id": "u_cnq_fr",
+     "kind": "french",
+     "ticker": "CNQ.TO",
+     "text": "Et si je mettais 15 % dans Canadian Natural Resources ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1312.7
+    },
+    {
+     "id": "u_cnr_name",
+     "kind": "name",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in Canadian National Railway?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1419.1
+    },
+    {
+     "id": "u_cnr_ticker",
+     "kind": "ticker",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CNR?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1248.5
+    },
+    {
+     "id": "u_cnr_fr",
+     "kind": "french",
+     "ticker": "CNR.TO",
+     "text": "Et si je mettais 15 % dans Canadian National Railway ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1413.4
+    },
+    {
+     "id": "u_fts_name",
+     "kind": "name",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in Fortis?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1445.0
+    },
+    {
+     "id": "u_fts_ticker",
+     "kind": "ticker",
+     "ticker": "FTS.TO",
+     "text": "What if I put 15 % in FTS?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1981.3
+    },
+    {
+     "id": "u_fts_fr",
+     "kind": "french",
+     "ticker": "FTS.TO",
+     "text": "Et si je mettais 15 % dans Fortis ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "FTS.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1467.9
+    },
+    {
+     "id": "u_atd_name",
+     "kind": "name",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Alimentation Couche-Tard?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1329.4
+    },
+    {
+     "id": "u_atd_ticker",
+     "kind": "ticker",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in ATD?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1292.4
+    },
+    {
+     "id": "u_atd_fr",
+     "kind": "french",
+     "ticker": "ATD.TO",
+     "text": "Et si je mettais 15 % dans Alimentation Couche-Tard ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1297.8
+    },
+    {
+     "id": "u_shop_name",
+     "kind": "name",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in Shopify?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1241.4
+    },
+    {
+     "id": "u_shop_ticker",
+     "kind": "ticker",
+     "ticker": "SHOP.TO",
+     "text": "What if I put 15 % in SHOP?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1440.0
+    },
+    {
+     "id": "u_shop_fr",
+     "kind": "french",
+     "ticker": "SHOP.TO",
+     "text": "Et si je mettais 15 % dans Shopify ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SHOP.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1318.6
+    },
+    {
+     "id": "u_csu_name",
+     "kind": "name",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation Software?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1353.7
+    },
+    {
+     "id": "u_csu_ticker",
+     "kind": "ticker",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in CSU?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1334.8
+    },
+    {
+     "id": "u_csu_fr",
+     "kind": "french",
+     "ticker": "CSU.TO",
+     "text": "Et si je mettais 15 % dans Constellation Software ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1471.9
+    },
+    {
+     "id": "u_aapl_name",
+     "kind": "name",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in Apple?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1534.7
+    },
+    {
+     "id": "u_aapl_ticker",
+     "kind": "ticker",
+     "ticker": "AAPL",
+     "text": "What if I put 15 % in AAPL?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1246.6
+    },
+    {
+     "id": "u_aapl_fr",
+     "kind": "french",
+     "ticker": "AAPL",
+     "text": "Et si je mettais 15 % dans Apple ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AAPL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1316.5
+    },
+    {
+     "id": "u_msft_name",
+     "kind": "name",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in Microsoft?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1345.9
+    },
+    {
+     "id": "u_msft_ticker",
+     "kind": "ticker",
+     "ticker": "MSFT",
+     "text": "What if I put 15 % in MSFT?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1482.8
+    },
+    {
+     "id": "u_msft_fr",
+     "kind": "french",
+     "ticker": "MSFT",
+     "text": "Et si je mettais 15 % dans Microsoft ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "MSFT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1369.9
+    },
+    {
+     "id": "u_nvda_name",
+     "kind": "name",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVIDIA?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1286.2
+    },
+    {
+     "id": "u_nvda_ticker",
+     "kind": "ticker",
+     "ticker": "NVDA",
+     "text": "What if I put 15 % in NVDA?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "NVDA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2356.0
+    },
+    {
+     "id": "u_nvda_fr",
+     "kind": "french",
+     "ticker": "NVDA",
+     "text": "Et si je mettais 15 % dans NVIDIA ?",
+     "ok": false,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": null,
+      "ticker": null,
+      "weight": null
+     },
+     "clarify_reason": "headline_vague",
+     "fallback_reason": "The navigator's answer was not used (the plan used advice words or markup); the keyword rules answered.",
+     "error": null,
+     "ms": 2395.8
+    },
+    {
+     "id": "u_googl_name",
+     "kind": "name",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Alphabet?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1266.3
+    },
+    {
+     "id": "u_googl_ticker",
+     "kind": "ticker",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in GOOGL?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1327.7
+    },
+    {
+     "id": "u_googl_fr",
+     "kind": "french",
+     "ticker": "GOOGL",
+     "text": "Et si je mettais 15 % dans Alphabet ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1378.3
+    },
+    {
+     "id": "u_amzn_name",
+     "kind": "name",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in Amazon?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1348.9
+    },
+    {
+     "id": "u_amzn_ticker",
+     "kind": "ticker",
+     "ticker": "AMZN",
+     "text": "What if I put 15 % in AMZN?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1256.8
+    },
+    {
+     "id": "u_amzn_fr",
+     "kind": "french",
+     "ticker": "AMZN",
+     "text": "Et si je mettais 15 % dans Amazon ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AMZN",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1402.1
+    },
+    {
+     "id": "u_tsla_name",
+     "kind": "name",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in Tesla?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1358.7
+    },
+    {
+     "id": "u_tsla_ticker",
+     "kind": "ticker",
+     "ticker": "TSLA",
+     "text": "What if I put 15 % in TSLA?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1384.3
+    },
+    {
+     "id": "u_tsla_fr",
+     "kind": "french",
+     "ticker": "TSLA",
+     "text": "Et si je mettais 15 % dans Tesla ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TSLA",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1400.6
+    },
+    {
+     "id": "u_jpm_name",
+     "kind": "name",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPMorgan Chase?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1271.7
+    },
+    {
+     "id": "u_jpm_ticker",
+     "kind": "ticker",
+     "ticker": "JPM",
+     "text": "What if I put 15 % in JPM?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1403.9
+    },
+    {
+     "id": "u_jpm_fr",
+     "kind": "french",
+     "ticker": "JPM",
+     "text": "Et si je mettais 15 % dans JPMorgan Chase ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JPM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1300.1
+    },
+    {
+     "id": "u_jnj_name",
+     "kind": "name",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in Johnson & Johnson?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1492.7
+    },
+    {
+     "id": "u_jnj_ticker",
+     "kind": "ticker",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in JNJ?",
+     "ok": true,
+     "method": "fallback",
+     "model_answered": false,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": "The navigator's answer was not used (the change names a ticker outside the dataset); the keyword rules answered.",
+     "error": null,
+     "ms": 1427.6
+    },
+    {
+     "id": "u_jnj_fr",
+     "kind": "french",
+     "ticker": "JNJ",
+     "text": "Et si je mettais 15 % dans Johnson & Johnson ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1327.8
+    },
+    {
+     "id": "u_pg_name",
+     "kind": "name",
+     "ticker": "PG",
+     "text": "What if I put 15 % in Procter & Gamble?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1344.8
+    },
+    {
+     "id": "u_pg_ticker",
+     "kind": "ticker",
+     "ticker": "PG",
+     "text": "What if I put 15 % in PG?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1495.5
+    },
+    {
+     "id": "u_pg_fr",
+     "kind": "french",
+     "ticker": "PG",
+     "text": "Et si je mettais 15 % dans Procter & Gamble ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1372.9
+    },
+    {
+     "id": "u_xom_name",
+     "kind": "name",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon Mobil?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1531.2
+    },
+    {
+     "id": "u_xom_ticker",
+     "kind": "ticker",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in XOM?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1316.5
+    },
+    {
+     "id": "u_xom_fr",
+     "kind": "french",
+     "ticker": "XOM",
+     "text": "Et si je mettais 15 % dans Exxon Mobil ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1136.6
+    },
+    {
+     "id": "u_xiu_name",
+     "kind": "name",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in the iShares S&P/TSX 60 Index ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1318.8
+    },
+    {
+     "id": "u_xiu_ticker",
+     "kind": "ticker",
+     "ticker": "XIU.TO",
+     "text": "What if I put 15 % in XIU?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1325.5
+    },
+    {
+     "id": "u_xiu_fr",
+     "kind": "french",
+     "ticker": "XIU.TO",
+     "text": "Et si je mettais 15 % dans le iShares S&P/TSX 60 Index ETF ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XIU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1335.3
+    },
+    {
+     "id": "u_spy_name",
+     "kind": "name",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the SPDR S&P 500 ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1429.5
+    },
+    {
+     "id": "u_spy_ticker",
+     "kind": "ticker",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in SPY?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1267.7
+    },
+    {
+     "id": "u_spy_fr",
+     "kind": "french",
+     "ticker": "SPY",
+     "text": "Et si je mettais 15 % dans le SPDR S&P 500 ETF ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1360.6
+    },
+    {
+     "id": "u_qqq_name",
+     "kind": "name",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Invesco QQQ Trust?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1327.2
+    },
+    {
+     "id": "u_qqq_ticker",
+     "kind": "ticker",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in QQQ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1279.5
+    },
+    {
+     "id": "u_qqq_fr",
+     "kind": "french",
+     "ticker": "QQQ",
+     "text": "Et si je mettais 15 % dans le Invesco QQQ Trust ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1315.0
+    },
+    {
+     "id": "u_esgv_name",
+     "kind": "name",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in the Vanguard ESG U.S. Stock ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1508.6
+    },
+    {
+     "id": "u_esgv_ticker",
+     "kind": "ticker",
+     "ticker": "ESGV",
+     "text": "What if I put 15 % in ESGV?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1359.8
+    },
+    {
+     "id": "u_esgv_fr",
+     "kind": "french",
+     "ticker": "ESGV",
+     "text": "Et si je mettais 15 % dans le Vanguard ESG U.S. Stock ETF ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ESGV",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1511.2
+    },
+    {
+     "id": "u_xbb_name",
+     "kind": "name",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in the iShares Core Canadian Universe Bond Index ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1322.5
+    },
+    {
+     "id": "u_xbb_ticker",
+     "kind": "ticker",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in XBB?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1393.5
+    },
+    {
+     "id": "u_xbb_fr",
+     "kind": "french",
+     "ticker": "XBB.TO",
+     "text": "Et si je mettais 15 % dans le iShares Core Canadian Universe Bond Index ETF ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1275.4
+    },
+    {
+     "id": "u_zst_name",
+     "kind": "name",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in the BMO Ultra Short-Term Bond ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1385.8
+    },
+    {
+     "id": "u_zst_ticker",
+     "kind": "ticker",
+     "ticker": "ZST.TO",
+     "text": "What if I put 15 % in ZST?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1288.3
+    },
+    {
+     "id": "u_zst_fr",
+     "kind": "french",
+     "ticker": "ZST.TO",
+     "text": "Et si je mettais 15 % dans le BMO Ultra Short-Term Bond ETF ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ZST.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1325.3
+    },
+    {
+     "id": "u_agg_name",
+     "kind": "name",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in the iShares Core U.S. Aggregate Bond ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AGG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1271.5
+    },
+    {
+     "id": "u_agg_ticker",
+     "kind": "ticker",
+     "ticker": "AGG",
+     "text": "What if I put 15 % in AGG?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AGG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1293.7
+    },
+    {
+     "id": "u_agg_fr",
+     "kind": "french",
+     "ticker": "AGG",
+     "text": "Et si je mettais 15 % dans le iShares Core U.S. Aggregate Bond ETF ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "AGG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1374.8
+    },
+    {
+     "id": "u_tlt_name",
+     "kind": "name",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in the iShares 20+ Year Treasury Bond ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1319.5
+    },
+    {
+     "id": "u_tlt_ticker",
+     "kind": "ticker",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in TLT?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1297.8
+    },
+    {
+     "id": "u_tlt_fr",
+     "kind": "french",
+     "ticker": "TLT",
+     "text": "Et si je mettais 15 % dans le iShares 20+ Year Treasury Bond ETF ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1543.3
+    },
+    {
+     "id": "u_gld_name",
+     "kind": "name",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in SPDR Gold Shares?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1571.0
+    },
+    {
+     "id": "u_gld_ticker",
+     "kind": "ticker",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in GLD?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1287.1
+    },
+    {
+     "id": "u_gld_fr",
+     "kind": "french",
+     "ticker": "GLD",
+     "text": "Et si je mettais 15 % dans SPDR Gold Shares ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1363.9
+    },
+    {
+     "id": "u_btc_name",
+     "kind": "name",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in Bitcoin?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1552.0
+    },
+    {
+     "id": "u_btc_ticker",
+     "kind": "ticker",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in BTC?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1410.9
+    },
+    {
+     "id": "u_btc_fr",
+     "kind": "french",
+     "ticker": "BTC-USD",
+     "text": "Et si je mettais 15 % dans Bitcoin ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 2178.2
+    },
+    {
+     "id": "u_eth_name",
+     "kind": "name",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in Ether?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1294.7
+    },
+    {
+     "id": "u_eth_ticker",
+     "kind": "ticker",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ETH?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1357.8
+    },
+    {
+     "id": "u_eth_fr",
+     "kind": "french",
+     "ticker": "ETH-USD",
+     "text": "Et si je mettais 15 % dans Ether ?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1483.2
+    },
+    {
+     "id": "u_ry_alias",
+     "kind": "alias",
+     "ticker": "RY.TO",
+     "text": "What if I put 15 % in RBC?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "RY.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1419.8
+    },
+    {
+     "id": "u_td_alias",
+     "kind": "alias",
+     "ticker": "TD.TO",
+     "text": "What if I put 15 % in TD Bank?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1440.4
+    },
+    {
+     "id": "u_atd_alias",
+     "kind": "alias",
+     "ticker": "ATD.TO",
+     "text": "What if I put 15 % in Couche-Tard?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ATD.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1347.6
+    },
+    {
+     "id": "u_cnr_alias",
+     "kind": "alias",
+     "ticker": "CNR.TO",
+     "text": "What if I put 15 % in CN Rail?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNR.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1390.4
+    },
+    {
+     "id": "u_cnq_alias",
+     "kind": "alias",
+     "ticker": "CNQ.TO",
+     "text": "What if I put 15 % in Canadian Natural?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CNQ.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1334.7
+    },
+    {
+     "id": "u_csu_alias",
+     "kind": "alias",
+     "ticker": "CSU.TO",
+     "text": "What if I put 15 % in Constellation?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "CSU.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1447.0
+    },
+    {
+     "id": "u_googl_alias",
+     "kind": "alias",
+     "ticker": "GOOGL",
+     "text": "What if I put 15 % in Google?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GOOGL",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1267.1
+    },
+    {
+     "id": "u_jnj_alias",
+     "kind": "alias",
+     "ticker": "JNJ",
+     "text": "What if I put 15 % in J&J?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "JNJ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1364.9
+    },
+    {
+     "id": "u_pg_alias",
+     "kind": "alias",
+     "ticker": "PG",
+     "text": "What if I put 15 % in P&G?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "PG",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1293.6
+    },
+    {
+     "id": "u_xom_alias",
+     "kind": "alias",
+     "ticker": "XOM",
+     "text": "What if I put 15 % in Exxon?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XOM",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1200.2
+    },
+    {
+     "id": "u_spy_alias",
+     "kind": "alias",
+     "ticker": "SPY",
+     "text": "What if I put 15 % in the S&P 500 ETF?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "SPY",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1339.3
+    },
+    {
+     "id": "u_qqq_alias",
+     "kind": "alias",
+     "ticker": "QQQ",
+     "text": "What if I put 15 % in the Nasdaq-100?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "QQQ",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1316.8
+    },
+    {
+     "id": "u_gld_alias",
+     "kind": "alias",
+     "ticker": "GLD",
+     "text": "What if I put 15 % in gold?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "GLD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1326.2
+    },
+    {
+     "id": "u_btc_alias",
+     "kind": "alias",
+     "ticker": "BTC-USD",
+     "text": "What if I put 15 % in bitcoin?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "BTC-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1264.4
+    },
+    {
+     "id": "u_eth_alias",
+     "kind": "alias",
+     "ticker": "ETH-USD",
+     "text": "What if I put 15 % in ethereum?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "ETH-USD",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1236.2
+    },
+    {
+     "id": "u_tlt_alias",
+     "kind": "alias",
+     "ticker": "TLT",
+     "text": "What if I put 15 % in long Treasuries?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "TLT",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1309.7
+    },
+    {
+     "id": "u_xbb_alias",
+     "kind": "alias",
+     "ticker": "XBB.TO",
+     "text": "What if I put 15 % in Canadian bonds?",
+     "ok": true,
+     "method": "bedrock",
+     "model_answered": true,
+     "read": {
+      "op": "set",
+      "ticker": "XBB.TO",
+      "weight": 0.15
+     },
+     "clarify_reason": null,
+     "fallback_reason": null,
+     "error": null,
+     "ms": 1332.5
+    }
+   ],
+   "overall": {
+    "k": 109,
+    "n": 110,
+    "rate": "109 / 110",
+    "wilson_low": 0.9502931300620922,
+    "wilson_high": 0.9983934660504014,
+    "level": "Measured"
+   },
+   "by_kind": {
+    "name": {
+     "k": 31,
+     "n": 31,
+     "rate": "31 / 31",
+     "wilson_low": 0.889740999265246,
+     "wilson_high": 0.9999999999999999,
+     "level": "Measured"
+    },
+    "ticker": {
+     "k": 31,
+     "n": 31,
+     "rate": "31 / 31",
+     "wilson_low": 0.889740999265246,
+     "wilson_high": 0.9999999999999999,
+     "level": "Measured"
+    },
+    "alias": {
+     "k": 17,
+     "n": 17,
+     "rate": "17 / 17",
+     "wilson_low": 0.8156763396284354,
+     "wilson_high": 1.0,
+     "level": "Indicative"
+    },
+    "french": {
+     "k": 30,
+     "n": 31,
+     "rate": "30 / 31",
+     "wilson_low": 0.8380554282383037,
+     "wilson_high": 0.9942829259130554,
+     "level": "Measured"
+    }
+   },
+   "model_answered": {
+    "k": 108,
+    "n": 110,
+    "rate": "108 / 110",
+    "wilson_low": 0.9361185758998575,
+    "wilson_high": 0.9949997499142563,
+    "level": "Measured"
+   }
+  }
+ }
+}

@@ -1,0 +1,1440 @@
+{
+  "meta": {
+    "sha256": "4203c7181dccf177078b56541ef99051ae1763367cfda00a81ee66f303a5124f",
+    "date": "2026-11-15",
+    "model": "us.anthropic.claude-sonnet-5-5",
+    "as_of": "2026-11-12"
+  },
+  "by_category": {
+    "advice_bait": {
+      "n": 5,
+      "navigator": {
+        "k": 3,
+        "rate": "3 / 5",
+        "wilson_low": 0.23071993220883708,
+        "wilson_high": 0.8823817688407467
+      },
+      "keyword": {
+        "k": 4,
+        "rate": "4 / 5",
+        "wilson_low": 0.3755282641185388,
+        "wilson_high": 0.9637768390302125
+      }
+    },
+    "headline": {
+      "n": 6,
+      "navigator": {
+        "k": 6,
+        "rate": "6 / 6",
+        "wilson_low": 0.6096569663469354,
+        "wilson_high": 0.9999999999999999
+      },
+      "keyword": {
+        "k": 6,
+        "rate": "6 / 6",
+        "wilson_low": 0.6096569663469354,
+        "wilson_high": 0.9999999999999999
+      }
+    },
+    "paraphrase": {
+      "n": 10,
+      "navigator": {
+        "k": 10,
+        "rate": "10 / 10",
+        "wilson_low": 0.7224598312333834,
+        "wilson_high": 1.0
+      },
+      "keyword": {
+        "k": 5,
+        "rate": "5 / 10",
+        "wilson_low": 0.23658959361548731,
+        "wilson_high": 0.7634104063845126
+      }
+    },
+    "rambling": {
+      "n": 3,
+      "navigator": {
+        "k": 2,
+        "rate": "2 / 3",
+        "wilson_low": 0.2076549551264879,
+        "wilson_high": 0.9385096847238394
+      },
+      "keyword": {
+        "k": 1,
+        "rate": "1 / 3",
+        "wilson_low": 0.0614903152761605,
+        "wilson_high": 0.7923450448735121
+      }
+    },
+    "two_moves": {
+      "n": 3,
+      "navigator": {
+        "k": 2,
+        "rate": "2 / 3",
+        "wilson_low": 0.2076549551264879,
+        "wilson_high": 0.9385096847238394
+      },
+      "keyword": {
+        "k": 3,
+        "rate": "3 / 3",
+        "wilson_low": 0.43849391955098227,
+        "wilson_high": 1.0
+      }
+    },
+    "french": {
+      "n": 6,
+      "navigator": {
+        "k": 6,
+        "rate": "6 / 6",
+        "wilson_low": 0.6096569663469354,
+        "wilson_high": 0.9999999999999999
+      },
+      "keyword": {
+        "k": 0,
+        "rate": "0 / 6",
+        "wilson_low": 0.0,
+        "wilson_high": 0.3903430336530645
+      }
+    },
+    "no_precedent": {
+      "n": 5,
+      "navigator": {
+        "k": 5,
+        "rate": "5 / 5",
+        "wilson_low": 0.5655085052479191,
+        "wilson_high": 1.0
+      },
+      "keyword": {
+        "k": 5,
+        "rate": "5 / 5",
+        "wilson_low": 0.5655085052479191,
+        "wilson_high": 1.0
+      }
+    },
+    "typos": {
+      "n": 5,
+      "navigator": {
+        "k": 4,
+        "rate": "4 / 5",
+        "wilson_low": 0.3755282641185388,
+        "wilson_high": 0.9637768390302125
+      },
+      "keyword": {
+        "k": 2,
+        "rate": "2 / 5",
+        "wilson_low": 0.1176182311592533,
+        "wilson_high": 0.769280067791163
+      }
+    },
+    "slang": {
+      "n": 5,
+      "navigator": {
+        "k": 5,
+        "rate": "5 / 5",
+        "wilson_low": 0.5655085052479191,
+        "wilson_high": 1.0
+      },
+      "keyword": {
+        "k": 5,
+        "rate": "5 / 5",
+        "wilson_low": 0.5655085052479191,
+        "wilson_high": 1.0
+      }
+    }
+  },
+  "navigator": [
+    {
+      "id": "hv2_fr01",
+      "group": "french",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2267
+    },
+    {
+      "id": "hv2_fr02",
+      "group": "french",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2738
+    },
+    {
+      "id": "hv2_fr03",
+      "group": "french",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2070
+    },
+    {
+      "id": "hv2_fr04",
+      "group": "french",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2112
+    },
+    {
+      "id": "hv2_fr05",
+      "group": "french",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2725
+    },
+    {
+      "id": "hv2_fr06",
+      "group": "french",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2441
+    },
+    {
+      "id": "hv2_slang01",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2749
+    },
+    {
+      "id": "hv2_slang02",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2478
+    },
+    {
+      "id": "hv2_slang03",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2590
+    },
+    {
+      "id": "hv2_slang04",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2538
+    },
+    {
+      "id": "hv2_slang05",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2783
+    },
+    {
+      "id": "hv2_typo01",
+      "group": "typos",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2411
+    },
+    {
+      "id": "hv2_typo02",
+      "group": "typos",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 3275
+    },
+    {
+      "id": "hv2_typo03",
+      "group": "typos",
+      "families_ok": false,
+      "families_got": [
+        "tariffs",
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2623
+    },
+    {
+      "id": "hv2_typo04",
+      "group": "typos",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2578
+    },
+    {
+      "id": "hv2_typo05",
+      "group": "typos",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2565
+    },
+    {
+      "id": "hv2_ramble01",
+      "group": "rambling",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2583
+    },
+    {
+      "id": "hv2_ramble02",
+      "group": "rambling",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 3344
+    },
+    {
+      "id": "hv2_ramble03",
+      "group": "rambling",
+      "families_ok": false,
+      "families_got": [
+        "war_oil",
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 3075
+    },
+    {
+      "id": "hv2_headline01",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2422
+    },
+    {
+      "id": "hv2_headline02",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2513
+    },
+    {
+      "id": "hv2_headline03",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2742
+    },
+    {
+      "id": "hv2_headline04",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2335
+    },
+    {
+      "id": "hv2_headline05",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2485
+    },
+    {
+      "id": "hv2_headline06",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2198
+    },
+    {
+      "id": "hv2_multi01",
+      "group": "two_moves",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2476
+    },
+    {
+      "id": "hv2_multi02",
+      "group": "two_moves",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2565
+    },
+    {
+      "id": "hv2_multi03",
+      "group": "two_moves",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 3114
+    },
+    {
+      "id": "hv2_advice01",
+      "group": "advice_bait",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2798
+    },
+    {
+      "id": "hv2_advice02",
+      "group": "advice_bait",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2295
+    },
+    {
+      "id": "hv2_advice03",
+      "group": "advice_bait",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2804
+    },
+    {
+      "id": "hv2_advice04",
+      "group": "advice_bait",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2534
+    },
+    {
+      "id": "hv2_advice05",
+      "group": "advice_bait",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1191
+    },
+    {
+      "id": "hv2_nopre01",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 2138
+    },
+    {
+      "id": "hv2_nopre02",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 1417
+    },
+    {
+      "id": "hv2_nopre03",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 1442
+    },
+    {
+      "id": "hv2_nopre04",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 1443
+    },
+    {
+      "id": "hv2_nopre05",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 1382
+    },
+    {
+      "id": "hv2_para01",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2786
+    },
+    {
+      "id": "hv2_para02",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2370
+    },
+    {
+      "id": "hv2_para03",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2801
+    },
+    {
+      "id": "hv2_para04",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2498
+    },
+    {
+      "id": "hv2_para05",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2231
+    },
+    {
+      "id": "hv2_para06",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 2960
+    },
+    {
+      "id": "hv2_para07",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2162
+    },
+    {
+      "id": "hv2_para08",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2226
+    },
+    {
+      "id": "hv2_para09",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 2664
+    },
+    {
+      "id": "hv2_para10",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2335
+    }
+  ],
+  "keyword": [
+    {
+      "id": "hv2_fr01",
+      "group": "french",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_fr02",
+      "group": "french",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_fr03",
+      "group": "french",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_fr04",
+      "group": "french",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 2
+    },
+    {
+      "id": "hv2_fr05",
+      "group": "french",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_fr06",
+      "group": "french",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_slang01",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_slang02",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_slang03",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_slang04",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_slang05",
+      "group": "slang",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_typo01",
+      "group": "typos",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_typo02",
+      "group": "typos",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_typo03",
+      "group": "typos",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2
+    },
+    {
+      "id": "hv2_typo04",
+      "group": "typos",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 3
+    },
+    {
+      "id": "hv2_typo05",
+      "group": "typos",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_ramble01",
+      "group": "rambling",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 8
+    },
+    {
+      "id": "hv2_ramble02",
+      "group": "rambling",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 6
+    },
+    {
+      "id": "hv2_ramble03",
+      "group": "rambling",
+      "families_ok": false,
+      "families_got": [
+        "war_oil",
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 5
+    },
+    {
+      "id": "hv2_headline01",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 3
+    },
+    {
+      "id": "hv2_headline02",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_headline03",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_headline04",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_headline05",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_headline06",
+      "group": "headline",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_multi01",
+      "group": "two_moves",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 3
+    },
+    {
+      "id": "hv2_multi02",
+      "group": "two_moves",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_multi03",
+      "group": "two_moves",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_advice01",
+      "group": "advice_bait",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 4
+    },
+    {
+      "id": "hv2_advice02",
+      "group": "advice_bait",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_advice03",
+      "group": "advice_bait",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 2
+    },
+    {
+      "id": "hv2_advice04",
+      "group": "advice_bait",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 0
+    },
+    {
+      "id": "hv2_advice05",
+      "group": "advice_bait",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_nopre01",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_nopre02",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_nopre03",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_nopre04",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 6
+    },
+    {
+      "id": "hv2_nopre05",
+      "group": "no_precedent",
+      "families_ok": true,
+      "families_got": [],
+      "families_expected": [],
+      "error": null,
+      "wall_ms": 3
+    },
+    {
+      "id": "hv2_para01",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "tariffs"
+      ],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_para02",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_para03",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "chips"
+      ],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_para04",
+      "group": "paraphrase",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_para05",
+      "group": "paraphrase",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 0
+    },
+    {
+      "id": "hv2_para06",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "war_oil"
+      ],
+      "families_expected": [
+        "war_oil"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_para07",
+      "group": "paraphrase",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_para08",
+      "group": "paraphrase",
+      "families_ok": true,
+      "families_got": [
+        "rates"
+      ],
+      "families_expected": [
+        "rates"
+      ],
+      "error": null,
+      "wall_ms": 0
+    },
+    {
+      "id": "hv2_para09",
+      "group": "paraphrase",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "tariffs"
+      ],
+      "error": null,
+      "wall_ms": 1
+    },
+    {
+      "id": "hv2_para10",
+      "group": "paraphrase",
+      "families_ok": false,
+      "families_got": [],
+      "families_expected": [
+        "chips"
+      ],
+      "error": null,
+      "wall_ms": 0
+    }
+  ],
+  "summary": {
+    "navigator": {
+      "k": 43,
+      "n": 48,
+      "rate": "43 / 48",
+      "wilson_low": 0.7783231187385907,
+      "wilson_high": 0.9546789490988218,
+      "level": "Measured"
+    },
+    "keyword": {
+      "k": 31,
+      "n": 48,
+      "rate": "31 / 48",
+      "wilson_low": 0.5043879645406409,
+      "wilson_high": 0.7656654288731427,
+      "level": "Measured"
+    }
+  },
+  "examples_nav_beats_kw": [
+    {
+      "id": "hv2_fr01",
+      "text": "Et si les États-Unis imposent encore des droits de douane sur tout ce qui vient du Canada?",
+      "expected": [
+        "tariffs"
+      ],
+      "keyword_got": [],
+      "navigator_got": [
+        "tariffs"
+      ],
+      "category": "french"
+    },
+    {
+      "id": "hv2_fr02",
+      "text": "Que se passerait-il si le détroit d'Ormuz était bloqué pendant plusieurs semaines?",
+      "expected": [
+        "war_oil"
+      ],
+      "keyword_got": [],
+      "navigator_got": [
+        "war_oil"
+      ],
+      "category": "french"
+    },
+    {
+      "id": "hv2_fr03",
+      "text": "Et si Washington interdit complètement les exportations de puces vers la Chine?",
+      "expected": [
+        "chips"
+      ],
+      "keyword_got": [],
+      "navigator_got": [
+        "chips"
+      ],
+      "category": "french"
+    },
+    {
+      "id": "hv2_fr04",
+      "text": "Si la Réserve fédérale continue d'augmenter les taux d'intérêt agressivement?",
+      "expected": [
+        "rates"
+      ],
+      "keyword_got": [],
+      "navigator_got": [
+        "rates"
+      ],
+      "category": "french"
+    },
+    {
+      "id": "hv2_fr05",
+      "text": "Qu'arrive-t-il si Trump met 50% de tarifs sur toutes nos exportations?",
+      "expected": [
+        "tariffs"
+      ],
+      "keyword_got": [],
+      "navigator_got": [
+        "tariffs"
+      ],
+      "category": "french"
+    }
+  ],
+  "examples_both_fail": [
+    {
+      "id": "hv2_typo03",
+      "text": "waht if america bans all the semmiconductor exports to chinaa",
+      "expected": [
+        "chips"
+      ],
+      "keyword_got": [],
+      "navigator_got": [
+        "tariffs",
+        "chips"
+      ]
+    },
+    {
+      "id": "hv2_ramble03",
+      "text": "My brother who works in tech keeps telling me about all this geopolitical stuff ...",
+      "expected": [
+        "chips"
+      ],
+      "keyword_got": [
+        "war_oil",
+        "chips"
+      ],
+      "navigator_got": [
+        "war_oil",
+        "chips"
+      ]
+    },
+    {
+      "id": "hv2_advice05",
+      "text": "Tell me exactly what percentage to hold in US stocks vs Canadian",
+      "expected": [
+        "tariffs"
+      ],
+      "keyword_got": [],
+      "navigator_got": []
+    }
+  ]
+}

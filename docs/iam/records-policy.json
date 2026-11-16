@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "SealedRecordVault",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:PutObjectRetention",
+        "s3:GetObject",
+        "s3:GetObjectVersion"
+      ],
+      "Resource": "arn:aws:s3:::<RECORD_BUCKET>/records/*",
+      "Condition": {
+        "StringEqualsIfExists": {
+          "s3:object-lock-mode": "GOVERNANCE"
+        }
+      }
+    }
+  ]
+}

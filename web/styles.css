@@ -1,0 +1,356 @@
+/* EPICENTRE design tokens and base styles (lane U0; the Replay design doc §3, spec 22 night direction). One theme: the whole
+   site is the night instrument. Black ground, light as information. The first root block below holds every colour and chart
+   value as a literal (ui/charts.py copies them). Roles: magenta = the move and nothing else, terrain (gold) = the floor, outside
+   (red) = breach / outside, caution (amber), signal (cyan) = shocks; status = icon + word, never colour alone. Two surface levels
+   only: the black page and one lift (paper) with a 1 px hairline; no nested cards. This file holds tokens + base only: every
+   section's look lives in web/css/<lane>.css (loaded after it). Do not fork the tokens: read them with var(--name). */
+@font-face { font-family: "Archivo"; src: url("vendor/fonts/Archivo-Variable.woff2") format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; }
+@font-face { font-family: "B612"; src: url("vendor/fonts/B612-Regular.woff2") format("woff2"); font-weight: 400; font-display: swap; }
+@font-face { font-family: "B612"; src: url("vendor/fonts/B612-Bold.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+/* Arial resized to Archivo's measured width (Chrome canvas, four 60-character lines at weight 400: 0.977 to 0.984 of Arial, mean 0.982),
+   so the swap to Archivo does not re-wrap a line or move the layout */
+@font-face { font-family: "Archivo Fallback"; src: local("Arial"), local("Helvetica"); size-adjust: 98.2%; }
+
+:root {
+  color-scheme: dark;
+  /* colour roles. sky is the page, paper the one lift, paper-2 its hover and selected step, pop an opaque floating surface */
+  --sky: #000000;
+  --paper: rgba(255, 255, 255, .05);
+  --paper-2: rgba(255, 255, 255, .08);
+  --pop: #15171B;
+  --ink: #E6EAF0;
+  --ink-2: #A9B2BF;
+  --haze: #848D99;
+  --starlight: #FFFFFF;
+  --on-ink: #000000;
+  --magenta: #FF5FC8;
+  --terrain: #D2B48C;
+  --ground: rgba(210, 180, 140, .07);
+  --clear: #8FA9C4;            /* Inside your limits: a calm blue-grey, never an approval green (the regulation flaw hunter) */
+  --caution: #F4BE4F;
+  --outside: #FF6A5C;
+  --signal: #9FE6FF;
+  --rule: rgba(255, 255, 255, .14);
+  --edge: #667080;
+  --focus: #79B8FF;
+  /* chart values, literal so ui/charts.py can copy them into plotly */
+  --chart-surface: #000000;
+  --chart-ink: #E6EAF0;
+  --chart-ink-2: #A9B2BF;
+  --chart-muted: #848D99;
+  --chart-grid: rgba(255, 255, 255, 0.10);
+  --series-today: #C9D7E8;
+  --series-after: #FF5FC8;
+  --series-aligned: #A9B2BF;
+  --floor: #D2B48C;
+  --breach: rgba(255, 106, 92, 0.18);
+  --regime: rgba(255, 255, 255, 0.05);
+  --family-tariffs: #BC6234;
+  --family-war-oil: #2991F0;
+  --family-chips: #33A595;
+  --family-rates: #9367BC;
+  --status-ok: #8FA9C4;
+  --status-caution: #F4BE4F;
+  --status-outside: #FF6A5C;
+  --map-land: #1B2436;
+  --map-ocean: #05070B;
+  --map-border: #2E394D;
+  --font-ui: Archivo, system-ui, sans-serif;
+  /* names the first cockpit already uses */
+  --grid: var(--chart-grid);
+  --land: var(--map-land);
+  --ocean: var(--map-ocean);
+  --outside-wash: var(--breach);
+  --ground-dot: rgba(210, 180, 140, .5);
+  --backdrop: var(--regime);
+  --ink-tint: rgba(255, 255, 255, .26);
+  --magenta-wash: rgba(255, 95, 200, .14);
+  /* type: Archivo for every word, B612 for numbers with units, the dollar figure, the lamp and the wordmark */
+  --font-text: "Archivo", "Archivo Fallback", system-ui, sans-serif;
+  --font-num: "B612", "Archivo", system-ui, sans-serif;
+  /* one scale, smaller (the lead 16:05: "text that's smaller"): 14 (the floor, R22), 15, 16 body, 18 lead, 20, 24, 32 section h2,
+     40 lamp, 48 hero headline, 64 big readouts at most; phone values first in each clamp, 1440 values last */
+  --t-small: clamp(0.875rem, 0.85rem + 0.07vw, 0.9375rem);         /* 14 -> 15 */
+  --t-body: clamp(0.9375rem, 0.9rem + 0.1vw, 1rem);                /* 15 -> 16 */
+  --t-lead: clamp(1.0625rem, 1.02rem + 0.14vw, 1.125rem);          /* 17 -> 18 */
+  --t-h3: clamp(1.0625rem, 1rem + 0.25vw, 1.25rem);                /* 17 -> 20 */
+  --t-h2: clamp(1.5rem, 1.2rem + 0.9vw, 2rem);                     /* 24 -> 32 */
+  --t-h1: clamp(2rem, 1.6rem + 1.4vw, 2.75rem);                    /* 32 -> 44 */
+  --t-verdict: clamp(2rem, 1.7rem + 0.9vw, 2.5rem);                /* 32 -> 40 */
+  --t-readout-xl: clamp(2.75rem, 2.2rem + 1.6vw, 4rem);            /* 44 -> 64 */
+  --t-display: clamp(2.25rem, 1.25rem + 2.2vw, 3rem);              /* 36 -> 48 */
+  --t-xs: 0.875rem; --t-s: 15px; --t-m: 16px; --t-l: 18px; --t-xl: 24px; --t-2xl: 32px;
+  /* space, radius */
+  --s-1: 4px; --s-2: 8px; --s-3: 12px; --s-4: 16px; --s-5: 24px; --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px; --s-11: 192px;
+  --r-tag: 4px; --r-input: 8px; --r-panel: 16px; --r-pill: 999px;   /* tags, inputs and buttons, cards, chips and the Replay button */
+  /* the design director's tokens (15:55 spec; polish lane). No new hues: --clear stays R38's blue-grey, never a green.
+     Soft cards: one fill, one 1 px edge, 24 px inside (16 px on phones). The floor band is the chart's band under the floor. */
+  --card: rgba(255, 255, 255, .035);
+  --card-edge: rgba(255, 255, 255, .08);
+  --card-pad: 24px;
+  --floor-band: rgba(255, 106, 92, .06);
+  /* one rhythm: every section's block padding (104 px at 1440, 64 px on phones); inside a section h2 -> lead 12 px
+     (--s-3), lead -> content 48 px (--s-7), content -> its fold 32 px (--s-6) */
+  --sec-y: clamp(64px, 2rem + 5vw, 120px);
+  /* every section's h2 is font: var(--font-h2); font-stretch: var(--h2-stretch); letter-spacing: var(--h2-track)
+     (32 px at 1440, 24 px on phones; headings keep tight line-heights) */
+  --t-sec-h2: var(--t-h2);
+  --font-h2: 640 var(--t-sec-h2)/1.08 var(--font-text);
+  --h2-stretch: 72%;
+  --h2-track: -0.008em;
+  --t-lead-fixed: 18px;  --lead-lh: 1.4;  --lead-measure: 46ch;      /* the lead under an h2 */
+  --t-body-fixed: 16px;  --t-small-fixed: 14px;                      /* body 16/1.5; small 14/1.45, the page minimum */
+  --t-readout: 15px;                                                 /* B612 readouts, tabular */
+  --t-readout-big: var(--t-readout-xl);                              /* Archivo 640, stretch 62 %, tabular: 64 px desktop, 44 px phone */
+  --t-lamp: var(--t-verdict);                                        /* the verdict lamp: 40 px desktop, 32 px phone */
+  --t-hero: clamp(2.25rem, 0.75rem + 2.5vw, 3rem);                    /* the hero's headline (R41): 48 px at 1440, 44 at 1280, 36 on phones */
+  --margin: clamp(16px, 4.5vw, 64px);
+  --gutter: clamp(16px, 2vw, 32px);
+  --bar: 64px;
+  --page: min(1360px, 100% - 2 * var(--margin));
+  /* motion: two curves, nine durations (spec 22 rule 3); exits take two thirds of the enter time */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --dur-press: 120ms;
+  --dur-tip: 160ms;
+  --dur-tip-exit: 110ms;
+  --dur-list: 200ms;
+  --dur-flip: 240ms;
+  --dur-panel: 320ms;
+  --dur-panel-exit: 220ms;
+  --dur-lamp: 400ms;
+  --dur-story: 700ms;
+  --dur-none: 0s;              /* motion ended: every animation and transition at its end state (html.motion-off) */
+  /* layers (one scale for every lane): the globe canvas under the content, the sticky stage, the bar, the drawer */
+  --z-globe: 0;
+  --z-content: 1;
+  --z-stage: 2;
+  --z-bar: 30;
+  --z-drawer: 40;
+  --z-toast: 50;
+}
+
+
+/* ---- base: one type scale, the 4 px grid, the 12-column frame ---- */
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--sky); -webkit-text-size-adjust: 100%; text-size-adjust: 100%; scroll-behavior: auto; }   /* smooth only in the script that answers a click */
+body { margin: 0; min-height: 100svh; background: var(--sky); color: var(--ink); font: 400 var(--t-body)/1.5 var(--font-text); font-kerning: normal;
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; overflow-x: clip; }
+h1, h2, h3, h4, p, dl, dd, figure, ol, ul, blockquote { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+h1, h2, h3 { text-wrap: balance; font-weight: 640; line-height: 1.1; }
+p { text-wrap: pretty; }
+img, svg, canvas, video { display: block; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { -webkit-tap-highlight-color: transparent; }
+[hidden] { display: none !important; }
+:focus-visible { outline: 2px solid var(--focus); outline-offset: 3px; border-radius: var(--r-tag); }
+::selection { background: rgba(121, 184, 255, .35); color: var(--starlight); }
+
+/* figures: tabular Archivo at +100 weight inline (.fig); B612 only on instrument readouts (.inst: axes, the ruler, the big trough) */
+.fig { font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+.inst, .num { font-family: var(--font-num); font-variant-numeric: tabular-nums; letter-spacing: 0; word-spacing: -0.16em; white-space: nowrap; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.icon { width: 1.1em; height: 1.1em; flex: none; vertical-align: -0.16em; }
+.kind { width: 12px; height: 12px; flex: none; }
+
+/* the 12-column frame: .frame is the page width; .grid12 splits it on the gutter (lanes place children with grid-column) */
+.frame { width: var(--page); margin-inline: auto; }
+.grid12 { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); }
+.hairline { border: 0; border-top: 1px solid var(--rule); margin: 0; }
+
+/* status = icon + word in its tone (the word always written; colour never alone) */
+.tone-in, .tone-ok { color: var(--clear); }
+.tone-caution { color: var(--caution); }
+.tone-out, .tone-outside { color: var(--outside); }
+.tone-shock { color: var(--signal); }
+.tone-floor { color: var(--terrain); }
+.tone-quiet { color: var(--ink-2); }
+.status { display: inline-flex; align-items: center; gap: var(--s-2); font-weight: 600; }
+.status .icon { width: 1em; height: 1em; }
+
+/* one primary button per screen (solid starlight), quiet secondaries (a hairline), text buttons underlined, ONE chip style */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: var(--s-2); min-height: 48px; padding: 0 var(--s-5);
+  border-radius: var(--r-input); border: 1.5px solid transparent; font-weight: 600; font-size: var(--t-body); line-height: 1;
+  cursor: pointer; text-decoration: none; white-space: nowrap;
+  transition: background-color var(--dur-tip) var(--ease-out), border-color var(--dur-tip) var(--ease-out), opacity var(--dur-tip) var(--ease-out); }
+.btn .icon { width: 18px; height: 18px; }
+.btn-primary { background: var(--starlight); color: var(--on-ink); }
+.btn-quiet { background: transparent; color: var(--ink); border-color: var(--edge); }
+.btn[disabled], .btn[aria-disabled="true"] { opacity: .45; cursor: default; }
+.linkbtn { background: none; border: 0; padding: var(--s-1) 0; color: var(--ink); font-size: var(--t-small); font-weight: 600; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 4px; text-decoration-color: var(--ink-tint);
+  transition: text-decoration-color var(--dur-tip) var(--ease-out), color var(--dur-tip) var(--ease-out); }
+.chip { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 36px; padding: 0 var(--s-3); border-radius: 999px;
+  border: 1px solid var(--rule); background: transparent; color: var(--ink-2); font-size: var(--t-small); font-weight: 500; line-height: 1;
+  white-space: nowrap; cursor: pointer; text-decoration: none;
+  transition: color var(--dur-tip) var(--ease-out), border-color var(--dur-tip) var(--ease-out), background-color var(--dur-tip) var(--ease-out); }
+.chip[aria-pressed="true"], .chip[aria-selected="true"], .chip[aria-current="true"] { color: var(--starlight); border-color: var(--ink-2); background: var(--paper); }
+.chip .icon { width: 14px; height: 14px; }
+.tag { display: inline-flex; align-items: center; gap: 6px; font-size: var(--t-small); color: var(--ink-2); border: 1px solid var(--rule);
+  border-radius: var(--r-tag); padding: 2px var(--s-2); white-space: nowrap; }
+
+/* ---- the page: the bar over the first viewport, then the sections in the design doc's order (§2) ---- */
+#bar { position: fixed; inset: 0 0 auto 0; z-index: var(--z-bar); height: var(--bar); }
+main { display: block; }
+main > section, body > footer { position: relative; z-index: var(--z-content); scroll-margin-top: var(--bar); }
+/* until its module mounts, a section keeps its place (no layout shift); a section whose module is missing or failed folds away */
+[data-mount="pending"] { min-height: var(--hold, 320px); }
+#hero[data-mount="pending"], #replay[data-mount="pending"] { --hold: 100svh; }
+#footer[data-mount="pending"] { --hold: 240px; }
+#money[data-mount="pending"], #checklist[data-mount="pending"] { --hold: 360px; }
+#deep[data-mount="pending"], #why[data-mount="pending"], #investors[data-mount="pending"], #how[data-mount="pending"], #record[data-mount="pending"] { --hold: 480px; }
+[data-mount="missing"]:not(:has([data-static])), [data-mount="failed"]:not(:has([data-static])), [data-mount="off"] { display: none; }
+#scenario[data-mount="pending"] { --hold: 480px; }
+/* one rhythm (the design director's item 6; polish lane): every section's block padding and one style for every section's
+   h2, set once here over the lanes' own rules (specificity 2,0,2 and 2,1,3; the hero and the #replay stage keep their own) */
+main > section:not(#hero):not(#replay) { padding-block: var(--sec-y); }
+main > section:not(#hero):not(#replay) :is(h2.cl-q, h2.deep-title, h2.sc-title) { font: var(--font-h2); font-stretch: var(--h2-stretch);
+  letter-spacing: var(--h2-track); }
+.skip-link { position: fixed; top: var(--s-2); left: var(--s-2); z-index: var(--z-toast); padding: var(--s-2) var(--s-4); border-radius: var(--r-input);
+  background: var(--starlight); color: var(--on-ink); font-weight: 600; text-decoration: none; transform: translateY(-200%); }
+.skip-link:focus-visible { transform: none; }
+.fallback { width: var(--page); margin: 0 auto; padding: calc(var(--bar) + var(--s-7)) 0 var(--s-7); color: var(--ink-2); }
+.fallback strong { color: var(--ink); font-weight: 600; }
+html.is-booted .fallback { display: none; }
+.disclaimer { width: var(--page); margin: 0 auto; padding: var(--s-5) 0 var(--s-7); color: var(--ink-2); font-size: var(--t-small); }
+
+/* phones */
+@media (max-width: 760px) {
+  :root { --bar: 56px; --card-pad: 16px; }
+}
+
+/* ---- motion: everything that moves lives in the no-preference block; under reduced motion nothing moves (opacity and colour
+   feedback stay). Motion ended (the bar's glyph, Esc, or window.EPI_MOTION === false): html.motion-off puts every CSS
+   animation and transition at its end state at once, like reduced motion. ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .chip, .linkbtn { transition-property: transform, background-color, border-color, color, opacity, text-decoration-color;
+    transition-duration: var(--dur-press), var(--dur-tip), var(--dur-tip), var(--dur-tip), var(--dur-tip), var(--dur-tip);
+    transition-timing-function: var(--ease-out); }
+  .btn:active, .chip:active, .linkbtn:active { transform: scale(0.97); }
+  .btn[disabled]:active, .btn[aria-disabled="true"]:active { transform: none; }
+  .depth-opt { transition-property: transform, color, background-color; transition-duration: var(--dur-press), var(--dur-tip), var(--dur-tip);
+    transition-timing-function: var(--ease-out); }
+  .depth-opt:active { transform: scale(0.97); }
+  .tour-cap:not([hidden]) { animation: fade var(--dur-list) var(--ease-out); }
+  .answer-chip:not([hidden]) { animation: fade var(--dur-list) var(--ease-out); }      /* it fades in once the replay lands */
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn:active, .chip:active { opacity: .82; }
+}
+html.motion-off *, html.motion-off *::before, html.motion-off *::after { animation-duration: var(--dur-none) !important;
+  animation-delay: var(--dur-none) !important; animation-iteration-count: 1 !important; transition-duration: var(--dur-none) !important;
+  transition-delay: var(--dur-none) !important; }
+
+/* the live server's honest line (data.js serverNote): under the bar, scrolls away with the page, quiet */
+.server-note { position: absolute; top: var(--bar); left: 0; right: 0; z-index: var(--z-stage); margin: 0; padding: var(--s-2) var(--margin);
+  border-bottom: 1px solid var(--rule); background: rgba(0, 0, 0, .72); color: var(--ink-2); font-size: var(--t-small); line-height: 1.4; }
+/* ... and in the bar, the same sentence as a small quiet chip with its tooltip (app.js showServerNote; the hero keeps its room):
+   the word "Live server" where the bar has room, the (i) alone under 1340 px; on a phone the wordmark gives it its place */
+.srv-chip { flex: none; min-height: 30px; padding: 0 var(--s-3); font-size: 14px; color: var(--ink-2); }
+.srv-i { display: inline-grid; place-items: center; flex: none; width: 15px; height: 15px; border: 1.5px solid currentColor; border-radius: 50%;
+  font: 700 10px/1 var(--font-text); font-stretch: 100%; }
+@media (max-width: 1340px) { .srv-chip { padding: 0 9px; } .srv-chip-w { display: none; } }
+@media (max-width: 1440px) { .bar-in:has(.answer-chip:not([hidden])) .srv-chip { display: none; } }   /* the answer takes its place, as it takes the date's */
+@media (max-width: 600px) { .bar-in:has(.srv-chip) .bar-word { display: none; } }
+
+/* "Simple / Detailed" (R22, depth.js): one quiet segmented switch in the bar's end group, before the date */
+.depth { display: inline-flex; align-items: center; padding: 2px; border: 1px solid var(--rule); border-radius: 999px; flex: none; }
+.depth-opt { min-height: 30px; padding: 0 var(--s-3); border: 0; border-radius: 999px; background: transparent; color: var(--ink-2);
+  font-size: 14px; font-weight: 500; line-height: 1; cursor: pointer;
+  transition: color var(--dur-tip) var(--ease-out), background-color var(--dur-tip) var(--ease-out); }
+.depth-opt[aria-pressed="true"] { background: var(--paper-2); color: var(--starlight); }
+.depth.is-floating { position: fixed; top: var(--s-3); right: var(--s-3); z-index: var(--z-bar); background: rgba(0, 0, 0, .78); }
+@media (max-width: 600px) {
+  .bar-end:has(.depth) .bar-data { display: none; }          /* phones: the switch takes the date's place (the footer keeps the dates) */
+  .depth-opt { padding: 0 var(--s-2); }
+}
+
+/* "Take the tour" (R22, tour.js): a quiet button after the hero's Replay, and its one caption line at the bottom */
+.tour-btn { display: inline-flex; align-items: center; gap: var(--s-2); margin-top: var(--s-2); font-size: 15px; }
+.tour-btn .icon { width: 12px; height: 12px; }
+.tour-cap { position: fixed; left: 50%; bottom: var(--s-5); z-index: var(--z-toast); display: flex; align-items: baseline; gap: var(--s-3);
+  max-width: calc(100% - 2 * var(--margin)); margin: 0; padding: var(--s-3) var(--s-5); transform: translateX(-50%);
+  border: 1px solid var(--rule); border-radius: 999px; background: rgba(0, 0, 0, .82); color: var(--ink); font-size: 16px; line-height: 1.3;
+  pointer-events: none; }
+.tour-n { color: var(--ink-2); font-variant-numeric: tabular-nums; font-weight: 500; white-space: nowrap; }
+
+/* the step rail and the answer chip (rail.js): the workshop's method plus our check in the bar, the step on screen marked;
+   the answer, once it has landed, kept in the bar in the stage's own words */
+.bar-in.has-rail { gap: var(--s-4); }
+.bar-in.has-rail .bar-nav { display: none; }
+.rail { margin-inline: auto; min-width: 0; }
+.rail-list { display: flex; align-items: center; gap: 2px; margin: 0; padding: 0; list-style: none; }
+.rail-item[hidden] { display: none; }
+.rail-step { position: relative; display: inline-flex; align-items: center; min-height: 40px; padding: 0 var(--s-3); border-radius: var(--r-tag);
+  color: var(--ink-2); font-size: 15px; text-decoration: none; white-space: nowrap; cursor: pointer; list-style: none;
+  transition: color var(--dur-tip) var(--ease-out); }
+summary.rail-step::-webkit-details-marker { display: none; }
+.rail-step[aria-current="step"] { color: var(--starlight); }
+.rail-step[aria-current="step"]::after { content: ""; position: absolute; left: var(--s-3); right: var(--s-3); bottom: var(--s-2); height: 1px; background: var(--starlight); }
+.rail-more { position: relative; }
+.rail-more[open] > summary { color: var(--starlight); }
+.rail-menu { position: absolute; top: calc(100% + 6px); right: 0; z-index: var(--z-drawer); display: grid; gap: 2px; min-width: 220px; margin: 0;
+  padding: var(--s-2); list-style: none; border: 1px solid var(--rule); border-radius: var(--r-input); background: var(--pop); }
+.rail-menu li[hidden] { display: none; }
+.rail-link { display: block; padding: var(--s-2) var(--s-3); border-radius: var(--r-tag); color: var(--ink); font-size: 15px; text-decoration: none; white-space: nowrap; }
+.answer-chip { display: inline-flex; align-items: center; gap: var(--s-2); flex: none; min-height: 32px; margin-left: var(--s-2); padding: 0 var(--s-3); border: 1px solid var(--rule);
+  border-radius: 999px; background: rgba(0, 0, 0, .4); color: var(--ink); font-size: 14px; line-height: 1; white-space: nowrap; cursor: pointer;
+  transition: border-color var(--dur-tip) var(--ease-out); }
+.answer-chip[hidden] { display: none; }
+.answer-who { font-weight: 600; }
+.answer-mark { display: inline-flex; }
+.answer-mark:empty { display: none; }
+.answer-mark .icon { width: 14px; height: 14px; }
+.answer-chip[data-tone="outside"] .answer-mark, .answer-chip[data-tone="outside"] .answer-word { color: var(--outside); }
+.answer-chip[data-tone="caveat"] .answer-mark, .answer-chip[data-tone="caveat"] .answer-word { color: var(--caution); }
+.answer-chip[data-tone="inside"] .answer-mark, .answer-chip[data-tone="inside"] .answer-word { color: var(--clear); }
+.answer-chip[data-tone="held"] .answer-word, .answer-chip[data-tone="none"] .answer-word { color: var(--ink-2); }
+.answer-rest { color: var(--ink-2); }
+.answer-rest:empty { display: none; }
+@media (max-width: 1440px) {                                   /* one line at 1280: the answer takes the date's place (the footer keeps it) */
+  .bar-in:has(.answer-chip:not([hidden])) .bar-data { display: none; }
+}
+@media (max-width: 1000px) {                                   /* the bar's own links fold away here: the rail becomes a scroller under the bar */
+  .rail { position: absolute; top: 100%; left: 0; right: 0; margin: 0; height: 40px; padding: 0 calc(var(--margin) - var(--s-2));
+    overflow-x: auto; overflow-y: hidden; scrollbar-width: none; background: var(--sky); border-bottom: 1px solid var(--rule);   /* opaque: no text prints through */
+    opacity: 0; pointer-events: none; transition: opacity var(--dur-list) var(--ease-out); }
+  .rail::-webkit-scrollbar { display: none; }
+  #bar.is-scrolled .rail { opacity: 1; pointer-events: auto; }
+  .rail-step { padding: 0 var(--s-2); font-size: 14px; }
+  .rail-step[aria-current="step"]::after { left: var(--s-2); right: var(--s-2); bottom: 6px; }
+  .rail-more { position: static; }
+  .rail-menu { position: fixed; top: calc(var(--bar) + 44px); right: var(--margin); }
+  main > section, body > footer { scroll-margin-top: calc(var(--bar) + 40px); }
+}
+@media (max-width: 600px) {                                    /* a phone: the answer shortens to its mark and the investor */
+  .answer-word, .answer-rest { display: none; }
+  .bar-in:has(.answer-chip:not([hidden])) .bar-word { display: none; }
+  .answer-chip { padding: 0 var(--s-2); }
+}
+
+/* the standing line under every verdict (lib/status.js standingLine): quiet, one sentence, never hidden */
+.standing-line { margin: var(--s-2) 0 0; max-width: 62ch; color: var(--ink-2); font-size: 14px; line-height: 1.45; text-wrap: pretty; }
+
+/* the presenter's keys reminder (?presenter=1, ruling R19e): small, out of the way, never in a capture without the flag */
+.presenter-hint { position: fixed; left: var(--s-3); bottom: var(--s-3); z-index: var(--z-toast); display: flex; gap: var(--s-4);
+  align-items: center; padding: var(--s-2) var(--s-3); border: 1px solid var(--rule); border-radius: var(--r-input);
+  background: rgba(0, 0, 0, .78); color: var(--ink-2); font-size: 12px; line-height: 1; pointer-events: none; }
+.presenter-hint kbd { display: inline-block; min-width: 18px; margin-right: 6px; padding: 3px 5px; border: 1px solid var(--edge);
+  border-radius: var(--r-tag); color: var(--ink); font: 600 11px/1 var(--font-text); text-align: center; }
+/* shared keyframes (any lane may use them; moving ones only inside the no-preference block) */
+@keyframes fade { from { opacity: 0; } }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* hover only where a pointer hovers */
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover { background: var(--ink); }
+  .btn-quiet:hover { border-color: var(--ink-2); background: var(--paper); }
+  .chip:hover { color: var(--starlight); border-color: var(--edge); }
+  .linkbtn:hover { text-decoration-color: var(--starlight); }
+  .depth-opt:not([aria-pressed="true"]):hover { color: var(--starlight); }
+  .rail-step:not([aria-current="step"]):hover, .rail-link:hover { color: var(--starlight); }
+  .rail-link:hover { background: var(--paper-2); }
+  .answer-chip:hover { border-color: var(--edge); }
+}

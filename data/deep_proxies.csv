@@ -1,0 +1,32 @@
+ticker,proxy,label,source,note
+RY.TO,CA_EQ,Canadian stock market,Fama/French Canada (local),A Canadian bank replayed as the Canadian market: no free history of Canadian banks
+TD.TO,CA_EQ,Canadian stock market,Fama/French Canada (local),A Canadian bank replayed as the Canadian market
+MFC.TO,CA_EQ,Canadian stock market,Fama/French Canada (local),An insurer replayed as the Canadian market
+ENB.TO,OIL,US oil and gas industry,Fama/French 49 Oil x USD/CAD,A pipeline replayed as the oil industry: weak on 2021–26
+CNQ.TO,OIL,US oil and gas industry,Fama/French 49 Oil x USD/CAD,A Canadian producer replayed as the oil industry
+CNR.TO,CA_EQ,Canadian stock market,Fama/French Canada (local),A railway replayed as the Canadian market
+FTS.TO,CA_EQ,Canadian stock market,Fama/French Canada (local),A utility replayed as the Canadian market
+ATD.TO,CA_EQ,Canadian stock market,Fama/French Canada (local),A retailer replayed as the Canadian market
+SHOP.TO,SOFTW,US software industry,Fama/French 49 Softw x USD/CAD,A single company replayed as its industry: weak on 2021–26
+CSU.TO,SOFTW,US software industry,Fama/French 49 Softw x USD/CAD,A single company replayed as its industry
+AAPL,HARDW,US computer hardware industry,Fama/French 49 Hardw x USD/CAD,A single company replayed as its industry
+MSFT,SOFTW,US software industry,Fama/French 49 Softw x USD/CAD,A single company replayed as its industry
+NVDA,CHIPS,US chip and electronics industry,Fama/French 49 Chips x USD/CAD,NVIDIA fell 60.2 % in 2022 (month-end) and its industry 27.0 %: the gentler case
+GOOGL,SOFTW,US software and data industry,Fama/French 49 Softw x USD/CAD,A single company replayed as its industry
+AMZN,RTAIL,US retail industry,Fama/French 49 Rtail x USD/CAD,A single company replayed as its industry
+TSLA,AUTOS,US auto industry,Fama/French 49 Autos x USD/CAD,A single company replayed as its industry
+JPM,BANKS,US bank industry,Fama/French 49 Banks x USD/CAD,A single company replayed as its industry
+JNJ,DRUGS,US pharmaceutical industry,Fama/French 49 Drugs x USD/CAD,A single company replayed as its industry
+PG,HSHLD,US household products industry,Fama/French 49 Hshld x USD/CAD,A single company replayed as its industry
+XOM,OIL,US oil and gas industry,Fama/French 49 Oil x USD/CAD,A single company replayed as its industry
+XIU.TO,CA_EQ,Canadian stock market,Fama/French Canada (local); TSX close + yield before 1977 (StatCan 10-10-0125-01),Strong on 2021–25
+SPY,US_MKT,US stock market,Fama/French Mkt-RF + RF x USD/CAD,Strong on 2021–26
+QQQ,BUSEQ,US business equipment industry,Fama/French 12 BusEq x USD/CAD,The Nasdaq-100 itself is not replicated
+ESGV,US_MKT,US stock market,Fama/French Mkt-RF + RF x USD/CAD,The ESG screen is not replicated
+XBB.TO,CAD_BOND,Government of Canada bond ladder,StatCan 10-10-0122-01 (v122558 v122485 v122486 v122487),Government bonds only: flatters bond-heavy mixes in credit crises
+ZST.TO,CAD_TBILL,Canadian 3-month T-bills,"StatCan 10-10-0122-01 (v122531; v122541 fills every month v122531 leaves blank, 1973-04 included)",
+AGG,,No proxy yet,,US bond ladder not validated
+TLT,,No proxy yet,,US long-bond proxy not validated
+GLD,GOLD,Gold,World Bank monthly average x USD/CAD average,Monthly averages smooth gold's falls
+BTC-USD,,No proxy,,Bitcoin has no price history in our sources before Nov 2021: Can't say
+ETH-USD,,No proxy,,Ether has no price history in our sources before Nov 2021: Can't say

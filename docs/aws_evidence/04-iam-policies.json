@@ -1,0 +1,117 @@
+{
+  "evidence": "The runtime role's policies as attached (instance role of the live app)",
+  "captured": "2026-11-15T16:39:36Z",
+  "how": "aws iam get-role / list-attached-role-policies / list-role-policies / get-role-policy",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "role": {
+    "RoleName": "epicentre-runtime",
+    "Arn": "arn:aws:iam::<ACCT>:role/epicentre-runtime",
+    "RoleId": "<ROLE_ID>",
+    "AssumeRolePolicyDocument": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Effect": "Allow",
+          "Principal": {
+            "Service": "ec2.amazonaws.com"
+          },
+          "Action": "sts:AssumeRole"
+        }
+      ]
+    },
+    "Tags": [
+      {
+        "Key": "Project",
+        "Value": "epicentre"
+      }
+    ]
+  },
+  "attached_managed_policies": [
+    {
+      "PolicyName": "AmazonSSMManagedInstanceCore",
+      "PolicyArn": "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
+    }
+  ],
+  "inline_policies": {
+    "epicentre-records": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "SealedRecordVault",
+          "Effect": "Allow",
+          "Action": [
+            "s3:PutObject",
+            "s3:PutObjectRetention",
+            "s3:GetObject",
+            "s3:GetObjectVersion"
+          ],
+          "Resource": "arn:aws:s3:::epicentre-records-<ID>/records/*",
+          "Condition": {
+            "StringEqualsIfExists": {
+              "s3:object-lock-mode": "GOVERNANCE"
+            }
+          }
+        }
+      ]
+    },
+    "epicentre-runtime": {
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+          "Sid": "InvokeSonnetUsProfile",
+          "Effect": "Allow",
+          "Action": [
+            "bedrock:InvokeModel"
+          ],
+          "Resource": [
+            "arn:aws:bedrock:us-east-1:<ACCT>:inference-profile/us.anthropic.claude-sonnet-5-5",
+            "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-5-5",
+            "arn:aws:bedrock:us-east-2::foundation-model/anthropic.claude-sonnet-5-5",
+            "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-sonnet-5-5"
+          ]
+        },
+        {
+          "Sid": "InvokeGlobalProfiles",
+          "Effect": "Allow",
+          "Action": [
+            "bedrock:InvokeModel"
+          ],
+          "Resource": [
+            "arn:aws:bedrock:us-east-1:<ACCT>:inference-profile/global.anthropic.claude-sonnet-5-5",
+            "arn:aws:bedrock:us-east-1:<ACCT>:inference-profile/global.anthropic.claude-sonnet-5",
+            "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-sonnet-5"
+          ]
+        },
+        {
+          "Sid": "InvokeGlobalModels",
+          "Effect": "Allow",
+          "Action": [
+            "bedrock:InvokeModel"
+          ],
+          "Resource": [
+            "arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-5-5",
+            "arn:aws:bedrock:::foundation-model/anthropic.claude-sonnet-5"
+          ],
+          "Condition": {
+            "StringEquals": {
+              "aws:RequestedRegion": "unspecified"
+            }
+          }
+        },
+        {
+          "Sid": "ApplyOurGuardrail",
+          "Effect": "Allow",
+          "Action": [
+            "bedrock:ApplyGuardrail"
+          ],
+          "Resource": [
+            "arn:aws:bedrock:us-east-1:<ACCT>:guardrail/<GUARDRAIL_ID>",
+            "arn:aws:bedrock:us-east-1:<ACCT>:guardrail-profile/us.guardrail.v1:0",
+            "arn:aws:bedrock:us-east-2:<ACCT>:guardrail-profile/us.guardrail.v1:0",
+            "arn:aws:bedrock:us-west-2:<ACCT>:guardrail-profile/us.guardrail.v1:0"
+          ]
+        }
+      ]
+    }
+  }
+}

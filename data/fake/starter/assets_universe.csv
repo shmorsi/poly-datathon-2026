@@ -1,0 +1,7 @@
+asset_id,ticker,name,asset_class,market,currency,sector
+A13,NVDA,NVIDIA,equity,NASDAQ,USD,Information Technology
+A21,XIU.TO,iShares S&P/TSX 60 Index ETF,etf_equity,TSX,CAD,Broad market (Canada)
+A25,XBB.TO,iShares Core Canadian Universe Bond Index ETF,etf_bond,TSX,CAD,Bonds (Canada aggregate)
+A26,ZST.TO,BMO Ultra Short-Term Bond ETF,etf_bond,TSX,CAD,Bonds (Canada ultra short-term)
+A29,GLD,SPDR Gold Shares,etf_commodity,NYSE Arca,USD,Gold
+A30,BTC-USD,Bitcoin,crypto,Crypto (24/7),USD,Crypto asset

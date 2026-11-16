@@ -1,0 +1,264 @@
+/* Lane hold: what each investor holds (the hero list under the investor picker), what is inside the funds (its disclosure),
+   and the move made visible (the stage's TODAY vs WITH THE MOVE strip). Tokens only from styles.css, read with var().
+   One tone per holding everywhere: a single light ramp of the "today" series colour, largest holding brightest; the move is
+   magenta (the page's colour for the move and nothing else). Bars are flat, 1 px apart, no radius beyond 1 px. */
+
+.hd { --hd-gap: 2px; }
+.hd [data-tone="t0"], .hd-strip [data-tone="t0"], .hd-mini [data-tone="t0"] { --hd-c: var(--series-today); }
+.hd [data-tone="t1"], .hd-strip [data-tone="t1"], .hd-mini [data-tone="t1"] { --hd-c: color-mix(in srgb, var(--series-today) 77%, var(--sky)); }
+.hd [data-tone="t2"], .hd-strip [data-tone="t2"], .hd-mini [data-tone="t2"] { --hd-c: color-mix(in srgb, var(--series-today) 61%, var(--sky)); }
+.hd [data-tone="t3"], .hd-strip [data-tone="t3"], .hd-mini [data-tone="t3"] { --hd-c: color-mix(in srgb, var(--series-today) 49%, var(--sky)); }
+.hd [data-tone="t4"], .hd-strip [data-tone="t4"], .hd-mini [data-tone="t4"] { --hd-c: color-mix(in srgb, var(--series-today) 41%, var(--sky)); }
+.hd [data-tone="t5"], .hd-strip [data-tone="t5"], .hd-mini [data-tone="t5"] { --hd-c: color-mix(in srgb, var(--series-today) 35%, var(--sky)); }
+.hd [data-tone="move"], .hd-strip [data-tone="move"], .hd-mini [data-tone="move"] { --hd-c: var(--magenta); }
+
+/* ---- lane funds' share bar (web/lib/sharebar.js) in step 1, the stage strip and #investors: the holdings' own hue, no legend
+   of its own here (step 1 reads its parts under its ticks; the strip and the investors' rows stay one line) ---- */
+.hd-sb { --sb-c: var(--series-today); gap: 0; }
+.hd-sb .sb-legend { display: none; }
+.hd-sb-gauge .sb-bar { height: 10px; border-radius: 2px; }
+/* both rows share one set of columns (a subgrid), so Today and With the move start and end together */
+.hd-sb-strip .sb-rows { display: grid; grid-template-columns: 7.5em minmax(120px, 360px) max-content; column-gap: var(--s-3); row-gap: 4px; }
+.hd-sb-strip .sb-row { grid-column: 1 / -1; grid-template-columns: subgrid; column-gap: var(--s-3); }
+.hd-sb-strip .sb-row-l { font-size: 14px; color: var(--ink-2); }
+.hd-sb-strip .sb-bar { height: 8px; border-radius: 2px; }
+.hd-sb-mini .sb-bar { height: 6px; border-radius: 1px; }
+
+/* ---- the stacked bar (the editor's preview and any fallback) ---- */
+.hd-bar { display: flex; gap: var(--hd-gap, 2px); width: 100%; min-width: 0; }
+.hd-seg { display: block; flex: 1 1 0; min-width: 2px; height: 100%; background: var(--hd-c, var(--edge)); border-radius: 1px; }
+
+/* ---- the hero card (step 1): a quiet instrument panel. One hairline frame, the amount as a readout, the gauge of the whole
+   amount with each part's weight under its own tick, then at most five rows ---- */
+.hd { max-width: 36rem; padding: var(--card-pad, 24px) var(--card-pad, 24px) var(--s-3); border: 1px solid var(--card-edge, var(--rule));
+  border-radius: var(--r-panel); background: var(--card, var(--paper)); }
+.hd-head { display: flex; align-items: baseline; justify-content: space-between; gap: var(--s-2) var(--s-4); flex-wrap: wrap; }
+.hd-title { display: flex; align-items: center; gap: var(--s-2); font: 600 15px/1.3 var(--font-text); color: var(--starlight); text-wrap: pretty; }
+.hd-fic { font-weight: 400; color: var(--haze); }
+/* the step marker is lane picker's .step-n (css/movepicker.css): one ring for steps 1, 2 and 3 */
+.hd-total { margin-left: auto; font: 700 28px/1 var(--font-num); font-variant-numeric: tabular-nums; letter-spacing: 0; color: var(--starlight);
+  white-space: nowrap; }
+.hd-total .has-meaning:not(button) { text-decoration: none; }
+.hd-gauge { margin-top: var(--s-3); }
+.hd-bar-gauge { height: 10px; }
+.hd-bar-gauge .hd-seg { cursor: help; }
+.hd-bar-gauge .hd-seg:first-child { border-radius: 2px 1px 1px 2px; }
+.hd-bar-gauge .hd-seg:last-child { border-radius: 1px 2px 2px 1px; }
+/* the readouts under the bar: each part's weight under its own tick, its name (else its ticker) under it when it fits */
+.hd-ticks { position: relative; height: 38px; margin-top: 4px; }
+.hd-tick { position: absolute; top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 4px; min-height: 34px;
+  padding: 2px 0 0 5px; border-left: 1px solid var(--hd-c, var(--edge)); }
+.hd-tick-n { font: 400 var(--t-readout, 15px)/1 var(--font-num); font-variant-numeric: tabular-nums; letter-spacing: 0; word-spacing: -0.16em;
+  color: var(--ink); white-space: nowrap; }
+.hd-tick-l { font: 400 14px/1.1 var(--font-text); color: var(--haze); white-space: nowrap; }
+.hd-tick[data-tone="move"] .hd-tick-n { color: var(--magenta); }
+.hd-tick[data-fit="0"] > * { visibility: hidden; }
+.hd-tick[data-end="1"] { right: 0; align-items: flex-end; padding: 2px 5px 0 0; }
+/* the parts too narrow to be named under their ticks, named here: the plain name first, the ticker small after */
+.hd-unnamed { display: flex; flex-wrap: wrap; gap: 2px var(--s-4); margin: 2px 0 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.35; }
+.hd-unnamed[hidden] { display: none; }
+.hd-unn { display: inline-flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+.hd-unn .hd-key { align-self: center; }
+.hd-unn-l { color: var(--ink); }
+.hd-unn-tk { color: var(--haze); font-size: 14px; }
+.hd-unn-w { font: 400 14px/1 var(--font-num); color: var(--ink); }
+.hd-list { display: grid; grid-template-columns: 10px max-content minmax(0, 1fr) max-content max-content; column-gap: var(--s-3);
+  margin-top: var(--s-2); padding-top: var(--s-2); border-top: 1px solid var(--rule); font-size: 15px; line-height: 1.25; }
+.hd-row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: baseline; padding: 2px 0; }
+.hd-row > .hd-key { grid-column: 1; }
+.hd-key { align-self: center; width: 10px; height: 4px; flex: none; border-radius: 1px; background: var(--hd-c, var(--edge)); }
+.hd-key[data-tone="more"] { background: linear-gradient(90deg, color-mix(in srgb, var(--series-today) 41%, var(--sky)) 50%,
+  color-mix(in srgb, var(--series-today) 35%, var(--sky)) 50%); }
+.hd-label { grid-column: 2; color: var(--ink); min-width: 0; }
+.hd-tk { grid-column: 3; color: var(--haze); font-size: 14px; white-space: nowrap; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.hd-w, .hd-d { justify-self: end; font: 400 15px/1.25 var(--font-num); font-variant-numeric: tabular-nums; letter-spacing: 0; word-spacing: -0.16em;
+  white-space: nowrap; }
+.hd-w { grid-column: 4; color: var(--ink); }
+.hd-d { grid-column: 5; color: var(--starlight); }
+.hd-row .has-meaning:not(button) { text-decoration: none; }
+/* a fund's name opens its page (lane funds' drawer, when the page has it) */
+.hd-fund-btn { justify-self: start; padding: 0; border: 0; background: none; color: var(--ink); font: inherit; text-align: left; cursor: pointer;
+  text-decoration: underline; text-decoration-color: var(--ink-tint); text-decoration-thickness: 1px; text-underline-offset: 4px; border-radius: var(--r-tag); }
+@media (hover: hover) and (pointer: fine) { .hd-fund-btn:hover { color: var(--starlight); text-decoration-color: var(--starlight); } }
+.hd-look { margin-top: 6px; font-size: 15px; line-height: 1.4; color: var(--ink-2); }
+.hd-said { margin-top: 4px; font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.hd-said-i { display: inline-block; width: 13px; height: 13px; vertical-align: -1px; margin: 0 2px; }
+.hd-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--s-4); margin-top: 2px; }
+.hd-look-text { text-wrap: pretty; }
+.hd-look .hd-fig { color: var(--starlight); font-weight: 600; text-decoration: none; }
+
+/* the disclosure: the page's quiet "Show the details" look, its own words, at the end of the look-through line */
+.hd-more { min-height: 32px; font-size: 15px; }
+.hd-fold { display: grid; }
+.hd-inside { display: grid; row-gap: var(--s-4); padding: var(--s-3) 0 var(--s-2); min-width: 0; }
+.hd-inside.is-new { animation: fade var(--dur-panel) var(--ease-out); }
+.hd-part { display: grid; row-gap: var(--s-2); }
+.hd-part-h { font: 600 14px/1.3 var(--font-text); color: var(--starlight); }
+.hd-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); column-gap: var(--s-4); row-gap: 2px; font-size: 14px; }
+.hd-grid[data-cols="2"] { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); }
+.hd-grid-row { grid-column: 1 / -1; display: grid; grid-template-columns: subgrid; align-items: center; min-height: 24px; }
+.hd-grid-head { min-height: 20px; color: var(--haze); }
+.hd-grid-head > :first-child { grid-column: 1; }
+.hd-col { font-size: 14px; color: var(--haze); }
+.hd-name { color: var(--ink); min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.hd-cell { display: grid; grid-template-columns: minmax(0, 1fr) 5.2em; align-items: center; column-gap: var(--s-2); }
+.hd-track { display: block; height: 3px; background: var(--rule); border-radius: 1px; overflow: hidden; }
+.hd-fill { display: block; height: 100%; width: 100%; transform-origin: 0 50%; background: var(--series-today); }
+.hd-cell-after .hd-fill { background: var(--magenta); }
+.hd-cell-n { justify-self: end; color: var(--ink); font-variant-numeric: tabular-nums; }
+.hd-note, .hd-nomove { font-size: 14px; line-height: 1.45; color: var(--ink-2); max-width: 60ch; text-wrap: pretty; }
+.hd-funds { display: grid; row-gap: 2px; font-size: 14px; }
+.hd-funds li { display: grid; grid-template-columns: 5.5em minmax(0, 1fr); column-gap: var(--s-3); align-items: baseline; }
+.hd-fund-tk { color: var(--haze); white-space: nowrap; }
+.hd-fund { color: var(--ink); min-width: 0; }
+
+/* why these five years: one quiet line, its answer a tap away */
+.hd-why { margin-top: var(--s-1); font-size: 14px; line-height: 1.45; color: var(--haze); max-width: 60ch; text-wrap: pretty; }
+.hd-why-btn { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0; border: 0; background: none; color: var(--ink-2);
+  font: 500 14px/1.2 var(--font-text); cursor: pointer; border-radius: var(--r-tag); }
+.hd-why-btn[aria-expanded="true"] { color: var(--ink); }
+.hd-i { width: 14px; height: 14px; flex: none; }
+.hd-why-text { display: block; }
+.hd-why-link { color: var(--ink); text-decoration-color: var(--ink-tint); }
+@media (hover: hover) and (pointer: fine) {
+  .hd-why-btn:hover { color: var(--starlight); }
+  .hd-why-link:hover { text-decoration-color: var(--starlight); }
+}
+
+/* ---- editing the holdings (live app): the card becomes its own editor; the static demo says why it cannot ---- */
+.hd-edit-btn .hd-i { width: 13px; height: 13px; }
+.hd-reset { font-size: 14px; }
+.hd-static { margin-top: var(--s-1); font-size: 14px; line-height: 1.45; color: var(--ink-2); max-width: 60ch; }
+.hd-static[hidden] { display: none; }
+.hd-static-line, .hd-uni-lead { margin: 0; }
+.hd-uni-lead { margin-top: var(--s-2); color: var(--ink); }
+.hd-uni { display: grid; grid-template-columns: max-content 1fr; gap: 6px var(--s-3); margin: var(--s-2) 0 0; font-size: 13px; }
+.hd-uni dt { color: var(--haze); padding-top: 3px; }
+.hd-uni dd { margin: 0; display: flex; flex-wrap: wrap; gap: 4px; }
+.hd-uni-a { display: inline-flex; align-items: baseline; padding: 2px 8px; border: 1px solid var(--paper-2); border-radius: 999px; color: var(--ink); background: var(--paper); }
+.hd-uni-a .hd-tk { color: var(--haze); font-size: 11.5px; white-space: pre; }
+@media (max-width: 560px) { .hd-uni { grid-template-columns: 1fr; } .hd-uni dt { padding-top: var(--s-1); } }
+.hd[data-editing="1"] :is(.hd-gauge, .hd-list, .hd-look, .hd-actions, .hd-fold, .hd-why, .hd-static, .hd-limits) { display: none; }
+.hd-editor { display: grid; row-gap: var(--s-3); margin-top: var(--s-3); }
+.hd-ed-rows { display: grid; row-gap: 2px; }
+.hd-ed-row { display: grid; grid-template-columns: minmax(0, 1fr) max-content max-content 32px; align-items: center; column-gap: var(--s-3);
+  min-height: 40px; border-bottom: 1px solid var(--rule); font-size: 15px; }
+.hd-ed-row > .hd-label { grid-column: 1; }
+.hd-ed-row > .hd-tk { grid-column: 2; }
+.hd-ed-field { grid-column: 3; display: inline-flex; align-items: baseline; gap: 4px; }
+.hd-ed-row > .hd-ed-x { grid-column: 4; }
+.hd-ed-pct, .hd-ed-amt { width: 5.5em; padding: 4px 2px; border: 0; border-bottom: 1px solid var(--edge); border-radius: 0; background: transparent;
+  color: var(--starlight); font: 400 15px/1.2 var(--font-num); font-variant-numeric: tabular-nums; text-align: right; }
+.hd-ed-amt { width: 7.5em; }
+.hd-ed-pct:focus-visible, .hd-ed-amt:focus-visible { outline: none; border-bottom-color: var(--focus); box-shadow: 0 1px 0 0 var(--focus); }
+.hd-ed-unit { color: var(--haze); font-size: 14px; }
+.hd-ed-x { display: inline-grid; place-items: center; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--r-tag); background: none;
+  color: var(--haze); cursor: pointer; }
+.hd-ed-x .hd-i { width: 14px; height: 14px; }
+.hd-ed-line { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-3); }
+.hd-ed-add { min-height: 36px; max-width: 100%; padding: 0 var(--s-3); border: 1px solid var(--rule); border-radius: var(--r-input); background: var(--sky);
+  color: var(--ink); font: 500 14px/1 var(--font-text); }
+.hd-ed-amount { display: inline-flex; align-items: baseline; gap: 6px; font-size: 14px; color: var(--ink-2); }
+.hd-ed-total { font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.hd-ed-total-n { font: 700 15px/1 var(--font-num); color: var(--caution); }
+.hd-ed-total-n[data-ok="1"] { color: var(--starlight); }
+.hd-ed-actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-4); }
+.hd-ed-use { min-height: 40px; font-size: 15px; }
+.hd-ed-use[aria-disabled="true"] { opacity: .45; cursor: default; }
+@media (hover: hover) and (pointer: fine) { .hd-ed-x:hover { color: var(--starlight); } }
+
+/* ---- the limits card under step 1: each limit, its value, where it came from (set by you, from your words, assumed), a pencil ---- */
+.hd-limits { display: grid; row-gap: var(--s-2); margin-top: var(--s-2); padding-top: var(--s-3); border-top: 1px solid var(--rule); }
+.hd-lim-sum { font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+.hd-lim-list { display: grid; margin: 0; }
+.hd-lim-row { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); column-gap: var(--s-3); align-items: center; min-height: 36px;
+  border-bottom: 1px solid var(--rule); font-size: 15px; }
+.hd-lim-row dt { color: var(--ink-2); }
+.hd-lim-row dd { margin: 0; display: flex; align-items: center; gap: var(--s-2); min-width: 0; }
+.hd-lim-v { flex: 1 1 auto; min-width: 0; color: var(--ink); }
+.hd-lim-tag { font-size: 14px; }
+.hd-lim-tag[data-src="assumed"] { border-color: transparent; padding-inline: 0; color: var(--haze); }   /* the default reads quietly */
+.hd-lim-tag[data-src="you"] { color: var(--starlight); border-color: var(--ink-2); }
+.hd-lim-tag[data-src="words"] { color: var(--ink); border-color: var(--edge); }
+.hd-lim-tag.has-meaning:not(button) { text-decoration: none; cursor: help; }
+.hd-lim-edit { display: inline-grid; place-items: center; flex: none; width: 32px; height: 32px; padding: 0; border: 0; border-radius: var(--r-tag);
+  background: none; color: var(--haze); cursor: pointer; }
+.hd-lim-edit .hd-i { width: 14px; height: 14px; }
+.hd-lim-add { justify-self: start; font-size: 14px; }
+.hd-lim-was { color: var(--haze); font-size: 14px; }
+.hd-lim-rule { font-size: 14px; line-height: 1.45; color: var(--haze); }
+.hd-lim-row[data-src="none"] .hd-lim-v { color: var(--ink-2); }
+/* a value you typed over your words: one amber line (caution, never red: it is your choice, not a breach) */
+.hd-lim-conflict { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px var(--s-2); padding: var(--s-2) var(--s-3);
+  border-left: 2px solid var(--caution); background: var(--paper); font-size: 14px; line-height: 1.45; color: var(--ink); }
+.hd-lim-warn { width: 14px; height: 14px; color: var(--caution); align-self: center; }
+.hd-lim-back { font-size: 14px; }
+.hd-lim-why { font-size: 14px; line-height: 1.45; color: var(--ink-2); }
+@media (hover: hover) and (pointer: fine) { .hd-lim-edit:hover { color: var(--starlight); } }
+@media (max-width: 600px) {
+  .hd-lim-row { grid-template-columns: minmax(0, 1fr); row-gap: 2px; padding: 6px 0; }
+}
+
+/* folded (Simple, desktop): the rows and "What's inside the funds" wait behind "Show the holdings"; phones always show the rows
+   with their weights and no readouts under the bar (the design director's item 10) */
+@media (min-width: 601px) {
+  .hd[data-rows="0"] :is(.hd-list, .hd-more:not(.hd-rows-btn):not(.hd-lim-btn), .hd-fold) { display: none; }
+}
+@media (max-width: 600px) {
+  .hd-ticks, .hd-rows-btn, .hd-unnamed { display: none !important; }
+}
+
+/* ---- the stage strip: two thin bars beside the move chip ---- */
+.hd-strip { display: grid; row-gap: 2px; flex: 1 0 100%; max-width: 100%; }     /* its own row under the chips */
+.rp-reading > .hd-strip { grid-column: 1 / -1; width: 100%; min-width: 0; }      /* the same whether the chips' row is a flex or a grid */
+.hd-strip-end { font: 600 14px/1 var(--font-text); color: var(--magenta); white-space: nowrap; }
+.rp-reading:has(.rp-chip-move[data-in="0"]) > .hd-strip { opacity: 0; }
+
+/* ---- #investors: the mix today under each investor's name. The name and its bar share the name's cell (div.inv-namecell);
+   every part of the row sits on row 1 in its own cell, the persona's own test line (.inv-own, G4) on row 2, so no text is
+   squeezed into a one-column cell (the blind design juror, 17:30); phones stack ---- */
+.inv-line .inv-namecell { grid-column: 1 / span 2; grid-row: 1; display: grid; row-gap: var(--s-2); align-content: center; min-width: 0; }
+.inv-line .inv-namecell > .inv-name { grid-column: 1 / -1; grid-row: auto; }
+.inv-namecell .hd-mini { display: block; max-width: 12rem; }
+@media (min-width: 761px) {
+  .inv-line > :is(.inv-asked, .inv-verdict, .inv-by, .inv-act) { grid-row: 1; }
+}
+@media (max-width: 1100px) and (min-width: 761px) { .inv-line .inv-namecell { grid-column: 1 / span 3; } }
+@media (max-width: 760px) { .inv-line .inv-namecell { grid-column: 1; grid-row: 1; row-gap: 6px; } }
+
+/* ---- phones: label and dollars on one line, the ticker under the label (the weight under its tick, or in the row) ---- */
+@media (max-width: 760px) {
+  .hd { max-width: none; padding: var(--card-pad, 16px) var(--card-pad, 16px) var(--s-2); }
+  .hd-total { font-size: 21px; }
+  .hd-sb-strip .sb-rows { grid-template-columns: 7em minmax(96px, 1fr) max-content; }
+  .hd-sb-strip .sb-row { grid-template-columns: subgrid; row-gap: 0; }
+  .hd-list { grid-template-columns: 10px minmax(0, 1fr) max-content max-content; }
+  .hd-row { grid-template-areas: "key label w d" ". tk . ."; padding: 4px 0; }
+  .hd-key { grid-area: key; }
+  .hd-label { grid-area: label; }
+  .hd-tk { grid-area: tk; font-size: 14px; }
+  .hd-w { grid-area: w; }
+  .hd-d { grid-area: d; }
+  .hd-strip { max-width: none; flex-basis: 100%; }
+  .hd-ed-row { grid-template-columns: minmax(0, 1fr) max-content 32px; }
+  .hd-ed-row > .hd-tk { display: none; }
+  .hd-ed-row > .hd-ed-field { grid-column: 2; }
+  .hd-ed-row > .hd-ed-x { grid-column: 3; }
+  .hd-grid[data-cols="2"] { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--s-2); }
+  .hd-cell { grid-template-columns: minmax(0, 1fr); row-gap: 2px; }
+  .hd-name { white-space: normal; overflow: visible; line-height: 1.25; }
+  .hd-cell-n { justify-self: start; }
+}
+
+/* the calm reveal (no-preference only; html.motion-off ends it at once): the gauge draws left to right, its readouts and the rows
+   settle in after it, one after another */
+@media (prefers-reduced-motion: no-preference) {
+  .hd-strip { transition: opacity var(--dur-list) var(--ease-out); }
+  .hd[data-reveal="0"] .hd-gauge .sb-bar { clip-path: inset(0 100% 0 0); }
+  .hd[data-reveal="0"] :is(.hd-tick, .hd-row) { opacity: 0; }
+  .hd[data-reveal="0"] .hd-row { transform: translateY(4px); }
+  .hd[data-reveal="1"] .hd-gauge .sb-bar { clip-path: inset(0 0 0 0); transition: clip-path var(--dur-story) var(--ease-out); }
+  .hd[data-reveal="1"] .hd-tick { opacity: 1; transition: opacity var(--dur-panel) var(--ease-out) 360ms; }
+  .hd[data-reveal="1"] .hd-row { opacity: 1; transform: none; transition: opacity var(--dur-list) var(--ease-out), transform var(--dur-list) var(--ease-out);
+    transition-delay: calc(240ms + var(--i, 0) * 40ms); }
+}

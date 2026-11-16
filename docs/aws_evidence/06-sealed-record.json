@@ -1,0 +1,23 @@
+{
+  "evidence": "One decision record sealed on the live page's own builder (web/lib/record.js) from Robert's live run and stored through CloudFront (POST /api/record)",
+  "captured": "2026-11-15T18:58:37Z",
+  "how": "the API's answer, then aws s3api head-object / list-object-versions",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "api_answer": {
+    "status": "stored",
+    "key": "records/<RUN_ID>/<SEAL>.json",
+    "version_id": "<VERSION_ID>",
+    "retain_until": "2026-11-22T18:54:54Z",
+    "message": "Stored in the private, versioned record vault."
+  },
+  "seal_sha256_prefix": "f1ce86d7c56d",
+  "in_s3": {
+    "ObjectLockMode": "GOVERNANCE",
+    "ObjectLockRetainUntilDate": "2026-11-22T18:54:54+00:00",
+    "ServerSideEncryption": "AES256",
+    "ContentLength": 55879,
+    "s3_sha256_equals_the_seal": true,
+    "metadata_sha256_equals_the_seal": true
+  },
+  "versions_in_the_vault": 1
+}

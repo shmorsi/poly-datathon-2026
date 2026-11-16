@@ -1,0 +1,50 @@
+{
+  "evidence": "The CloudFront distribution in front of the app (a filtered view: the origin header's NAME only; the unfiltered config holds its secret value and is never saved)",
+  "captured": "2026-11-15T16:40:55Z",
+  "how": "aws cloudfront get-distribution --query ...",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "distribution": {
+    "DomainName": "<DIST>.cloudfront.net",
+    "Status": "Deployed",
+    "Enabled": true,
+    "Comment": "EPICENTRE live app (three gates, ledger sections 19 and 30)",
+    "PriceClass": "PriceClass_100",
+    "HttpVersion": "http2",
+    "DefaultCertificate": true,
+    "WebACLId": "",
+    "Origins": [
+      {
+        "Id": "epicentre-ec2",
+        "DomainName": "<EC2_PUBLIC_DNS>",
+        "Protocol": "http-only",
+        "HTTPPort": 8000,
+        "CustomHeaderNames": [
+          "X-Origin-Verify"
+        ]
+      }
+    ],
+    "Behavior": {
+      "ViewerProtocolPolicy": "redirect-to-https",
+      "CachePolicyId": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
+      "OriginRequestPolicyId": "216adef6-5c7f-47e4-b989-5492eafa07d3",
+      "AllowedMethods": [
+        "HEAD",
+        "DELETE",
+        "POST",
+        "GET",
+        "OPTIONS",
+        "PUT",
+        "PATCH"
+      ],
+      "Compress": false,
+      "CachePolicyName": "Managed-CachingDisabled",
+      "OriginRequestPolicyName": "Managed-AllViewer"
+    },
+    "Tags": [
+      {
+        "Key": "Project",
+        "Value": "epicentre"
+      }
+    ]
+  }
+}

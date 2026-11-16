@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EPICENTRE dev harness: lane sc-u, #scenario</title>
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/scenario.css">
+  <script src="../lib.js" defer></script>
+  <style>
+    .scu-bar { position: sticky; top: 0; z-index: 30; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; padding: 8px 16px;
+      background: var(--pop); border-bottom: 1px solid var(--rule); font-size: 13px; color: var(--ink-2); }
+    .scu-bar button { min-height: 32px; padding: 0 12px; border-radius: 6px; border: 1px solid var(--edge); background: none; cursor: pointer; }
+    .scu-bar button[aria-pressed="true"] { background: var(--starlight); color: var(--on-ink); }
+    .scu-pad { height: 30vh; display: grid; place-items: center; color: var(--haze); font-size: 13px; }
+    body.scu-clean .scu-bar, body.scu-clean .scu-pad { display: none; }
+  </style>
+</head>
+<body>
+  <div class="scu-bar" id="scu-bar"><strong>sc-u #scenario</strong><span id="scu-runs"></span><span id="scu-modes"></span><span id="scu-depth"></span><span id="scu-note"></span></div>
+  <div class="scu-pad">the section below</div>
+  <main>
+    <section id="scenario" aria-label="Build your own shock"></section>
+  </main>
+  <div class="scu-pad">end</div>
+  <script type="module">
+    /* a stand-alone store with the INTERFACES.md contract (get / set / on), so this page needs nothing from other lanes */
+    const listeners = new Map();
+    let state = Object.freeze({ mode: "static", investor: "robert", result: null, view: null, depth: "simple" });
+    const store = {
+      get: () => state,
+      set(patch) {
+        const changed = Object.keys(patch).filter((k) => !Object.is(state[k], patch[k]));
+        if (!changed.length) return;
+        state = Object.freeze({ ...state, ...patch });
+        for (const k of changed) for (const fn of (listeners.get(k) || []).slice()) { try { fn(state[k], state); } catch (e) { console.error(e); } }
+      },
+      on(k, fn) { const a = listeners.get(k) || []; a.push(fn); listeners.set(k, a); return () => a.splice(a.indexOf(fn), 1); },
+    };
+    window.__errors = [];
+    const keep = (x) => window.__errors.push(String(x).slice(0, 400));
+    const ce = console.error.bind(console); console.error = (...a) => { keep(a.join(" ")); ce(...a); };
+    addEventListener("error", (e) => keep(e.message));
+    addEventListener("unhandledrejection", (e) => keep(e.reason && (e.reason.stack || e.reason.message) || e.reason));
+    const q = new URLSearchParams(location.search);
+    if (q.get("motion") === "0") window.EPI_MOTION = false;
+    if (q.get("clean") === "1") document.body.classList.add("scu-clean");
+    /* the page's sprite (markers and status icons) from index.html, as the real page has it */
+    try {
+      const doc = new DOMParser().parseFromString(await (await fetch("../index.html")).text(), "text/html");
+      const sprite = doc.querySelector("body > svg");
+      if (sprite) document.body.prepend(document.importNode(sprite, true));
+    } catch (e) { /* the section draws its own markers */ }
+    const group = (id, items, pick) => {
+      const box = document.getElementById(id);
+      for (const it of items) {
+        const b = document.createElement("button"); b.type = "button"; b.dataset.id = it; b.textContent = it;
+        b.addEventListener("click", () => pick(it)); box.append(b);
+      }
+      return (on) => box.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.id === on)));
+    };
+    const pressRun = group("scu-runs", ["robert", "mateo", "amira", "canadian"], (id) => setRun(id));
+    const pressMode = group("scu-modes", ["live", "static"], (m) => { store.set({ mode: m }); pressMode(m); });
+    const pressDepth = group("scu-depth", ["simple", "detailed"], (d) => { store.set({ depth: d }); pressDepth(d); });
+    async function setRun(id) {
+      const res = await fetch(`/runs/${id}.json`, { cache: "no-store" });
+      const result = JSON.parse((await res.text()).replace(/\bNaN\b/g, "null"));
+      store.set({ investor: result.pilot || id, result, view: window.PF.view(result) });
+      pressRun(id);
+      const sc = result.scenarios;
+      document.getElementById("scu-note").textContent = `run ${id}, scenarios ${sc ? (sc.dev_fixture ? "DEV fixture" : "real") : "absent"}`;
+    }
+    await new Promise((r) => (window.PF ? r() : addEventListener("DOMContentLoaded", r, { once: true })));
+    const mode = q.get("mode") === "live" ? "live" : "static";
+    store.set({ mode, depth: q.get("depth") === "detailed" ? "detailed" : "simple" });
+    pressMode(mode); pressDepth(store.get().depth);
+    const { mount } = await import("../sections/scenario.js");
+    mount(document.getElementById("scenario"), store);
+    window.__scu = { store, setRun, ready: setRun(q.get("run") || "robert") };
+    await window.__scu.ready;
+    document.documentElement.dataset.ready = "1";
+  </script>
+</body>
+</html>

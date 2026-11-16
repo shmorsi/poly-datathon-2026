@@ -1,0 +1,103 @@
+{
+  "evidence": "The live app's security group (its only inbound rule: the CloudFront origin-facing prefix list on TCP 8000; outbound: TCP 443 only)",
+  "captured": "2026-11-15T16:40:46Z",
+  "how": "aws ec2 describe-security-groups / describe-security-group-rules",
+  "masked": "account, resource ids, host names and IPs replaced by <PLACEHOLDERS>",
+  "summary": {
+    "inbound": [
+      "tcp 8000-8000 from <PREFIX LIST com.amazonaws.global.cloudfront.origin-facing>"
+    ],
+    "outbound": [
+      "tcp 443-443 to 0.0.0.0/0"
+    ],
+    "inbound open to 0.0.0.0/0 or ::/0": []
+  },
+  "group": {
+    "GroupId": "<SG_ID>",
+    "IpPermissionsEgress": [
+      {
+        "IpProtocol": "tcp",
+        "FromPort": 443,
+        "ToPort": 443,
+        "UserIdGroupPairs": [],
+        "IpRanges": [
+          {
+            "Description": "HTTPS out: dnf GitHub PyPI DockerHub SSM Bedrock",
+            "CidrIp": "0.0.0.0/0"
+          }
+        ],
+        "Ipv6Ranges": [],
+        "PrefixListIds": []
+      }
+    ],
+    "Tags": [
+      {
+        "Key": "Name",
+        "Value": "epicentre-origin"
+      },
+      {
+        "Key": "Project",
+        "Value": "epicentre"
+      }
+    ],
+    "VpcId": "<VPC_ID>",
+    "SecurityGroupArn": "arn:aws:ec2:us-east-1:<ACCT>:security-group/<SG_ID>",
+    "OwnerId": "<ACCT>",
+    "GroupName": "epicentre-origin",
+    "Description": "EPICENTRE origin: CloudFront prefix list only",
+    "IpPermissions": [
+      {
+        "IpProtocol": "tcp",
+        "FromPort": 8000,
+        "ToPort": 8000,
+        "UserIdGroupPairs": [],
+        "IpRanges": [],
+        "Ipv6Ranges": [],
+        "PrefixListIds": [
+          {
+            "Description": "CloudFront",
+            "PrefixListId": "<PREFIX LIST com.amazonaws.global.cloudfront.origin-facing>"
+          }
+        ]
+      }
+    ]
+  },
+  "rules": [
+    {
+      "SecurityGroupRuleId": "<RULE_ID>",
+      "GroupId": "<SG_ID>",
+      "GroupOwnerId": "<ACCT>",
+      "IsEgress": false,
+      "IpProtocol": "tcp",
+      "FromPort": 8000,
+      "ToPort": 8000,
+      "PrefixListId": "<PREFIX LIST com.amazonaws.global.cloudfront.origin-facing>",
+      "Description": "CloudFront",
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "epicentre"
+        }
+      ],
+      "SecurityGroupRuleArn": "arn:aws:ec2:us-east-1:<ACCT>:security-group-rule/<RULE_ID>"
+    },
+    {
+      "SecurityGroupRuleId": "<RULE_ID>",
+      "GroupId": "<SG_ID>",
+      "GroupOwnerId": "<ACCT>",
+      "IsEgress": true,
+      "IpProtocol": "tcp",
+      "FromPort": 443,
+      "ToPort": 443,
+      "CidrIpv4": "0.0.0.0/0",
+      "Description": "HTTPS out: dnf GitHub PyPI DockerHub SSM Bedrock",
+      "Tags": [
+        {
+          "Key": "Project",
+          "Value": "epicentre"
+        }
+      ],
+      "SecurityGroupRuleArn": "arn:aws:ec2:us-east-1:<ACCT>:security-group-rule/<RULE_ID>"
+    }
+  ]
+}

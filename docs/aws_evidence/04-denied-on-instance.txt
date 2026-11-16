@@ -1,0 +1,6 @@
+# From the instance (Session Manager, AWS-RunShellScript), with the instance role: who am I, then a model listing
+# the runtime policy does not allow (it names InvokeModel and ApplyGuardrail only). Captured 2026-11-15 16:41 UTC.
+
+Success	0	arn:aws:sts::<ACCT>:assumed-role/epicentre-runtime/<INSTANCE_ID>
+
+aws: [ERROR]: An error occurred (AccessDeniedException) when calling the ListFoundationModels operation: User: arn:aws:sts::<ACCT>:assumed-role/epicentre-runtime/<INSTANCE_ID> is not authorized to perform: be

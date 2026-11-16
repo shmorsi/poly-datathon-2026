@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lane picker: Try another move (harness)</title>
+<!-- the static build's announcement (lane U0's hook), here pointing at the harness's copy of tests/fixtures/web/moves.json -->
+<meta name="epicentre-moves" content="picker-moves.json">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../css/hero.css">
+<link rel="stylesheet" href="../css/movepicker.css">
+<script src="../lib.js" defer></script>
+<script type="module" src="picker.js"></script>
+<style>
+  body { padding: 72px var(--margin) 96px; }
+  .harness { max-width: 620px; }
+  .harness-note { margin-bottom: var(--s-6); font-size: 14px; color: var(--haze); }
+  .harness-log { margin-top: var(--s-6); font: 14px/1.5 var(--font-num); color: var(--ink-2); white-space: pre-wrap; }
+</style>
+</head>
+<body>
+<main class="harness">
+  <p class="harness-note">Harness for lane picker: ?mode=live or static, &amp;investor=robert, mateo, amira or canadian. The run is the
+    dev server's saved run; Replay only logs the question it would send. Static chips come from a copy of tests/fixtures/web/moves.json:
+    their runs are not on this server, so a chip says it could not be read (on the static build they load).</p>
+  <section id="hero">
+    <form class="hx-ask" id="hx-form" novalidate aria-label="The question to replay">
+      <label class="step hx-step" for="hx-q"><span class="step-n" aria-hidden="true">2</span><span class="sr">Step 2: </span><span class="step-t" id="hx-two"></span></label>
+      <div class="hx-field"><textarea id="hx-q" class="hx-q" rows="2" spellcheck="false"></textarea></div>
+      <div class="hx-pick" id="hx-pick"></div>
+      <div class="hx-go-row"><span class="step-n" aria-hidden="true">3</span><button class="btn btn-primary hx-go" type="submit"><span class="sr">Step 3: </span><span class="hx-go-t" id="hx-go-t">Replay</span></button><span class="hx-go-years" id="hx-years"></span></div>
+    </form>
+  </section>
+  <p class="harness-log" id="log" aria-live="polite"></p>
+</main>
+</body>
+</html>
