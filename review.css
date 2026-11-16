@@ -374,6 +374,7 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   --review-opening-enter: 1900ms;
   --review-copy-enter: 860ms;
   --review-action-motion: 240ms;
+  --review-choice-enter: 180ms;
   --review-opening-ease: ease-out;
   --review-scroll-ease: linear;
 }
@@ -744,6 +745,9 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   .masthead-copy h1 { animation-delay: 75ms; }
   .masthead-description { animation-delay: 150ms; }
   .masthead-actions, .masthead-examples { animation-delay: 230ms; }
+  .masthead-examples[open] .masthead-example-options {
+    animation: review-choices-arrive var(--review-choice-enter) var(--review-opening-ease) both;
+  }
   @keyframes review-opening-earth {
     from { opacity: 0; scale: .89; }
     to { opacity: 1; scale: 1; }
@@ -752,11 +756,24 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
     from { opacity: 0; translate: 0 21px; }
     to { opacity: 1; translate: 0 0; }
   }
+  @keyframes review-choices-arrive {
+    from { opacity: .55; translate: 0 -4px; }
+    to { opacity: 1; translate: 0 0; }
+  }
   @supports (animation-timeline: view()) {
+    .masthead-visual {
+      animation: review-earth-depart var(--review-scroll-ease) both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 85%;
+    }
     .workspace {
       animation: review-workspace-entry var(--review-scroll-ease) both;
       animation-timeline: view();
       animation-range: entry 0% entry 24%;
+    }
+    @keyframes review-earth-depart {
+      from { translate: 0 0; opacity: 1; }
+      to { translate: 0 10%; opacity: .28; }
     }
     @keyframes review-workspace-entry {
       from { opacity: .66; translate: 0 12px; }
