@@ -760,7 +760,8 @@ def create_app(web_dir: Path | None = WEB_DIR) -> FastAPI:
     app.include_router(router)
     if web_dir is not None and Path(web_dir).is_dir():        # mounted last: the API routes win
         if os.environ.get("EPICENTRE_LANDING") == "review" and (Path(web_dir) / "review.html").is_file():
-            app.add_api_route("/", _review_landing, methods=["GET", "HEAD"], include_in_schema=False)
+            for entry_path in ("/", "/index.html"):
+                app.add_api_route(entry_path, _review_landing, methods=["GET", "HEAD"], include_in_schema=False)
         app.mount("/", StaticFiles(directory=web_dir, html=True), name="web")
     app.add_middleware(Guard)
     return app

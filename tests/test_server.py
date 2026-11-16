@@ -348,6 +348,19 @@ def live(monkeypatch):
     return TestClient(server.app)
 
 
+@pytest.mark.parametrize("entry", ["/", "/index.html"])
+def test_deployed_review_opens_from_both_entry_urls(monkeypatch, tmp_path, entry):
+    monkeypatch.setenv("EPICENTRE_LANDING", "review")
+    (tmp_path / "index.html").write_text("Classic experience", encoding="utf-8")
+    (tmp_path / "review.html").write_text("Portfolio review", encoding="utf-8")
+
+    with TestClient(server.create_app(tmp_path)) as client:
+        response = client.get(entry)
+
+    assert response.status_code == 200
+    assert response.text == "Portfolio review"
+
+
 def test_recompute_reruns_every_number_of_a_real_run_and_finds_the_stored_value(live):
     result = ndjson(live, BODY)[-1]["result"]
     assert result["status"] == "ok" and result["facts"]
@@ -380,6 +393,8 @@ def test_every_route_answers_valid_input_without_a_500(live, monkeypatch):
     run_id, first = result["run_id"], next(iter(result["facts"]))
     monkeypatch.delenv("EPICENTRE_RECORD_BUCKET", raising=False)       # the vault is off here: /api/record answers "off"
     from agents import scenario_builder                                 # lane sc-a: a tiny book, no starter data needed
+    from tools import data
+    has_scenario_prices = (data.DATA_DIR / "prices_daily.csv").is_file()
     monkeypatch.setattr(scenario_builder, "book_for", lambda as_of=None: scenario_builder.make_book(
         scenario_builder.FACTORS, [{"id": "tech_2022", "label": "Tech stocks' largest fall in 2022", "shocks": {"tech": -0.25}}]))
     answers = {
@@ -392,14 +407,14 @@ def test_every_route_answers_valid_input_without_a_500(live, monkeypatch):
         "/api/scenario": live.post("/api/scenario", json=SCENARIO_BODY),
         "/api/profile/read": live.post("/api/profile/read", json={"text": "I'm 45 with $200,000; I could lose $40,000."}),
     }
-    monkeypatch.setenv("EPICENTRE_DATA_DIR", str(server.WEB_DIR.parent / "data/fake/starter"))
+    monkeypatch.setattr(data, "DATA_DIR", server.WEB_DIR.parent / "data/fake/starter")
     review = live.post("/api/review", json={"portfolio": {"NVDA": 1.0}, "amount": 600000, "drawdown_limit": .15})
     assert review.status_code == 200, review.text
     answers["/api/review"] = review
     answers["/api/review/explain"] = live.post("/api/review/explain", json={
         "review_id": review.json()["review_id"], "goal": "Explain my loss limits",
     })
-    no_data = set() if (server.WEB_DIR.parent / "data" / "starter" / "prices_daily.csv").is_file() else {"/api/scenario"}
+    no_data = set() if has_scenario_prices else {"/api/scenario"}
     no_bedrock = {"/api/profile/read"}                   # lane profile-ai: Bedrock off is a 503 whose body is the whole
     for path, r in answers.items():                      # keyword reading; no starter data: the scenario engine is a 503
         assert r.status_code < 500 or (path in no_data | no_bedrock and r.status_code == 503), (path, r.status_code,

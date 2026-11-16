@@ -4,7 +4,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from server import create_app
-from tools import lookthrough
+from tools import data, lookthrough
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,7 +13,7 @@ PORTFOLIO = {"XIU.TO": .45, "XBB.TO": .35, "GLD": .10, "ZST.TO": .10}
 
 @pytest.fixture
 def api(tmp_path, monkeypatch):
-    monkeypatch.setenv("EPICENTRE_DATA_DIR", str(ROOT / "data/fake/starter"))
+    monkeypatch.setattr(data, "DATA_DIR", ROOT / "data/fake/starter")
     monkeypatch.setenv("EPICENTRE_NO_BEDROCK", "1")
     holdings = tmp_path / "holdings.csv"
     holdings.write_text(
