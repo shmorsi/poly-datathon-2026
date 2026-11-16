@@ -1,0 +1,368 @@
+/* The Replay stage (lane U2; design doc §2 item 2, §3). One viewport under the bar: the READ strip, the scene (the globe's slot
+   on the left third, the race on the right two thirds), the verdict. The section has no ground of its own: the globe's canvas
+   (lane U1, under the content) shows through the slot. Night tokens only (web/styles.css); magenta = the move, cyan = the
+   shock, the lamp in its tone. Motion: opacity everywhere, transform and clip-path only inside the no-preference block. */
+.rp { position: relative; }
+.rp-stage { position: relative; width: var(--page); margin-inline: auto; min-height: calc(100svh - var(--bar));
+  display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); grid-template-rows: auto minmax(0, 1fr);
+  column-gap: var(--gutter); row-gap: clamp(8px, 1.3vh, 18px); padding-block: clamp(8px, 1.4vh, 16px) clamp(12px, 2vh, 24px); }
+.rp-stage > * { min-width: 0; }
+
+/* ---- READ: the question, the reading as chips, who read it, the steps folded into one receipt line ---- */
+.rp-read { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); row-gap: var(--s-2); }
+.rp-read-main { grid-column: 1 / span 9; display: grid; align-content: start; gap: var(--s-2); min-width: 0; }
+.rp-read-side { grid-column: 10 / span 3; display: grid; align-content: start; gap: var(--s-2); min-width: 0; padding-left: var(--s-4);
+  border-left: 1px solid var(--rule); text-shadow: 0 0 2px #000, 0 0 12px #000; }   /* legible over the Earth while it is still large */
+.rp-q { font-size: var(--t-lead, 17px); line-height: 1.35; font-weight: 450; color: var(--starlight); max-width: 110ch; text-wrap: balance; }
+.rp-who { font-size: 14px; color: var(--haze); }
+/* the chips on one row; under them lane hold's TODAY vs WITH THE MOVE strip and the AI's line share one row (one row less) */
+/* the chips with lane hold's TODAY vs WITH THE MOVE strip beside them (beside the move), then how the move was funded (an
+   assumption when the words did not say), then the AI reader's line */
+.rp-reading { display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center; gap: 2px var(--s-5); margin-top: var(--s-1); }
+.rp-reading > .rp-funding { margin-top: 2px; }
+.rp-reading > .rp-chips { grid-column: 1; }
+.rp-reading > .rp-hold { grid-column: 2; width: min(320px, 100%); }
+.rp-reading > .rp-hold:empty, .rp-reading > .rp-hold[hidden] { display: none; }
+.rp-reading > :is(.rp-funding, .rp-effect) { grid-column: 1 / -1; }
+.rp-funding { display: flex; align-items: baseline; gap: var(--s-2); font-size: 14px; line-height: 1.4; color: var(--ink);
+  text-shadow: 0 0 2px #000, 0 0 12px #000; }
+.rp-mark { width: 12px; height: 12px; flex: none; color: var(--caution); transform: translateY(1px); }   /* the assumption mark (#m-assumption) */
+.rp-lead { font-size: 14px; color: var(--ink-2); }
+.rp-chips { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.rp-chip { cursor: default; gap: var(--s-2); padding: 0 var(--s-1) 0 var(--s-4); text-shadow: 0 0 2px #000, 0 0 12px #000;
+  background-color: rgba(0, 0, 0, .72); }                 /* a solid night fill: a chip on the Earth's limb during the zoom stays clean */
+.rp-chip-v { font-weight: 600; font-size: 15px; color: var(--starlight); font-variant-numeric: tabular-nums; }
+.rp-chip-s { font-size: 14px; color: var(--ink-2); }
+.rp-chip-from { color: var(--ink); font-style: italic; }   /* the investor's own words the shock was read from */
+.rp-chip-move { border-color: rgba(255, 95, 200, .55); }
+.rp-chip-move .rp-chip-v { color: var(--magenta); }
+.rp-chip-shock { border-color: rgba(159, 230, 255, .38); }
+.rp-chip-shock .rp-chip-v { color: var(--signal); }
+.rp-edit { align-self: stretch; display: inline-flex; align-items: center; margin-left: var(--s-1); padding: 0 var(--s-3); border: 0;
+  border-left: 1px solid var(--rule); border-radius: 0 999px 999px 0; background: none; color: var(--haze); font-size: 14px; cursor: pointer;
+  text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--ink-tint);
+  transition: color var(--dur-tip) var(--ease-out), text-decoration-color var(--dur-tip) var(--ease-out); }
+.rp-edit:focus-visible { outline-offset: -2px; border-radius: 0 999px 999px 0; }
+/* the AI's value in one line, under the chips, with a quiet info button for the blind measure behind it */
+.rp-effect { display: block; font-size: 14px; line-height: 1.4; color: var(--ink-2);
+  text-shadow: 0 0 2px #000, 0 0 12px #000; }
+.rp-effect-text { color: var(--ink); }
+.rp-info { display: inline-grid; place-items: center; width: 24px; height: 24px; margin-left: 2px; vertical-align: -7px; padding: 0; border: 0; border-radius: 50%; background: none;
+  color: var(--haze); cursor: pointer; transition: color var(--dur-tip) var(--ease-out); }
+.rp-info[aria-expanded="true"] { color: var(--starlight); }
+.rp-info-icon { width: 16px; height: 16px; }
+.rp-effect { position: relative; }
+/* the blind measure opens as a small bubble under the line: it never pushes the stage */
+.rp-effect-more { position: absolute; left: 0; top: calc(100% + 4px); z-index: 7; padding: var(--s-1) var(--s-3); max-width: min(560px, 92vw);
+  background: var(--pop); border: 1px solid var(--rule); border-radius: var(--r-input); color: var(--ink); text-shadow: none;
+  font-variant-numeric: tabular-nums; box-shadow: 0 12px 32px rgba(0, 0, 0, .5); }
+.rp-effect-more[hidden] { display: none; }
+.rp-aside { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--s-1) var(--s-2); font-size: 14px; color: var(--ink-2); }
+.rp-aside-lead { color: var(--ink-2); margin-right: var(--s-1); }
+.rp-off { padding: 1px var(--s-2); border: 1px dashed rgba(255, 255, 255, .18); border-radius: 999px; color: var(--haze); white-space: nowrap; }
+.rp-aside-why { margin-left: var(--s-1); }
+/* "Read by Amazon Bedrock, Claude …" on one line, "recorded …" on the second: two lines, so lane agentlog's 40 px run line fits */
+.rp-by { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 6px; font-size: 14px; line-height: 1.35; color: var(--ink-2); }
+.rp-by-model { white-space: nowrap; }
+.rp-by-lead { color: var(--haze); }
+.rp-by-svc { font-weight: 600; color: var(--starlight); }
+.rp-by-model { color: var(--ink); }
+.rp-by-rec { flex-basis: 100%; font-size: 14px; color: var(--haze); }
+.rp-by-meta { font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
+.rp-by[data-kind="rules"] .rp-by-svc { color: var(--ink); }
+.rp-run { position: relative; }
+/* the five steps never take height of their own: while a replay reads they sit where the receipt will be, over the empty scene;
+   reopened at rest they float under the receipt as one panel */
+.rp-steps { display: grid; gap: 2px; font-size: 14px; align-content: start; }
+.rp-step { display: grid; grid-template-columns: 14px 5.6em minmax(0, 1fr) auto; align-items: center; gap: var(--s-2); min-height: 20px; color: var(--ink-2); }
+.rp-step-icon { width: 14px; height: 14px; color: var(--haze); }
+.rp-step[data-state="done"] .rp-step-icon { color: var(--ink); }
+.rp-step[data-state="running"] .rp-step-icon { color: var(--signal); }
+.rp-step[data-state="error"] .rp-step-icon { color: var(--outside); }
+.rp-step-name { color: var(--ink); font-weight: 600; }
+.rp-step[data-state="waiting"] .rp-step-name, .rp-step[data-state="skipped"] .rp-step-name { color: var(--haze); font-weight: 500; }
+.rp-step-svc { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rp-step-ms { color: var(--haze); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.rp-receipt { display: flex; align-items: flex-start; gap: var(--s-2); font-size: 14px; color: var(--ink-2); }
+.rp-receipt-icon { width: 16px; height: 16px; margin-top: 3px; flex: none; color: var(--ink); }
+.rp-receipt-text { display: block; line-height: 1.45; }
+.rp-receipt-main { color: var(--ink); }
+.rp-toggle { display: inline; font-size: 14px; padding: 0; font-weight: 500; color: var(--ink-2); white-space: nowrap; }
+/* R22: the one "Show the details" panel, under the receipt and over the chart's top right, never pushing the stage */
+.rp-details { position: absolute; top: calc(100% + var(--s-2)); right: 0; z-index: 6; width: min(620px, calc(100vw - 2 * var(--s-5)));
+  max-height: min(560px, calc(100svh - var(--bar) - 180px)); overflow: auto; display: grid; gap: var(--s-4); padding: var(--s-4) var(--s-5);
+  background: var(--pop); border: 1px solid var(--rule); border-radius: var(--r-input); text-shadow: none; box-shadow: 0 18px 48px rgba(0, 0, 0, .55); }
+.rp-details[hidden] { display: none; }
+/* Detailed (the page's switch): the same parts in the flow under the scene, side by side, no panel */
+.rp-details[data-inline="1"] { position: static; grid-column: 1 / -1; width: auto; max-height: none; overflow: visible; box-shadow: none;
+  background: none; border: 0; border-top: 1px solid var(--rule); border-radius: 0; padding: var(--s-4) 0 0;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: var(--gutter); }
+.rp-details[data-inline="1"] .rp-details-part + .rp-details-part { padding-top: 0; border-top: 0; }
+.rp-details-part { display: grid; gap: var(--s-2); align-content: start; }
+.rp-details .rp-aside { align-content: flex-start; }
+.rp-details-part + .rp-details-part { padding-top: var(--s-4); border-top: 1px solid var(--rule); }
+.rp-details-h { font-size: 14px; font-weight: 600; color: var(--starlight); }
+.rp-change-row { display: flex; flex-wrap: wrap; gap: var(--s-2); }
+.rp-change-btn, .rp-change-select { display: inline-flex; align-items: center; gap: var(--s-2); min-height: 36px; padding: 0 var(--s-3);
+  border: 1px solid var(--rule); border-radius: 999px; background: none; color: var(--ink); font: inherit; font-size: 14px; cursor: pointer;
+  transition: border-color var(--dur-tip) var(--ease-out), color var(--dur-tip) var(--ease-out); }
+.rp-change-select { appearance: auto; background: var(--pop); }
+.rp-change-icon { width: 16px; height: 16px; color: var(--haze); }
+.rp-total { font-size: 15px; color: var(--ink); }
+.rp-note { grid-column: 1 / -1; font-size: 15px; color: var(--caution); }
+
+/* ---- the scene: the globe's slot (left third) with the epicentre's caption, the race (right two thirds) ---- */
+.rp-scene { grid-column: 1 / -1; display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: var(--gutter); min-height: 0; }
+/* chart-first (design director, item 2): the verdict in columns 1-4, read first, the Earth a small inset under it; the chart in 5-12 */
+.rp-left { grid-column: 1 / span 4; display: flex; flex-direction: column; gap: var(--s-3); min-height: 0; }
+.rp-right { grid-column: 5 / span 8; display: grid; grid-template-rows: minmax(0, 1fr) auto auto; min-height: 0; }
+.rp-left > .rp-lampcol { order: -1; border-top: 0; padding-top: 0; }
+.rp-left > .rp-globe { order: 1; }
+.rp-left > .rp-epi { order: 2; }
+/* transparent: the globe (U1) docks here, small and fixed; it gives room to the AI's line and to the reframe when they show */
+.rp-globe { position: relative; height: clamp(112px, 14vh, 150px); }   /* transparent: the globe (U1) docks here as an inset */
+.rp-map { position: absolute; inset: 0; overflow: hidden; border: 1px solid var(--rule); border-radius: var(--r-panel);
+  background: var(--map-ocean) url("../vendor/nasa/black-marble-2016-2048.jpg") no-repeat 0 0 / 300% auto; }
+.rp .rp-map[data-in] { transition: opacity var(--dur-story) var(--ease-out); }
+.rp-map-ring, .rp-map-core { position: absolute; left: var(--x, 50%); top: var(--y, 50%); border-radius: 50%; pointer-events: none; }
+.rp-map-ring { width: 44px; height: 44px; margin: -22px 0 0 -22px; border: 1.5px solid var(--signal); opacity: .7; }
+.rp-map-core { width: 7px; height: 7px; margin: -3.5px 0 0 -3.5px; background: var(--starlight); box-shadow: 0 0 0 3px rgba(159, 230, 255, .28); }
+.rp-stream { position: absolute; left: 0; right: 0; top: 0; z-index: 2; display: grid; gap: 2px; align-content: start; font-size: 14px;
+  max-width: 340px; }                                   /* while the Earth is still large beside the stage: the slot is empty, black */
+.rp .rp-stream[data-in] { transition: opacity var(--dur-panel) var(--ease-out), visibility var(--dur-panel) var(--ease-out); }
+.rp .rp-stream[data-in="0"] { visibility: hidden; }
+.rp-read-main > .rp-stream { position: static; max-width: none; margin-top: var(--s-2); }   /* a phone: its own row under the reading */
+.rp-read-main > .rp-stream[data-gone="1"] { display: none; }                               /* folded once the Earth has docked */
+.rp-epi { display: grid; gap: 2px; font-size: 14px; color: var(--ink-2); }
+.rp-epi-title { font-size: var(--t-body); font-weight: 600; color: var(--starlight); line-height: 1.3; }
+.rp-epi-num .fig { color: var(--starlight); }
+.rp-epi-num .rp-shock-fig { color: var(--signal); }
+.rp-race { position: relative; min-height: clamp(280px, 40vh, 440px); }
+.rp-strip { margin-top: var(--s-1); }
+.rp .rp-strip .dial-notch-row { height: 20px; }         /* lane U4's ruler measures its track: a lower ruler, a taller chart */
+.rp .rp-strip .dial-track { height: 84px; }
+.rp .rp-strip[data-in="0"] { visibility: hidden; pointer-events: none; }
+.rp-band { margin-top: var(--s-1); font-size: 14px; line-height: 1.4; color: var(--ink-2); }
+.rp-band .fig { color: var(--starlight); }
+.rp-peer { margin-top: 2px; }
+.rp-step-svc.is-split { white-space: normal; }
+
+/* ---- the leader: one 1 px cyan thread from the epicentre to the shock's tick on the chart's axis ---- */
+.rp-leader { position: absolute; left: 0; top: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; z-index: 2;
+  clip-path: inset(-12px var(--r, 0px) -12px var(--l, 0px)); }
+.rp-lpath { fill: none; stroke: var(--signal); stroke-width: 1; stroke-opacity: .8; vector-effect: non-scaling-stroke; }
+.rp-lsrc { fill: var(--signal); }
+.rp-ldot { fill: var(--sky); stroke: var(--signal); stroke-width: 1.5; }
+
+/* ---- the verdict: the unboxed lamp, "in this 2021–26 replay" right under it (R1), the sentences, the money twist (R3) ---- */
+.rp-lampcol { will-change: transform; display: grid; align-content: start; justify-items: start; gap: var(--s-1); padding-top: var(--s-3); border-top: 1px solid var(--rule);
+  container-type: inline-size; }
+.rp-lampbox { display: grid; justify-items: start; gap: var(--s-1); }
+.rp-lines { display: grid; align-content: start; gap: var(--s-2); margin-top: var(--s-3); padding-top: var(--s-3); border-top: 1px solid var(--rule);
+  transition: opacity var(--dur-flip) var(--ease-out); }
+/* R22: the question the lamp answers, and its one answer sentence (the replay's years are its large numbers) */
+.rp-ask { font-size: var(--t-h3, 18px); font-weight: 600; line-height: 1.25; color: var(--starlight); text-wrap: balance; }
+.rp-answer { font-size: var(--t-h3, 20px); font-weight: 560; line-height: 1.25; color: var(--starlight); text-wrap: balance; margin-top: var(--s-1); }
+.rp-answer .fig { font-variant-numeric: tabular-nums lining-nums; }
+.rp-reframe { font-size: 15px; line-height: 1.4; color: var(--ink-2); max-width: 44ch; }
+/* the two short lines under the answer, then the proof and the way to "why" */
+.rp-subs { display: grid; gap: 2px; margin-top: var(--s-2); }
+.rp-sub { font-size: 15px; line-height: 1.35; color: var(--ink); }
+.rp-sub .fig { color: var(--starlight); font-variant-numeric: tabular-nums; }
+.rp-sub-shock .fig:first-of-type { color: var(--signal); }      /* the shock's fall keeps the shocks' cyan (globe, tick, callout) */
+.rp-proof { margin-top: var(--s-2); font-size: 14px; line-height: 1.4; color: var(--ink-2); }
+.rp-why { font-size: 14px; font-weight: 600; color: var(--starlight); white-space: nowrap; }
+.rp-stage[data-whatif="1"] :is(.rp-subs) { visibility: hidden; }
+html:not([data-depth="detailed"]) .rp-subs { display: none; }
+/* R20: at a what-if size the lines about the size asked step out of sight, their space kept (nothing shifts mid-drag) */
+.rp-answerbox { display: grid; grid-template-columns: minmax(0, 1fr); align-content: start; gap: var(--s-1); }
+.rp-answerbox > .rp-answer { grid-area: 1 / 1; }
+.rp-answerbox > .rp-twist { grid-area: 2 / 1; }
+.rp-answerbox > .rp-dialnote { grid-area: 1 / 1 / 3 / 2; align-self: start; margin-top: var(--s-1); }   /* where the answer was */
+.rp-stage[data-whatif="1"] :is(.rp-answer, .rp-twist, .rp-decide, .rp-without) { visibility: hidden; }   /* R20: no pass mark beside a what-if */
+.rp-stage[data-whatif="1"] :is(.rp-s1, .rp-s2) { opacity: .45; }
+/* the lamp on one line, as large as its column allows (the verdict words are read first) */
+.rp-lamp { display: flex; align-items: flex-start; gap: .16em; font-size: min(var(--t-lamp, 40px), 10.5cqi); line-height: .9; color: var(--ink-2); white-space: nowrap; }
+.rp-lamp-icon { display: inline-grid; place-items: center; }
+.rp-lamp-svg { width: .74em; height: .74em; margin-top: .06em; }
+.lamp-word { font-weight: 640; font-stretch: 62%; text-transform: uppercase; letter-spacing: -0.004em;
+  transition: opacity var(--dur-flip) var(--ease-out); }
+.rp-lamp[data-tone="outside"] { color: var(--outside); }
+.rp-lamp[data-tone="caveat"] { color: var(--caution); }
+.rp-lamp[data-tone="inside"] { color: var(--starlight); }   /* R38: Inside in a neutral tone, not green */
+.rp-lamp[data-tone="held"] { color: var(--ink); }
+.rp-lamp[data-whatif="1"] { font-size: min(calc(var(--t-lamp, 40px) * .75), 8.4cqi); }   /* a what-if size: smaller than the verdict on the move asked */
+.rp-dialnote { max-width: 60ch; font-size: 14px; line-height: 1.4; color: var(--ink-2); margin-top: var(--s-1); }
+.rp-lamp.is-morph .lamp-word { opacity: .2; transition: none; }
+.rp-qual { font-size: 15px; color: var(--ink-2); }
+.rp-dialnote { font-size: 15px; color: var(--ink); font-variant-numeric: tabular-nums; }
+.rp-without { display: flex; align-items: center; gap: var(--s-2); margin-top: var(--s-2); font-size: 15px; color: var(--ink-2); }
+.rp-without-icon { width: 16px; height: 16px; color: var(--haze); flex: none; }
+.rp-fine { font-size: 14px; line-height: 1.45; color: var(--haze); }
+.rp-twist { margin-top: var(--s-1); }
+.rp-qualrow { display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px var(--s-5); }
+.rp-qualrow .rp-without { margin-top: 0; }
+.rp-pill, .rp-reframe-pill { display: none; }              /* phones only: the verdict right under the question */
+.rp-afterrow { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-1) var(--s-5); width: 100%; margin-top: var(--s-2); }
+.rp-afterrow .rp-without { margin-top: 0; }
+.rp-right { position: relative; }
+/* the transport: one 40 px round button in the chart's corner (Pause, Resume, Replay) */
+.rp-transport { position: absolute; bottom: 0; right: 0; z-index: 4; display: grid; place-items: center; width: 40px; height: 40px; padding: 0;
+  border: 1px solid var(--rule); border-radius: 50%; background: rgba(0, 0, 0, .64); color: var(--starlight); cursor: pointer;
+  transition: border-color var(--dur-tip) var(--ease-out), transform 120ms var(--ease-out); }
+.rp-transport[hidden] { display: none; }
+.rp-transport:active { transform: scale(.96); }
+.rp-transport-icon { width: 18px; height: 18px; }
+/* lane agentlog's run log, once mounted in its slot, is the only list of the steps (the stage's own stream steps aside) */
+.rp-stage:has([data-agentlog-slot][data-mounted="1"]) .rp-stream { display: none !important; }
+.rp-agentlog[hidden] { display: none; }
+.rp-decide { font-size: var(--t-body); line-height: 1.45; color: var(--ink); max-width: 66ch; }
+.rp-decide-icon { display: inline-block; width: 18px; height: 18px; vertical-align: -3px; margin-right: var(--s-2); }
+.rp-decide[data-tone="outside"] .rp-decide-icon { color: var(--outside); }
+.rp-decide[data-tone="caveat"] .rp-decide-icon { color: var(--caution); }
+.rp-decide[data-tone="inside"] .rp-decide-icon { color: var(--starlight); }
+.rp-decide-name { font-weight: 600; color: var(--starlight); }
+.rp-chip-still .rp-chip-v { color: var(--ink); }
+.rp-confirm { display: inline-flex; align-items: center; min-height: 36px; padding: 0 var(--s-2); }
+.rp-confirm-btn { font-size: 14px; }
+.rp-confirmed { display: inline-flex; align-items: center; gap: var(--s-2); font-size: 14px; color: var(--ink-2); }
+.rp-confirm-icon { width: 14px; height: 14px; color: var(--ink); }
+.rp-chips[data-confirmed="1"] .rp-edit { display: none; }
+.rp-s1 { font-size: var(--t-body, 16px); line-height: 1.42; color: var(--ink); max-width: 92ch; }
+.rp-s2 { font-size: var(--t-small); line-height: 1.45; color: var(--ink-2); max-width: 92ch; }
+.rp-s1 .fig, .rp-s2 .fig { color: var(--starlight); }
+.rp-evidence { color: var(--haze); white-space: nowrap; }
+.rp-twist { font-size: var(--t-lead, 17px); font-weight: 600; font-stretch: 78%; line-height: 1.18; color: var(--ink); text-wrap: balance; }
+.rp-strong { color: var(--starlight); }
+
+/* while the Earth is large or gliding (reading, the zoom, the handoff, the race) no hairline crosses it: the rules wait for the
+   end frame, then fade in (200 ms) */
+.rp-read-side, .rp-lampcol, .rp-lines { transition: border-color 200ms var(--ease-out); }
+.rp-stage:is([data-phase="reading"], [data-phase="flying"], [data-phase="racing"]) :is(.rp-read-side, .rp-lampcol, .rp-lines) { border-color: transparent; }
+
+/* live run in flight: the last answer leaves the stage (it never reads as the new one, and the large Earth stays clean);
+   the new words, the lamp saying Checking and the five steps streaming in the empty slot remain (the critic's problem 4) */
+.rp-stage[data-pending="1"] :is(.rp-reading, .rp-aside, .rp-right, .rp-epi, .rp-lines, .rp-without, .rp-qual, .rp-by) { opacity: 0; visibility: hidden; }
+.rp-lamp[data-tone="pending"] .lamp-word { font-stretch: 75%; }
+
+/* ---- the timeline's flags: a part waiting for its beat is transparent (and, with motion, a few px from its place) ---- */
+.rp [data-in] { transition: opacity var(--dur-panel) var(--ease-out); }
+.rp [data-in="0"] { opacity: 0; }
+.rp .rp-receipt { transition: opacity var(--dur-panel) var(--ease-out), visibility var(--dur-panel) var(--ease-out); }
+.rp .rp-receipt[data-in="0"] { visibility: hidden; }
+.rp-read[data-details="open"] .rp-receipt[data-in="0"] { visibility: visible; opacity: 1; }
+.rp-stage.rp-instant, .rp-stage.rp-instant * { transition: none !important; }
+
+/* ---- motion (one focal motion per beat): the question lifts, the chips land, the ring fires once, the leader draws, the lamp
+   lights left to right. Nothing loops; under reduced motion only opacity changes (and the timeline shows its end frame). ---- */
+@media (prefers-reduced-motion: no-preference) {
+  .rp .rp-q[data-in], .rp .rp-who[data-in], .rp .rp-chip[data-in], .rp .rp-by[data-in], .rp .rp-epi[data-in], .rp .rp-without[data-in],
+  .rp .rp-s1[data-in], .rp .rp-s2[data-in], .rp .rp-twist[data-in], .rp .rp-qual[data-in] {
+    transition: opacity var(--dur-panel) var(--ease-out), transform var(--dur-panel) var(--ease-out); }
+  .rp-q[data-in="0"] { transform: translateY(16px); }
+  .rp-who[data-in="0"] { transform: translateY(10px); }
+  .rp-chip[data-in="0"] { transform: translateY(6px) scale(0.97); }
+  .rp-by[data-in="0"], .rp-epi[data-in="0"] { transform: translateY(6px); }
+  .rp-s1[data-in="0"], .rp-s2[data-in="0"], .rp-without[data-in="0"], .rp-qual[data-in="0"] { transform: translateY(8px); }
+  .rp-twist[data-in="0"] { transform: translateY(10px); }
+  .rp .rp-step[data-in] { transition: opacity var(--dur-list) var(--ease-out), transform var(--dur-list) var(--ease-out); }
+  .rp-step[data-in="0"] { transform: translateX(-6px); }
+  .rp-lamp { transition: opacity var(--dur-list) var(--ease-out); }
+  .rp-lamp .lamp-word { clip-path: inset(-0.1em -0.1em -0.1em -0.1em); transition: clip-path var(--dur-lamp) var(--ease-out), opacity var(--dur-flip) var(--ease-out); }
+  .rp-lamp[data-in="0"] .lamp-word { clip-path: inset(-0.1em 100% -0.1em -0.1em); }
+  .rp-lamp .rp-lamp-icon { transition: transform var(--dur-lamp) var(--ease-out); }
+  .rp-lamp[data-in="0"] .rp-lamp-icon { transform: scale(0.9); }
+  .rp-lamp.is-morph .lamp-word { transition: none; }
+  .rp-lamp[data-tone="pending"] .rp-lamp-svg, .rp-step[data-state="running"] .rp-step-icon { animation: spin var(--dur-story) linear infinite; }
+  .rp-map-ring { transition: transform var(--dur-story) var(--ease-out), opacity var(--dur-story) var(--ease-out); }
+  .rp-map[data-in="0"] .rp-map-ring, .rp-map[data-ring="0"] .rp-map-ring { transform: scale(0.35); opacity: 1; }
+  .rp .rp-leader[data-in] { transition: clip-path var(--dur-story) var(--ease-in-out), opacity var(--dur-list) var(--ease-out); }
+  .rp .rp-leader[data-in="0"] { opacity: 1; clip-path: inset(-12px calc(100% - var(--l, 0px)) -12px var(--l, 0px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rp-leader[data-in="0"] { opacity: 0; }
+}
+html.motion-off .rp *, html.motion-off .rp *::before, html.motion-off .rp *::after { transition: none !important; }
+
+@media (hover: hover) and (pointer: fine) {
+  .rp-edit:hover { color: var(--starlight); text-decoration-color: var(--starlight); }
+  .rp-transport:hover { border-color: rgba(255, 255, 255, .4); }
+  .rp-toggle:hover, .rp-info:hover { color: var(--starlight); }
+  .rp-change-btn:hover, .rp-change-select:hover { border-color: rgba(255, 255, 255, .32); color: var(--starlight); }
+}
+
+/* ---- short desktop viewports (1280 × 800): the same stage, tighter type, so it still fits one viewport under the bar ---- */
+@media (min-width: 901px) and (max-height: 860px) {
+  .rp-stage { row-gap: var(--s-2); padding-block: var(--s-2); }
+  .rp-read-main { gap: 6px; }
+  .rp-reading { margin-top: 0; }
+  .rp-read-side { gap: var(--s-2); }
+  .rp-globe { height: clamp(92px, 12vh, 120px); }
+  .rp-race { min-height: clamp(220px, 31vh, 340px); }
+  .rp-epi-why { display: none; }                         /* short screens: the inset's caption keeps its name, date and place */
+  .rp-lampcol { gap: 2px; }
+  .rp .rp-strip .dial-track { height: 64px; }
+  .rp-left { gap: var(--s-2); }
+  .rp-strip { margin-top: 0; }
+
+  .rp-lampcol { padding-top: var(--s-2); }
+  .rp-subs, .rp-proof { margin-top: var(--s-1); }
+  .rp-left { gap: 6px; }
+  .rp-lines { margin-top: var(--s-2); padding-top: var(--s-2); gap: 6px; }
+  .rp-s2 { font-size: var(--t-small); line-height: 1.36; }
+  .rp-afterrow { margin-top: var(--s-1); }
+  .rp-without { margin-top: var(--s-1); }
+}
+
+/* ---- narrower screens: the strip's side column drops under the reading; the verdict stacks below 900 px ---- */
+@media (max-width: 1100px) {
+  .rp-read-main { grid-column: 1 / span 8; }
+  .rp-read-side { grid-column: 9 / span 4; padding-left: var(--s-4); }
+}
+@media (max-width: 900px) {
+  .rp-stage { min-height: 0; grid-template-rows: auto auto auto; padding-block: var(--s-5) var(--s-7); }
+  .rp-read-main, .rp-read-side { grid-column: 1 / -1; }
+  .rp-read-side { padding: var(--s-3) 0 0; border-left: 0; border-top: 1px solid var(--rule); grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--gutter); }
+  .rp-left, .rp-right { grid-column: 1 / -1; }
+  .rp-left { grid-template-rows: auto auto auto; }
+  .rp-globe { height: clamp(180px, 46vw, 300px); }
+  .rp-right { display: block; margin-top: var(--s-5); }
+  .rp-race { height: auto; min-height: 0; }                /* the race sizes itself on a phone (lane U3) */
+  .rp-details { position: static; width: auto; max-height: none; margin-top: var(--s-3); box-shadow: none; }   /* stacked: the panel opens in place */
+  .rp-leader { display: none; }                       /* stacked: the caption names the epicentre; no thread across the column */
+}
+@media (max-width: 900px) {
+  .rp-reframe-pill:not([hidden]) { display: block; }
+  .rp-pill { display: flex; align-items: center; gap: var(--s-2); font-size: var(--t-body); font-weight: 600; color: var(--ink-2); }
+  .rp-pill-word { color: inherit; }
+  .rp-pill[data-tone="outside"] .rp-pill-word, .rp-pill[data-tone="outside"] .rp-pill-icon { color: var(--outside); }
+  .rp-pill[data-tone="caveat"] .rp-pill-word, .rp-pill[data-tone="caveat"] .rp-pill-icon { color: var(--caution); }
+  .rp-pill[data-tone="inside"] .rp-pill-word, .rp-pill[data-tone="inside"] .rp-pill-icon { color: var(--starlight); }
+  .rp-pill-icon { width: 18px; height: 18px; flex: none; }
+  .rp-lampcol > .rp-reframe { display: none; }
+  .rp-pill { font-weight: 500; }
+  .rp-pill-word { font-weight: 600; }
+}
+/* phones (design director): the verdict first, then the chart, then the reading, then the Earth inset */
+@media (max-width: 760px) {
+  .rp-scene, .rp-left { display: contents; }
+  .rp-stage > .rp-read, .rp-left > *, .rp-scene > .rp-right { grid-column: 1 / -1; }
+  .rp-left > .rp-lampcol { order: 1; }
+  .rp-scene > .rp-right { order: 2; margin-top: var(--s-4); }
+  .rp-stage > .rp-read { order: 3; margin-top: var(--s-5); }
+  .rp-left > .rp-globe { order: 4; height: clamp(150px, 40vw, 200px); }
+  .rp-left > .rp-epi { order: 5; }
+  .rp-pill, .rp-reframe-pill:not([hidden]) { display: none; }   /* the lamp itself comes first */
+  .rp-lampcol > .rp-reframe:not([hidden]) { display: block; }
+}
+@media (max-width: 560px) {
+  .rp-reading { grid-template-columns: minmax(0, 1fr); }
+  .rp-reading > :is(.rp-chips, .rp-hold, .rp-funding, .rp-effect) { grid-column: 1 / -1; width: auto; }
+  .rp-read-side { grid-template-columns: minmax(0, 1fr); row-gap: var(--s-3); }
+  .rp-chip { white-space: normal; }
+  .rp-chip-s { display: none; }
+  .rp-lamp { font-size: min(var(--t-lamp, 32px), 10.5cqi); }
+}
+
+/* the twist leads with the fall below what you can afford; "Ended higher (…)" follows, smaller (the cold first-time user, 17:45) */
+.rp-twist .rp-small { display: block; margin-top: var(--s-1); font-size: .72em; line-height: 1.3; color: var(--ink-2); }

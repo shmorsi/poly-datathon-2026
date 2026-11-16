@@ -1,0 +1,86 @@
+/* EPICENTRE Replay, lane profile-ui: "You" (R46). The box and the card under the investor chips, in the persona line's own voice:
+   plain text on the night ground, no nested card, one hairline; each field tagged where it came from. Tokens from styles.css only. */
+
+/* while "You" is on, the box and the card take the persona line's place (the last investor's line and note step aside) */
+.hx[data-you="1"] .hx-persona, .hx[data-you="1"] .hx-lims, .hx[data-you="1"] .hx-note { display: none; }
+/* the static demo without a recorded example: the honest line, no move and no Replay for "You" */
+.hx[data-you="1"][data-you-static="1"] .hx-ask { display: none; }
+
+.yu { margin-top: var(--s-3); max-width: 64ch; }
+.yu-ask { display: block; margin-bottom: var(--s-2); font-size: var(--t-small); line-height: 1.45; color: var(--ink-2); text-wrap: pretty; }
+.yu-text { display: block; width: 100%; min-height: calc(2lh + 20px); max-height: 9lh; padding: 10px 12px; resize: vertical;
+  background: var(--paper); border: 1px solid var(--rule); border-radius: var(--r-input); color: var(--ink);
+  font: 400 var(--t-body)/1.45 var(--font-text); field-sizing: content;
+  transition: border-color var(--dur-tip) var(--ease-out), background-color var(--dur-tip) var(--ease-out); }
+.yu-text::placeholder { color: var(--haze); opacity: 1; }
+.yu-text:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-color: transparent; }
+.yu-text[readonly] { background: transparent; color: var(--ink-2); resize: none; }
+
+.yu-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-2) var(--s-3); margin-top: var(--s-2); }
+.yu-read, .yu-q-go { min-height: 40px; padding: 0 var(--s-4); font-size: var(--t-small); }
+.yu-read[aria-disabled="true"] { opacity: .55; cursor: progress; }
+.yu-status { min-height: 1lh; font-size: var(--t-small); line-height: 1.45; color: var(--ink-2); }
+.yu-status:empty { display: none; }
+.yu-status[data-tone="error"] { color: var(--outside); }
+.yu-status[data-tone="need"] { color: var(--caution); }
+
+/* the card: who you are, one row per field (label, value, where it came from) */
+.yu-card { margin-top: var(--s-4); padding-top: var(--s-3); border-top: 1px solid var(--rule); }
+.yu-card[data-in="0"] { opacity: 0; }
+.yu-card[data-in="1"] { opacity: 1; transition: opacity var(--dur-panel) var(--ease-out); }
+.yu-list { display: grid; grid-template-columns: max-content minmax(0, 1fr); column-gap: var(--s-5); row-gap: 6px; margin: 0; }
+.yu-r { display: contents; }
+.yu-l { font-size: var(--t-small); line-height: 1.6; color: var(--haze); }
+.yu-d { display: flex; flex-wrap: wrap; gap: 2px var(--s-4); margin: 0; min-width: 0; }
+.yu-item { display: inline-flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--s-2); font-size: var(--t-body); line-height: 1.5; color: var(--ink); }
+.yu-v.fig { font-weight: 500; }
+
+/* where a field came from: your words (the exact words on hover or focus), an assumption (✎ changes it here), or you */
+.yu-src { font-size: var(--t-small); line-height: 1.45; white-space: nowrap; }
+.yu-src[data-src="words"] { color: var(--ink-2); text-decoration: underline dotted var(--ink-tint); text-underline-offset: 4px; cursor: help; }
+.yu-src[data-src="words"]:focus-visible { color: var(--ink); text-decoration-color: var(--ink-2); }
+.yu-src[data-src="you"] { color: var(--ink); font-weight: 500; }
+.yu-src[data-src="assumed"] { color: var(--caution); }
+.yu-edit { padding: 2px 0; background: none; border: 0; font: inherit; font-size: var(--t-small); cursor: pointer;
+  text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px;
+  transition: text-decoration-color var(--dur-tip) var(--ease-out); }
+.yu-edit:focus-visible { text-decoration-color: currentColor; }
+.yu-ctl { height: 30px; max-width: 100%; padding: 0 var(--s-2); background: var(--pop); color: var(--ink); border: 1px solid var(--edge);
+  border-radius: var(--r-tag); font: 400 var(--t-small) var(--font-text); }
+input.yu-ctl { width: 6ch; font-variant-numeric: tabular-nums; }
+.yu-edit[data-src="pen"] { padding: 2px 4px; color: var(--ink-2); }
+.yu-clash { margin-top: var(--s-3); }
+.yu-clash-l { font-size: var(--t-small); line-height: 1.45; color: var(--caution); text-wrap: pretty; }
+.yu-clash-l + .yu-clash-l { margin-top: var(--s-1); }
+.yu-back { color: var(--ink); }
+.yu-kw { margin-top: var(--s-2); font-size: var(--t-small); color: var(--caution); }
+
+/* one clarifying question, inline (the reader asks at most one) */
+.yu-clarify { margin-top: var(--s-3); padding-left: var(--s-3); border-left: 2px solid var(--caution); }
+.yu-q { font-size: var(--t-body); line-height: 1.45; color: var(--ink); text-wrap: pretty; }
+.yu-q-in { flex: 1 1 220px; min-height: 40px; padding: 0 var(--s-3); background: var(--paper); border: 1px solid var(--rule);
+  border-radius: var(--r-input); color: var(--ink); font: 400 var(--t-body) var(--font-text); }
+.yu-q-in:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-color: transparent; }
+.yu-said { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--s-3); font-size: var(--t-body); line-height: 1.5; color: var(--ink); }
+.yu-said-t { min-width: 0; text-wrap: pretty; quotes: "\201C" "\201D"; }
+.yu-said-edit { flex: none; }
+.yu-said + .yu-clarify, .yu-said ~ .yu-card { margin-top: var(--s-3); }
+.yu-note { margin-top: var(--s-2); font-size: var(--t-small); line-height: 1.45; color: var(--haze); }
+
+@media (max-width: 760px) {
+  .yu-list { grid-template-columns: minmax(0, 1fr); row-gap: 0; }
+  .yu-l { margin-top: var(--s-2); }
+}
+/* the card settles in once (opacity always; the 4 px lift only when motion is welcome); hover only where a mouse hovers */
+@media (prefers-reduced-motion: no-preference) {
+  .yu-card[data-in="0"] { transform: translateY(4px); }
+  .yu-card[data-in="1"] { transform: none; transition: opacity var(--dur-panel) var(--ease-out), transform var(--dur-panel) var(--ease-out); }
+}
+@media (hover: hover) and (pointer: fine) {
+  .yu-text:hover { border-color: var(--edge); }
+  .yu-read:hover, .yu-q-go:hover { border-color: var(--ink-2); }
+  .yu-src[data-src="words"]:hover { color: var(--ink); text-decoration-color: var(--ink-2); }
+  .yu-edit:hover { text-decoration-color: currentColor; }
+}
+@media (prefers-reduced-motion: reduce) { .yu-card[data-in] { opacity: 1; transition: none; } }
+html.motion-off .yu-card[data-in] { opacity: 1; transform: none; transition: none; }

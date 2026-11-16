@@ -1,0 +1,155 @@
+/* The race chart (lane U3, web/race.js). Night tokens only (web/styles.css); magenta paints the move's selectors and nothing
+   else; status is icon + word; motion is opacity only and lives in the no-preference block. */
+.race { margin: 0; display: flex; flex-direction: column; gap: var(--s-3); height: 100%; min-width: 0; color: var(--ink); }
+.race-legend { display: flex; flex-wrap: wrap; gap: var(--s-1) var(--s-4); margin: 0; padding: 0; list-style: none; font-size: 14px; line-height: 1.5; color: var(--ink-2); }
+.race-leg { display: inline-flex; align-items: center; gap: var(--s-2); white-space: nowrap; }
+.race-key { display: inline-block; flex: none; width: 16px; height: 2px; border-radius: 1px; background: var(--series-today); }
+.race-key.is-after { background: var(--series-after); }
+.race-key.is-today { opacity: .6; }
+.race-key.is-floor { background: var(--floor); }
+.race-key.is-below { width: 14px; height: 10px; border-radius: 2px; background: repeating-linear-gradient(135deg, var(--outside) 0 1px, transparent 1px 4px), var(--breach); opacity: .85; }
+.race-key.is-shock { width: 2px; height: 12px; background: var(--signal); }
+.race-key.is-cap { background: repeating-linear-gradient(90deg, var(--ink-2) 0 5px, transparent 5px 9px); }
+.race-stage { position: relative; flex: 1 1 auto; min-height: 0; border-radius: var(--r-tag); overflow: clip; }   /* nothing inside widens the page */
+.race-tip { max-width: calc(100% - 4px); }
+.race-stage:focus { outline: none; }
+.race-stage:focus-visible { outline: 2px solid var(--focus); outline-offset: 6px; }
+.race-svg { position: absolute; left: 0; top: 0; display: block; overflow: visible; will-change: transform; }   /* its own layer: the reveal repaints only it (motion QA trace: p95 50 -> 16.8 ms) */
+
+.race-base, .race-tick { stroke: var(--ink-tint); stroke-width: 1; }
+.race-year { fill: var(--chart-muted); font: 400 14px var(--font-num); }
+.race-amount { stroke: var(--chart-grid); stroke-width: 1; opacity: .6; }
+.race-cap { stroke: var(--ink-2); stroke-width: 1.5; stroke-dasharray: 6 5; opacity: .85; }   /* a limit, so dashed: what you can afford to lose */
+.race-capfill { fill: var(--outside); opacity: .16; }
+.race-bracket { fill: none; stroke: var(--haze); stroke-width: 1; opacity: .8; }
+.race-shock { stroke: var(--signal); stroke-width: 2; }
+.race-shock.is-hot { stroke: var(--starlight); }
+.race-ribbon { fill: none; stroke: var(--floor); stroke-width: 1.5; stroke-linejoin: round; }
+.race-break { fill: none; stroke: var(--outside); stroke-width: 2; stroke-linecap: round; }
+.race-ribbon-flash { fill: none; stroke: var(--floor); stroke-width: 3; stroke-linejoin: round; opacity: 0; }
+@keyframes race-floor-flash { 0% { opacity: 0; } 35% { opacity: 1; } 100% { opacity: 0; } }
+.race-hatch-wash { fill: var(--breach); }
+.race-hatch-line { stroke: var(--outside); stroke-width: 1.25; opacity: .5; }
+.race-today { fill: none; stroke: var(--series-today); stroke-width: 1.5; stroke-opacity: .7; stroke-linejoin: round; stroke-linecap: round; }
+.race-floorband { fill: var(--floor-band, var(--ground)); }   /* the floor as a soft band under its own line (design director 3) */
+.race[data-lines="one"] .race-today { stroke-opacity: 1; stroke-width: 2; }
+.race-casing { fill: none; stroke: var(--sky); stroke-width: 4; stroke-linejoin: round; stroke-linecap: round; }
+.race-after { fill: none; stroke: var(--series-after); stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; }
+.race-ring { fill: var(--sky); stroke: var(--starlight); stroke-width: 1.5; }
+.race-ring.is-broke { stroke: var(--outside); stroke-width: 2; }
+.race-ring.is-touched { stroke: var(--caution); stroke-width: 2; }
+.race-dot-start { fill: var(--ink); }
+.race-end-today { fill: var(--series-today); stroke: var(--sky); stroke-width: 2; }
+.race-end-after { fill: var(--series-after); stroke: var(--sky); stroke-width: 2; }
+.race-lead { stroke: var(--ink-2); stroke-width: 1; opacity: 0; }
+.race-lead.is-on { opacity: .6; }
+.race-marks > * { opacity: 0; }
+.race-marks > .is-on { opacity: 1; }
+.race-cursor { opacity: 0; }
+.race-cursor.is-on { opacity: 1; }
+.race-cur-line { stroke: var(--ink-tint); stroke-width: 1; }
+.race-cur-after { fill: var(--series-after); stroke: var(--sky); stroke-width: 2; }
+.race-cur-today { fill: var(--series-today); stroke: var(--sky); stroke-width: 2; }
+.race-cursor .is-off { opacity: 0; }
+
+/* the words on the plot: absolutely placed by race.js (transform), ink tokens only; B612 for the big trough figure */
+.race-labels { position: absolute; inset: 0; pointer-events: none; }
+.race-labels > * { position: absolute; left: 0; top: 0; margin: 0; opacity: 0; }
+.race-labels > .is-on { opacity: 1; }
+.race-labels > .is-on.is-under { opacity: .18; }   /* a word under the open readout recedes; it comes back when the readout closes */
+.race-labels p { margin: 0; text-shadow: 0 0 3px var(--sky), 0 0 6px var(--sky); }   /* a black halo: a line under a word never cuts it */
+.race-co { max-width: 188px; padding: 4px 8px; border-radius: 4px; background: color-mix(in srgb, var(--sky) 80%, transparent); }
+.race-co.is-main { max-width: 24ch; }
+.race-co-label { font-size: 14px; line-height: 1.35; color: var(--ink-2); margin-bottom: 2px; text-wrap: balance; }
+.race-co-label .race-key.is-shock { height: 10px; margin-right: 6px; vertical-align: -1px; }
+.race-co-fig { display: flex; align-items: baseline; gap: 6px; white-space: nowrap; }
+.race-co-num { font: 700 22px/1.1 var(--font-num); color: var(--starlight); letter-spacing: -0.01em; word-spacing: -0.16em; }
+.race-co.is-main .race-co-num { font-size: var(--race-fig, 40px); }
+.race-co-from { font-size: 14px; color: var(--ink-2); }
+.race-co-money { font-size: 14px; font-weight: 500; color: var(--ink); font-variant-numeric: tabular-nums; margin-top: 2px; }
+.race-co-path { display: inline-block; white-space: nowrap; color: var(--ink-2); font-weight: 400; }
+.race-co-status { display: flex; align-items: center; gap: 4px; margin-top: 4px; font-size: 14px; color: var(--ink-2); }
+.race-co-status.is-broke { color: var(--outside); }
+.race-co-status.is-touched { color: var(--caution); }
+.race-end { text-align: right; }
+.race-end.is-margin { text-align: left; }
+.race-end.is-row { display: flex; align-items: baseline; gap: var(--s-2); }
+.race-end.is-row .race-end-val { font-size: 16px; }
+.race-end.is-margin .race-end-name { justify-content: flex-start; }
+.race-end-name { display: flex; align-items: center; justify-content: flex-end; gap: 6px; font-size: 14px; color: var(--ink-2); white-space: nowrap; }
+.race-end-val { font-size: 20px; font-weight: 600; line-height: 1.2; color: var(--starlight); font-variant-numeric: tabular-nums; white-space: nowrap; letter-spacing: -0.01em; }
+.race-floor-name { font-size: 14px; line-height: 1.35; color: var(--ink-2); white-space: nowrap; }
+.race-floor-note { font-size: 14px; line-height: 1.35; color: var(--haze); white-space: nowrap; }
+.race-floor.is-margin .race-floor-name, .race-floor.is-margin .race-floor-note { white-space: normal; text-wrap: balance; }
+.race-cap-name { display: flex; align-items: center; gap: 6px; font-size: 14px; line-height: 1.35; color: var(--ink-2); }
+.race-cap-label.is-margin .race-cap-name { align-items: baseline; }
+.race-cap-note { font-size: 14px; line-height: 1.35; color: var(--haze); }
+.race-cap-label { text-align: right; }
+.race-cap-label .race-cap-name { justify-content: flex-end; }
+.race-cap-label p { white-space: nowrap; }
+.race-bandlabel { font-size: 14px; color: var(--haze); white-space: nowrap; }
+.race-start { font-size: 14px; color: var(--ink-2); white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+/* the playhead: the date it has reached and the move's dollars that week (B612: an instrument readout) */
+.race-head { position: absolute; left: 0; top: 0; pointer-events: none; opacity: 0; will-change: transform; }
+.race-head.is-on { opacity: 1; }
+.race-head-line { position: absolute; left: 0; width: 1px; background: var(--ink-2); opacity: .55; }
+.race-head-text { position: absolute; left: 8px; display: flex; flex-direction: column; gap: 1px; white-space: nowrap; }
+.race-head.is-flip .race-head-text { left: auto; right: 8px; align-items: flex-end; }
+.race-head-date { font: 400 14px var(--font-num); color: var(--ink-2); }
+.race-head-val { font: 700 17px var(--font-num); color: var(--starlight); word-spacing: -0.16em; }
+.race-head-past { display: none; align-items: center; gap: 4px; font-size: 14px; color: var(--outside); }
+.race-head.is-past .race-head-past { display: inline-flex; }
+.race-ico { width: 12px; height: 12px; flex: none; stroke: currentColor; stroke-width: 2; fill: none; stroke-linecap: round; }
+
+/* the readout under the pointer or the arrow keys: values lead, names follow, line keys */
+.race-tip { position: absolute; left: 0; top: 0; z-index: 2; min-width: 168px; padding: 8px 12px; background: var(--pop);
+  border: 1px solid var(--rule); border-radius: 8px; pointer-events: none; font: 14px/1.5 var(--font-num);
+  box-shadow: 0 8px 24px color-mix(in srgb, var(--sky) 50%, transparent); }
+.race-tip .race-tip-name { font-family: var(--font-text); }
+.race-tip p { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.race-tip p { margin: 0; }
+.race-tip-date { font: 400 14px var(--font-num); color: var(--ink-2); margin-bottom: 2px; }
+.race-tip-row { display: flex; align-items: center; gap: var(--s-2); white-space: nowrap; }
+.race-tip-val { font-weight: 600; color: var(--starlight); font-variant-numeric: tabular-nums; }
+.race-tip-name { color: var(--ink-2); }
+.race-tip-past { display: flex; align-items: center; gap: 4px; margin-top: 2px; color: var(--outside); }
+/* the replay controls: play / pause in the left gutter, the scrub under the time axis (the crosshair's week) */
+.race-controls { display: flex; align-items: center; gap: var(--s-2); min-height: 32px; }
+.race-play { display: inline-grid; place-items: center; flex: none; width: 32px; height: 32px; padding: 0; border-radius: 50%;
+  border: 1px solid var(--edge); background: transparent; color: var(--ink); cursor: pointer; }
+.race-play.is-on { border-color: var(--ink-2); }
+.race-play:active { transform: scale(0.97); }
+.race-ico-play { width: 14px; height: 14px; fill: currentColor; stroke: currentColor; stroke-width: 2; stroke-linejoin: round; }
+.race-scrub { flex: none; height: 24px; margin: 0; background: transparent; cursor: pointer; -webkit-appearance: none; appearance: none; }
+.race-scrub::-webkit-slider-runnable-track { height: 2px; background: var(--rule); border-radius: 1px; }
+.race-scrub::-moz-range-track { height: 2px; background: var(--rule); border-radius: 1px; }
+.race-scrub::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; margin-top: -5px; border-radius: 50%; background: var(--starlight); border: 0; }
+.race-scrub::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--starlight); border: 0; }
+.race-scrub:focus-visible { outline: 2px solid var(--focus); outline-offset: 4px; }
+.race-foot { margin: 0; font-size: 14px; color: var(--haze); max-width: 110ch; }
+.race-empty { position: absolute; inset: 0; display: grid; place-items: center; margin: 0; color: var(--haze); font-size: var(--t-small); }
+.race.is-compact .race-co.is-main .race-co-num { font-size: 22px; }
+
+.race.is-short { gap: var(--s-2); }
+.race.is-short .race-legend { font-size: 14px; line-height: 1.4; }
+.race.is-short .race-foot { font-size: 14px; }
+.race.is-short .race-head-text { flex-direction: row; align-items: baseline; gap: var(--s-2); }
+.race.is-short .race-head.is-flip .race-head-text { align-items: baseline; }
+.race.is-short .race-head-val { font-size: 15px; }
+
+.race.is-short .race-co-num { font-size: 17px; }
+.race.is-short .race-co-label, .race.is-short .race-co-from, .race.is-short .race-co-money { font-size: 14px; }
+.race.is-short .race-co-status { font-size: 14px; margin-top: 2px; }
+.race.is-short .race-end-val { font-size: 17px; }
+.race.is-short .race-end-name { font-size: 14px; }
+@media (max-width: 639px) {
+  .race-co { background: none; padding: 0; }   /* a phone: the halo alone, a backing would hide the line it sits on */
+  .race-legend { gap: 2px var(--s-4); font-size: 14px; }
+  .race-end-val { font-size: 17px; }
+  .race-co.is-main .race-co-num { font-size: min(var(--race-fig, 28px), 30px); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .race-ribbon-flash.is-flash { animation: race-floor-flash var(--dur-list) var(--ease-out); }
+  .race-marks > *, .race-labels > .race-end, .race-labels > .race-co, .race-lead { transition: opacity var(--dur-tip) var(--ease-out); }
+}

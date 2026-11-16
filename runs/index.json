@@ -1,0 +1,226 @@
+[
+ {
+  "key": "9135784ce30415c6",
+  "pilot": "robert",
+  "question": "Everyone is talking about NVIDIA. What if I put 40 % in it and Washington slaps new levies on Canadian goods?",
+  "as_of": "2026-11-12",
+  "file": "runs/9135784ce30415c6.json",
+  "commit": "d1deeed1aaf6c642b2ea65e7765a606589d81067"
+ },
+ {
+  "key": "4f31fbfe427a6d7e",
+  "pilot": "robert",
+  "question": "Everyone is talking about NVIDIA. What if I put 40 % in it and Washington slaps new levies on Canadian goods?",
+  "as_of": "2026-11-12",
+  "file": "runs/4f31fbfe427a6d7e.json",
+  "commit": "c6ac4421b0a874e28098e2780d1ee14c946eab5f"
+ },
+ {
+  "key": "eaa3e91694a55324",
+  "pilot": "robert",
+  "question": "What if I put 20 % in Shopify?",
+  "as_of": "2026-11-12",
+  "file": "runs/eaa3e91694a55324.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "e6bdaea7bc4c0040",
+  "pilot": "robert",
+  "question": "What if I put 5 % in Bitcoin?",
+  "as_of": "2026-11-12",
+  "file": "runs/e6bdaea7bc4c0040.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "02bc10fdc2bf45a2",
+  "pilot": "robert",
+  "question": "What if I put 20 % in Royal Bank of Canada?",
+  "as_of": "2026-11-12",
+  "file": "runs/02bc10fdc2bf45a2.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "1b115c355090e4e9",
+  "pilot": "robert",
+  "question": "What if I put 20 % in the iShares 20+ Year Treasury Bond ETF?",
+  "as_of": "2026-11-12",
+  "file": "runs/1b115c355090e4e9.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "51eb7443cb812930",
+  "pilot": "robert",
+  "question": "What if I move 40 % of my money from my Canadian stocks into NVIDIA?",
+  "as_of": "2026-11-12",
+  "file": "runs/51eb7443cb812930.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "1a79225eb3c10616",
+  "pilot": "robert",
+  "question": "What if I move 30 % of my money from my Canadian bonds into NVIDIA?",
+  "as_of": "2026-11-12",
+  "file": "runs/1a79225eb3c10616.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "ee4e0e83885590f3",
+  "pilot": "robert",
+  "question": "What if I put 30 % in NVIDIA?",
+  "as_of": "2026-11-12",
+  "file": "runs/ee4e0e83885590f3.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "1ff316f0ff4e4b13",
+  "pilot": "robert",
+  "question": "Et si je mettais 40 % dans NVIDIA et que Washington impose de nouveaux tarifs sur les produits canadiens ?",
+  "as_of": "2026-11-12",
+  "file": "runs/1ff316f0ff4e4b13.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "3a880711a042c867",
+  "pilot": "robert",
+  "question": "What if I put 30 % in RBC?",
+  "as_of": "2026-11-12",
+  "file": "runs/3a880711a042c867.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "23648523af4bd0a0",
+  "pilot": "robert",
+  "question": "What if aliens invade Earth next year?",
+  "as_of": "2026-11-12",
+  "file": "runs/23648523af4bd0a0.json",
+  "commit": "f25e028d9ac0c0ebbaf08053d8a30d753b388b07"
+ },
+ {
+  "key": "8b95c1a4da5b3827",
+  "pilot": "mateo",
+  "question": "I care about my values: does my portfolio own companies with major controversies, and what if an oil shock came from the Middle East?",
+  "as_of": "2026-11-12",
+  "file": "runs/8b95c1a4da5b3827.json",
+  "commit": "c6ac4421b0a874e28098e2780d1ee14c946eab5f"
+ },
+ {
+  "key": "2f495c24207d5053",
+  "pilot": "mateo",
+  "question": "What if I put 30 % in the Vanguard ESG U.S. Stock ETF?",
+  "as_of": "2026-11-12",
+  "file": "runs/2f495c24207d5053.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "1da52a82a92d5617",
+  "pilot": "mateo",
+  "question": "What if I put 10 % in Exxon Mobil?",
+  "as_of": "2026-11-12",
+  "file": "runs/1da52a82a92d5617.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "5bc66acc80cbb97a",
+  "pilot": "mateo",
+  "question": "What if I put 10 % in Tesla?",
+  "as_of": "2026-11-12",
+  "file": "runs/5bc66acc80cbb97a.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "0dea95ab0f4ad45d",
+  "pilot": "mateo",
+  "question": "What if I put 20 % in the Invesco QQQ Trust?",
+  "as_of": "2026-11-12",
+  "file": "runs/0dea95ab0f4ad45d.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "58c624b04b14a698",
+  "pilot": "amira",
+  "question": "What if the US–China chip war heats up again?",
+  "as_of": "2026-11-12",
+  "file": "runs/58c624b04b14a698.json",
+  "commit": "c6ac4421b0a874e28098e2780d1ee14c946eab5f"
+ },
+ {
+  "key": "1a61782cadb4203b",
+  "pilot": "amira",
+  "question": "What if I put 10 % in Bitcoin?",
+  "as_of": "2026-11-12",
+  "file": "runs/1a61782cadb4203b.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "27af309777fd4299",
+  "pilot": "amira",
+  "question": "What if I put 10 % in Ether?",
+  "as_of": "2026-11-12",
+  "file": "runs/27af309777fd4299.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "bb878b4365dd8ac8",
+  "pilot": "amira",
+  "question": "What if I put 20 % in NVIDIA?",
+  "as_of": "2026-11-12",
+  "file": "runs/bb878b4365dd8ac8.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "874d60a19dcee33b",
+  "pilot": "amira",
+  "question": "What if I put 40 % in the Invesco QQQ Trust?",
+  "as_of": "2026-11-12",
+  "file": "runs/874d60a19dcee33b.json",
+  "commit": "d1deeed1aaf6c642b2ea65e7765a606589d81067"
+ },
+ {
+  "key": "89fae67055f95283",
+  "pilot": "canadian",
+  "question": "My portfolio seems very Canadian. Would adding 20 % SPY improve my diversification?",
+  "as_of": "2026-11-12",
+  "file": "runs/89fae67055f95283.json",
+  "commit": "c6ac4421b0a874e28098e2780d1ee14c946eab5f"
+ },
+ {
+  "key": "3ee293f177cca8d5",
+  "pilot": "canadian",
+  "question": "What if I put 20 % in the Invesco QQQ Trust?",
+  "as_of": "2026-11-12",
+  "file": "runs/3ee293f177cca8d5.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "00882d40d667c944",
+  "pilot": "canadian",
+  "question": "What if I put 20 % in the Vanguard ESG U.S. Stock ETF?",
+  "as_of": "2026-11-12",
+  "file": "runs/00882d40d667c944.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "cc5024fec9a78ef2",
+  "pilot": "canadian",
+  "question": "What if I put 20 % in the iShares Core U.S. Aggregate Bond ETF?",
+  "as_of": "2026-11-12",
+  "file": "runs/cc5024fec9a78ef2.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "7f712011d55644d5",
+  "pilot": "canadian",
+  "question": "What if I put 10 % in SPDR Gold Shares?",
+  "as_of": "2026-11-12",
+  "file": "runs/7f712011d55644d5.json",
+  "commit": "58c554519ae486656dcb6a08a8f8fabd90812bcf"
+ },
+ {
+  "key": "fbae62fcdb745386",
+  "pilot": "you",
+  "question": "What if I put 20 % in the Invesco QQQ Trust?",
+  "as_of": "2026-11-12",
+  "file": "runs/fbae62fcdb745386.json",
+  "commit": "d1deeed1aaf6c642b2ea65e7765a606589d81067"
+ }
+]

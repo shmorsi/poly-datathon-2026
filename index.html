@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#000000">
+<title>EPICENTRE: crash-test your move before you make it</title>
+<meta name="description" content="Crash-test a move before you make it: see whether it would have stayed inside your own limits, replayed through real 2021 to 2026 market shocks, in dollars. Educational simulation, not financial advice.">
+<meta property="og:title" content="EPICENTRE: crash-test your move before you make it">
+<meta property="og:description" content="See whether a move would have stayed inside your own limits, replayed through real 2021 to 2026 market shocks, in dollars. Educational simulation, not financial advice.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='3' fill='%23fff'/%3E%3Ccircle cx='8' cy='8' r='6.5' fill='none' stroke='%239FE6FF' stroke-width='1'/%3E%3C/svg%3E">
+<link rel="preload" href="vendor/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/fonts/B612-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="vendor/nasa/earth-poster-sweep.jpg" as="image" fetchpriority="high" media="(prefers-reduced-motion: no-preference)">
+<link rel="preload" href="vendor/nasa/earth-poster-americas.jpg" as="image" fetchpriority="high" media="(prefers-reduced-motion: reduce)">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="css/hero.css">
+<link rel="stylesheet" href="css/replay.css">
+<link rel="stylesheet" href="css/race.css">
+<link rel="stylesheet" href="css/dial.css">
+<link rel="stylesheet" href="css/money.css">
+<link rel="stylesheet" href="css/deep.css">
+<link rel="stylesheet" href="css/why.css">
+<link rel="stylesheet" href="css/investors.css">
+<link rel="stylesheet" href="css/how.css">
+<link rel="stylesheet" href="css/record.css">
+<link rel="stylesheet" href="css/hold.css">
+<link rel="stylesheet" href="css/fundpage.css">
+<link rel="stylesheet" href="css/sharebar.css">
+<link rel="stylesheet" href="css/movepicker.css">
+<link rel="modulepreload" href="state.js">
+<link rel="modulepreload" href="data.js">
+<link rel="modulepreload" href="depth.js">
+<link rel="modulepreload" href="tour.js">
+<link rel="modulepreload" href="rail.js">
+<link rel="modulepreload" href="sections/bar.js">
+<link rel="modulepreload" href="sections/hero.js">
+<link rel="modulepreload" href="sections/hold.js">
+<link rel="modulepreload" href="sections/movepicker.js">
+<link rel="modulepreload" href="sections/replay.js">
+<link rel="modulepreload" href="sections/dial.js">
+<link rel="modulepreload" href="sections/money.js">
+<link rel="modulepreload" href="sections/deep.js">
+<link rel="modulepreload" href="sections/checklist.js">
+<link rel="modulepreload" href="sections/why.js">
+<link rel="modulepreload" href="sections/investors.js">
+<link rel="modulepreload" href="sections/how.js">
+<link rel="modulepreload" href="sections/record.js">
+<link rel="modulepreload" href="sections/footer.js">
+<script src="lib.js" defer></script>
+<script type="module" src="app.js"></script>
+<meta name="epicentre-mode" content="static">
+<meta name="epicentre-commit" content="c6ac442">
+<meta name="epicentre-moves" content="runs/moves.json">
+<meta name="epicentre-tests" content="runs/tests.json">
+<meta name="epicentre-you" content="runs/you_example.json">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-out" viewBox="0 0 24 24"><path d="M8.2 2.5h7.6l5.7 5.7v7.6l-5.7 5.7H8.2l-5.7-5.7V8.2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 7v6.2" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="16.8" r="1.35" fill="currentColor"/></symbol>
+    <symbol id="i-in" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M7.5 12.3l3 3 6-6.3" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-warn" viewBox="0 0 24 24"><path d="M12 3l9.5 17h-19z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M12 9.5v5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/><circle cx="12" cy="17.4" r="1.25" fill="currentColor"/></symbol>
+    <symbol id="i-pending" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="2 3" pathLength="25"/></symbol>
+    <symbol id="m-fact" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="currentColor"/></symbol>
+    <symbol id="m-assumption" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M6 1A5 5 0 0 0 6 11Z" fill="currentColor"/></symbol>
+    <symbol id="m-fiction" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4.25" fill="none" stroke="currentColor" stroke-width="1.5"/></symbol>
+    <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8.5 5v14M15.5 5v14" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24"><path d="M12 5v13M6.5 12.5 12 18l5.5-5.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-spin" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-opacity=".3" stroke-width="2.4"/><path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13.5 6.5l4 4" stroke="currentColor" stroke-width="2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-skip" viewBox="0 0 24 24"><path d="M6 5.5v13l9-6.5z" fill="currentColor"/><path d="M18 5.5v13" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#replay">Skip to the replay</a>
+<header id="bar" data-module="bar" data-mount="pending"></header>
+
+<main id="main">
+  <section id="hero" data-module="hero" data-mount="pending" aria-label="Crash-test your move before you make it"></section>
+  <section id="replay" data-module="replay" data-mount="pending" aria-label="The replay"></section>
+  <div id="agentlog" data-module="agentlog" data-flag="EPI_AGENTLOG" data-css="css/agentlog.css" hidden></div>
+  <section id="why" data-module="why" data-mount="pending" aria-label="Why: the explanation"></section>
+  <section id="testai" data-module="testai" data-flag="EPI_TESTAI" data-css="css/testai.css" data-mount="pending" aria-label="Try to trip it up"></section>
+  <section id="money" data-module="money" data-mount="pending" aria-label="Where the money and the risk sit"></section>
+  <section id="checklist" data-module="checklist" data-mount="pending" aria-label="The checks"></section>
+  <section id="investors" data-module="investors" data-mount="pending" aria-label="Three investors, three answers"></section>
+  <section id="how" data-module="how" data-mount="pending" aria-label="How it works"></section>
+  <section id="deep" data-module="deep" data-mount="pending" aria-label="Not just 2022"></section>
+  <section id="scenario" data-module="scenario" data-flag="EPI_SCENARIO" data-css="css/scenario.css" data-mount="pending" aria-label="Build your own shock"></section>
+  <section id="record" data-module="record" data-mount="pending" aria-label="The decision record"></section>
+  <noscript>
+    <div class="fallback">
+      <p><strong>EPICENTRE replays a tempting move on real 2021 to 2026 market history, against the investor's own limits.</strong></p>
+      <p>This page draws the replay with JavaScript; turn it on to see it.</p>
+    </div>
+  </noscript>
+</main>
+
+<footer id="footer" data-module="footer" data-mount="pending">
+  <p class="disclaimer" data-static>Educational simulation. This is not financial advice.</p>
+</footer>
+</body>
+</html>
