@@ -369,6 +369,7 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   --order-line: #ff5fc8;
   --after-tint: #241322;
   --input: #16191e;
+  --review-earth-enter: 1250ms;
   --review-evidence-enter: 330ms;
 }
 .topbar { background: rgb(5 6 7/.94); }
@@ -465,6 +466,11 @@ dialog::backdrop{background:rgb(32 19 26/.58);backdrop-filter:blur(2px)}
   mask-image: radial-gradient(circle, #000 60%, transparent 71%);
 }
 @media (prefers-reduced-motion: no-preference) {
+  .masthead-earth { animation: review-earth-arrive var(--review-earth-enter, var(--review-evidence-enter)) both; }
+  @keyframes review-earth-arrive {
+    from { opacity: .28; scale: .965; }
+    to { opacity: 1; scale: 1; }
+  }
   .explain-result:not([hidden]):has(> .badge) { animation: review-evidence-arrive var(--review-evidence-enter) both; }
   @keyframes review-evidence-arrive {
     from { opacity: .35; transform: translateY(4px); }
