@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#030304">
   <meta name="description" content="See through the funds you own and replay a proposed order against your own loss limits. A portfolio review workspace by ÉPICENTRE.">
-  <title>ÉPICENTRE — Test your move before you make it.</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c242c'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23a9ebff' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='10' fill='none' stroke='%23a9ebff' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23a9ebff'/%3E%3C/svg%3E">
+  <title>ÉPICENTRE — See what your next trade changes.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns%3D%22http%3A//www.w3.org/2000/svg%22 viewBox%3D%220 0 32 32%22%3E%3Crect x%3D%22.5%22 y%3D%22.5%22 width%3D%2231%22 height%3D%2231%22 rx%3D%228%22 fill%3D%22%23142836%22 stroke%3D%22%23385467%22/%3E%3Ccircle cx%3D%2216%22 cy%3D%2216%22 r%3D%227%22 fill%3D%22%230e1e2b%22 stroke%3D%22%23a9ebff%22 stroke-width%3D%221.35%22/%3E%3Cellipse cx%3D%2216%22 cy%3D%2216%22 rx%3D%2212.5%22 ry%3D%224.5%22 transform%3D%22rotate%28-31 16 16%29%22 fill%3D%22none%22 stroke%3D%22%23a9ebff%22 stroke-width%3D%221.35%22/%3E%3Ccircle cx%3D%2225%22 cy%3D%2210.4%22 r%3D%221.6%22 fill%3D%22%23c4f3ff%22/%3E%3C/svg%3E">
   <link rel="preload" href="vendor/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="review.css">
   <script type="module" src="review.js"></script>
@@ -16,7 +16,7 @@
 <a class="skip-link" href="#portfolio">Skip to portfolio</a>
 <svg class="symbol-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <symbol id="icon-brand" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7"/><circle cx="16" cy="16" r="2" fill="currentColor" stroke="none"/><path d="M16 1v5m0 20v5M1 16h5m20 0h5" stroke-width="1.25"/></symbol>
+    <symbol id="icon-brand" viewBox="0 0 32 32"><circle cx="16" cy="16" r="7.2"/><ellipse cx="16" cy="16" rx="12.8" ry="4.5" transform="rotate(-31 16 16)"/><circle cx="25" cy="10.4" r="1.7" fill="currentColor" stroke="none"/></symbol>
     <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
     <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6"/></symbol>
     <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M8 6h10v10"/></symbol>
@@ -56,9 +56,16 @@
   <div class="masthead">
     <div class="masthead-copy">
       <p class="masthead-brand">ÉPICENTRE</p>
-      <h1>Test your move<br class="masthead-break"> before you make it<span>.</span></h1>
-      <p class="masthead-description">See what you own, where the risk sits, and what a proposed order would have changed through real markets.</p>
-      <a class="masthead-action" href="#portfolio">Explore the portfolio <svg class="icon" aria-hidden="true"><use href="#icon-arrow-down"/></svg></a>
+      <h1>See what your next trade changes<span>.</span></h1>
+      <p class="masthead-description">See through your ETFs, then replay a trade against your own loss limits.</p>
+      <div class="masthead-actions">
+        <a class="masthead-action" id="opening-review" href="#portfolio"><span id="opening-review-label">Explore Robert’s portfolio</span> <svg class="icon" aria-hidden="true"><use href="#icon-arrow-down"/></svg></a>
+        <button class="masthead-action masthead-custom" id="opening-custom" type="button" hidden>Use my portfolio</button>
+      </div>
+      <details class="masthead-examples" id="opening-examples" hidden>
+        <summary>Choose an investor example <svg class="icon" aria-hidden="true"><use href="#icon-chevron"/></svg></summary>
+        <div class="masthead-example-options" id="opening-example-options" role="group" aria-label="Investor examples"></div>
+      </details>
     </div>
     <div class="masthead-visual" aria-hidden="true"><div class="masthead-earth"></div></div>
   </div>

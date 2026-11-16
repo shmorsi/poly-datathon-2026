@@ -231,6 +231,7 @@ function init() {
     $('#mode-text').textContent = {loading:'Loading review', saved:'Saved example', live:'Live calculations'}[mode];
     $('#mode-chip').title = mode === 'live' ? 'Calculations are running on the live review service using historical data.' : mode === 'saved' ? 'This result is a precomputed historical review.' : '';
     $('#open-editor').hidden = !state.live;
+    $('#opening-custom').hidden = !state.live;
     $('#saved-hint').hidden = !state.result || state.live;
     const own = $('option[value="__own"]', picker);
     if (own) {
@@ -246,6 +247,10 @@ function init() {
   function renderSetup() {
     renderMode();
     if (!state.input || !state.result) return;
+    const exampleLabel = state.example?.id === 'canadian' ? 'Explore the Canadian portfolio'
+      : state.example ? `Explore ${exampleName(state.example)}’s portfolio` : 'See my portfolio review';
+    $('#opening-review-label').textContent = exampleLabel;
+    $$('[data-opening-example]').forEach((button) => button.setAttribute('aria-pressed',String(button.dataset.openingExample === state.example?.id)));
     const limits = state.result.limits || {};
     const cap = limits.capacity ?? state.input.capacity;
     const display = [money(state.result.amount ?? state.input.amount), finite(limits.drawdown ?? limits.drawdown_limit ?? state.input.drawdown_limit) ? pct(limits.drawdown ?? limits.drawdown_limit ?? state.input.drawdown_limit) : 'Not set', finite(cap) ? money(cap) : 'Not set'];
@@ -808,6 +813,20 @@ function init() {
     } else { activate(id, state.live); announce(`${exampleName(state.examples.find((item) => item.id === id))} example selected.`); }
   });
   $('#open-editor').addEventListener('click', () => openEditor());
+  $('#opening-custom').addEventListener('click', () => openEditor(false, true));
+  $('#opening-review').addEventListener('click', (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    event.preventDefault();
+    jump('portfolio', true);
+  });
+  $('#opening-example-options').addEventListener('click', (event) => {
+    const button = event.target.closest('[data-opening-example]');
+    if (!button) return;
+    if (button.dataset.openingExample !== state.example?.id) activate(button.dataset.openingExample, state.live);
+    $('#opening-examples').open = false;
+    jump('portfolio', true);
+    announce(`${button.textContent} example selected.`);
+  });
   $('#close-editor').addEventListener('click', () => { if (!state.busy) dialog.close(); });
   $('#cancel-editor').addEventListener('click', () => { if (!state.busy) dialog.close(); });
   dialog.addEventListener('cancel', (e) => { if (state.busy) e.preventDefault(); });
@@ -875,6 +894,8 @@ function init() {
       $('#security-count').textContent = `Browse ${state.assets.length} supported investments`;
       renderMarkup(picker, state.examples.map((item) => `<option value="${esc(item.id)}">${esc(exampleName(item))}</option>`).join('') + '<option value="__own" disabled>Your portfolio / live only</option>');
       renderMarkup($('#asset-list'), state.assets.map((item) => `<option value="${esc(item.ticker)}">${esc(item.name || item.ticker)}</option>`).join(''));
+      renderMarkup($('#opening-example-options'),state.examples.map((item) => `<button type="button" data-opening-example="${esc(item.id)}" aria-pressed="false">${esc(exampleName(item))}</button>`).join(''));
+      $('#opening-examples').hidden = false;
       picker.disabled = false;
       const canReachReview = document.querySelector('meta[name="epicentre-delivery"]')?.content !== 'static';
       await activate(state.examples.find((item) => String(item.id).toLowerCase() === 'robert')?.id || state.examples[0].id,
