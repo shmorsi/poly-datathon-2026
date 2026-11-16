@@ -31,7 +31,7 @@ def check(port, *, require_bedrock):
     assert health["data"] and health["holdings"], "Market or ETF snapshot unavailable"
     if require_bedrock:
         assert health["bedrock"] and health["guardrail"], "AWS identity or input guardrail unavailable"
-    assert b"See what your next trade changes" in request("/review.html"), "Wrong page revision"
+    assert b"Know what you own. Know what you risk" in request("/review.html"), "Wrong page revision"
     inputs = json.loads((ROOT / "web" / "review-demo.json").read_text())["examples"]
     replies = {item["id"]: json.loads(request("/api/review", item["input"])) for item in inputs}
     robert, mateo, amira, canadian = (replies[key] for key in ("robert", "mateo", "amira", "canadian"))

@@ -1,8 +1,8 @@
 # ÉPICENTRE
 
-**See what your next trade changes.**
+**Know what you own. Know what you risk.**
 
-See through your ETFs, then replay a trade against your own loss limits. ÉPICENTRE is a portfolio and order preview for self-directed investors, built for the 2026 PolyFinances AlphaForge AI Datathon.
+See through your ETFs and replay portfolio changes against market history and your own limits. ÉPICENTRE is a portfolio and order preview for self-directed investors, built for the 2026 PolyFinances AlphaForge AI Datathon.
 
 [Open the public demo](https://shmorsi.github.io/poly-datathon-2026/) · [Open the AWS workspace](https://dqetfenyawfe9.cloudfront.net/review.html) · [Technical notes](docs/review_technical.md) · [One-pager](docs/review_one_pager.md)
 

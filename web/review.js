@@ -894,7 +894,7 @@ function init() {
       $('#security-count').textContent = `Browse ${state.assets.length} supported investments`;
       renderMarkup(picker, state.examples.map((item) => `<option value="${esc(item.id)}">${esc(exampleName(item))}</option>`).join('') + '<option value="__own" disabled>Your portfolio / live only</option>');
       renderMarkup($('#asset-list'), state.assets.map((item) => `<option value="${esc(item.ticker)}">${esc(item.name || item.ticker)}</option>`).join(''));
-      renderMarkup($('#opening-example-options'),state.examples.map((item) => `<button type="button" data-opening-example="${esc(item.id)}" aria-pressed="false">${esc(exampleName(item))}</button>`).join(''));
+      renderMarkup($('#opening-example-options'),state.examples.map((item) => `<button type="button" data-opening-example="${esc(item.id)}" aria-pressed="false">${esc(exampleName(item))}${item.id === "robert" ? ": Capital preservation near retirement" : ""}</button>`).join(''));
       $('#opening-examples').hidden = false;
       picker.disabled = false;
       const canReachReview = document.querySelector('meta[name="epicentre-delivery"]')?.content !== 'static';
