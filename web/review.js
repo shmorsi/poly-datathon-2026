@@ -627,8 +627,8 @@ function init() {
     const proof = evidenceNode(link) ? `<a href="#proof-${esc(link)}" class="text-link" data-explanation-link="${esc(link)}">Read supporting evidence ${icon('arrow-up-right')}</a>` : '';
     let trace = '';
     if (output.mode === 'bedrock' && output.request_id) {
-      const count = $$('#evidence-list .evidence-item-body p:nth-child(2)').length;
-      trace = `<details class="agent-trace"><summary>Agent trace</summary><p><strong>Tool:</strong> open_evidence</p><p>${count} evidence ${count === 1 ? 'card' : 'cards'} with sources</p><p><strong>Request ID:</strong> <span>${esc(output.request_id)}</span></p></details>`;
+      const count = 1 + related.length;
+      trace = `<details class="agent-trace"><summary>Agent trace</summary><p><strong>Tool:</strong> open_evidence</p><p>Opened ${count} evidence ${count === 1 ? 'card' : 'cards'}</p><p><strong>Request ID:</strong> <span>${esc(output.request_id)}</span></p></details>`;
     }
     renderMarkup(target, `<span class="badge ${output.mode === 'bedrock' ? 'ok' : ''}">${icon('spark')} ${output.mode === 'bedrock' ? 'Amazon Bedrock' : 'Evidence summary'}</span><p>${esc(output.summary || local)}</p>${proof}${suggestions}${trace}`);
     button.disabled = false;
