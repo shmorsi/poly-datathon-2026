@@ -46,4 +46,4 @@ python scripts/publish_pages.py --portfolio-review --dry-run --out /tmp/epicentr
 
 Replays use daily adjusted closes in CAD through 12 Nov 2026 and hold target weights constant before fees and taxes. ETF exposure uses dated issuer disclosures with coverage visible in the app. The public demo uses rounded weekly paths and industry summaries.
 
-[MIT License](LICENSE)
+To revisit the classic demo locally, open `/index.html?presenter=1` for the **Presenter keys**. [MIT License](LICENSE)
