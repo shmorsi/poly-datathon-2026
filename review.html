@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en-CA">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#030304">
+  <meta name="description" content="See through the funds you own and replay a proposed order against your own loss limits. A portfolio review workspace by ÉPICENTRE.">
+  <title>ÉPICENTRE — Test your move before you make it.</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c242c'/%3E%3Ccircle cx='32' cy='32' r='18' fill='none' stroke='%23a9ebff' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='10' fill='none' stroke='%23a9ebff' stroke-width='3'/%3E%3Ccircle cx='32' cy='32' r='3' fill='%23a9ebff'/%3E%3C/svg%3E">
+  <link rel="preload" href="vendor/fonts/Archivo-Variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="review.css">
+  <script type="module" src="review.js"></script>
+  <meta name="epicentre-delivery" content="static">
+</head>
+<body>
+<a class="skip-link" href="#portfolio">Skip to portfolio</a>
+<svg class="symbol-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <symbol id="icon-brand" viewBox="0 0 32 32"><circle cx="16" cy="16" r="12"/><circle cx="16" cy="16" r="7"/><circle cx="16" cy="16" r="2" fill="currentColor" stroke="none"/><path d="M16 1v5m0 20v5M1 16h5m20 0h5" stroke-width="1.25"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-6-6 6 6-6 6"/></symbol>
+    <symbol id="icon-arrow-down" viewBox="0 0 24 24"><path d="M12 4v15m-6-6 6 6 6-6"/></symbol>
+    <symbol id="icon-arrow-up-right" viewBox="0 0 24 24"><path d="M6 18 18 6M8 6h10v10"/></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="icon-wallet" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="14" rx="3"/><path d="M5 6V5a2 2 0 0 1 2-2h10m4 9h-5v3h5"/></symbol>
+    <symbol id="icon-stack" viewBox="0 0 24 24"><path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5m-18 4 9 5 9-5"/></symbol>
+    <symbol id="icon-wave" viewBox="0 0 24 24"><path d="M3 13h4l3-8 4 14 3-8h4"/></symbol>
+    <symbol id="icon-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v5c0 5 3.6 8.3 8 10 4.4-1.7 8-5 8-10V6l-8-3Z"/><path d="m8.5 12 2.3 2.4 4.7-4.8"/></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8v.2"/></symbol>
+    <symbol id="icon-sliders" viewBox="0 0 24 24"><path d="M4 7h9m4 0h3M4 17h3m4 0h9M13 4v6m-6 4v6"/></symbol>
+    <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="icon-alert" viewBox="0 0 24 24"><path d="M12 8v5m0 3v.2m-9 2L11 4a1.2 1.2 0 0 1 2 0l8 14a1.2 1.2 0 0 1-1 2H4a1.2 1.2 0 0 1-1-2Z"/></symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24"><path d="M12 3c0 5-4 9-9 9 5 0 9 4 9 9 0-5 4-9 9-9-5 0-9-4-9-9Z"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M6 3h11a2 2 0 0 1 2 2v15H7a3 3 0 1 1 0-6h12M7 3a2 2 0 0 0-2 2v12m4-9h6"/></symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 5v14h16M7 10l4 4 4-5 4 2"/></symbol>
+    <symbol id="icon-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></symbol>
+  </defs>
+</svg>
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="#top" aria-label="ÉPICENTRE home">
+      <span class="brand-mark"><svg class="icon"><use href="#icon-brand"/></svg></span>
+      <span>ÉPICENTRE <span> / </span><small>Review</small></span>
+    </a>
+    <nav aria-label="Review sections" class="primary-nav">
+      <a href="#portfolio" aria-current="location">Portfolio</a>
+      <a href="#risk-review">Order preview</a>
+      <a href="#look-through">ETF holdings</a>
+      <a href="#evidence">Evidence</a>
+    </nav>
+    <span class="mode-chip" id="mode-chip" data-mode="loading"><span aria-hidden="true"></span><span id="mode-text">Loading review</span></span>
+  </div>
+</header>
+<main class="page" id="top">
+  <div class="masthead">
+    <div class="masthead-copy">
+      <p class="eyebrow"><span></span> Portfolio intelligence</p>
+      <h1>Test your move before you make it<span>.</span></h1>
+      <p>See what you own, where the risk sits, and what a proposed order would have changed through real markets.</p>
+    </div>
+    <div class="masthead-visual" aria-hidden="true">
+      <div class="masthead-earth"></div>
+      <svg viewBox="0 0 375 180" fill="none" preserveAspectRatio="xMidYMid slice">
+        <defs><pattern id="review-grid" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M0 18V0h18" stroke="currentColor" stroke-opacity=".13" stroke-width=".7"/></pattern><linearGradient id="grid-fade"><stop offset="0" stop-color="#000"/><stop offset=".4" stop-color="#fff"/></linearGradient><mask id="grid-mask"><path d="M0 0h375v180H0z" fill="url(#grid-fade)"/></mask></defs>
+        <g mask="url(#grid-mask)"><path d="M0 0h375v180H0z" fill="url(#review-grid)"/>
+          <g transform="translate(259 93)" stroke="currentColor">
+            <circle r="19" stroke-opacity=".84"/><circle r="33" stroke-opacity=".55"/><circle r="48" stroke-opacity=".42"/><circle r="64" stroke-opacity=".31"/><circle r="80" stroke-opacity=".23"/><circle r="100" stroke-opacity=".15"/><circle r="121" stroke-opacity=".1"/>
+            <path d="M0-117v234m-118-117h236" opacity=".26" stroke-dasharray="2 4"/><rect x="-5" y="-5" width="10" height="10" rx="2" fill="currentColor" transform="rotate(45)"/>
+            <circle cx="-47" cy="-12" r="3" fill="#f7f6f2"/><circle cx="43" cy="47" r="3" fill="#f7f6f2"/>
+          </g>
+          <path d="M20 132h50l15-13h18l13 8h46l17-34h53" stroke="currentColor" stroke-opacity=".58"/><path d="M280 93h32l13 10h38" stroke="currentColor" stroke-opacity=".45"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="workspace">
+    <aside class="sidebar" aria-label="Review setup">
+      <div class="panel setup-panel">
+        <div class="aside-heading"><div class="mini-icon"><svg class="icon"><use href="#icon-sliders"/></svg></div><h2>Review setup</h2></div>
+        <div class="setup-content">
+          <label class="field" for="example-picker"><span>Investor example</span><span class="select-wrap"><select id="example-picker" disabled><option>Loading examples…</option></select><svg class="icon"><use href="#icon-chevron"/></svg></span></label>
+          <p class="small case-description" id="example-description"></p>
+          <dl class="setup-summary" id="setup-summary">
+            <div><dt>Portfolio value</dt><dd>—</dd></div>
+            <div><dt>Drawdown limit</dt><dd>—</dd></div>
+            <div><dt>Loss capacity</dt><dd>—</dd></div>
+          </dl>
+          <p class="setup-note" id="setup-note"><svg class="icon"><use href="#icon-info"/></svg><span id="setup-note-text">Loss capacity sets a floor below the portfolio’s starting value.</span></p>
+          <button class="button outline edit-button" type="button" id="open-editor" hidden><svg class="icon"><use href="#icon-sliders"/></svg> Edit portfolio</button>
+          <p class="small saved-hint" id="saved-hint" hidden>Choose a saved example to explore. Custom portfolios require the live workspace.</p>
+        </div>
+      </div>
+      <div class="sidebar-passport">
+        <svg class="icon"><use href="#icon-shield"/></svg><div><strong>Simulation only</strong><p>No orders are placed.</p></div>
+      </div>
+    </aside>
+    <div class="main-flow">
+      <section class="panel stage" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="stage-header">
+          <div><p class="kicker stage-kicker">Portfolio X-ray</p><h2 id="portfolio-title">What you own</h2><p class="stage-description">Compare how your money is invested with what drove the portfolio’s risk.</p></div>
+          <div class="portfolio-controls">
+            <div class="segmented" role="group" aria-label="Portfolio mix" id="holding-states" hidden>
+              <button type="button" data-holdings-state="before" aria-pressed="true">Current</button>
+              <button type="button" data-holdings-state="after" aria-pressed="false">After order</button>
+            </div>
+            <div class="segmented" role="group" aria-label="Portfolio lens">
+              <button type="button" data-lens="money" aria-pressed="true"><svg class="icon"><use href="#icon-wallet"/></svg> Money</button>
+              <button type="button" data-lens="risk" aria-pressed="false"><svg class="icon"><use href="#icon-wave"/></svg> Risk</button>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-grid">
+          <div id="holdings" class="holdings" aria-live="polite" aria-atomic="true"><div class="loading-line"></div><div class="loading-line"></div><div class="loading-line"></div></div>
+          <aside class="scenario" aria-label="Order simulation">
+            <div class="scenario-lines" aria-hidden="true"></div>
+            <div class="scenario-inner"><p class="kicker"><svg class="icon"><use href="#icon-chart"/></svg> Order preview</p><h3 id="scenario-title">Try it before you trade.</h3><p id="scenario-description">Replay a simulated trade against your historical losses and your limits.</p><button class="button scenario-button" type="button" id="try-order" disabled>Try NVIDIA order <svg class="icon"><use href="#icon-arrow"/></svg></button></div>
+          </aside>
+        </div>
+        <div class="exposure-strip" id="exposure-strip" hidden></div>
+      </section>
+      <section class="panel stage" id="risk-review" aria-labelledby="risk-title">
+        <div class="stage-header">
+          <div><p class="kicker stage-kicker">Order preview</p><h2 id="risk-title">Would it fit your limits?</h2><p class="stage-description" id="risk-description">Replay the portfolio across the same market window before and after the proposed order.</p></div>
+          <div class="risk-actions" id="risk-actions" hidden>
+            <a href="#portfolio-allocation" class="text-link" id="show-allocation">What you would hold <svg class="icon"><use href="#icon-arrow-down"/></svg></a>
+            <button class="button outline risk-control" type="button" id="clear-order">Show current only</button>
+          </div>
+        </div>
+        <div id="risk-result" aria-live="polite"><div class="loading-line"></div><div class="loading-line"></div></div>
+      </section>
+      <section class="panel stage" id="portfolio-allocation" aria-labelledby="allocation-title" hidden>
+        <div class="stage-header">
+          <div><p class="kicker stage-kicker">Portfolio allocation</p><h2 id="allocation-title">What you would hold</h2><p class="stage-description">Compare the whole portfolio before and after the proposed order.</p></div>
+          <div class="segmented" role="group" aria-label="Portfolio allocation breakdown">
+            <button type="button" data-allocation-view="industries" aria-pressed="true"><svg class="icon"><use href="#icon-grid"/></svg> Industries &amp; assets</button>
+            <button type="button" data-allocation-view="companies" aria-pressed="false"><svg class="icon"><use href="#icon-stack"/></svg> Companies</button>
+          </div>
+        </div>
+        <div id="allocation-result" aria-live="polite"></div>
+        <p class="allocation-fund-link"><a href="#look-through" class="text-link">Inspect an individual ETF <svg class="icon"><use href="#icon-arrow-down"/></svg></a></p>
+      </section>
+      <section class="panel stage" id="look-through" aria-labelledby="fund-title">
+        <div class="stage-header">
+          <div><p class="kicker stage-kicker">ETF look-through</p><h2 id="fund-title">Inside your ETFs</h2><p class="stage-description">See the industries and companies behind each fund, including overlap with stocks you own directly.</p></div>
+          <div class="segmented" role="group" aria-label="ETF breakdown">
+            <button type="button" data-fund-view="industries" aria-pressed="true"><svg class="icon"><use href="#icon-grid"/></svg> Industry</button>
+            <button type="button" data-fund-view="companies" aria-pressed="false"><svg class="icon"><use href="#icon-stack"/></svg> Company</button>
+          </div>
+        </div>
+        <div id="fund-result" aria-live="polite"><div class="loading-line"></div></div>
+      </section>
+      <section class="panel stage evidence-stage" id="evidence" aria-labelledby="evidence-title">
+        <div class="stage-header">
+          <div><p class="kicker stage-kicker">Evidence &amp; explanation</p><h2 id="evidence-title">Follow the numbers</h2><p class="stage-description">See what was inspected, how the replay was calculated, and the evidence behind the explanation.</p></div>
+          <span class="badge evidence-badge"><svg class="icon"><use href="#icon-shield"/></svg> Review record</span>
+        </div>
+        <div class="workflow" aria-label="Review stages">
+          <div><span>01</span><strong>Inspect holdings</strong></div><div><span>02</span><strong>Calculate replay</strong></div><div><span>03</span><strong>Explain evidence</strong></div>
+        </div>
+        <div class="evidence-grid">
+          <div id="evidence-list"><div class="loading-line"></div></div>
+          <div class="explain-card">
+            <div class="explain-label"><span class="mini-icon"><svg class="icon"><use href="#icon-spark"/></svg></span><div><h3>Review explanation</h3><p class="small">Choose what to unpack.</p></div></div>
+            <label class="field" for="explain-goal"><span>Focus</span><span class="select-wrap"><select id="explain-goal"><option value="limits">How did the replay compare with my limits?</option><option value="exposure">Where is the company exposure?</option><option value="method">How is the replay calculated?</option></select><svg class="icon"><use href="#icon-chevron"/></svg></span></label>
+            <label class="field concern-field" for="explain-concern"><span>What concerns you? <small>Optional</small></span><textarea id="explain-concern" maxlength="240" rows="2" placeholder="E.g., I may need the money in four years" disabled></textarea></label>
+            <button class="button primary" type="button" id="explain-button" disabled>Explain this review <svg class="icon"><use href="#icon-arrow"/></svg></button>
+            <div id="explain-result" class="explain-result" aria-live="polite" hidden></div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <p id="review-announcer" class="sr-only" role="status" aria-live="polite"></p>
+  <div id="load-error" class="load-error" role="alert" hidden></div>
+  <noscript><p class="load-error">Enable JavaScript to examine a portfolio or review a saved simulation.</p></noscript>
+  <footer class="footer"><a class="brand footer-brand" href="#top"><span class="brand-mark"><svg class="icon"><use href="#icon-brand"/></svg></span><span>ÉPICENTRE</span></a><p>Educational simulation for the PolyFinances Datathon. Historical results do not predict future losses. All portfolio and loss amounts are in CAD.</p><a href="#evidence">Method &amp; sources <svg class="icon"><use href="#icon-arrow-up-right"/></svg></a></footer>
+</main>
+<dialog id="portfolio-editor" aria-labelledby="editor-title">
+  <form id="review-form" novalidate>
+    <div class="dialog-head"><div><p class="kicker">Review setup</p><h2 id="editor-title">Review your portfolio</h2><p>Enter your holdings and limits. Optionally add a simulated order.</p></div><button class="icon-button" id="close-editor" type="button" aria-label="Close portfolio editor"><svg class="icon"><use href="#icon-close"/></svg></button></div>
+    <div class="dialog-body">
+      <label class="field editor-amount" for="edit-amount"><span>Portfolio value (CAD)</span><input type="number" min="0" max="1000000000000" step="any" id="edit-amount" required></label>
+      <fieldset class="editor-holdings"><legend>Holdings</legend><div class="editor-row-labels" aria-hidden="true"><span>Ticker</span><span>Weight (%)</span></div><div id="edit-rows"></div><div class="editor-row-actions"><button class="button outline" type="button" id="add-holding"><svg class="icon"><use href="#icon-plus"/></svg> Add holding</button><span id="editor-total" aria-live="polite">0% allocated</span></div></fieldset>
+      <details class="security-browser" id="security-browser">
+        <summary><span><svg class="icon"><use href="#icon-grid"/></svg> <span id="security-count">Browse supported investments</span></span><svg class="icon chevron"><use href="#icon-chevron"/></svg></summary>
+        <div class="security-panel">
+          <label class="field" for="security-search"><span>Find a supported investment</span><input type="search" id="security-search" placeholder="Search ticker or name" autocomplete="off"></label>
+          <div id="security-results" class="security-results"></div>
+        </div>
+      </details>
+      <div class="order-editor"><label class="check-field"><input type="checkbox" id="edit-has-order"><span>Simulate an order</span></label><div class="editor-fields" id="edit-order-fields" hidden><label class="field" for="edit-order-ticker"><span>Order ticker</span><input list="asset-list" id="edit-order-ticker" autocomplete="off"></label><label class="field" for="edit-order-weight"><span>Target weight (%)</span><input type="number" min="0.1" max="100" step="0.1" id="edit-order-weight"></label><label class="field" for="edit-funding"><span>Fund the order with</span><span class="select-wrap"><select id="edit-funding"><option value="">All other holdings, proportionally</option></select><svg class="icon"><use href="#icon-chevron"/></svg></span></label></div></div>
+      <details class="context editor-limits" id="editor-limits">
+        <summary>Optional investor limits <svg class="icon chevron"><use href="#icon-chevron"/></svg></summary>
+        <div class="editor-fields">
+          <label class="field" for="edit-limit"><span>Drawdown limit (%)</span><input type="number" min="0" max="100" step="any" id="edit-limit" placeholder="No drawdown limit"></label>
+          <label class="field" for="edit-capacity"><span>Loss capacity (CAD)</span><input type="number" min="0" step="any" id="edit-capacity" placeholder="No dollar limit"></label>
+          <label class="field" for="edit-crypto"><span>Crypto cap (%)</span><input type="number" min="0" max="100" step="any" id="edit-crypto" placeholder="No crypto cap"></label>
+        </div>
+        <label class="check-field"><input type="checkbox" id="edit-values"><span>Check documented exclusions</span></label>
+      </details>
+      <datalist id="asset-list"></datalist>
+      <p role="alert" class="form-error" id="editor-error" hidden></p>
+    </div>
+    <div class="dialog-actions"><button class="button outline" type="button" id="cancel-editor">Cancel</button><button class="button primary" type="submit" id="run-review">Run portfolio review <svg class="icon"><use href="#icon-arrow"/></svg></button></div>
+  </form>
+</dialog>
+</body>
+</html>
