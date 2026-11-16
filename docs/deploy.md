@@ -1,7 +1,7 @@
 # EPICENTRE live app: EC2 behind CloudFront (runbook)
 
-Written Sat Nov 14 2026 (D Task 14), hardened in fix round 1 (ledger section 30: an app that cannot start without a
-password, and a secret origin header), and corrected in fix round 2 to describe what the live deploy actually did (every
+Written Sat Nov 14 2026, hardened (an app that cannot start without a
+password, and a secret origin header), and corrected to describe what the live deploy actually did (every
 resource tagged, secrets that are never printed, egress narrowed to TCP 443, the macOS and zsh commands that worked,
 teardown before 13:59, a Redeploy block). **Writing or editing this file creates no AWS resource.** A human runs the commands below, by hand.
 Placeholders are in `<ANGLE_BRACKETS>`: no id, account number or secret is ever pasted into this file. Credentials come
@@ -285,7 +285,7 @@ cat > "$CF_JSON" <<JSON
 {"Tags": {"Items": [{"Key": "Project", "Value": "epicentre"}]},
  "DistributionConfig": {
   "CallerReference": "epicentre-$(date +%s)",
-  "Comment": "EPICENTRE live app (three gates, ledger sections 19 and 30)",
+  "Comment": "EPICENTRE live app (three gates)",
   "Enabled": true,
   "PriceClass": "PriceClass_100",
   "HttpVersion": "http2",
@@ -657,7 +657,7 @@ aws iam simulate-principal-policy --policy-source-arn $ROLE_ARN \
 If the live app could not be launched (a no-go in section 1), items 1 to 4, 7 and the local part of 6 still apply: run
 them against the local app with `EPICENTRE_GUARDRAIL_ID` set, and say in the doc that the app was local for the demo.
 
-## 11. Sun 15 Nov: what the final deploy added (lane B6, after the go of 09:10)
+## 11. Sun 15 Nov: what the final deploy added (after the go of 09:10)
 
 Every resource below carries `Project=epicentre` where it can, and is in the local teardown file. No id is written here.
 

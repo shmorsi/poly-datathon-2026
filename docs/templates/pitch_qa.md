@@ -11,7 +11,7 @@ Most AI investing demos recommend a trade. An order-execution-only broker such a
 
 ## The pitch lines
 
-- **The headline (R41).** "Crash-test your move before you make it." « Passez votre placement au crash-test avant d'agir. »
+- **The headline.** "Crash-test your move before you make it." « Passez votre placement au crash-test avant d'agir. »
 - **10 seconds.** "It never tells Robert what to buy. It shows where his own line broke, and proves every number."
 - **The thesis.** "It made money and still broke his floor. Ending higher does not mean your limits held."
 - **30 seconds.** "Robert, ⟨run:robert:profile.age⟩, wants ⟨run:robert:scenario.change.weight|pct0⟩ of his ⟨run:robert:amount|usd⟩

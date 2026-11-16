@@ -1,18 +1,10 @@
-<!--
-One-pager (lane D2's text, set by lane pdf on Sun 15 Nov as a one-page spec sheet; the Replay rulings bind every word).
-The case's six blocks in its own order (problem, agentic approach, originality, data sources, explainability, user
-benefits), one hero image, at most six figures (ruling R22). No number is typed: every slot (in angle brackets) is filled
-by scripts/fill_docs.py from the final saved runs (data/demo_runs) and this template (docs/templates/one_pager.md) into
-docs/one_pager.md, and scripts/render_pdfs.py prints that filled file, failing past one page or past six figures. Edit the
-template, never the filled file.
--->
 # EPICENTRE
 
 **Crash-test your move before you make it.**
 
 « Passez votre placement au crash-test avant d'agir. »
 
-See whether it would have stayed inside your own limits, replayed through real 2021–26 market shocks: the 2022 stock-and-bond fall and sourced geopolitical and rate shocks, on daily prices. Robert's answer: **⟨run:robert:verdict|verdict⟩, in this 2021–26 replay.**
+An investor states a move in their own words; EPICENTRE replays it on real 2021–26 daily prices and sourced shocks, against the investor's own limits, and answers in dollars. It never says buy, sell or hold.
 
 ![Robert's replay at its end frame: his question as the AI read it, the shock on the globe, his money against his floor, the verdict](img/replay-end-frame.png)
 
@@ -20,7 +12,7 @@ Robert's replay at its end frame. This already happened; it is not a forecast. F
 
 ## The problem
 
-Most AI investing demos recommend a trade. An order-execution-only broker such as National Bank Direct Brokerage may not; EPICENTRE shows what the move already did, against the investor's own limits. Robert, the case's fictional investor, is close to retirement. Everyone is talking about NVIDIA; he is about to put ⟨run:robert:scenario.change.weight|pct0⟩ of his portfolio in it. Nothing at the order shows him what such a move already did.
+Most AI investing demos recommend a trade. An order-execution-only broker such as National Bank Direct Brokerage may not; EPICENTRE shows what the move already did, against the investor's own limits. Robert, close to retirement, hears everyone is talking about NVIDIA and is about to put ⟨run:robert:scenario.change.weight|pct0⟩ of his portfolio in it. Nothing at the order shows him what such a move already did.
 
 ## The agentic approach
 
@@ -28,7 +20,7 @@ Five visible steps: Observe, Understand, Compare, Explain, Verify. Claude Sonnet
 
 ## What is original
 
-Ending higher does not mean your limits held: with the move, Robert ended higher, yet his floor broke on the way. The shock is the thread, lit at its epicentre on a night globe, then on his chart, then under the verdict. *Where it breaks* names the size at which the past first broke his floor, ⟨run:robert:tipping_point.curve.verdict=Incompatible.weight|pct0⟩ NVIDIA in this replay, never an acceptable size. AI off: no verdict changes; the question checked does.
+Ending higher does not mean your limits held: with the move, Robert ended higher, yet his floor broke on the way. Each investor gets a different answer: Robert's hyped request is challenged (**⟨run:robert:verdict|verdict⟩**: his floor); Mateo's values decide (**⟨run:mateo:verdict|verdict⟩**: he owns CNQ.TO, which it excludes, directly); for Amira, high risk is not anything goes (**⟨run:amira:verdict|verdict⟩**: crypto over its cap). AI off: no verdict changes; the question checked does.
 
 ## Data sources
 
@@ -36,11 +28,11 @@ The organizers' starter set: Yahoo Finance daily prices, Bank of Canada exchange
 
 ## Explainability
 
-Every number on the page is a button: its facts row, the trace step that computed it, the data rows behind it, and Recompute, which re-runs its own tool with no model. Each sentence carries ● fact, ◐ assumption or ○ fiction. Robert's receipt traced ⟨run:robert:receipt.verified⟩ of ⟨run:robert:receipt.total⟩ numbers to tool output. The navigator is scored against keyword rules on blind held-out questions, each rate with its Wilson interval.
+Every number on the page is a button: its facts row, the trace step that computed it, the data rows behind it, and Recompute, which re-runs its own tool with no model. Each sentence carries ● fact, ◐ assumption or ○ fiction. Robert's receipt traced ⟨run:robert:receipt.verified⟩ of ⟨run:robert:receipt.total⟩ numbers to tool output.
 
 ## What the user gains
 
-Robert sees the move against his own limits, in dollars, before acting: its worst fall took his money down to ⟨run:robert:breaches.0.trough_value|usd⟩, past the ⟨run:robert:profile.capacity_dollars|usd⟩ he could afford to lose (assumed). He may keep a sealed record: edit one number and the seal breaks. National Bank Direct Brokerage could offer it beside the order ticket, a checkpoint, not a stop sign. Shown on every order, at the client's click, never triggered by the order; designed to make no recommendation, subject to the broker's compliance review. Pilot measures: records kept, risk understanding, complaints; never trades.
+Robert sees the move against his own limits, in dollars, before acting: its worst fall took his money down to ⟨run:robert:breaches.0.trough_value|usd⟩, past the ⟨run:robert:profile.capacity_dollars|usd⟩ he could afford to lose (assumed). He may keep a sealed record: edit one number and the seal breaks. National Bank Direct Brokerage could offer it beside the order ticket, a checkpoint, not a stop sign. At the client's click, never triggered by the order, and subject to the broker's compliance review.
 
 ---
 

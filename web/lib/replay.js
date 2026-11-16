@@ -444,10 +444,10 @@ export function twistLine(r) {
   /* the answer right above names the years; the twist counts them (trim, don't stack) */
   const broke = `Broke ${ruleText(r)} ${timesWord(bs.length)} on the way`;
   const cap = capacityOf(r);
-  const capText = !cap ? "" : cap.n === 0 ? `; stayed above the ${cap.lineText} you can afford` : `; fell below the ${cap.lineText} you can afford ${timesWord(cap.n)}${cap.years.length && cap.years.length <= 2 ? yearsText(cap.years).replace(/^ in/, ", in") : ""}`;
+  const capText = !cap ? "" : cap.n === 0 ? `; stayed above the ${cap.lineText} you could afford to fall to` : `; fell below the ${cap.lineText} you could afford to fall to ${timesWord(cap.n)}${cap.years.length && cap.years.length <= 2 ? yearsText(cap.years).replace(/^ in/, ", in") : ""}`;
   if (cap && cap.n > 0 && cap.lowText && cap.lowWhen) {
     const endsText = ends ? ` (${ends.after} against ${ends.today} today)` : "";
-    return { segs: seg([`Would have fallen to ${cap.lowText} in ${cap.lowWhen}, below the ${cap.lineText} you can afford. `], [`Ended higher${than}${endsText}; ${broke.charAt(0).toLowerCase()}${broke.slice(1)}.`, "small"]),
+    return { segs: seg([`Would have fallen to ${cap.lowText} in ${cap.lowWhen}, below the ${cap.lineText} you could afford to fall to. `], [`Ended higher${than}${endsText}; ${broke.charAt(0).toLowerCase()}${broke.slice(1)}.`, "small"]),
       ends, breaches: bs.length, capacity: cap };
   }
   return { segs: seg([`Ended higher${than}. `], [`${broke}${capText}.`]), ends, breaches: bs.length, capacity: cap };

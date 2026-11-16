@@ -1,9 +1,3 @@
-<!--
-Technical documentation (lane D1, Sun 15 Nov; the Replay rulings R1-R16 bind every word). About nine pages as a PDF once filled.
-No number is typed: every number is a run slot or an eval slot (in angle brackets), filled by scripts/fill_docs.py from
-the final saved runs (data/demo_runs) and docs/eval_results.json, from this template (docs/templates/technical.md) into
-docs/technical.md. Edit the template, never the filled file.
--->
 # EPICENTRE: technical documentation
 
 **Crash-test your move before you make it.** See whether it would have stayed inside your own limits, replayed through real 2021–26 market shocks.
@@ -24,7 +18,7 @@ PolyFinances Datathon 2026 · AlphaForge AI · [README](../README.md) · [AWS ar
 
 **The question.** In the seconds before a self-directed investor confirms a move: *did a move like this stay inside the limits I set, the last times shocks like the one I fear hit?* EPICENTRE is decision support, not a forecast, an optimiser or advice: it never proposes a security or a size, and it never reads an account. Its thesis: ending higher does not mean your limits held. Robert's saved run shows why (a fictional profile). With the move, his money ended higher, $1,847,077 against $911,676 for today's mix; on the way it fell from $623,398 to $408,174 (34.5 % from its high), past both of his limits, each assumed for this fictional profile: his tolerance, no fall of more than 15 % from any high, and his capacity, the $90,000 he could afford to lose (it went below $510,000 for 188 sessions). It broke the 15 % rule in 2 separate falls. The verdict: **Outside your limits, in this 2021–26 replay**; without the move, Inside your limits.
 
-**One run, five steps.** National Bank's workshop method, Observe, Understand, Compare, Explain, and one step we added: Verify (ruling R19). Each step streams to the page as it finishes (NDJSON), and every tool call and model call is a row of the run's trace, with its service, model, milliseconds, tokens and AWS request id.
+**One run, five steps.** National Bank's workshop method, Observe, Understand, Compare, Explain, and one step we added: Verify. Each step streams to the page as it finishes (NDJSON), and every tool call and model call is a row of the run's trace, with its service, model, milliseconds, tokens and AWS request id.
 
 | Step | What happens | Who does it | In Robert's saved run |
 |---|---|---|---|

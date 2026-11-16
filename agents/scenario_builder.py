@@ -584,7 +584,7 @@ def _sc_b_book(as_of: str, data_dir=None) -> dict:
         raise BookUnavailable("The scenario factors are not ready on this server (no starter data).") from exc
     rows = (*fx.CHECKS, *fx.PRESETS)                   # a preset's own words win over a check's for the same window
     levels, named, shorts = ctx["levels"], {pid: src for pid, _, src in rows}, {pid: label for pid, label, _ in rows}
-    source = "Measured by tools.factors (lane sc-b) on the starter data, dated <= the decision date"
+    source = "Measured by tools.factors on the starter data, dated <= the decision date"
     anchors = []
     for pid, (start, end, headline, value) in ctx["windows"].items():
         shocks = fx.move(levels, start, end) if headline is None else {headline: value}
@@ -605,7 +605,7 @@ def _sc_b_book(as_of: str, data_dir=None) -> dict:
     factors = [{"id": f["id"], "label": f["label"], "unit": "pp" if f["unit"] == "pp" else "pct",
                 "source": f.get("source")} for f in fx.FACTORS]
     return make_book(factors, anchors, bounds=ctx["bounds"], levels={"rates": round(float(levels["rates"].iloc[-1]), 6)},
-                     as_of=ctx["as_of"], source="tools.factors (lane sc-b)")
+                     as_of=ctx["as_of"], source="tools.factors")
 
 
 def _text_of(resp) -> str:

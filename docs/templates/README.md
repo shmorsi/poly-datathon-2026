@@ -129,6 +129,21 @@ EPICENTRE_DEMO=1 uvicorn server:app                                             
 
 The page opens on the saved runs in `data/demo_runs/`; edit the words and press **Replay** to run the pipeline. AWS credentials stay in your terminal; `scripts/check_bedrock.py` and `scripts/create_guardrail.py` set up your account, and [docs/deploy.md](docs/deploy.md) is the live app’s runbook. The static demo: `python scripts/record_demo.py --static /tmp/epicentre-demo && python -m http.server 8001 -d /tmp/epicentre-demo`.
 
+**Configuration.** Everything is an environment variable; nothing is required for the offline demo. AWS credentials come only from the standard chain (your terminal's profile or an instance role), never from a file in the repository. The region is `us-east-1` (`config.py`).
+
+| Variable | What it does | Default |
+|---|---|---|
+| `EPICENTRE_DATA_DIR` | The data pack the tools read | `data/starter/` (the organizers' pack, not committed) |
+| `EPICENTRE_NO_BEDROCK=1` | Run with keyword rules instead of Claude, no AWS call | Bedrock on |
+| `EPICENTRE_DEMO=1` | Serve the saved runs only, no data and no AWS needed | off |
+| `EPICENTRE_MODEL_ID` | The Bedrock model for both language jobs | `us.anthropic.claude-sonnet-5-5` |
+| `EPICENTRE_NAVIGATOR_MODEL_ID`, `EPICENTRE_DEBRIEF_MODEL_ID` | A different model for one job | the model above |
+| `EPICENTRE_SCENARIO_ENGINE` | `converse` (one call) or `loop` (the bounded tool loop, evaluation arm) | `converse` |
+| `EPICENTRE_GUARDRAIL_ID`, `EPICENTRE_GUARDRAIL_VERSION` | The Bedrock Guardrail that screens questions (`scripts/create_guardrail.py`) | none: the code advice check still runs |
+| `EPICENTRE_RECORD_BUCKET`, `EPICENTRE_RECORD_LOCK_DAYS` | Private S3 bucket for sealed records, optional Object Lock days (1–30) | storage off |
+| `EPICENTRE_PASSWORD`, `EPICENTRE_REQUIRE_PASSWORD=1`, `EPICENTRE_ORIGIN_SECRET` | Hosted app: password, refuse to start without one, CloudFront origin header | open, local use |
+| `EPICENTRE_DEEP_PANEL` | Path to the earlier-crises panel (`scripts/fetch_deep.py`) | `data/cache/deep/` |
+
 **Presenter keys** (the pitch and the film): `1` to `9` jump to the beats in the page's order (the hero, the replay, why, the money, the investors, how it works, not just 2022, build your own shock and the record), `R` replays the stage, `T` plays the tour, and `Esc` ends the motion and shows every piece at its end frame until the next replay. The keys do nothing while you type in the question box. Add `?presenter=1` to the address for a small reminder of the keys. `?investor=mateo` (or `amira`, `canadian`) opens on another investor, and `?autoplay` plays the replay once on load.
 
 ## Release gate

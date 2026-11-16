@@ -1,6 +1,6 @@
 # EPICENTRE: the film (4:45; hard cap 5:00)
 
-> **Shooting script for the Replay page** (lane D2, Sun 15 Nov; replaces the D Task 16 skeleton). It follows the page top to bottom.
+> **Shooting script for the Replay page** (reviewer agent D2, Sun 15 Nov; replaces the D Task 16 skeleton). It follows the page top to bottom.
 > No number is typed:
 > `scripts/fill_docs.py` fills every figure from the final saved runs into this file, from its template
 > `docs/templates/video_script.md` (see "How the numbers get in"). Read this filled file aloud; edit only the template. No faces: a product film, screen capture plus one voice.
@@ -17,19 +17,19 @@ different reasons; AWS in four sentences; the film ends on the sealed record Rob
 
 ## Voice and wording (binding)
 
-- **Past tense, qualified (R1).** "Outside his limits, in this 2021–26 replay." "In the tariff episodes on record, this mix lost up
+- **Past tense, qualified.** "Outside his limits, in this 2021–26 replay." "In the tariff episodes on record, this mix lost up
   to …". Never "if … flares up", "holds up to", "fits", "safe", "allowed", "you can", "recommend", buy / sell / hold, "you should".
-- **Where it breaks (R2).** Say where his floor *first broke*; never name a size as acceptable, never "the limit is …".
-- **The money twist (R3, R35).** "It ended higher. It broke his 15 % rule in 2022 and again in
+- **Where it breaks.** Say where his floor *first broke*; never name a size as acceptable, never "the limit is …".
+- **The money twist.** "It ended higher. It broke his 15 % rule in 2022 and again in
   2025; it fell below the $510,000 he can afford in 2022." Then, once: "Ending higher does not mean your limits held."
-- **His two limits are assumptions (R13, R35).** His tolerance, "no fall of more than … from any high" (the floor), and his capacity,
+- **His two limits are assumptions.** His tolerance, "no fall of more than … from any high" (the floor), and his capacity,
   "the $… he could afford to lose", both assumed for this fictional profile. Dollars are the path's own: the value at the high and
   at the low of each fall, never "the same fall on his $…".
 - **History is not a forecast.** The film says "This already happened; it is not a forecast." once, over the deep-history beat.
   After "fell" or "lost", the size is said without a minus sign.
 - **Association, not cause.** A shock is named with its date and what this mix did in the days after it, never as the cause.
 - **The AI.** Say what it did and what code did. Never "the numbers are the same with the AI off", never "if Bedrock goes down,
-  nothing changes". Saved runs are "recorded on Bedrock on <date>", never shown as live (R15).
+  nothing changes". Saved runs are "recorded on Bedrock on <date>", never shown as live.
 - **Plain English**, about 150 words a minute, the investor's name, never "the user". Every number with its unit.
 
 ## How the numbers get in
@@ -45,16 +45,16 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
   how many items; `year`, `month`, `date` = parts of an ISO date (e.g. "2024", "Jan 2024", "9 Jan 2024"). Rounding is ROUND_HALF_UP.
 - **A missing key fails the build**, loudly. Never fill a slot by hand; if a key moved, fix the path, not the number.
 - **The screen wins.** The voice is filled from the same final runs the page shows. Beats marked LIVE carry no run-specific number in
-  the voice, because the live app's data is rebuilt on the instance and can differ slightly (lane B6 measures it).
+  the voice, because the live app's data is rebuilt on the instance and can differ slightly (reviewer agent B6 measures it).
 
 ## Before the take (gates)
 
 1. The final saved runs are on main (`data/demo_runs/*.json`, recorded on Bedrock at 15:00) and `scripts/fill_docs.py` builds
    `docs/video_script.md` with no missing slot. Read every filled line once against the page.
 2. The page passes on the saved runs at 1920×1080: every section's end state correct; motion on (`window.EPI_MOTION`) only where it
-   is smooth, a crossfade otherwise (R9); risk stripes off (`window.EPI_STRIPES` stays off: the ledger ruling).
-3. LIVE beats (3 and 12): the live app on AWS answers, the guardrail is a numbered version (lane B6), and the advice question of
-   beat 12 is one the live input guardrail blocked in lane B4's run ("Should I buy NVIDIA?" was blocked; re-check on the day).
+   is smooth, a crossfade otherwise; risk stripes off (`window.EPI_STRIPES` stays off).
+3. LIVE beats (3 and 12): the live app on AWS answers, the guardrail is a numbered version (reviewer agent B6), and the advice question of
+   beat 12 is one the live input guardrail blocked in reviewer agent B4's run ("Should I buy NVIDIA?" was blocked; re-check on the day).
 4. Hide the password, the account menu, any account id, bookmarks and notifications. A clean browser profile, zoom 100 %.
 5. Capture 1920×1080 at 60 fps (or 2560×1440, scaled down). The cursor moves only when the beat clicks or drags.
 
@@ -83,7 +83,7 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
 
 - **Screen.** A fresh load of the page on Robert's saved run. The night Earth, turned to North America, fills the right of the frame;
   the shocks ignite once, in date order (about four seconds): a core, a halo and one ring each, the ring sized by what that shock did
-  to this portfolio. One calm caption names the asked family and its count (R7); the rest dim. Legend bottom right; the headline
+  to this portfolio. One calm caption names the asked family and its count; the rest dim. Legend bottom right; the headline
   *Crash-test your move before you make it.* bottom left. No overlay: the page is the title.
 - **Voice.** "Every light is a shock that already happened: tariffs, war and oil, chips, rates. 37 of them since
   Feb 2022, each where it began. Each ring is sized by what it did to one investor's money."
@@ -93,7 +93,7 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
 
 - **Screen.** Stay on the command bar: Robert's question in his own words, the investor chips (Robert · Mateo · Amira · Too
   Canadian?), the line under it (age, amount, the limit "assumed for this fictional profile", *Fictional illustration, not a
-  recommendation.*) and the note on whose limits they are (R4). The cursor moves to **Replay**.
+  recommendation.*) and the note on whose limits they are. The cursor moves to **Replay**.
 - **Voice.** "Robert, 59, retires in 4 years. A fictional
   $600,000. In his own words: *Everyone is talking about NVIDIA. What if I put 40 % in it and Washington slaps new levies on Canadian goods?* His limit, $90,000, is
   an assumption for this fictional profile."
@@ -104,7 +104,7 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
   stream with their service and milliseconds (OBSERVE · UNDERSTAND · COMPARE · EXPLAIN · VERIFY); the navigator's chips land left to
   right: the move, the family *Tariff war*, the precedents; the badge *Amazon Bedrock · Claude* with its time; greyed, the families
   it set aside, each with its one reason. On landing, the steps collapse into one receipt line. If the live app fails, take the
-  saved run: the same chips replay from its trace and the badge reads "recorded on Bedrock" with its date (R15), never "live".
+  saved run: the same chips replay from its trace and the badge reads "recorded on Bedrock" with its date, never "live".
 - **Caption.** *The navigator: Claude on Amazon Bedrock reads the words* → *Code computes every number*
 - **Voice.** "Claude on Amazon Bedrock reads his words: a move, NVIDIA to 40 % of his money; a
   shock, the tariff war; and the earlier tariff episodes to replay. It shows what it set aside, and why. From here on, code computes
@@ -113,7 +113,7 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
 
 ### 4 · The shock flies home · 0:51–1:03 · saved run
 
-- **Screen.** The globe zooms, not a long flight (R7), to Washington; one ring fires; the caption names the shock and its date. The
+- **Screen.** The globe zooms, not a long flight, to Washington; one ring fires; the caption names the shock and its date. The
   globe shrinks into the left third and a thin cyan leader drops to that date on the chart's time axis (if the leader was cut, the
   cyan tick and its label carry the thread). With motion off: a crossfade to the same end frame.
 - **Voice.** "The worst of them for this mix: "Liberation Day" reciprocal tariffs,
@@ -134,14 +134,14 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
   $408,174, 34.5 % from its high. In 2025, in the days
   after Liberation Day, it broke the floor again: 16.9 % from its high. It ended at
   $1,847,077; without the move, $911,676."
-- **Never.** "He lost $…" (nothing was lost: it is a replay); a dollar drop measured from a later, higher value (R13); "Liberation
+- **Never.** "He lost $…" (nothing was lost: it is a replay); a dollar drop measured from a later, higher value; "Liberation
   Day caused it".
 
 ### 6 · The verdict · 1:29–1:54 · saved run
 
 - **Screen.** The lamp lands, unboxed: the status icon and **OUTSIDE YOUR LIMITS** in condensed caps, *in this 2021–26 replay*
-  directly under it (R1), and *Without the move: inside your limits.* Sentence 1 (the money), sentence 2 (the asked shock, in the
-  past tense), then the money twist (R3). Leave two seconds of silence on the twist before the last line.
+  directly under it, and *Without the move: inside your limits.* Sentence 1 (the money), sentence 2 (the asked shock, in the
+  past tense), then the money twist. Leave two seconds of silence on the twist before the last line.
 - **Voice.** "Outside his limits, in this replay. Without the move: inside. And the shock he asked about: in the
   6 tariff episodes on record, this mix lost up to 9.0 %,
   more than the 7.5 % shock limit set for him. It ended higher. It broke his 15 % rule in
@@ -200,8 +200,7 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
 ### 10 · Switch the AI off · 3:07–3:32 · saved run
 
 - **Screen.** In `#why`, flip *Switch the navigator off*: the keyword reading appears beside the navigator's, and the card *What the
-  navigator changed in this run* lists the real differences for Robert's run. Then the labelled case from the blind held-out set
-  (R8, R10): a question in French, the keyword reading empty, the navigator's reading *Tariff war*. Scroll to the eval card in
+  navigator changed in this run* lists the real differences for Robert's run. Then the labelled case from the blind held-out set: a question in French, the keyword reading empty, the navigator's reading *Tariff war*. Scroll to the eval card in
   `#how`: both arms on the blind set, with their intervals.
 - **Caption.** *Blind held-out set, 15 Nov 2026: navigator 44 / 48
   (95 % Wilson 80.4 %–96.7 %) · keyword rules 31 /
@@ -218,7 +217,7 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
 ### 11 · Three investors, three answers · 3:32–4:00 · saved runs
 
 - **Screen.** `#investors`, *Three investors, three answers*: each card shows the question, the lamp word, one sentence and the check
-  that decided it (R14). Click **Mateo**: the stage replays for him, the globe goes to his asked family's epicentre, his lamp lands
+  that decided it. Click **Mateo**: the stage replays for him, the globe goes to his asked family's epicentre, his lamp lands
   with *in this 2021–26 replay*; the deciding check is his values. Click **Amira**: her lamp; the deciding checks are crypto against
   its cap and her diversification. Optional, three silent seconds: the *Too Canadian?* card, the workshop's own question.
 - **Voice.** "Mateo's answer turns on his values: CNQ.TO is held directly, though his values
@@ -234,13 +233,13 @@ mathematical angle brackets U+27E8 and U+27E9 (the filled copy has none left). `
 - **Screen.** `#how`: the diagram of this run (question → input guardrail → navigator on Bedrock → code computes → checks → the
   explanation on Bedrock → the receipt → output guardrail → Robert), each node with this run's milliseconds and tokens from the
   trace; the AWS row, one job each; the reconciliation rows (ours · published · source, R12). On a saved run the request ids and
-  guardrail results read "recorded on Bedrock on <date>" (R15). Then LIVE: type *Should I buy NVIDIA?* in the live app's command
+  guardrail results read "recorded on Bedrock on <date>". Then LIVE: type *Should I buy NVIDIA?* in the live app's command
   bar; the input guardrail stops it and the page points back to the replay. Last, three seconds of the CloudWatch dashboard
-  *epicentre*, its time range visible (lane B6's capture; skip the shot if it is absent).
+  *epicentre*, its time range visible (reviewer agent B6's capture; skip the shot if it is absent).
 - **Voice.** "On AWS: Claude on Amazon Bedrock does the two language jobs. Bedrock Guardrails screen the question.
   IAM lets the app call Claude Sonnet 5.5, with Claude Sonnet 5 as its fallback, apply our one guardrail and keep sealed records in one bucket. EC2 behind CloudFront serves it;
   CloudWatch shows the calls. Our returns are checked against the issuers' published ones. Ask it for advice, and it declines."
-- **Check.** "and keep sealed records in one bucket" stays only if lane B6's private, versioned S3 record bucket is live; otherwise cut those
+- **Check.** "and keep sealed records in one bucket" stays only if reviewer agent B6's private, versioned S3 record bucket is live; otherwise cut those
   four words. Never a live-looking badge on a saved run.
 
 ### 13 · The record, and the close · 4:25–4:45 · saved run + edit
@@ -357,7 +356,7 @@ investor, the amount, the move). Dollars at the worst are ○: a fictional amoun
 | amira: `kpis.max_drawdown.value\|pct` · `limits.floor\|pct0` | her worst fall; the floor set for her | ● · ◐ | Amira's card | 11 |
 | amira: `checks.rule=crypto.value\|pct0` · `checks.rule=crypto.limit\|pct0` · `risk.today.bets\|x1` | crypto against its cap; independent bets | ● · ◐ | Amira's card | 11 |
 
-Every slot fills from the 09:41 saved runs and today's `docs/eval_results.json`; lane B3's keys (`tipping_band`, `deep_history`,
+Every slot fills from the 09:41 saved runs and today's `docs/eval_results.json`; reviewer agent B3's keys (`tipping_band`, `deep_history`,
 `deep_validation`, `ladder`, `reconciliation`, `not_2022`, `navigator_effect`) are among them. The Wilson bounds are computed by
 the filler (`@wilson(k,n)`), so they need no key.
 

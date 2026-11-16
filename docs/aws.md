@@ -1,8 +1,3 @@
-<!--
-AWS architecture and evidence (lane D1, Sun 15 Nov; rulings R6 and R15). No number is typed: run slots and eval slots (in angle
-brackets) are filled by scripts/fill_docs.py from this template (docs/templates/aws.md) into docs/aws.md; edit the template. Each "to capture" mark is evidence that exists only after the
-live window (captured before Mon 13:59 into docs/aws_evidence/); `fill_docs.py --final` fails while one is left.
--->
 # EPICENTRE on AWS: architecture, least privilege, cost and the evidence pack
 
 PolyFinances Datathon 2026 · AlphaForge AI · [Technical documentation](technical.md) · Runbook: [deploy.md](deploy.md) · Policies: [docs/iam/](iam/)
@@ -43,7 +38,7 @@ Every AWS call is a row of the run's trace, with its latency, its token or text-
 | EXPLAIN | `Converse`, the debrief with a JSON schema, at most one re-ask | 9,132 tokens in and 591 out, 5,244 ms |
 | VERIFY | `ApplyGuardrail`, source OUTPUT, against the facts written as plain sentences | Grounding 0.84 and relevance 0.79 against 0.7, advisory; 735 ms |
 
-A saved run shows these ids and results as recorded when the run was made, never as a live badge (R15).
+A saved run shows these ids and results as recorded when the run was made, never as a live badge.
 
 **When AWS does not answer.** An expired credential, a throttle, a timeout or a refused call becomes one plain sentence, never an AWS message, ARN or account id. The navigator falls back to the keyword rules; an input check that cannot run fails closed (no model sees the text); the checklist, the verdict and the charts are computed the same way. What is lost is the reading of free words and the written explanation. With `EPICENTRE_DEMO=1` the server replays the saved run for the same inputs, badged as saved.
 

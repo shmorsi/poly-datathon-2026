@@ -143,7 +143,7 @@ test("the money twist (R3, R35, one name): ended higher, broke your floor, the c
   assert.equal(txt(tw.segs), `Ended higher. Broke your floor twice on the way.`);
   const cap = { ...fake, capacity: { line: 510000, after: { falls_below: 1, first_below: "2022-05-09", last_below: "2022-12-20", status: "broke" },
     today: { falls_below: 0, status: "held" } } };                                                      // lane fin-backend's shape
-  assert.equal(txt(R.twistLine(cap).segs), `Ended higher. Broke your floor twice on the way; fell below the $510,000 you can afford once, in${NB}2022.`);
+  assert.equal(txt(R.twistLine(cap).segs), `Ended higher. Broke your floor twice on the way; fell below the $510,000 you could afford to fall to once, in${NB}2022.`);
   assert.doesNotMatch(txt(R.twistLine(cap).segs), /Both are true/);
   assert.equal(tw.breaches, 2);
   assert.equal(R.twistLine({ ...fake, breaches: [] }), null);

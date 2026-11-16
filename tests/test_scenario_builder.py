@@ -301,7 +301,7 @@ def test_the_book_is_built_on_lane_sc_bs_engine_once_it_is_on_main():
     """The reading's ids, preset ids and bounds are POST /api/scenario's own: never a silent fallback to our measure."""
     from tools import factors as fx
     book = sb.book_for("2026-11-12")
-    assert book["source"] == "tools.factors (lane sc-b)"
+    assert book["source"] == "tools.factors"
     assert [f["id"] for f in book["factors"]] == list(fx.IDS)
     assert {pid for pid, _, _ in fx.PRESETS} <= {a["id"] for a in book["anchors"]}
 

@@ -1,6 +1,6 @@
 # An independent re-implementation of the headline numbers
 
-**What.** A separate agent (lane accuracy, 2026-11-15) rebuilt the page's headline figures from
+**What.** A separate agent (2026-11-15) rebuilt the page's headline figures from
 [finance_methods.md](finance_methods.md) (sections 2 to 4 and Appendix C) and the raw files alone, in its own code: it
 shares no code with the engine and imports no module of this repository (every script runs with `python -I`). Its
 values were compared with the saved runs (as_of 2026-11-12, run at commit 934bfe4). No AWS call.
@@ -51,7 +51,7 @@ deep-history cache, none of them committed).
 | 32 | Deep 2008–09: US chip industry alone | −40.1 % | -40.1000 % | -40.1000 % | +0.0000 pt | OK (by proxy, monthly) |
 
 **What agreement cannot catch.** This code follows the same documented methods, so a choice both make is not tested
-by agreement; the lane re-ran such choices one at a time. Counting co-events of either sign or only negative ones gives
+by agreement; the a separate reviewer agent such choices one at a time. Counting co-events of either sign or only negative ones gives
 the same tariff check (`sensitivity.py`); weekly instead of daily returns moves NVIDIA's share of the risk from 89.6 % to
 90.0 % (`sensitivity.py`; the claim stands); comparing the raw values instead of the values rounded to 0.1 point
 would put the first failing size at 8 %, not 9 % (8 % reads −15.00004 %; pitfall 5); with the deep history's base at the end of the first month instead of the month before, 5 of the 33
