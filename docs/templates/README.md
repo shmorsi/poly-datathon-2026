@@ -1,33 +1,33 @@
 # ÉPICENTRE
 
-**Test your move before you make it.**
+**See what your next trade changes.**
 
-An investor enters a portfolio and can preview a proposed order. ÉPICENTRE shows how the order would have changed the holdings, risk and exposure through the same historical markets, with evidence the investor can open.
+See through your ETFs, then replay a trade against your own loss limits. ÉPICENTRE is a portfolio and order preview for self-directed investors, built for the 2026 PolyFinances AlphaForge AI Datathon.
 
-- [Public interactive walkthrough](https://shmorsi.github.io/poly-datathon-2026/)
-- [AWS workspace](https://dqetfenyawfe9.cloudfront.net/review.html) with the team's access details
-- [One-pager](docs/review_one_pager.md) · [Technical notes](docs/review_technical.md) · [Demo script](docs/review_demo_script.md)
+[Open the public demo](https://shmorsi.github.io/poly-datathon-2026/) · [Open the AWS workspace](https://dqetfenyawfe9.cloudfront.net/review.html) · [Technical notes](docs/review_technical.md) · [One-pager](docs/review_one_pager.md)
 
-Built for the PolyFinances Datathon 2026 AlphaForge AI case. A self-directed brokerage could place this review beside its order preview. All portfolios and orders are simulated.
+## Try the review
 
-## Four walkthroughs
+Open **Robert’s portfolio** and switch from **Money** to **Risk**. XIU holds 45% of his money and accounts for about 71% of his modeled portfolio risk. Preview the 40% NVIDIA order to see the same market history with and without the trade, then open the evidence behind the lowest balance.
 
-| Example | What to try |
+| Example | What to explore |
 | --- | --- |
-| **Robert** | Preview a 40% NVIDIA target. Compare the two historical paths, the largest fall from a previous high, and the lowest account balance. The sample's values and limits are fictional assumptions. |
-| **Mateo** | Check the documented values exclusions and inspect the companies inside his funds. Coverage gaps stay visible. |
-| **Amira** | Compare her crypto allocation with the illustrative 10% cap, then inspect her direct and fund-mediated NVIDIA exposure. |
-| **Too Canadian?** | Preview a 20% U.S. equity allocation and compare estimated country exposure and historical drawdown. |
+| **Robert** | See when the proposed NVIDIA order would have crossed his illustrative drawdown and balance limits. |
+| **Mateo** | See which issuers trigger his values screen and where the fund disclosures leave gaps. |
+| **Amira** | Compare her 15% crypto allocation with a 10% cap and see NVIDIA exposure across direct and ETF positions. |
+| **Too Canadian?** | Compare estimated country exposure and historical drawdown after adding U.S. equity exposure. |
 
-The AWS workspace also accepts a custom portfolio. The starter set covers 31 securities, including Canadian and U.S. stocks, equity, bond, ESG and gold ETFs, and two digital assets. Investors can leave risk limits empty.
+The public demo includes four saved cases. In the authenticated AWS workspace, choose **Use my portfolio** to enter your own positions, set optional limits in plain language, and see available issuer-level holdings. All portfolios and orders are simulated.
 
-## How the agent works
+## From a question to evidence
 
-The app computes the historical results before calling a model. When the investor asks for an explanation, Bedrock Guardrails screen the concern. Claude can select up to three eligible evidence cards in one Converse tool-use response. Code checks the selected IDs and renders the exact computed facts with their sources. The model receives the concern and evidence labels, and its generated words cannot appear as a financial result. The workspace can return a rules-based explanation if Bedrock is unavailable.
+The application calculates allocation, risk and historical losses. Bedrock Guardrails screen the investor’s question. Claude then uses the `open_evidence` tool to select up to three existing evidence cards. The application validates the selected IDs and displays the calculated result with its source and method. It can select evidence using rules if Bedrock is unavailable.
+
+[Architecture and methods](docs/review_technical.md) · [AWS setup](docs/aws.md) · [Deployment runbook](docs/deploy.md)
 
 ## Run locally
 
-Python 3.12 and Node.js 22 are used for the app and tests.
+Use Python 3.12 and Node.js 22.
 
 ```sh
 python3.12 -m venv .venv
@@ -36,7 +36,7 @@ pip install -r requirements.txt
 EPICENTRE_NO_BEDROCK=1 uvicorn server:app --host 127.0.0.1 --port 8000
 ```
 
-Open `http://127.0.0.1:8000/review.html`. The saved illustrations load without AWS or a market data pack. For editable calculations, supply the organizers' starter pack in `data/starter/` or set `EPICENTRE_DATA_DIR`. A dated issuer snapshot at `data/etf_holdings.csv` enables detailed company look-through. Both inputs are private local files. For the model-enabled workflow, configure the standard AWS credential chain and set `EPICENTRE_GUARDRAIL_ID` and `EPICENTRE_GUARDRAIL_VERSION` to the published policy. The [AWS notes](docs/aws.md) and [deployment runbook](docs/deploy.md) describe the stack. Set `EPICENTRE_LANDING=review` to serve the order-review landing from the app root.
+Open `http://127.0.0.1:8000/review.html` for the saved cases. For custom calculations, place the organizers’ starter pack in `data/starter/` or set `EPICENTRE_DATA_DIR`. Add an eligible issuer snapshot at `data/etf_holdings.csv` for detailed ETF holdings. For Bedrock, configure the standard AWS credential chain and set `EPICENTRE_GUARDRAIL_ID` and `EPICENTRE_GUARDRAIL_VERSION` to the published guardrail. Keep the market data and issuer inputs in your local environment.
 
 ```sh
 python -m pytest -q
@@ -44,10 +44,6 @@ node --test tests/test_review_frontend.mjs
 python scripts/publish_pages.py --portfolio-review --dry-run --out /tmp/epicentre-review-pages
 ```
 
-## Sources and boundaries
+Replays use daily adjusted closes in CAD through ⟨run:robert:as_of|date⟩ and hold target weights constant before fees and taxes. ETF exposure uses dated issuer disclosures with coverage visible in the app. The public demo uses rounded weekly paths and industry summaries.
 
-- Portfolio replays use CAD-adjusted closes through ⟨run:robert:as_of|date⟩ with constant target weights. They exclude taxes and trading fees. The history includes only assets available in the supplied universe.
-- Industry and company allocations use dated issuer snapshots when available. A fund's mapped positions may cover only part of its holdings. Public examples publish rounded, sampled portfolio paths and industry summaries. Detailed issuer positions are served through the authenticated workspace.
-- The review evaluates historical outcomes and documented user preferences. It does not place orders, recommend investments or forecast returns.
-
-The earlier replay is preserved at [v1.0-submission](https://github.com/shmorsi/poly-datathon-2026/tree/v1.0-submission). Its **Presenter keys** appear in the classic local page at `/index.html?presenter=1`. Code is MIT-licensed. [License](LICENSE)
+[MIT License](LICENSE)
