@@ -12,10 +12,10 @@ sys.path.insert(0, str(ROOT))
 from order_review import DATASET_END, ReviewRequest, build_review, load_market
 
 EXAMPLES = {
-    "robert": ("Retiring in about four years. Explore a 40% NVIDIA target.", .15),
-    "mateo": ("Balanced investor who has chosen the documented values screen.", .25),
-    "amira": ("Long-term growth with a 10% crypto cap.", .45),
-    "canadian": ("Compare a Canadian-heavy portfolio with a 20% allocation to U.S. equities.", .25),
+    "robert": ("Robert wants to preserve capital with some growth before he retires in three to five years. See what a 40% NVIDIA target changes.", .15),
+    "mateo": ("Mateo wants balanced growth over eight to twelve years and wants to avoid companies that conflict with his values.", .25),
+    "amira": ("Amira has fifteen years or more to pursue growth. She welcomes volatility and wants to keep her investments diversified.", .45),
+    "canadian": ("This workshop example asks how a 20% U.S. equity allocation would change a Canadian-heavy portfolio.", .25),
 }
 
 
@@ -62,6 +62,7 @@ def main():
         )
         review = public_example(build_review(body, market=market))
         examples.append({"id": key, "name": pilot["name"], "description": description,
+                         "limits_note": "Portfolio values, orders and limits are illustrative assumptions for this case.",
                          "input": body.model_dump(), "result": review})
     args.out.write_text(json.dumps({"assets": assets, "examples": examples},
                                    separators=(",", ":"), allow_nan=False) + "\n", encoding="utf-8")

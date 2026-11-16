@@ -32,7 +32,7 @@ import boto3
 from fastapi import APIRouter, FastAPI
 from fastapi import HTTPException as FastAPIHTTPException
 from fastapi.exceptions import RequestValidationError
-from fastapi.responses import JSONResponse, Response, StreamingResponse
+from fastapi.responses import JSONResponse, RedirectResponse, Response, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, field_validator
 from starlette.datastructures import MutableHeaders
@@ -510,7 +510,12 @@ def review_order(body: ReviewRequest):
         raise ApiError(503, "Market data is unavailable. Try a saved example.") from None
     review_id = secrets.token_hex(16)
     REVIEW_EVIDENCE.put({"run_id": review_id, "evidence": result["evidence"]})
-    response = _json({**result, "review_id": review_id})
+    result["review_id"] = review_id
+    if "before_evidence" in result:
+        before_id = secrets.token_hex(16)
+        REVIEW_EVIDENCE.put({"run_id": before_id, "evidence": result["before_evidence"]})
+        result["before_review_id"] = before_id
+    response = _json(result)
     response.headers["Cache-Control"] = "no-store"
     return response
 
@@ -754,9 +759,15 @@ def create_app(web_dir: Path | None = WEB_DIR) -> FastAPI:
     app.add_exception_handler(StarletteHTTPException, on_http_error)
     app.include_router(router)
     if web_dir is not None and Path(web_dir).is_dir():        # mounted last: the API routes win
+        if os.environ.get("EPICENTRE_LANDING") == "review" and (Path(web_dir) / "review.html").is_file():
+            app.add_api_route("/", _review_landing, methods=["GET", "HEAD"], include_in_schema=False)
         app.mount("/", StaticFiles(directory=web_dir, html=True), name="web")
     app.add_middleware(Guard)
     return app
+
+
+def _review_landing():
+    return RedirectResponse("./review.html", status_code=307)
 
 
 app = create_app()

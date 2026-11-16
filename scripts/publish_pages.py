@@ -121,11 +121,42 @@ def publish(site: Path, message: str) -> str:
         return git("rev-parse", "HEAD", cwd=work)
 
 
+def build_review_site(out: Path) -> Path:
+    """Publish only the review page and its approved, read-only examples."""
+    marker = out / ".epicentre-review-build"
+    if out.exists() and not marker.is_file():
+        raise SystemExit(f"{out} exists and is not an earlier review build. Choose a different --out path.")
+    if out.exists():
+        shutil.rmtree(out)
+    out.mkdir(parents=True)
+    web = ROOT / "web"
+    examples = json.loads((web / "review-demo.json").read_text(encoding="utf-8"))["examples"]
+    for example in examples:
+        result = example["result"]
+        sides = [side for side in (result["before"], result["after"]) if side is not None]
+        if (result["mode"] != "saved" or any(result["exposure"].values()) or
+                any(fund["companies"] for fund in result["funds"]) or
+                any(not side["sampled"] or len(side["points"]) > 275 for side in sides)):
+            raise SystemExit("The review examples contain details outside the public data cut.")
+    page = (web / "review.html").read_text(encoding="utf-8")
+    page = page.replace("</head>", '  <meta name="epicentre-delivery" content="static">\n</head>', 1)
+    for name in ("index.html", "review.html"):
+        (out / name).write_text(page, encoding="utf-8")
+    for name in ("review.js", "review.css", "review-demo.json", "vendor/fonts/Archivo-Variable.woff2",
+                 "vendor/fonts/B612-Regular.woff2", "vendor/fonts/OFL-Archivo.txt",
+                 "vendor/fonts/OFL-B612.txt", "vendor/nasa/earth-poster-americas.jpg", "vendor/LICENSES.md"):
+        (out / name).parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(web / name, out / name)
+    marker.touch()
+    return out
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="publish_pages.py", description=__doc__.split("\n\n")[0])
     ap.add_argument("--runs", help="a folder of raw saved Results <investor>.json (interim publish)")
     ap.add_argument("--out", default=str(Path(tempfile.gettempdir()) / "epi_pages_site"), help="where the site is built")
     ap.add_argument("--dry-run", action="store_true", help="build and check only")
+    ap.add_argument("--portfolio-review", action="store_true", help="publish the portfolio review as the public home page")
     args = ap.parse_args(argv)
     head = git("rev-parse", "--short", "HEAD")
     if args.runs:
@@ -133,6 +164,13 @@ def main(argv=None) -> int:
         wrap_runs(Path(args.runs), demo)
         pipeline.DEMO_DIR = demo
     out = Path(args.out)
+    if args.portfolio_review:
+        site = build_review_site(out)
+        print(f"built public portfolio review in {site}")
+        if not args.dry_run:
+            sha = publish(site, f"Publish ÉPICENTRE Portfolio X-Ray from {head}")
+            print(f"published {BRANCH}: {sha}")
+        return 0
     if out.exists() and not (out / "runs" / "index.json").is_file():
         raise SystemExit(f"{out} exists and is not an earlier static build: choose another --out.")
     site = record_demo.build_static(out)

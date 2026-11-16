@@ -24,7 +24,7 @@ Target runtime 3:45–4:15. Record at 1920 × 1080 with a clean browser window a
 
 **Screen.** Show an already calculated evidence item with its method and provenance. In the API demo, select a loss-oriented focus, then ask for the explanation. Show the selected evidence item and the result’s mode. If the backend returns a rules fallback, retain the visible mode label.
 
-**Narration.** The application calculates the figures first. With a retirement goal, the explanation can point Robert to the loss evidence. Amazon Bedrock’s role is to select from the evidence items already available. The server verifies the selection and shows the original values and their sources. The model does not receive the underlying holdings or price rows. A rules-based selection is available if the model cannot respond.
+**Narration.** The application calculates the figures first. With a retirement goal, the explanation can point Robert to the loss evidence. Amazon Bedrock can call an evidence tool to open one of the existing items. The server checks the selected card and shows the original values and their sources. The underlying holdings and price rows stay outside the model request. A rules-based selection is available if the model cannot respond.
 
 ## 3:05–3:40 · A different investor, the same workflow
 

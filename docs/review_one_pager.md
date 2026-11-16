@@ -16,7 +16,7 @@ In Robert’s recorded example, XIU accounts for **45% of his money** and about 
 
 ## The agentic approach
 
-Code calculates exposures, risk and the historical replay first. If the investor asks for an explanation, Amazon Bedrock selects an existing evidence item relevant to the investor’s stated goal. The application checks that selection and displays the evidence with its source and method. This gives the same calculation a different emphasis for someone concerned about the retirement floor or company concentration.
+Code calculates exposures, risk and the historical replay first. If the investor asks for an explanation, Amazon Bedrock can use the evidence tool to select an existing item relevant to the investor’s goal. The application checks that selection and displays its source and method. A retirement focus can lead to the loss evidence, while an exposure focus can lead to an ETF breakdown.
 
 ## The benefit
 

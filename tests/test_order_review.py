@@ -133,3 +133,53 @@ def test_explanation_rejects_account_details_without_calling_bedrock(api):
     })
     assert response.status_code == 422
     assert "account or contact" in response.json()["message"]
+
+
+def test_full_portfolio_review_does_not_require_an_investor_to_enter_a_limit(api):
+    result = api.post("/api/review", json=payload(drawdown_limit=None, capacity=None))
+    assert result.status_code == 200
+    data = result.json()
+    assert data["before"]["max_drawdown"] is not None
+    assert data["before"]["limit_breached"] is None
+    assert data["before"]["capacity_breached"] is None
+    assert data["limits"]["drawdown"] is None
+    assert any(row["id"] == "method" for row in data["evidence"])
+
+
+def test_method_question_opens_method_and_offers_relevant_source_links(api):
+    data = api.post("/api/review", json=payload()).json()
+    response = api.post("/api/review/explain", json={
+        "review_id": data["review_id"], "goal": "How was the historical drawdown calculated?",
+    })
+    assert response.status_code == 200
+    reply = response.json()
+    assert reply["evidence_id"] == "method"
+    assert [item["evidence_id"] for item in reply["suggestions"]] == ["drawdown", "risk"]
+    assert all(item["summary"] for item in reply["suggestions"])
+
+
+def test_agent_can_explain_the_current_mix_before_revealing_a_saved_order(api):
+    data = api.post("/api/review", json=payload(order={"ticker": "NVDA", "weight": .40})).json()
+    before = api.post("/api/review/explain", json={
+        "review_id": data["before_review_id"], "goal": "What was my worst loss?",
+    }).json()
+    after = api.post("/api/review/explain", json={
+        "review_id": data["review_id"], "goal": "What was my worst loss?",
+    }).json()
+    assert data["before_review_id"] != data["review_id"]
+    assert before["summary"] == next(row["detail"] for row in data["before_evidence"] if row["id"] == "drawdown")
+    assert after["summary"] != before["summary"]
+
+
+def test_proposed_portfolio_shows_each_asset_type_and_company_coverage(api):
+    data = api.post("/api/review", json=payload(order={
+        "ticker": "NVDA", "weight": .30, "from_ticker": "XBB.TO",
+    })).json()
+    current, proposed = data["allocation"]["before"], data["allocation"]["after"]
+    assert sum(row["share"] for row in current["industries"]) == pytest.approx(1)
+    assert sum(row["share"] for row in proposed["industries"]) == pytest.approx(1)
+    assets = {row["name"]: row["share"] for row in proposed["industries"]}
+    assert assets["Bonds"] == pytest.approx(.15)
+    assert assets["Information Technology"] == pytest.approx(.48)
+    assert current["equity_company_coverage"] == pytest.approx(.10)
+    assert proposed["equity_company_coverage"] == pytest.approx(.46)
